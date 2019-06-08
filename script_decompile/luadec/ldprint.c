@@ -1639,10 +1639,10 @@ char* ProcessCode(const Proto * f, int indent)
             char *bstr, *cstr;
             TRY(cstr = RegisterOrConstant(F, c));
             TRY(bstr = GetR(F, b));
-            if (bstr[0] == '{') {
+            if (bstr && bstr[0] == '{') {
                StringBuffer_printf(str, "(%s)", bstr);
             } else {
-               StringBuffer_set(str, bstr);
+               StringBuffer_set(str, bstr != NULL ? bstr : "");
             }
             MakeIndex(F, str, cstr, 0);
             TRY(Assign(F, REGISTER(a), StringBuffer_getRef(str), a, 0, 0));
