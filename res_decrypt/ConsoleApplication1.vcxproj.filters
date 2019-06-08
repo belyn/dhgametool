@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="xxtea">
+      <UniqueIdentifier>{01d7122f-c810-466e-8b67-4acd760564ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="zip_support">
+      <UniqueIdentifier>{a41b6e97-c8e0-4716-91f3-ab237a949798}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xxtea\xxtea.h">
+      <Filter>xxtea</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\ioapi.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\ioapi_mem.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\trees.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\unzip.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\zconf.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\ZipUtils.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\zlib.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\zutil.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\crc32.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\deflate.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\inffast.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\inffixed.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\inflate.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+    <ClInclude Include="zip_support\inftrees.h">
+      <Filter>zip_support</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleApplication1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xxtea\xxtea.c">
+      <Filter>xxtea</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\ioapi_mem.cpp">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\trees.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\uncompr.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\unzip.cpp">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\ZipUtils.cpp">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\zutil.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\adler32.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\compress.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\crc32.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\deflate.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\infback.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\inffast.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\inflate.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\inftrees.c">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+    <ClCompile Include="zip_support\ioapi.cpp">
+      <Filter>zip_support</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
