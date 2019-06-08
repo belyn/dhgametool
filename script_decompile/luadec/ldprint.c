@@ -726,11 +726,18 @@ void CloseTable(Function * F, int r)
 
 char *PrintTable(Function * F, int r, int returnCopy)
 {
+	DecTable *tbl =
+		(DecTable *)FindInList(&(F->tables), (ListItemCmpFn)MatchTable,
+			&r);
+
+	//by marvin
+	if (tbl == NULL) {
+		SET_ERROR(F, "unhandled table ");
+		return NULL;
+	}
+	
    char *result = NULL;
    StringBuffer *str = StringBuffer_new("{");
-   DecTable *tbl =
-       (DecTable *) FindInList(&(F->tables), (ListItemCmpFn) MatchTable,
-                               &r);
    int numerics = 0;
    DecTableItem *item = (DecTableItem *) tbl->numeric.head;
    if (item) {
@@ -1452,7 +1459,7 @@ char* ProcessCode(const Proto * f, int indent)
       int sbc = GETARG_sBx(i);
 
 	  //test
-	  if (pc == 83)
+	  if (o == OP_TAILCALL)
 		  pc = pc;
 
       F->pc = pc;
