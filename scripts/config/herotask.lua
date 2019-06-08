@@ -1,0 +1,12 @@
+-- Command line was: E:\github\dhgametool\scripts\config\herotask.lua 
+
+local herotask = {}
+herotask[1] = {star = 1, questTime = 60, speedup = 0, heroNum = 1, reward = {100001}, needNum = 1, power = 500, job1 = 1, job2 = 1, job3 = 1, job4 = 1, job5 = 1, faction1 = 1, faction2 = 1, faction3 = 1, faction4 = 1, rate = 0.256, namePro = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}}
+herotask[2] = {star = 2, questTime = 120, speedup = 0, heroNum = 2, reward = {100002}, needNum = 1, power = 1000, job1 = 1, job2 = 1, job3 = 1, job4 = 1, job5 = 1, faction1 = 1, faction2 = 1, faction3 = 1, faction4 = 1, rate = 0.27, namePro = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}}
+herotask[3] = {star = 3, questTime = 240, speedup = 10, heroNum = 2, reward = {100003}, needNum = 1, power = 1800, quality = 3, job1 = 1, job2 = 1, job3 = 1, job4 = 1, job5 = 1, faction1 = 1, faction2 = 1, faction3 = 1, faction4 = 1, rate = 0.232, namePro = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}}
+herotask[4] = {star = 4, questTime = 360, speedup = 20, heroNum = 3, reward = {100004}, needNum = 2, power = 4500, quality = 4, job1 = 1, job2 = 1, job3 = 1, job4 = 1, job5 = 1, faction1 = 1, faction2 = 1, faction3 = 1, faction4 = 1, faction5 = 1, faction6 = 1, rate = 0.15, namePro = {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}}
+herotask[5] = {star = 5, questTime = 480, speedup = 30, heroNum = 3, reward = {100005}, needNum = 2, power = 7500, quality = 5, job1 = 1, job2 = 1, job3 = 1, job4 = 1, job5 = 1, faction1 = 1, faction2 = 1, faction3 = 1, faction4 = 1, faction5 = 1, faction6 = 1, rate = 0.08, namePro = {16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}}
+herotask[6] = {star = 6, questTime = 720, speedup = 45, heroNum = 4, reward = {100006}, needNum = 3, power = 16000, quality = 5, job1 = 1, job2 = 1, job3 = 1, job4 = 1, job5 = 1, faction1 = 1, faction2 = 1, faction3 = 1, faction4 = 1, faction5 = 1, faction6 = 1, rate = 0.01, namePro = {31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45}}
+herotask[7] = {star = 7, questTime = 960, speedup = 60, heroNum = 4, reward = {100007}, needNum = 3, power = 24000, quality = 6, job1 = 1, job2 = 1, job3 = 1, job4 = 1, job5 = 1, faction1 = 1, faction2 = 1, faction3 = 1, faction4 = 1, faction5 = 1, faction6 = 1, rate = 0.002, namePro = {31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45}}
+return herotask
+

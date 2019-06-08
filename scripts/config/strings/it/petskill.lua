@@ -1,0 +1,965 @@
+-- Command line was: E:\github\dhgametool\scripts\config\strings\it\petskill.lua 
+
+local petskill = {}
+petskill[11001] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +523, Attacco +38"}
+petskill[11002] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1046, Attacco +77"}
+petskill[11003] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1570, Attacco +115"}
+petskill[11004] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2093, Attacco +154"}
+petskill[11005] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2616, Attacco +192"}
+petskill[11006] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3139, Attacco +230"}
+petskill[11007] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3663, Attacco +269"}
+petskill[11008] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4186, Attacco +307"}
+petskill[11009] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4709, Attacco +346"}
+petskill[11010] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5232, Attacco +384"}
+petskill[11011] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5755, Attacco +423"}
+petskill[11012] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6279, Attacco +461"}
+petskill[11013] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6802, Attacco +499"}
+petskill[11014] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7325, Attacco +538"}
+petskill[11015] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7848, Attacco +576"}
+petskill[11016] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8371, Attacco +615"}
+petskill[11017] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8895, Attacco +653"}
+petskill[11018] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9418, Attacco +691"}
+petskill[11019] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9941, Attacco +730"}
+petskill[11020] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10464, Attacco +768"}
+petskill[11021] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10988, Attacco +807"}
+petskill[11022] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11511, Attacco +845"}
+petskill[11023] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12034, Attacco +883"}
+petskill[11024] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12557, Attacco +922"}
+petskill[11025] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13080, Attacco +960"}
+petskill[11026] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13604, Attacco +999"}
+petskill[11027] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14127, Attacco +1037"}
+petskill[11028] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14650, Attacco +1076"}
+petskill[11029] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15173, Attacco +1114"}
+petskill[11030] = {skillName = "Denti a spada", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15855, Attacco +1164"}
+petskill[12001] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1046, Attacco +69, Rott armat +2%"}
+petskill[12002] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2093, Attacco +138, Rott armat +2%"}
+petskill[12003] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3139, Attacco +207, Rott armat +2%"}
+petskill[12004] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4186, Attacco +277, Rott armat +4%"}
+petskill[12005] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5232, Attacco +346, Rott armat +4%"}
+petskill[12006] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6279, Attacco +415, Rott armat +4%"}
+petskill[12007] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7325, Attacco +484, Rott armat +6%"}
+petskill[12008] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8371, Attacco +553, Rott armat +6%"}
+petskill[12009] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9418, Attacco +622, Rott armat +6%"}
+petskill[12010] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10464, Attacco +691, Rott armat +8%"}
+petskill[12011] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11511, Attacco +760, Rott armat +8%"}
+petskill[12012] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12557, Attacco +830, Rott armat +8%"}
+petskill[12013] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13604, Attacco +899, Rott armat +10%"}
+petskill[12014] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14650, Attacco +968, Rott armat +10%"}
+petskill[12015] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15696, Attacco +1037, Rott armat +10%"}
+petskill[12016] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16743, Attacco +1106, Rott armat +12%"}
+petskill[12017] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +17789, Attacco +1175, Rott armat +12%"}
+petskill[12018] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +18836, Attacco +1244, Rott armat +12%"}
+petskill[12019] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +19882, Attacco +1314, Rott armat +14%"}
+petskill[12020] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +20929, Attacco +1383, Rott armat +14%"}
+petskill[12021] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +21975, Attacco +1452, Rott armat +14%"}
+petskill[12022] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +23021, Attacco +1521, Rott armat +16%"}
+petskill[12023] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +24068, Attacco +1590, Rott armat +16%"}
+petskill[12024] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +25114, Attacco +1659, Rott armat +16%"}
+petskill[12025] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +26161, Attacco +1728, Rott armat +18%"}
+petskill[12026] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +27207, Attacco +1798, Rott armat +18%"}
+petskill[12027] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +28254, Attacco +1867, Rott armat +18%"}
+petskill[12028] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +29300, Attacco +1936, Rott armat +20%"}
+petskill[12029] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +30346, Attacco +2005, Rott armat +20%"}
+petskill[12030] = {skillName = "Inghiotti il sole", desc = "Ora il mostro pu\195\178 combattere, squadra HP +31710, Attacco +2095, Rott armat +20%"}
+petskill[13001] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 1744, Attack 115 and Precision 1%."}
+petskill[13002] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 3488, Attack 230 and Precision 1%."}
+petskill[13003] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 5232, Attack 346 and Precision 1%."}
+petskill[13004] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 6976, Attack 461 and Precision 2%."}
+petskill[13005] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 8720, Attack 576 and Precision 2%."}
+petskill[13006] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 10464, Attack 691 and Precision 2%."}
+petskill[13007] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 12208, Attack 806 and Precision 3%."}
+petskill[13008] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 13952, Attack 922 and Precision 3%."}
+petskill[13009] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 15696, Attack 1037 and Precision 3%."}
+petskill[13010] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 17441, Attack 1152 and Precision 4%."}
+petskill[13011] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 19185, Attack 1267 and Precision 4%."}
+petskill[13012] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 20929, Attack 1382 and Precision 4%."}
+petskill[13013] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 22673, Attack 1498 and Precision 5%."}
+petskill[13014] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 24417, Attack 1613 and Precision 5%."}
+petskill[13015] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 26161, Attack 1728 and Precision 5%."}
+petskill[13016] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 27905, Attack 1843 and Precision 6%."}
+petskill[13017] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 29649, Attack 1958 and Precision 6%."}
+petskill[13018] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 31393, Attack 2074 and Precision 6%."}
+petskill[13019] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 33137, Attack 2189 and Precision 7%."}
+petskill[13020] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 34881, Attack 2304 and Precision 7%."}
+petskill[13021] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 36625, Attack 2419 and Precision 7%."}
+petskill[13022] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 38369, Attack 2534 and Precision 8%."}
+petskill[13023] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 40113, Attack 2650 and Precision 8%."}
+petskill[13024] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 41857, Attack 2765 and Precision 8%."}
+petskill[13025] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 43601, Attack 2880 and Precision 9%."}
+petskill[13026] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 45345, Attack 2995 and Precision 9%."}
+petskill[13027] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 47089, Attack 3110 and Precision 9%."}
+petskill[13028] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 48833, Attack 3226 and Precision 10%."}
+petskill[13029] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 50577, Attack 3341 and Precision 10%."}
+petskill[13030] = {skillName = "Call of the Wild", desc = "Monster can go to fight now, he will increase team HP 52850, Attack 3491 and Precision 10%."}
+petskill[14001] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3139, Attacco +154, Velocit\195\160 +4"}
+petskill[14002] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6279, Attacco +307, Velocit\195\160 +4"}
+petskill[14003] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9418, Attacco +461, Velocit\195\160 +4"}
+petskill[14004] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12557, Attacco +614, Velocit\195\160 +8"}
+petskill[14005] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15696, Attacco +768, Velocit\195\160 +8"}
+petskill[14006] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +18836, Attacco +922, Velocit\195\160 +8"}
+petskill[14007] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +21975, Attacco +1075, Velocit\195\160 +12"}
+petskill[14008] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +25114, Attacco +1229, Velocit\195\160 +12"}
+petskill[14009] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +28254, Attacco +1383, Velocit\195\160 +12"}
+petskill[14010] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +31393, Attacco +1536, Velocit\195\160 +16"}
+petskill[14011] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +34532, Attacco +1690, Velocit\195\160 +16"}
+petskill[14012] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +37671, Attacco +1843, Velocit\195\160 +16"}
+petskill[14013] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +40811, Attacco +1997, Velocit\195\160 +20"}
+petskill[14014] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +43950, Attacco +2151, Velocit\195\160 +20"}
+petskill[14015] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +47089, Attacco +2304, Velocit\195\160 +20"}
+petskill[14016] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +50229, Attacco +2458, Velocit\195\160 +24"}
+petskill[14017] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +53368, Attacco +2611, Velocit\195\160 +24"}
+petskill[14018] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +56507, Attacco +2765, Velocit\195\160 +24"}
+petskill[14019] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +59647, Attacco +2919, Velocit\195\160 +28"}
+petskill[14020] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +62786, Attacco +3072, Velocit\195\160 +28"}
+petskill[14021] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +65925, Attacco +3226, Velocit\195\160 +28"}
+petskill[14022] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +69064, Attacco +3380, Velocit\195\160 +32"}
+petskill[14023] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +72204, Attacco +3533, Velocit\195\160 +32"}
+petskill[14024] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +75343, Attacco +3687, Velocit\195\160 +32"}
+petskill[14025] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +78482, Attacco +3840, Velocit\195\160 +36"}
+petskill[14026] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +81622, Attacco +3994, Velocit\195\160 +36"}
+petskill[14027] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +84761, Attacco +4148, Velocit\195\160 +36"}
+petskill[14028] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +87900, Attacco +4301, Velocit\195\160 +40"}
+petskill[14029] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +91039, Attacco +4455, Velocit\195\160 +40"}
+petskill[14030] = {skillName = "Malediz lupo diav", desc = "Ora il mostro pu\195\178 combattere, squadra HP +95130, Attacco +4655, Velocit\195\160 +40"}
+petskill[21001] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +593, Attacco +34"}
+petskill[21002] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1185, Attacco +68"}
+petskill[21003] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1778, Attacco +101"}
+petskill[21004] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2370, Attacco +135"}
+petskill[21005] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2963, Attacco +169"}
+petskill[21006] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3555, Attacco +203"}
+petskill[21007] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4148, Attacco +237"}
+petskill[21008] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4740, Attacco +270"}
+petskill[21009] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5333, Attacco +304"}
+petskill[21010] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5925, Attacco +338"}
+petskill[21011] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6518, Attacco +372"}
+petskill[21012] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7110, Attacco +406"}
+petskill[21013] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7703, Attacco +439"}
+petskill[21014] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8295, Attacco +473"}
+petskill[21015] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8888, Attacco +507"}
+petskill[21016] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9480, Attacco +541"}
+petskill[21017] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10073, Attacco +574"}
+petskill[21018] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10665, Attacco +608"}
+petskill[21019] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11258, Attacco +642"}
+petskill[21020] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11850, Attacco +676"}
+petskill[21021] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12443, Attacco +710"}
+petskill[21022] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13035, Attacco +743"}
+petskill[21023] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13628, Attacco +777"}
+petskill[21024] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14220, Attacco +811"}
+petskill[21025] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14813, Attacco +845"}
+petskill[21026] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15405, Attacco +879"}
+petskill[21027] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15998, Attacco +912"}
+petskill[21028] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16590, Attacco +946"}
+petskill[21029] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +17183, Attacco +980"}
+petskill[21030] = {skillName = "Sguardo colorato", desc = "Ora il mostro pu\195\178 combattere, squadra HP +17955, Attacco +1024"}
+petskill[22001] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1185, Attacco +61, Danno Santo +2%"}
+petskill[22002] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2370, Attacco +122, Danno Santo +2%"}
+petskill[22003] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3555, Attacco +182, Danno Santo +2%"}
+petskill[22004] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4740, Attacco +243, Danno Santo +4%"}
+petskill[22005] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5925, Attacco +304, Danno Santo +4%"}
+petskill[22006] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7110, Attacco +365, Danno Santo +4%"}
+petskill[22007] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8295, Attacco +426, Danno Santo +6%"}
+petskill[22008] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9480, Attacco +487, Danno Santo +6%"}
+petskill[22009] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10665, Attacco +547, Danno Santo +6%"}
+petskill[22010] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11850, Attacco +608, Danno Santo +8%"}
+petskill[22011] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13035, Attacco +669, Danno Santo +8%"}
+petskill[22012] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14220, Attacco +730, Danno Santo +8%"}
+petskill[22013] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15405, Attacco +791, Danno Santo +10%"}
+petskill[22014] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16590, Attacco +851, Danno Santo +10%"}
+petskill[22015] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +17775, Attacco +912, Danno Santo +10%"}
+petskill[22016] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +18960, Attacco +973, Danno Santo +12%"}
+petskill[22017] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +20146, Attacco +1034, Danno Santo +12%"}
+petskill[22018] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +21331, Attacco +1095, Danno Santo +12%"}
+petskill[22019] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +22516, Attacco +1156, Danno Santo +14%"}
+petskill[22020] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +23701, Attacco +1216, Danno Santo +14%"}
+petskill[22021] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +24886, Attacco +1277, Danno Santo +14%"}
+petskill[22022] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +26071, Attacco +1338, Danno Santo +16%"}
+petskill[22023] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +27256, Attacco +1399, Danno Santo +16%"}
+petskill[22024] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +28441, Attacco +1460, Danno Santo +16%"}
+petskill[22025] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +29626, Attacco +1520, Danno Santo +18%"}
+petskill[22026] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +30811, Attacco +1581, Danno Santo +18%"}
+petskill[22027] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +31996, Attacco +1642, Danno Santo +18%"}
+petskill[22028] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +33181, Attacco +1703, Danno Santo +20%"}
+petskill[22029] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +34366, Attacco +1764, Danno Santo +20%"}
+petskill[22030] = {skillName = "Istinto di caccia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +35910, Attacco +1843, Danno Santo +20%"}
+petskill[23001] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 1975, Attack 101 and Precision 1%."}
+petskill[23002] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 3950, Attack 203 and Precision 1%."}
+petskill[23003] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 5925, Attack 304 and Precision 1%."}
+petskill[23004] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 7900, Attack 405 and Precision 2%."}
+petskill[23005] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 9875, Attack 507 and Precision 2%."}
+petskill[23006] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 11850, Attack 608 and Precision 2%."}
+petskill[23007] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 13825, Attack 709 and Precision 3%."}
+petskill[23008] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 15800, Attack 811 and Precision 3%."}
+petskill[23009] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 17775, Attack 912 and Precision 3%."}
+petskill[23010] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 19751, Attack 1013 and Precision 4%."}
+petskill[23011] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 21726, Attack 1115 and Precision 4%."}
+petskill[23012] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 23701, Attack 1216 and Precision 4%."}
+petskill[23013] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 25676, Attack 1317 and Precision 5%."}
+petskill[23014] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 27651, Attack 1419 and Precision 5%."}
+petskill[23015] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 29626, Attack 1520 and Precision 5%."}
+petskill[23016] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 31601, Attack 1621 and Precision 6%."}
+petskill[23017] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 33576, Attack 1723 and Precision 6%."}
+petskill[23018] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 35551, Attack 1824 and Precision 6%."}
+petskill[23019] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 37526, Attack 1926 and Precision 7%."}
+petskill[23020] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 39501, Attack 2027 and Precision 7%."}
+petskill[23021] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 41476, Attack 2128 and Precision 7%."}
+petskill[23022] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 43451, Attack 2230 and Precision 8%."}
+petskill[23023] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 45426, Attack 2331 and Precision 8%."}
+petskill[23024] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 47401, Attack 2432 and Precision 8%."}
+petskill[23025] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 49376, Attack 2534 and Precision 9%."}
+petskill[23026] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 51351, Attack 2635 and Precision 9%."}
+petskill[23027] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 53326, Attack 2736 and Precision 9%."}
+petskill[23028] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 55301, Attack 2838 and Precision 10%."}
+petskill[23029] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 57276, Attack 2939 and Precision 10%."}
+petskill[23030] = {skillName = "Power of the gale", desc = "Monster can go to fight now, he will increase team HP 59850, Attack 3071 and Precision 10%."}
+petskill[24001] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3555, Attacco +135, Velocit\195\160 +4"}
+petskill[24002] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7110, Attacco +270, Velocit\195\160 +4"}
+petskill[24003] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10665, Attacco +405, Velocit\195\160 +4"}
+petskill[24004] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14220, Attacco +541, Velocit\195\160 +8"}
+petskill[24005] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +17775, Attacco +676, Velocit\195\160 +8"}
+petskill[24006] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +21331, Attacco +811, Velocit\195\160 +8"}
+petskill[24007] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +24886, Attacco +946, Velocit\195\160 +12"}
+petskill[24008] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +28441, Attacco +1081, Velocit\195\160 +12"}
+petskill[24009] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +31996, Attacco +1216, Velocit\195\160 +12"}
+petskill[24010] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +35551, Attacco +1351, Velocit\195\160 +16"}
+petskill[24011] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +39106, Attacco +1486, Velocit\195\160 +16"}
+petskill[24012] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +42661, Attacco +1622, Velocit\195\160 +16"}
+petskill[24013] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +46216, Attacco +1757, Velocit\195\160 +20"}
+petskill[24014] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +49771, Attacco +1892, Velocit\195\160 +20"}
+petskill[24015] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +53326, Attacco +2027, Velocit\195\160 +20"}
+petskill[24016] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +56881, Attacco +2162, Velocit\195\160 +24"}
+petskill[24017] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +60437, Attacco +2297, Velocit\195\160 +24"}
+petskill[24018] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +63992, Attacco +2432, Velocit\195\160 +24"}
+petskill[24019] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +67547, Attacco +2568, Velocit\195\160 +28"}
+petskill[24020] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +71102, Attacco +2703, Velocit\195\160 +28"}
+petskill[24021] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +74657, Attacco +2838, Velocit\195\160 +28"}
+petskill[24022] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +78212, Attacco +2973, Velocit\195\160 +32"}
+petskill[24023] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +81767, Attacco +3108, Velocit\195\160 +32"}
+petskill[24024] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +85322, Attacco +3243, Velocit\195\160 +32"}
+petskill[24025] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +88877, Attacco +3378, Velocit\195\160 +36"}
+petskill[24026] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +92432, Attacco +3514, Velocit\195\160 +36"}
+petskill[24027] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +95987, Attacco +3649, Velocit\195\160 +36"}
+petskill[24028] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +99543, Attacco +3784, Velocit\195\160 +40"}
+petskill[24029] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +103098, Attacco +3919, Velocit\195\160 +40"}
+petskill[24030] = {skillName = "Enigma della sfinge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +107730, Attacco +4095, Velocit\195\160 +40"}
+petskill[31001] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +620, Attacco +32"}
+petskill[31002] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1240, Attacco +65"}
+petskill[31003] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1861, Attacco +97"}
+petskill[31004] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2481, Attacco +129"}
+petskill[31005] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3101, Attacco +162"}
+petskill[31006] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3721, Attacco +194"}
+petskill[31007] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4342, Attacco +226"}
+petskill[31008] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4962, Attacco +259"}
+petskill[31009] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5582, Attacco +291"}
+petskill[31010] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6202, Attacco +323"}
+petskill[31011] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6823, Attacco +356"}
+petskill[31012] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7443, Attacco +388"}
+petskill[31013] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8063, Attacco +420"}
+petskill[31014] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8683, Attacco +453"}
+petskill[31015] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9304, Attacco +485"}
+petskill[31016] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9924, Attacco +517"}
+petskill[31017] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10544, Attacco +550"}
+petskill[31018] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11164, Attacco +582"}
+petskill[31019] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11784, Attacco +614"}
+petskill[31020] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12405, Attacco +647"}
+petskill[31021] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13025, Attacco +679"}
+petskill[31022] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13645, Attacco +711"}
+petskill[31023] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14265, Attacco +744"}
+petskill[31024] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14886, Attacco +776"}
+petskill[31025] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15506, Attacco +809"}
+petskill[31026] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16126, Attacco +841"}
+petskill[31027] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16746, Attacco +873"}
+petskill[31028] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +17367, Attacco +906"}
+petskill[31029] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +17987, Attacco +938"}
+petskill[31030] = {skillName = "Foglie dell'albero divino", desc = "Ora il mostro pu\195\178 combattere, squadra HP +18795, Attacco +980"}
+petskill[32001] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1240, Attacco +58, Armatura +2%"}
+petskill[32002] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2481, Attacco +116, Armatura +2%"}
+petskill[32003] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3721, Attacco +175, Armatura +2%"}
+petskill[32004] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4962, Attacco +233, Armatura +4%"}
+petskill[32005] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6202, Attacco +291, Armatura +4%"}
+petskill[32006] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7443, Attacco +349, Armatura +4%"}
+petskill[32007] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8683, Attacco +407, Armatura +6%"}
+petskill[32008] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9924, Attacco +466, Armatura +6%"}
+petskill[32009] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11164, Attacco +524, Armatura +6%"}
+petskill[32010] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12405, Attacco +582, Armatura +8%"}
+petskill[32011] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13645, Attacco +640, Armatura +8%"}
+petskill[32012] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14886, Attacco +699, Armatura +8%"}
+petskill[32013] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16126, Attacco +757, Armatura +10%"}
+petskill[32014] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +17367, Attacco +815, Armatura +10%"}
+petskill[32015] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +18607, Attacco +873, Armatura +10%"}
+petskill[32016] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +19848, Attacco +931, Armatura +12%"}
+petskill[32017] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +21088, Attacco +990, Armatura +12%"}
+petskill[32018] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +22328, Attacco +1048, Armatura +12%"}
+petskill[32019] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +23569, Attacco +1106, Armatura +14%"}
+petskill[32020] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +24809, Attacco +1164, Armatura +14%"}
+petskill[32021] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +26050, Attacco +1222, Armatura +14%"}
+petskill[32022] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +27290, Attacco +1281, Armatura +16%"}
+petskill[32023] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +28531, Attacco +1339, Armatura +16%"}
+petskill[32024] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +29771, Attacco +1397, Armatura +16%"}
+petskill[32025] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +31012, Attacco +1455, Armatura +18%"}
+petskill[32026] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +32252, Attacco +1514, Armatura +18%"}
+petskill[32027] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +33493, Attacco +1572, Armatura +18%"}
+petskill[32028] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +34733, Attacco +1630, Armatura +20%"}
+petskill[32029] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +35974, Attacco +1688, Armatura +20%"}
+petskill[32030] = {skillName = "Melata dei palchi", desc = "Ora il mostro pu\195\178 combattere, squadra HP +37590, Attacco +1764, Armatura +20%"}
+petskill[33001] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 2067, Attack 97 and Block 1.5%."}
+petskill[33002] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 4135, Attack 194 and Block 1.5%."}
+petskill[33003] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 6202, Attack 291 and Block 1.5%."}
+petskill[33004] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 8270, Attack 388 and Block 3%."}
+petskill[33005] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 10337, Attack 485 and Block 3%."}
+petskill[33006] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 12405, Attack 582 and Block 3%."}
+petskill[33007] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 14472, Attack 679 and Block 4.5%."}
+petskill[33008] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 16540, Attack 776 and Block 4.5%."}
+petskill[33009] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 18607, Attack 873 and Block 4.5%."}
+petskill[33010] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 20675, Attack 970 and Block 6%."}
+petskill[33011] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 22742, Attack 1067 and Block 6%."}
+petskill[33012] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 24809, Attack 1164 and Block 6%."}
+petskill[33013] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 26877, Attack 1261 and Block 7.5%."}
+petskill[33014] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 28944, Attack 1358 and Block 7.5%."}
+petskill[33015] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 31012, Attack 1455 and Block 7.5%."}
+petskill[33016] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 33079, Attack 1552 and Block 9%."}
+petskill[33017] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 35147, Attack 1649 and Block 9%."}
+petskill[33018] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 37214, Attack 1746 and Block 9%."}
+petskill[33019] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 39282, Attack 1843 and Block 10.5%."}
+petskill[33020] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 41349, Attack 1940 and Block 10.5%."}
+petskill[33021] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 43416, Attack 2037 and Block 10.5%."}
+petskill[33022] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 45484, Attack 2134 and Block 12%."}
+petskill[33023] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 47551, Attack 2231 and Block 12%."}
+petskill[33024] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 49619, Attack 2328 and Block 12%."}
+petskill[33025] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 51686, Attack 2426 and Block 13.5%."}
+petskill[33026] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 53754, Attack 2523 and Block 13.5%."}
+petskill[33027] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 55821, Attack 2620 and Block 13.5%."}
+petskill[33028] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 57889, Attack 2717 and Block 15%."}
+petskill[33029] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 59956, Attack 2814 and Block 15%."}
+petskill[33030] = {skillName = "Source of the river", desc = "Monster can go to fight now, he will increase team HP 62650, Attack 2940 and Block 15%."}
+petskill[34001] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3721, Attacco +129, Velocit\195\160 +4"}
+petskill[34002] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7443, Attacco +259, Velocit\195\160 +4"}
+petskill[34003] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11164, Attacco +388, Velocit\195\160 +4"}
+petskill[34004] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14886, Attacco +517, Velocit\195\160 +8"}
+petskill[34005] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +18607, Attacco +647, Velocit\195\160 +8"}
+petskill[34006] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +22328, Attacco +776, Velocit\195\160 +8"}
+petskill[34007] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +26050, Attacco +906, Velocit\195\160 +12"}
+petskill[34008] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +29771, Attacco +1035, Velocit\195\160 +12"}
+petskill[34009] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +33493, Attacco +1164, Velocit\195\160 +12"}
+petskill[34010] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +37214, Attacco +1294, Velocit\195\160 +16"}
+petskill[34011] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +40936, Attacco +1423, Velocit\195\160 +16"}
+petskill[34012] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +44657, Attacco +1552, Velocit\195\160 +16"}
+petskill[34013] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +48378, Attacco +1682, Velocit\195\160 +20"}
+petskill[34014] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +52100, Attacco +1811, Velocit\195\160 +20"}
+petskill[34015] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +55821, Attacco +1940, Velocit\195\160 +20"}
+petskill[34016] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +59543, Attacco +2070, Velocit\195\160 +24"}
+petskill[34017] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +63264, Attacco +2199, Velocit\195\160 +24"}
+petskill[34018] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +66985, Attacco +2328, Velocit\195\160 +24"}
+petskill[34019] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +70707, Attacco +2458, Velocit\195\160 +28"}
+petskill[34020] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +74428, Attacco +2587, Velocit\195\160 +28"}
+petskill[34021] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +78150, Attacco +2717, Velocit\195\160 +28"}
+petskill[34022] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +81871, Attacco +2846, Velocit\195\160 +32"}
+petskill[34023] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +85592, Attacco +2975, Velocit\195\160 +32"}
+petskill[34024] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +89314, Attacco +3105, Velocit\195\160 +32"}
+petskill[34025] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +93035, Attacco +3234, Velocit\195\160 +36"}
+petskill[34026] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +96757, Attacco +3363, Velocit\195\160 +36"}
+petskill[34027] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +100478, Attacco +3493, Velocit\195\160 +36"}
+petskill[34028] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +104199, Attacco +3622, Velocit\195\160 +40"}
+petskill[34029] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +107921, Attacco +3751, Velocit\195\160 +40"}
+petskill[34030] = {skillName = "Fonte del potere di Diana", desc = "Ora il mostro pu\195\178 combattere, squadra HP +112770, Attacco +3920, Velocit\195\160 +40"}
+petskill[41001] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +547, Attacco +37"}
+petskill[41002] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1095, Attacco +73"}
+petskill[41003] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1642, Attacco +110"}
+petskill[41004] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2190, Attacco +147"}
+petskill[41005] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2737, Attacco +183"}
+petskill[41006] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3285, Attacco +220"}
+petskill[41007] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3832, Attacco +257"}
+petskill[41008] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4380, Attacco +293"}
+petskill[41009] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4927, Attacco +330"}
+petskill[41010] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5475, Attacco +367"}
+petskill[41011] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6022, Attacco +403"}
+petskill[41012] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6570, Attacco +440"}
+petskill[41013] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7117, Attacco +477"}
+petskill[41014] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7665, Attacco +513"}
+petskill[41015] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8212, Attacco +550"}
+petskill[41016] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8760, Attacco +587"}
+petskill[41017] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9307, Attacco +623"}
+petskill[41018] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9854, Attacco +660"}
+petskill[41019] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10402, Attacco +697"}
+petskill[41020] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10949, Attacco +733"}
+petskill[41021] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11497, Attacco +770"}
+petskill[41022] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12044, Attacco +807"}
+petskill[41023] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12592, Attacco +843"}
+petskill[41024] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13139, Attacco +880"}
+petskill[41025] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13687, Attacco +917"}
+petskill[41026] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14234, Attacco +953"}
+petskill[41027] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14782, Attacco +990"}
+petskill[41028] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15329, Attacco +1027"}
+petskill[41029] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15877, Attacco +1063"}
+petskill[41030] = {skillName = "Cuore perduto", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16590, Attacco +1111"}
+petskill[42001] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1095, Attacco +66, Danno abilit\195\160 +2%"}
+petskill[42002] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2190, Attacco +132, Danno abilit\195\160 +2%"}
+petskill[42003] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3285, Attacco +198, Danno abilit\195\160 +2%"}
+petskill[42004] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4380, Attacco +264, Danno abilit\195\160 +4%"}
+petskill[42005] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5475, Attacco +330, Danno abilit\195\160 +4%"}
+petskill[42006] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6570, Attacco +396, Danno abilit\195\160 +4%"}
+petskill[42007] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7665, Attacco +462, Danno abilit\195\160 +6%"}
+petskill[42008] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8760, Attacco +528, Danno abilit\195\160 +6%"}
+petskill[42009] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9854, Attacco +594, Danno abilit\195\160 +6%"}
+petskill[42010] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10949, Attacco +660, Danno abilit\195\160 +8%"}
+petskill[42011] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12044, Attacco +726, Danno abilit\195\160 +8%"}
+petskill[42012] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13139, Attacco +792, Danno abilit\195\160 +8%"}
+petskill[42013] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14234, Attacco +858, Danno abilit\195\160 +10%"}
+petskill[42014] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15329, Attacco +924, Danno abilit\195\160 +10%"}
+petskill[42015] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16424, Attacco +990, Danno abilit\195\160 +10%"}
+petskill[42016] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +17519, Attacco +1056, Danno abilit\195\160 +12%"}
+petskill[42017] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +18614, Attacco +1122, Danno abilit\195\160 +12%"}
+petskill[42018] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +19709, Attacco +1188, Danno abilit\195\160 +12%"}
+petskill[42019] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +20804, Attacco +1254, Danno abilit\195\160 +14%"}
+petskill[42020] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +21899, Attacco +1320, Danno abilit\195\160 +14%"}
+petskill[42021] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +22994, Attacco +1386, Danno abilit\195\160 +14%"}
+petskill[42022] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +24089, Attacco +1452, Danno abilit\195\160 +16%"}
+petskill[42023] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +25184, Attacco +1518, Danno abilit\195\160 +16%"}
+petskill[42024] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +26279, Attacco +1584, Danno abilit\195\160 +16%"}
+petskill[42025] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +27374, Attacco +1650, Danno abilit\195\160 +18%"}
+petskill[42026] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +28468, Attacco +1716, Danno abilit\195\160 +18%"}
+petskill[42027] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +29563, Attacco +1782, Danno abilit\195\160 +18%"}
+petskill[42028] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +30658, Attacco +1848, Danno abilit\195\160 +20%"}
+petskill[42029] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +31753, Attacco +1914, Danno abilit\195\160 +20%"}
+petskill[42030] = {skillName = "Furto d'essenza", desc = "Ora il mostro pu\195\178 combattere, squadra HP +33180, Attacco +2000, Danno abilit\195\160 +20%"}
+petskill[43001] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 1825, Attack 110 and Precision 1%."}
+petskill[43002] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 3650, Attack 220 and Precision 1%."}
+petskill[43003] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 5475, Attack 330 and Precision 1%."}
+petskill[43004] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 7300, Attack 440 and Precision 2%."}
+petskill[43005] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 9125, Attack 550 and Precision 2%."}
+petskill[43006] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 10949, Attack 660 and Precision 2%."}
+petskill[43007] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 12774, Attack 770 and Precision 3%."}
+petskill[43008] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 14599, Attack 880 and Precision 3%."}
+petskill[43009] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 16424, Attack 990 and Precision 3%."}
+petskill[43010] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 18249, Attack 1100 and Precision 4%."}
+petskill[43011] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 20074, Attack 1210 and Precision 4%."}
+petskill[43012] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 21899, Attack 1320 and Precision 4%."}
+petskill[43013] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 23724, Attack 1430 and Precision 5%."}
+petskill[43014] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 25549, Attack 1540 and Precision 5%."}
+petskill[43015] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 27374, Attack 1650 and Precision 5%."}
+petskill[43016] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 29198, Attack 1760 and Precision 6%."}
+petskill[43017] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 31023, Attack 1870 and Precision 6%."}
+petskill[43018] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 32848, Attack 1980 and Precision 6%."}
+petskill[43019] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 34673, Attack 2090 and Precision 7%."}
+petskill[43020] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 36498, Attack 2200 and Precision 7%."}
+petskill[43021] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 38323, Attack 2310 and Precision 7%."}
+petskill[43022] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 40148, Attack 2420 and Precision 8%."}
+petskill[43023] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 41973, Attack 2531 and Precision 8%."}
+petskill[43024] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 43798, Attack 2641 and Precision 8%."}
+petskill[43025] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 45623, Attack 2751 and Precision 9%."}
+petskill[43026] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 47447, Attack 2861 and Precision 9%."}
+petskill[43027] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 49272, Attack 2971 and Precision 9%."}
+petskill[43028] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 51097, Attack 3081 and Precision 10%."}
+petskill[43029] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 52922, Attack 3191 and Precision 10%."}
+petskill[43030] = {skillName = "Charming body", desc = "Monster can go to fight now, he will increase team HP 55300, Attack 3334 and Precision 10%."}
+petskill[44001] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3285, Attacco +147, Velocit\195\160 +4"}
+petskill[44002] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6570, Attacco +293, Velocit\195\160 +4"}
+petskill[44003] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9854, Attacco +440, Velocit\195\160 +4"}
+petskill[44004] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13139, Attacco +587, Velocit\195\160 +8"}
+petskill[44005] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16424, Attacco +733, Velocit\195\160 +8"}
+petskill[44006] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +19709, Attacco +880, Velocit\195\160 +8"}
+petskill[44007] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +22994, Attacco +1027, Velocit\195\160 +12"}
+petskill[44008] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +26279, Attacco +1173, Velocit\195\160 +12"}
+petskill[44009] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +29563, Attacco +1320, Velocit\195\160 +12"}
+petskill[44010] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +32848, Attacco +1467, Velocit\195\160 +16"}
+petskill[44011] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +36133, Attacco +1614, Velocit\195\160 +16"}
+petskill[44012] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +39418, Attacco +1760, Velocit\195\160 +16"}
+petskill[44013] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +42703, Attacco +1907, Velocit\195\160 +20"}
+petskill[44014] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +45987, Attacco +2054, Velocit\195\160 +20"}
+petskill[44015] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +49272, Attacco +2200, Velocit\195\160 +20"}
+petskill[44016] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +52557, Attacco +2347, Velocit\195\160 +24"}
+petskill[44017] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +55842, Attacco +2494, Velocit\195\160 +24"}
+petskill[44018] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +59127, Attacco +2640, Velocit\195\160 +24"}
+petskill[44019] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +62412, Attacco +2787, Velocit\195\160 +28"}
+petskill[44020] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +65696, Attacco +2934, Velocit\195\160 +28"}
+petskill[44021] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +68981, Attacco +3080, Velocit\195\160 +28"}
+petskill[44022] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +72266, Attacco +3227, Velocit\195\160 +32"}
+petskill[44023] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +75551, Attacco +3374, Velocit\195\160 +32"}
+petskill[44024] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +78836, Attacco +3520, Velocit\195\160 +32"}
+petskill[44025] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +82121, Attacco +3667, Velocit\195\160 +36"}
+petskill[44026] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +85405, Attacco +3814, Velocit\195\160 +36"}
+petskill[44027] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +88690, Attacco +3960, Velocit\195\160 +36"}
+petskill[44028] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +91975, Attacco +4107, Velocit\195\160 +40"}
+petskill[44029] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +95260, Attacco +4254, Velocit\195\160 +40"}
+petskill[44030] = {skillName = "Scambio di astuzia", desc = "Ora il mostro pu\195\178 combattere, squadra HP +99540, Attacco +4445, Velocit\195\160 +40"}
+petskill[51001] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +565, Attacco +36"}
+petskill[51002] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1130, Attacco +71"}
+petskill[51003] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1694, Attacco +107"}
+petskill[51004] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2259, Attacco +142"}
+petskill[51005] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2824, Attacco +178"}
+petskill[51006] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3389, Attacco +213"}
+petskill[51007] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3954, Attacco +249"}
+petskill[51008] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4518, Attacco +284"}
+petskill[51009] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5083, Attacco +320"}
+petskill[51010] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5648, Attacco +355"}
+petskill[51011] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6213, Attacco +391"}
+petskill[51012] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6778, Attacco +426"}
+petskill[51013] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7342, Attacco +462"}
+petskill[51014] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7907, Attacco +497"}
+petskill[51015] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +8472, Attacco +533"}
+petskill[51016] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9037, Attacco +568"}
+petskill[51017] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9602, Attacco +604"}
+petskill[51018] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10166, Attacco +639"}
+petskill[51019] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10731, Attacco +675"}
+petskill[51020] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11296, Attacco +710"}
+petskill[51021] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11861, Attacco +746"}
+petskill[51022] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12425, Attacco +781"}
+petskill[51023] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12990, Attacco +817"}
+petskill[51024] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13555, Attacco +852"}
+petskill[51025] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14120, Attacco +888"}
+petskill[51026] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14685, Attacco +923"}
+petskill[51027] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15249, Attacco +959"}
+petskill[51028] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15814, Attacco +994"}
+petskill[51029] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16379, Attacco +1030"}
+petskill[51030] = {skillName = "Balzo inesauribile", desc = "Ora il mostro pu\195\178 combattere, squadra HP +17115, Attacco +1076"}
+petskill[52001] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1130, Attacco +64, Criticit\195\160 +1%"}
+petskill[52002] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +2259, Attacco +128, Criticit\195\160 +1%"}
+petskill[52003] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3389, Attacco +192, Criticit\195\160 +1%"}
+petskill[52004] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +4518, Attacco +256, Criticit\195\160 +2%"}
+petskill[52005] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5648, Attacco +320, Criticit\195\160 +2%"}
+petskill[52006] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6778, Attacco +384, Criticit\195\160 +2%"}
+petskill[52007] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7907, Attacco +447, Criticit\195\160 +3%"}
+petskill[52008] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9037, Attacco +511, Criticit\195\160 +3%"}
+petskill[52009] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10166, Attacco +575, Criticit\195\160 +3%"}
+petskill[52010] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11296, Attacco +639, Criticit\195\160 +4%"}
+petskill[52011] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +12425, Attacco +703, Criticit\195\160 +4%"}
+petskill[52012] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13555, Attacco +767, Criticit\195\160 +4%"}
+petskill[52013] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +14685, Attacco +831, Criticit\195\160 +5%"}
+petskill[52014] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15814, Attacco +895, Criticit\195\160 +5%"}
+petskill[52015] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16944, Attacco +959, Criticit\195\160 +5%"}
+petskill[52016] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +18073, Attacco +1023, Criticit\195\160 +6%"}
+petskill[52017] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +19203, Attacco +1087, Criticit\195\160 +6%"}
+petskill[52018] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +20333, Attacco +1151, Criticit\195\160 +6%"}
+petskill[52019] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +21462, Attacco +1214, Criticit\195\160 +7%"}
+petskill[52020] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +22592, Attacco +1278, Criticit\195\160 +7%"}
+petskill[52021] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +23721, Attacco +1342, Criticit\195\160 +7%"}
+petskill[52022] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +24851, Attacco +1406, Criticit\195\160 +8%"}
+petskill[52023] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +25981, Attacco +1470, Criticit\195\160 +8%"}
+petskill[52024] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +27110, Attacco +1534, Criticit\195\160 +8%"}
+petskill[52025] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +28240, Attacco +1598, Criticit\195\160 +9%"}
+petskill[52026] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +29369, Attacco +1662, Criticit\195\160 +9%"}
+petskill[52027] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +30499, Attacco +1726, Criticit\195\160 +9%"}
+petskill[52028] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +31629, Attacco +1790, Criticit\195\160 +10%"}
+petskill[52029] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +32758, Attacco +1854, Criticit\195\160 +10%"}
+petskill[52030] = {skillName = "Corpo fiammeggiante", desc = "Ora il mostro pu\195\178 combattere, squadra HP +34230, Attacco +1937, Criticit\195\160 +10%"}
+petskill[53001] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +1883, Attacco +107, Danno critico +2%"}
+petskill[53002] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3765, Attacco +213, Danno critico +2%"}
+petskill[53003] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +5648, Attacco +320, Danno critico +2%"}
+petskill[53004] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +7531, Attacco +426, Danno critico +4%"}
+petskill[53005] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +9413, Attacco +533, Danno critico +4%"}
+petskill[53006] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +11296, Attacco +639, Danno critico +4%"}
+petskill[53007] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13179, Attacco +746, Danno critico +6%"}
+petskill[53008] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +15061, Attacco +852, Danno critico +6%"}
+petskill[53009] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16944, Attacco +959, Danno critico +6%"}
+petskill[53010] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +18827, Attacco +1066, Danno critico +8%"}
+petskill[53011] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +20709, Attacco +1172, Danno critico +8%"}
+petskill[53012] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +22592, Attacco +1279, Danno critico +8%"}
+petskill[53013] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +24474, Attacco +1385, Danno critico +10%"}
+petskill[53014] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +26357, Attacco +1492, Danno critico +10%"}
+petskill[53015] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +28240, Attacco +1598, Danno critico +10%"}
+petskill[53016] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +30122, Attacco +1705, Danno critico +12%"}
+petskill[53017] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +32005, Attacco +1811, Danno critico +12%"}
+petskill[53018] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +33888, Attacco +1918, Danno critico +12%"}
+petskill[53019] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +35770, Attacco +2025, Danno critico +14%"}
+petskill[53020] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +37653, Attacco +2131, Danno critico +14%"}
+petskill[53021] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +39536, Attacco +2238, Danno critico +14%"}
+petskill[53022] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +41418, Attacco +2344, Danno critico +16%"}
+petskill[53023] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +43301, Attacco +2451, Danno critico +16%"}
+petskill[53024] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +45184, Attacco +2557, Danno critico +16%"}
+petskill[53025] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +47066, Attacco +2664, Danno critico +18%"}
+petskill[53026] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +48949, Attacco +2770, Danno critico +18%"}
+petskill[53027] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +50832, Attacco +2877, Danno critico +18%"}
+petskill[53028] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +52714, Attacco +2984, Danno critico +20%"}
+petskill[53029] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +54597, Attacco +3090, Danno critico +20%"}
+petskill[53030] = {skillName = "Sangue di drago", desc = "Ora il mostro pu\195\178 combattere, squadra HP +57050, Attacco +3229, Danno critico +20%"}
+petskill[54001] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +3389, Attacco +142, Velocit\195\160 +4"}
+petskill[54002] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +6778, Attacco +284, Velocit\195\160 +4"}
+petskill[54003] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +10166, Attacco +426, Velocit\195\160 +4"}
+petskill[54004] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +13555, Attacco +568, Velocit\195\160 +8"}
+petskill[54005] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +16944, Attacco +710, Velocit\195\160 +8"}
+petskill[54006] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +20333, Attacco +852, Velocit\195\160 +8"}
+petskill[54007] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +23721, Attacco +994, Velocit\195\160 +12"}
+petskill[54008] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +27110, Attacco +1137, Velocit\195\160 +12"}
+petskill[54009] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +30499, Attacco +1279, Velocit\195\160 +12"}
+petskill[54010] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +33888, Attacco +1421, Velocit\195\160 +16"}
+petskill[54011] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +37276, Attacco +1563, Velocit\195\160 +16"}
+petskill[54012] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +40665, Attacco +1705, Velocit\195\160 +16"}
+petskill[54013] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +44054, Attacco +1847, Velocit\195\160 +20"}
+petskill[54014] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +47443, Attacco +1989, Velocit\195\160 +20"}
+petskill[54015] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +50832, Attacco +2131, Velocit\195\160 +20"}
+petskill[54016] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +54220, Attacco +2273, Velocit\195\160 +24"}
+petskill[54017] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +57609, Attacco +2415, Velocit\195\160 +24"}
+petskill[54018] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +60998, Attacco +2557, Velocit\195\160 +24"}
+petskill[54019] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +64387, Attacco +2699, Velocit\195\160 +28"}
+petskill[54020] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +67775, Attacco +2841, Velocit\195\160 +28"}
+petskill[54021] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +71164, Attacco +2983, Velocit\195\160 +28"}
+petskill[54022] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +74553, Attacco +3125, Velocit\195\160 +32"}
+petskill[54023] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +77942, Attacco +3267, Velocit\195\160 +32"}
+petskill[54024] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +81330, Attacco +3410, Velocit\195\160 +32"}
+petskill[54025] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +84719, Attacco +3552, Velocit\195\160 +36"}
+petskill[54026] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +88108, Attacco +3694, Velocit\195\160 +36"}
+petskill[54027] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +91497, Attacco +3836, Velocit\195\160 +36"}
+petskill[54028] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +94886, Attacco +3978, Velocit\195\160 +40"}
+petskill[54029] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +98274, Attacco +4120, Velocit\195\160 +40"}
+petskill[54030] = {skillName = "Disperazione di Ned Hoge", desc = "Ora il mostro pu\195\178 combattere, squadra HP +102690, Attacco +4305, Velocit\195\160 +40"}
+petskill[61001] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 534, Attack by 38"}
+petskill[61002] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 1067, Attack by 75"}
+petskill[61003] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 1601, Attack by 113"}
+petskill[61004] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 2134, Attack by 150"}
+petskill[61005] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 2668, Attack by 188"}
+petskill[61006] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 3202, Attack by 225"}
+petskill[61007] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 3735, Attack by 263"}
+petskill[61008] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 4269, Attack by 300"}
+petskill[61009] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 4802, Attack by 338"}
+petskill[61010] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 5336, Attack by 376"}
+petskill[61011] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 5870, Attack by 413"}
+petskill[61012] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 6403, Attack by 451"}
+petskill[61013] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 6937, Attack by 488"}
+petskill[61014] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 7471, Attack by 526"}
+petskill[61015] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 8004, Attack by 563"}
+petskill[61016] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 8538, Attack by 601"}
+petskill[61017] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 9071, Attack by 638"}
+petskill[61018] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 9605, Attack by 676"}
+petskill[61019] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 10139, Attack by 714"}
+petskill[61020] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 10672, Attack by 751"}
+petskill[61021] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 11206, Attack by 789"}
+petskill[61022] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 11739, Attack by 826"}
+petskill[61023] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 12273, Attack by 864"}
+petskill[61024] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 12807, Attack by 901"}
+petskill[61025] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 13340, Attack by 939"}
+petskill[61026] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 13874, Attack by 976"}
+petskill[61027] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 14407, Attack by 1014"}
+petskill[61028] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 14941, Attack by 1052"}
+petskill[61029] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 15475, Attack by 1089"}
+petskill[61030] = {skillName = "Doomsday Fear", desc = "Increases Battle Team HP by 16170, Attack by 1138"}
+petskill[62001] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 1067, Attack by 68, Skill damage by 2%"}
+petskill[62002] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 2134, Attack by 135, Skill damage by 2%"}
+petskill[62003] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 3202, Attack by 203, Skill damage by 2%"}
+petskill[62004] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 4269, Attack by 270, Skill damage by 4%"}
+petskill[62005] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 5336, Attack by 338, Skill damage by 4%"}
+petskill[62006] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 6403, Attack by 406, Skill damage by 4%"}
+petskill[62007] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 7471, Attack by 473, Skill damage by 6%"}
+petskill[62008] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 8538, Attack by 541, Skill damage by 6%"}
+petskill[62009] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 9605, Attack by 608, Skill damage by 6%"}
+petskill[62010] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 10672, Attack by 676, Skill damage by 8%"}
+petskill[62011] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 11739, Attack by 743, Skill damage by 8%"}
+petskill[62012] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 12807, Attack by 811, Skill damage by 8%"}
+petskill[62013] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 13874, Attack by 879, Skill damage by 10%"}
+petskill[62014] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 14941, Attack by 946, Skill damage by 10%"}
+petskill[62015] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 16008, Attack by 1014, Skill damage by 10%"}
+petskill[62016] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 17076, Attack by 1081, Skill damage by 12%"}
+petskill[62017] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 18143, Attack by 1149, Skill damage by 12%"}
+petskill[62018] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 19210, Attack by 1217, Skill damage by 12%"}
+petskill[62019] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 20277, Attack by 1284, Skill damage by 14%"}
+petskill[62020] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 21344, Attack by 1352, Skill damage by 14%"}
+petskill[62021] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 22412, Attack by 1419, Skill damage by 14%"}
+petskill[62022] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 23479, Attack by 1487, Skill damage by 16%"}
+petskill[62023] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 24546, Attack by 1554, Skill damage by 16%"}
+petskill[62024] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 25613, Attack by 1622, Skill damage by 16%"}
+petskill[62025] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 26681, Attack by 1690, Skill damage by 18%"}
+petskill[62026] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 27748, Attack by 1757, Skill damage by 18%"}
+petskill[62027] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 28815, Attack by 1825, Skill damage by 18%"}
+petskill[62028] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 29882, Attack by 1892, Skill damage by 20%"}
+petskill[62029] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 30949, Attack by 1960, Skill damage by 20%"}
+petskill[62030] = {skillName = "Toxic Nightmare", desc = "Increases Battle Team HP by 32340, Attack by 2048, Skill damage by 20%"}
+petskill[63001] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 1779, Attack by 113, Block by 1.5%"}
+petskill[63002] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 3557, Attack by 225, Block by 1.5%"}
+petskill[63003] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 5336, Attack by 338, Block by 1.5%"}
+petskill[63004] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 7115, Attack by 451, Block by 3%"}
+petskill[63005] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 8894, Attack by 563, Block by 3%"}
+petskill[63006] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 10672, Attack by 676, Block by 3%"}
+petskill[63007] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 12451, Attack by 788, Block by 4.5%"}
+petskill[63008] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 14230, Attack by 901, Block by 4.5%"}
+petskill[63009] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 16008, Attack by 1014, Block by 4.5%"}
+petskill[63010] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 17787, Attack by 1126, Block by 6%"}
+petskill[63011] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 19566, Attack by 1239, Block by 6%"}
+petskill[63012] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 21344, Attack by 1352, Block by 6%"}
+petskill[63013] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 23123, Attack by 1464, Block by 7.5%"}
+petskill[63014] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 24902, Attack by 1577, Block by 7.5%"}
+petskill[63015] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 26681, Attack by 1689, Block by 7.5%"}
+petskill[63016] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 28459, Attack by 1802, Block by 9%"}
+petskill[63017] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 30238, Attack by 1915, Block by 9%"}
+petskill[63018] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 32017, Attack by 2027, Block by 9%"}
+petskill[63019] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 33795, Attack by 2140, Block by 10.5%"}
+petskill[63020] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 35574, Attack by 2253, Block by 10.5%"}
+petskill[63021] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 37353, Attack by 2365, Block by 10.5%"}
+petskill[63022] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 39131, Attack by 2478, Block by 12%"}
+petskill[63023] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 40910, Attack by 2590, Block by 12%"}
+petskill[63024] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 42689, Attack by 2703, Block by 12%"}
+petskill[63025] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 44468, Attack by 2816, Block by 13.5%"}
+petskill[63026] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 46246, Attack by 2928, Block by 13.5%"}
+petskill[63027] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 48025, Attack by 3041, Block by 13.5%"}
+petskill[63028] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 49804, Attack by 3154, Block by 15%"}
+petskill[63029] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 51582, Attack by 3266, Block by 15%"}
+petskill[63030] = {skillName = "Phantom Heavy", desc = "Increases Battle Team HP by 53900, Attack by 3413, Block by 15%"}
+petskill[64001] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 3202, Attack by 150, Speed by 4"}
+petskill[64002] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 6403, Attack by 300, Speed by 4"}
+petskill[64003] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 9605, Attack by 450, Speed by 4"}
+petskill[64004] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 12807, Attack by 601, Speed by 8"}
+petskill[64005] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 16008, Attack by 751, Speed by 8"}
+petskill[64006] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 19210, Attack by 901, Speed by 8"}
+petskill[64007] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 22412, Attack by 1051, Speed by 12"}
+petskill[64008] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 25613, Attack by 1201, Speed by 12"}
+petskill[64009] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 28815, Attack by 1351, Speed by 12"}
+petskill[64010] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 32017, Attack by 1502, Speed by 16"}
+petskill[64011] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 35218, Attack by 1652, Speed by 16"}
+petskill[64012] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 38420, Attack by 1802, Speed by 16"}
+petskill[64013] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 41622, Attack by 1952, Speed by 20"}
+petskill[64014] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 44823, Attack by 2102, Speed by 20"}
+petskill[64015] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 48025, Attack by 2252, Speed by 20"}
+petskill[64016] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 51227, Attack by 2402, Speed by 24"}
+petskill[64017] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 54428, Attack by 2553, Speed by 24"}
+petskill[64018] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 57630, Attack by 2703, Speed by 24"}
+petskill[64019] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 60832, Attack by 2853, Speed by 28"}
+petskill[64020] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 64033, Attack by 3003, Speed by 28"}
+petskill[64021] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 67235, Attack by 3153, Speed by 28"}
+petskill[64022] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 70437, Attack by 3303, Speed by 32"}
+petskill[64023] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 73638, Attack by 3453, Speed by 32"}
+petskill[64024] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 76840, Attack by 3604, Speed by 32"}
+petskill[64025] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 80042, Attack by 3754, Speed by 36"}
+petskill[64026] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 83243, Attack by 3904, Speed by 36"}
+petskill[64027] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 86445, Attack by 4054, Speed by 36"}
+petskill[64028] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 89646, Attack by 4204, Speed by 40"}
+petskill[64029] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 92848, Attack by 4354, Speed by 40"}
+petskill[64030] = {skillName = "Withered Breath", desc = "Increases Battle Team HP by 97020, Attack by 4550, Speed by 40"}
+petskill[7001] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 554, Attack by 36"}
+petskill[7002] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 1109, Attack by 72"}
+petskill[7003] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 1663, Attack by 108"}
+petskill[7004] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 2218, Attack by 144"}
+petskill[7005] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 2772, Attack by 181"}
+petskill[7006] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 3326, Attack by 217"}
+petskill[7007] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 3881, Attack by 253"}
+petskill[7008] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 4435, Attack by 289"}
+petskill[7009] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 4990, Attack by 325"}
+petskill[7010] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 5544, Attack by 361"}
+petskill[7011] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 6098, Attack by 397"}
+petskill[7012] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 6653, Attack by 433"}
+petskill[7013] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 7207, Attack by 469"}
+petskill[7014] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 7762, Attack by 505"}
+petskill[7015] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 8316, Attack by 542"}
+petskill[7016] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 8870, Attack by 578"}
+petskill[7017] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 9425, Attack by 614"}
+petskill[7018] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 9979, Attack by 650"}
+petskill[7019] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 10534, Attack by 686"}
+petskill[7020] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 11088, Attack by 722"}
+petskill[7021] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 11642, Attack by 758"}
+petskill[7022] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 12197, Attack by 794"}
+petskill[7023] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 12751, Attack by 830"}
+petskill[7024] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 13306, Attack by 866"}
+petskill[7025] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 13860, Attack by 903"}
+petskill[7026] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 14414, Attack by 939"}
+petskill[7027] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 14969, Attack by 975"}
+petskill[7028] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 15523, Attack by 1011"}
+petskill[7029] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 16078, Attack by 1047"}
+petskill[7030] = {skillName = "Unstoppable ", desc = "Increases Battle Team HP by 16800, Attack by 1094"}
+petskill[7031] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 1109, Attack by 65, Armor by 2%"}
+petskill[7032] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 2218, Attack by 130, Armor by 2%"}
+petskill[7033] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 3326, Attack by 195, Armor by 2%"}
+petskill[7034] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 4435, Attack by 260, Armor by 4%"}
+petskill[7035] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 5544, Attack by 325, Armor by 4%"}
+petskill[7036] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 6653, Attack by 390, Armor by 4%"}
+petskill[7037] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 7762, Attack by 455, Armor by 6%"}
+petskill[7038] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 8870, Attack by 520, Armor by 6%"}
+petskill[7039] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 9979, Attack by 585, Armor by 6%"}
+petskill[7040] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 11088, Attack by 650, Armor by 8%"}
+petskill[7041] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 12197, Attack by 715, Armor by 8%"}
+petskill[7042] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 13306, Attack by 780, Armor by 8%"}
+petskill[7043] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 14414, Attack by 845, Armor by 10%"}
+petskill[7044] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 15523, Attack by 910, Armor by 10%"}
+petskill[7045] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 16632, Attack by 975, Armor by 10%"}
+petskill[7046] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 17741, Attack by 1040, Armor by 12%"}
+petskill[7047] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 18850, Attack by 1105, Armor by 12%"}
+petskill[7048] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 19958, Attack by 1170, Armor by 12%"}
+petskill[7049] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 21067, Attack by 1235, Armor by 14%"}
+petskill[7050] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 22176, Attack by 1300, Armor by 14%"}
+petskill[7051] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 23285, Attack by 1365, Armor by 14%"}
+petskill[7052] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 24394, Attack by 1429, Armor by 16%"}
+petskill[7053] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 25502, Attack by 1494, Armor by 16%"}
+petskill[7054] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 26611, Attack by 1559, Armor by 16%"}
+petskill[7055] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 27720, Attack by 1624, Armor by 18%"}
+petskill[7056] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 28829, Attack by 1689, Armor by 18%"}
+petskill[7057] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 29938, Attack by 1754, Armor by 18%"}
+petskill[7058] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 31046, Attack by 1819, Armor by 20%"}
+petskill[7059] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 32155, Attack by 1884, Armor by 20%"}
+petskill[7060] = {skillName = "Rock Solid", desc = "Increases Battle Team HP by 33600, Attack by 1969, Armor by 20%"}
+petskill[7061] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 1848, Attack by 108, Precision by 1%"}
+petskill[7062] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 3696, Attack by 217, Precision by 1%"}
+petskill[7063] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 5544, Attack by 325, Precision by 1%"}
+petskill[7064] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 7392, Attack by 433, Precision by 2%"}
+petskill[7065] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 9240, Attack by 541, Precision by 2%"}
+petskill[7066] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 11088, Attack by 650, Precision by 2%"}
+petskill[7067] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 12936, Attack by 758, Precision by 3%"}
+petskill[7068] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 14784, Attack by 866, Precision by 3%"}
+petskill[7069] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 16632, Attack by 974, Precision by 3%"}
+petskill[7070] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 18480, Attack by 1083, Precision by 4%"}
+petskill[7071] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 20328, Attack by 1191, Precision by 4%"}
+petskill[7072] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 22176, Attack by 1299, Precision by 4%"}
+petskill[7073] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 24024, Attack by 1408, Precision by 5%"}
+petskill[7074] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 25872, Attack by 1516, Precision by 5%"}
+petskill[7075] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 27720, Attack by 1624, Precision by 5%"}
+petskill[7076] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 29568, Attack by 1732, Precision by 6%"}
+petskill[7077] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 31416, Attack by 1841, Precision by 6%"}
+petskill[7078] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 33264, Attack by 1949, Precision by 6%"}
+petskill[7079] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 35112, Attack by 2057, Precision by 7%"}
+petskill[7080] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 36960, Attack by 2165, Precision by 7%"}
+petskill[7081] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 38808, Attack by 2274, Precision by 7%"}
+petskill[7082] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 40656, Attack by 2382, Precision by 8%"}
+petskill[7083] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 42504, Attack by 2490, Precision by 8%"}
+petskill[7084] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 44352, Attack by 2599, Precision by 8%"}
+petskill[7085] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 46200, Attack by 2707, Precision by 9%"}
+petskill[7086] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 48048, Attack by 2815, Precision by 9%"}
+petskill[7087] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 49896, Attack by 2923, Precision by 9%"}
+petskill[7088] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 51744, Attack by 3032, Precision by 10%"}
+petskill[7089] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 53592, Attack by 3140, Precision by 10%"}
+petskill[7090] = {skillName = "The Source of Mountains", desc = "Increases Battle Team HP by 56000, Attack by 3281, Precision by 10%"}
+petskill[7091] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 3326, Attack by 144, Speed by 4"}
+petskill[7092] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 6653, Attack by 289, Speed by 4"}
+petskill[7093] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 9979, Attack by 433, Speed by 4"}
+petskill[7094] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 13306, Attack by 578, Speed by 8"}
+petskill[7095] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 16632, Attack by 722, Speed by 8"}
+petskill[7096] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 19958, Attack by 866, Speed by 8"}
+petskill[7097] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 23285, Attack by 1011, Speed by 12"}
+petskill[7098] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 26611, Attack by 1155, Speed by 12"}
+petskill[7099] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 29938, Attack by 1299, Speed by 12"}
+petskill[7100] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 33264, Attack by 1444, Speed by 16"}
+petskill[7101] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 36590, Attack by 1588, Speed by 16"}
+petskill[7102] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 39917, Attack by 1733, Speed by 16"}
+petskill[7103] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 43243, Attack by 1877, Speed by 20"}
+petskill[7104] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 46570, Attack by 2021, Speed by 20"}
+petskill[7105] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 49896, Attack by 2166, Speed by 20"}
+petskill[7106] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 53222, Attack by 2310, Speed by 24"}
+petskill[7107] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 56549, Attack by 2454, Speed by 24"}
+petskill[7108] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 59875, Attack by 2599, Speed by 24"}
+petskill[7109] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 63202, Attack by 2743, Speed by 28"}
+petskill[7110] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 66528, Attack by 2888, Speed by 28"}
+petskill[7111] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 69854, Attack by 3032, Speed by 28"}
+petskill[7112] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 73181, Attack by 3176, Speed by 32"}
+petskill[7113] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 76507, Attack by 3321, Speed by 32"}
+petskill[7114] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 79834, Attack by 3465, Speed by 32"}
+petskill[7115] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 83160, Attack by 3609, Speed by 36"}
+petskill[7116] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 86486, Attack by 3754, Speed by 36"}
+petskill[7117] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 89813, Attack by 3898, Speed by 36"}
+petskill[7118] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 93139, Attack by 4043, Speed by 40"}
+petskill[7119] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 96466, Attack by 4187, Speed by 40"}
+petskill[7120] = {skillName = "Wind Roar", desc = "Increases Battle Team HP by 100800, Attack by 4375, Speed by 40"}
+petskill[8001] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 541, Attack by 37."}
+petskill[8002] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 1081, Attack by 75."}
+petskill[8003] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 1622, Attack by 112."}
+petskill[8004] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 2162, Attack by 149."}
+petskill[8005] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 2703, Attack by 186."}
+petskill[8006] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 3243, Attack by 224."}
+petskill[8007] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 3784, Attack by 261."}
+petskill[8008] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 4324, Attack by 298."}
+petskill[8009] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 4865, Attack by 335."}
+petskill[8010] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 5405, Attack by 373."}
+petskill[8011] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 5946, Attack by 410."}
+petskill[8012] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 6486, Attack by 447."}
+petskill[8013] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 7027, Attack by 484."}
+petskill[8014] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 7568, Attack by 522."}
+petskill[8015] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 8108, Attack by 559."}
+petskill[8016] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 8649, Attack by 596."}
+petskill[8017] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 9189, Attack by 633."}
+petskill[8018] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 9730, Attack by 671."}
+petskill[8019] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 10270, Attack by 708."}
+petskill[8020] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 10811, Attack by 745."}
+petskill[8021] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 11351, Attack by 782."}
+petskill[8022] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 11892, Attack by 820."}
+petskill[8023] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 12432, Attack by 857."}
+petskill[8024] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 12973, Attack by 894."}
+petskill[8025] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 13514, Attack by 931."}
+petskill[8026] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 14054, Attack by 969."}
+petskill[8027] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 14595, Attack by 1006."}
+petskill[8028] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 15135, Attack by 1043."}
+petskill[8029] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 15676, Attack by 1080."}
+petskill[8030] = {skillName = "Frost blood", desc = "Increase Battle Team HP by 16380, Attack by 1129."}
+petskill[8031] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 1081, Attack by 67, Holy Damage by 2%."}
+petskill[8032] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 2162, Attack by 134, Holy Damage by 2%."}
+petskill[8033] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 3243, Attack by 201, Holy Damage by 2%."}
+petskill[8034] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 4324, Attack by 268, Holy Damage by 4%."}
+petskill[8035] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 5405, Attack by 335, Holy Damage by 4%."}
+petskill[8036] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 6486, Attack by 402, Holy Damage by 4%."}
+petskill[8037] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 7568, Attack by 469, Holy Damage by 6%."}
+petskill[8038] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 8649, Attack by 536, Holy Damage by 6%."}
+petskill[8039] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 9730, Attack by 604, Holy Damage by 6%."}
+petskill[8040] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 10811, Attack by 671, Holy Damage by 8%."}
+petskill[8041] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 11892, Attack by 738, Holy Damage by 8%."}
+petskill[8042] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 12973, Attack by 805, Holy Damage by 8%."}
+petskill[8043] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 14054, Attack by 872, Holy Damage by 10%."}
+petskill[8044] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 15135, Attack by 939, Holy Damage by 10%."}
+petskill[8045] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 16216, Attack by 1006, Holy Damage by 10%."}
+petskill[8046] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 17297, Attack by 1073, Holy Damage by 12%."}
+petskill[8047] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 18378, Attack by 1140, Holy Damage by 12%."}
+petskill[8048] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 19459, Attack by 1207, Holy Damage by 12%."}
+petskill[8049] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 20541, Attack by 1274, Holy Damage by 14%."}
+petskill[8050] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 21622, Attack by 1341, Holy Damage by 14%."}
+petskill[8051] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 22703, Attack by 1408, Holy Damage by 14%."}
+petskill[8052] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 23784, Attack by 1475, Holy Damage by 16%."}
+petskill[8053] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 24865, Attack by 1542, Holy Damage by 16%."}
+petskill[8054] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 25946, Attack by 1609, Holy Damage by 16%."}
+petskill[8055] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 27027, Attack by 1676, Holy Damage by 18%."}
+petskill[8056] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 28108, Attack by 1743, Holy Damage by 18%."}
+petskill[8057] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 29189, Attack by 1811, Holy Damage by 18%."}
+petskill[8058] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 30270, Attack by 1878, Holy Damage by 20%."}
+petskill[8059] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 31351, Attack by 1945, Holy Damage by 20%."}
+petskill[8060] = {skillName = "Frost burst", desc = "Increase Battle Team HP by 32760, Attack by 2032, Holy Damage by 20%."}
+petskill[8061] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 1802, Attack by 112, Precision by 1%."}
+petskill[8062] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 3604, Attack by 223, Precision by 1%."}
+petskill[8063] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 5405, Attack by 335, Precision by 1%."}
+petskill[8064] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 7207, Attack by 447, Precision by 2%."}
+petskill[8065] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 9009, Attack by 559, Precision by 2%."}
+petskill[8066] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 10811, Attack by 670, Precision by 2%."}
+petskill[8067] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 12613, Attack by 782, Precision by 3%."}
+petskill[8068] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 14414, Attack by 894, Precision by 3%."}
+petskill[8069] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 16216, Attack by 1006, Precision by 3%."}
+petskill[8070] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 18018, Attack by 1117, Precision by 4%."}
+petskill[8071] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 19820, Attack by 1229, Precision by 4%."}
+petskill[8072] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 21622, Attack by 1341, Precision by 4%."}
+petskill[8073] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 23423, Attack by 1453, Precision by 5%."}
+petskill[8074] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 25225, Attack by 1564, Precision by 5%."}
+petskill[8075] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 27027, Attack by 1676, Precision by 5%."}
+petskill[8076] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 28829, Attack by 1788, Precision by 6%."}
+petskill[8077] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 30631, Attack by 1900, Precision by 6%."}
+petskill[8078] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 32432, Attack by 2011, Precision by 6%."}
+petskill[8079] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 34234, Attack by 2123, Precision by 7%."}
+petskill[8080] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 36036, Attack by 2235, Precision by 7%."}
+petskill[8081] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 37838, Attack by 2346, Precision by 7%."}
+petskill[8082] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 39640, Attack by 2458, Precision by 8%."}
+petskill[8083] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 41441, Attack by 2570, Precision by 8%."}
+petskill[8084] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 43243, Attack by 2682, Precision by 8%."}
+petskill[8085] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 45045, Attack by 2793, Precision by 9%."}
+petskill[8086] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 46847, Attack by 2905, Precision by 9%."}
+petskill[8087] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 48649, Attack by 3017, Precision by 9%."}
+petskill[8088] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 50450, Attack by 3129, Precision by 10%."}
+petskill[8089] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 52252, Attack by 3240, Precision by 10%."}
+petskill[8090] = {skillName = "Frost piercing", desc = "Increase Battle Team HP by 54600, Attack by 3386, Precision by 10%."}
+petskill[8091] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 3243, Attack by 149, Speed by 4."}
+petskill[8092] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 6486, Attack by 298, Speed by 4."}
+petskill[8093] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 9730, Attack by 447, Speed by 4."}
+petskill[8094] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 12973, Attack by 596, Speed by 8."}
+petskill[8095] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 16216, Attack by 745, Speed by 8."}
+petskill[8096] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 19459, Attack by 894, Speed by 8."}
+petskill[8097] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 22703, Attack by 1043, Speed by 12."}
+petskill[8098] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 25946, Attack by 1192, Speed by 12."}
+petskill[8099] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 29189, Attack by 1341, Speed by 12."}
+petskill[8100] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 32432, Attack by 1490, Speed by 16."}
+petskill[8101] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 35676, Attack by 1639, Speed by 16."}
+petskill[8102] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 38919, Attack by 1788, Speed by 16."}
+petskill[8103] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 42162, Attack by 1937, Speed by 20."}
+petskill[8104] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 45405, Attack by 2086, Speed by 20."}
+petskill[8105] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 48649, Attack by 2235, Speed by 20."}
+petskill[8106] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 51892, Attack by 2384, Speed by 24."}
+petskill[8107] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 55135, Attack by 2533, Speed by 24."}
+petskill[8108] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 58378, Attack by 2682, Speed by 24."}
+petskill[8109] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 61622, Attack by 2831, Speed by 28."}
+petskill[8110] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 64865, Attack by 2980, Speed by 28."}
+petskill[8111] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 68108, Attack by 3129, Speed by 28."}
+petskill[8112] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 71351, Attack by 3278, Speed by 32."}
+petskill[8113] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 74595, Attack by 3427, Speed by 32."}
+petskill[8114] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 77838, Attack by 3576, Speed by 32."}
+petskill[8115] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 81081, Attack by 3725, Speed by 36."}
+petskill[8116] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 84324, Attack by 3874, Speed by 36."}
+petskill[8117] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 87567, Attack by 4023, Speed by 36."}
+petskill[8118] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 90811, Attack by 4172, Speed by 40."}
+petskill[8119] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 94054, Attack by 4321, Speed by 40."}
+petskill[8120] = {skillName = "Immortal apparition", desc = "Increase Battle Team HP by 98280, Attack by 4515, Speed by 40."}
+return petskill
+

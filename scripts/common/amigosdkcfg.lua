@@ -1,0 +1,123 @@
+-- Command line was: E:\github\dhgametool\scripts\common\amigosdkcfg.lua 
+
+local cfg = {}
+cfg.upName = "amigo"
+cfg.support_takingdata = true
+local cjson = json
+require("common.func")
+require("common.const")
+local netClient = require("net.netClient")
+local i18n = require("res.i18n")
+local player = require("data.player")
+local userdata = require("data.userdata")
+local director = CCDirector:sharedDirector()
+local bcfg = require("common.basesdkcfg")
+local getOrder = function(l_1_0, l_1_1)
+  l_1_0.sid = player.sid
+  l_1_0.storeid = l_1_0.productId
+  l_1_0.device_info = HHUtils:getAdvertisingId() or ""
+  l_1_0.body = l_1_0.body or "\230\184\184\230\136\143\231\164\188\229\140\133"
+  l_1_0.subject = "\230\184\184\230\136\143\231\164\188\229\140\133"
+  netClient:gorder(l_1_0, function(l_1_0)
+    tablePrint(l_1_0)
+    if l_1_0.status ~= 0 then
+      delWaitNet()
+      showToast(i18n.global.error_server_status_wrong.string .. tostring(l_1_0.status))
+      return 
+    end
+    if callback then
+      callback(l_1_0)
+    end
+   end)
+end
+
+local jsonEncode = bcfg.jsonEncode
+local jsonDecode = bcfg.jsonDecode
+local getPrice = function(l_2_0)
+  local cfgstore = require("config.store")
+  for id,cfg in ipairs(cfgstore) do
+    if id == l_2_0 then
+      return "" .. cfg.priceCn
+    end
+  end
+  return "0"
+end
+
+cfg.init = nil
+cfg.login = function(l_3_0, l_3_1)
+  addWaitNet()
+  SDKHelper:getInstance():login("", function(l_1_0)
+    print("sdklogin\239\188\154", l_1_0)
+    local __data = jsonDecode(l_1_0)
+    if __data and __data.errcode and __data.errcode ~= 0 then
+      delWaitNet()
+      showToast("\231\153\187\229\189\149\229\164\177\232\180\165")
+      schedule(director:getRunningScene(), 1, function()
+        replaceScene(require("ui.login.home").create())
+         end)
+    else
+      local lparams = {playerId = __data.playerId, amigoToken = __data.amigoToken, userId = __data.userId}
+      local jsonstr = jsonEncode(lparams)
+      local nparams = {sid = 0}
+      nparams.jsonStr = jsonstr
+      nparams.platform = "jl"
+      netClient:thirdlogin(nparams, function(l_2_0)
+        tablePrint(l_2_0)
+        delWaitNet()
+        if callback then
+          callback(l_2_0)
+        end
+         end)
+    end
+   end)
+end
+
+cfg.logout = function(l_4_0, l_4_1)
+end
+
+cfg.exit = nil
+cfg.pay = function(l_5_0, l_5_1)
+  local oparams = {productId = l_5_0.productId, type = 9}
+  addWaitNet()
+  getOrder(oparams, function(l_1_0)
+    tablePrint(l_1_0)
+    local netOrder = jsonDecode(l_1_0.order_info)
+    local ucParams = {ourOrderNum = netOrder.out_order_no, submitTime = netOrder.submit_time}
+    local price = getPrice(oparams.productId)
+    require("data.takingdata").onChargeReq(ucParams.ourOrderNum, oparams.productId, price, "CNY", 0, "third")
+    local paramStr = jsonEncode(ucParams)
+    SDKHelper:getInstance():pay(paramStr, function(l_1_0)
+      local tdata = jsonDecode(l_1_0)
+      if not tdata or not tdata.errcode or tdata.errcode ~= 0 then
+        showToast("\230\148\175\228\187\152\231\149\140\233\157\162\232\162\171\229\133\179\233\151\173")
+        if callback then
+          callback()
+        end
+        return 
+      end
+      require("data.takingdata").onChargeSuc(ucParams.ourOrderNum)
+      showToast("\230\148\175\228\187\152\230\136\144\229\138\159.")
+      local gParams = {sid = player.sid, orderid = netOrder.out_order_no or "", appsflyer = HHUtils:getAppsFlyerId(), advertising = HHUtils:getAdvertisingId()}
+      schedule(director:getRunningScene(), 0.5, function()
+        netClient:gpay(gParams, function(l_1_0)
+          tablePrint(l_1_0)
+          delWaitNet()
+          if l_1_0.status ~= 0 then
+            showToast(i18n.global.error_server_status_wrong.string .. tostring(l_1_0.status))
+            return 
+          end
+          if (l_1_0.reward.equips and  l_1_0.reward.equips > 0) or l_1_0.reward.items and  l_1_0.reward.items > 0 then
+            require("data.activity").pay()
+          end
+          if callback then
+            callback(l_1_0.reward)
+          end
+            end)
+         end)
+      end)
+   end)
+end
+
+cfg.submitRoleData = nil
+return cfg
+

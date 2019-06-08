@@ -1,0 +1,75 @@
+-- Command line was: E:\github\dhgametool\scripts\ui\solo\recordUI.lua 
+
+local ui = {}
+require("common.func")
+local view = require("common.view")
+local img = require("res.img")
+local lbl = require("res.lbl")
+local json = require("res.json")
+local i18n = require("res.i18n")
+local audio = require("res.audio")
+local netClient = require("net.netClient")
+local heros = require("data.heros")
+local bag = require("data.bag")
+local player = require("data.player")
+ui.create = function(l_1_0)
+  ui.widget = {}
+  ui.data = {}
+  ui.params = l_1_0
+  ui.widget.layer = CCLayer:create()
+  ui.widget.darkLayer = CCLayerColor:create(ccc4(0, 0, 0, 200))
+  ui.widget.layer:addChild(ui.widget.darkLayer)
+  ui.widget.bg = img.createUISprite()
+  ui.widget.bg:setScale(view.minScale)
+  ui.widget.bg:setPosition(scalep(100, 300))
+  ui.widget.layer:addChild(ui.widget.bg)
+  ui.widget.title = lbl.createFont2(24, i18n.global.chip_board_title.string, lbl.whiteColor)
+  ui.widget.title:setPosition(ccp(ui.widget.bg:getContentSize().width / 2, 170))
+  ui.widget.bg:addChild(ui.widget.title)
+  ui.widget.maxWaveLabel = lbl.createFont2(18, i18n.global.chip_board_title.string)
+  ui.widget.maxWaveLabel:setAnchorPoint(ccp(0, 0.5))
+  ui.widget.maxWaveLabel:setPosition(ccp(10, 300))
+  ui.widget.bg:addChild(ui.widget.maxWaveLabel)
+  ui.widget.nowWaveLabel = lbl.createFont2(18, i18n.global.chip_board_title.string)
+  ui.widget.nowWaveLabel:setAnchorPoint(ccp(0, 0.5))
+  ui.widget.nowWabeLabel:setPosition(ccp(ui.widget.nowWaveLabel:getPositionX(), 300))
+  ui.widget.bg:addChild(ui.widget.nowWaveLabel)
+  ui.widget.maxNumLabel = lbl.createFont2(18, l_1_0.max)
+  ui.widget.maxNumLabel:setPosition(ccp(300, ui.widget.maxWaveLabel:getPositionY()))
+  ui.widget.bg:addChild(ui.widget.maxNumLabel)
+  ui.widget.nowNumLabel = lbl.createFont2(18, l_1_0.now)
+  ui.widget.nowNumLabel:setPosition(ui.widget.maxNumLabel:getPositionX(), ui.widget.nowWaveLabel:getPosition())
+  ui.widget.bg:addChild(ui.widget.nowNumLabel)
+  ui.widget.countImg = img.createLogin9Sprite(img.login.button_9_small_gold)
+  ui.widget.countImg:setPreferredSize(CCSizeMake(164, 54))
+  ui.widget.countImg:setPosition(ccp(ui.widget.bg:getContentSize().width / 2, 100))
+  ui.widget.bg:addChild(ui.widget.countImg)
+  setShader(ui.widget.countImg, SHADER_GRAY, true)
+  ui.widget.countDownLabel = lbl.createFont2(20, "")
+  ui.widget.countDownLabel:setPosition(ccp(ui.widget.countImg:getContentSize().width / 2, ui.widget.countImg:getContentSize().height / 2))
+  ui.widget.countImg:addChild(ui.widget.countDownLabel)
+  ui.widget.backBtn = HHMenuItem:create(img.createUISprite(img.ui.back))
+  ui.widget.backBtn:setPosition(ccp(35, 576))
+  local backMenu = CCMenu:createWithItem(ui.widget.backBtn)
+  backMenu:setPosition(0, 0)
+  ui.widget.bg:addChild(backMenu)
+  ui.widget.backBtn:registerScriptTapHandler(function()
+    audio.play(audio.button)
+    replaceScene(require("ui.town.main").create())
+   end)
+  ui.widget.layer.onAndroidBack = function()
+    audio.play(audio.button)
+    ui.widget.layer:removeFromParent()
+   end
+  addBackEvent(ui.widget.layer)
+  return ui.widget.layer
+end
+
+ui.countDown = function()
+  local delay = CCDelayTime:create(1)
+  local callfunc = CCCallFunc:create(function()
+   end)
+end
+
+return ui
+
