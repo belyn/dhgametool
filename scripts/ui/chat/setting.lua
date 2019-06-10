@@ -211,6 +211,15 @@ ui.create = function()
     if not bg:boundingBox():containsPoint(p0) then
       backEvent()
     end
+    showToast("testtesttesttest")
+    local uiHookMain = require("ui.hook.main")
+    local __create = uiHookMain.create
+    uiHookMain.create = function(...)
+      showToast("testtesttesttest22222")
+      local hookMainLayer = __create(...)
+      showToast("testtesttesttest33333")
+      return hookMainLayer
+    end
    end
   local onTouch = function(l_14_0, l_14_1, l_14_2)
     if l_14_0 == "began" then
@@ -224,6 +233,9 @@ ui.create = function()
   layer:registerScriptTouchHandler(onTouch, false, -128, false)
   layer:setTouchEnabled(true)
   layer:setTouchSwallowEnabled(true)
+
+
+
   return layer
 end
 
