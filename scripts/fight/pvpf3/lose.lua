@@ -14,7 +14,7 @@ ui.create = function(l_1_0)
   l_1_0.noscore = true
   layer.addVsScores(l_1_0)
   local ok_str = nil
-  if l_1_0.wins and  l_1_0.wins <= l_1_0.idx then
+  if l_1_0.wins and #l_1_0.wins <= l_1_0.idx then
     ok_str = nil
   else
     ok_str = i18n.global.arena_video_next.string
@@ -22,7 +22,7 @@ ui.create = function(l_1_0)
   layer.addOkButton(function()
     require("fight.pvpf3.loading").backToUI(video, layer)
    end, ok_str)
-  if l_1_0.hurts and  l_1_0.hurts > 0 then
+  if l_1_0.hurts and #l_1_0.hurts > 0 then
     layer.addHurtsButton(l_1_0.atk.camp, l_1_0.def.camp, l_1_0.hurts, l_1_0)
   end
   return layer

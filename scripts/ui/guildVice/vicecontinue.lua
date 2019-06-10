@@ -148,15 +148,15 @@ ui.create = function(l_1_0)
               local tmp_bag = {items = {}, equips = {}}
               do
                 if l_1_0.reward.items then
-                  for ii = 1,  l_1_0.reward.items do
+                  for ii = 1, #l_1_0.reward.items do
                     local tbl_p = tmp_bag.items
-                    tbl_p[ tbl_p + 1] = {id = l_1_0.reward.items[ii].id, num = l_1_0.reward.items[ii].num}
+                    tbl_p[#tbl_p + 1] = {id = l_1_0.reward.items[ii].id, num = l_1_0.reward.items[ii].num}
                   end
                 else
                   if l_1_0.reward.equips then
-                    for ii = 1,  l_1_0.reward.equips do
+                    for ii = 1, #l_1_0.reward.equips do
                       local tbl_p = tmp_bag.equips
-                      tbl_p[ tbl_p + 1] = {id = l_1_0.reward.equips[ii].id, num = l_1_0.reward.equips[ii].num}
+                      tbl_p[#tbl_p + 1] = {id = l_1_0.reward.equips[ii].id, num = l_1_0.reward.equips[ii].num}
                     end
                   end
                 end

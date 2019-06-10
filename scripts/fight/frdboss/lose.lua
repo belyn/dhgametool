@@ -86,10 +86,10 @@ ui.create = function(l_1_0)
     require("fight.frdboss.loading").backToUI(video)
    end)
   end
-  if l_1_0.hurts and  l_1_0.hurts > 0 then
+  if l_1_0.hurts and #l_1_0.hurts > 0 then
     local camp = {}
     for i,m in ipairs(cfg.monster) do
-      camp[ camp + 1] = {kind = "mons", id = m, pos = cfg.stand[i]}
+      camp[#camp + 1] = {kind = "mons", id = m, pos = cfg.stand[i]}
     end
     layer.addHurtsButton(l_1_0.camp, camp, l_1_0.hurts, l_1_0)
     require("fight.frdboss.win").addScoreAndHurtsSum(layer, l_1_0.hurts, cfg)

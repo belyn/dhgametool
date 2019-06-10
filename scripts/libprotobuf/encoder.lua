@@ -64,7 +64,7 @@ _SimpleSizer = function(l_4_0)
       end
     elseif l_1_1 then
       return function(l_2_0)
-      local result = tag_size *  l_2_0
+      local result = tag_size * #l_2_0
       for _,element in ipairs(l_2_0) do
         result = result + compute_value_size(element)
       end
@@ -94,7 +94,7 @@ _ModifiedSizer = function(l_5_0, l_5_1)
       end
     elseif l_1_1 then
       return function(l_2_0)
-      local result = tag_size *  l_2_0
+      local result = tag_size * #l_2_0
       for _,element in ipairs(l_2_0) do
         result = result + compute_value_size(modify_value(element))
       end
@@ -115,14 +115,14 @@ _FixedSizer = function(l_6_0)
       local VarintSize = _VarintSize
       do
         return function(l_1_0)
-          local result =  l_1_0 * value_size
+          local result = #l_1_0 * value_size
           return result + VarintSize(result) + tag_size
             end
       end
     elseif l_1_1 then
       local element_size = value_size + tag_size
       return function(l_2_0)
-        return  l_2_0 * element_size
+        return #l_2_0 * element_size
          end
     else
       local field_size = value_size + tag_size
@@ -150,19 +150,19 @@ BoolSizer = _FixedSizer(1)
 StringSizer = function(l_7_0, l_7_1, l_7_2)
   local tag_size = _TagSize(l_7_0)
   local VarintSize = _VarintSize
-  assert(#l_7_2)
+  assert( l_7_2)
   if l_7_1 then
     return function(l_1_0)
-    local result = tag_size *  l_1_0
+    local result = tag_size * #l_1_0
     for _,element in ipairs(l_1_0) do
-      local l =  element
+      local l = #element
       result = result + VarintSize(l) + l
     end
     return result
    end
   else
     return function(l_2_0)
-    local l =  l_2_0
+    local l = #l_2_0
     return tag_size + VarintSize(l) + l
    end
   end
@@ -171,19 +171,19 @@ end
 BytesSizer = function(l_8_0, l_8_1, l_8_2)
   local tag_size = _TagSize(l_8_0)
   local VarintSize = _VarintSize
-  assert(#l_8_2)
+  assert( l_8_2)
   if l_8_1 then
     return function(l_1_0)
-    local result = tag_size *  l_1_0
+    local result = tag_size * #l_1_0
     for _,element in ipairs(l_1_0) do
-      local l =  element
+      local l = #element
       result = result + VarintSize(l) + l
     end
     return result
    end
   else
     return function(l_2_0)
-    local l =  l_2_0
+    local l = #l_2_0
     return tag_size + VarintSize(l) + l
    end
   end
@@ -192,10 +192,10 @@ end
 MessageSizer = function(l_9_0, l_9_1, l_9_2)
   local tag_size = _TagSize(l_9_0)
   local VarintSize = _VarintSize
-  assert(#l_9_2)
+  assert( l_9_2)
   if l_9_1 then
     return function(l_1_0)
-    local result = tag_size *  l_1_0
+    local result = tag_size * #l_1_0
     for _,element in ipairs(l_1_0) do
       local l = element:ByteSize()
       result = result + VarintSize(l) + l
@@ -215,7 +215,7 @@ local _EncodeSignedVarint = pb.signed_varint_encoder
 _VarintBytes = function(l_10_0)
   local out = {}
   local write = function(l_1_0)
-    out[ out + 1] = l_1_0
+    out[#out + 1] = l_1_0
    end
   _EncodeSignedVarint(write, l_10_0)
   return table.concat(out)
@@ -306,7 +306,7 @@ _StructPackEncoder = function(l_14_0, l_14_1, l_14_2)
         local EncodeVarint = _EncodeVarint
         return function(l_1_0, l_1_1)
           l_1_0(tag_bytes)
-          EncodeVarint(l_1_0,  l_1_1 * value_size)
+          EncodeVarint(l_1_0, #l_1_1 * value_size)
           for _,element in ipairs(l_1_1) do
             struct_pack(l_1_0, format, element)
           end
@@ -352,7 +352,7 @@ BoolEncoder = function(l_15_0, l_15_1, l_15_2)
       local EncodeVarint = _EncodeVarint
       return function(l_1_0, l_1_1)
         l_1_0(tag_bytes)
-        EncodeVarint(l_1_0,  l_1_1)
+        EncodeVarint(l_1_0, #l_1_1)
         for _,element in ipairs(l_1_1) do
           if element then
             l_1_0(true_byte)
@@ -393,19 +393,19 @@ end
 StringEncoder = function(l_16_0, l_16_1, l_16_2)
   local tag = TagBytes(l_16_0, wire_format.WIRETYPE_LENGTH_DELIMITED)
   local EncodeVarint = _EncodeVarint
-  assert(#l_16_2)
+  assert( l_16_2)
   if l_16_1 then
     return function(l_1_0, l_1_1)
     for _,element in ipairs(l_1_1) do
       l_1_0(tag)
-      EncodeVarint(l_1_0,  element)
+      EncodeVarint(l_1_0, #element)
       l_1_0(element)
     end
    end
   else
     return function(l_2_0, l_2_1)
     l_2_0(tag)
-    EncodeVarint(l_2_0,  l_2_1)
+    EncodeVarint(l_2_0, #l_2_1)
     return l_2_0(l_2_1)
    end
   end
@@ -414,19 +414,19 @@ end
 BytesEncoder = function(l_17_0, l_17_1, l_17_2)
   local tag = TagBytes(l_17_0, wire_format.WIRETYPE_LENGTH_DELIMITED)
   local EncodeVarint = _EncodeVarint
-  assert(#l_17_2)
+  assert( l_17_2)
   if l_17_1 then
     return function(l_1_0, l_1_1)
     for _,element in ipairs(l_1_1) do
       l_1_0(tag)
-      EncodeVarint(l_1_0,  element)
+      EncodeVarint(l_1_0, #element)
       l_1_0(element)
     end
    end
   else
     return function(l_2_0, l_2_1)
     l_2_0(tag)
-    EncodeVarint(l_2_0,  l_2_1)
+    EncodeVarint(l_2_0, #l_2_1)
     return l_2_0(l_2_1)
    end
   end
@@ -435,7 +435,7 @@ end
 MessageEncoder = function(l_18_0, l_18_1, l_18_2)
   local tag = TagBytes(l_18_0, wire_format.WIRETYPE_LENGTH_DELIMITED)
   local EncodeVarint = _EncodeVarint
-  assert(#l_18_2)
+  assert( l_18_2)
   if l_18_1 then
     return function(l_1_0, l_1_1)
     for _,element in ipairs(l_1_1) do

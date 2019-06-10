@@ -21,7 +21,7 @@ ui.create = function()
   local model = "normal"
   local stageId = trial.stage or 1
   local st = math.max(1, stageId - 7)
-  local ed = math.min(stageId + 8,  cfgwave)
+  local ed = math.min(stageId + 8, #cfgwave)
   if ed - st < 15 then
     st = math.max(1, ed - 15)
   end
@@ -116,14 +116,14 @@ ui.create = function()
     showMogu:addChild(mogu)
   end
   local showStageLayer = nil
-  if stageId <=  cfgwave then
+  if stageId <= #cfgwave then
     showStageLayer = require("ui.trial.stage").create(stageId, layer)
     board:addChildFollowSlot("code_font", showStageLayer)
     showStageLayer:setVisible(false)
   end
-  showUpdateLayer:setPositionY((st - math.min(stageId,  cfgwave)) * 200)
-  showMogu:setPositionY((st - math.min(stageId,  cfgwave)) * 200)
-  for i = 1,  floor do
+  showUpdateLayer:setPositionY((st - math.min(stageId, #cfgwave)) * 200)
+  showMogu:setPositionY((st - math.min(stageId, #cfgwave)) * 200)
+  for i = 1, #floor do
     local idx = i + st - 1
     if ed < idx then
       floor[i]:playAnimation("forg", -1)
@@ -234,7 +234,7 @@ ui.create = function()
       return 
     end
     for i,v in ipairs(floor) do
-      if v:getAabbBoundingBox():containsPoint(ccp(l_7_0, l_7_1)) and i + st - 1 == stageId and stageId <=  cfgwave then
+      if v:getAabbBoundingBox():containsPoint(ccp(l_7_0, l_7_1)) and i + st - 1 == stageId and stageId <= #cfgwave then
         audio.play(audio.trial_chain)
         layer:setTouchEnabled(false)
         upvalue_4096 = "stage"

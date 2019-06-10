@@ -37,16 +37,16 @@ ui.create = function(l_1_0)
   if l_1_0.items then
     for i,v in ipairs(l_1_0.items) do
       do
-        items[ items + 1] = {type = 1, id = v.id, num = v.num}
+        items[#items + 1] = {type = 1, id = v.id, num = v.num}
       end
     end
   end
   if l_1_0.equips then
     for i,v in ipairs(l_1_0.equips) do
-      items[ items + 1] = {type = 2, id = v.id, num = v.num}
+      items[#items + 1] = {type = 2, id = v.id, num = v.num}
     end
   end
-  local offset = dialog.board:getContentSize().width / 2 - 45 *  items + 4
+  local offset = dialog.board:getContentSize().width / 2 - 45 * #items + 4
   for i,v in ipairs(items) do
     local item = nil
     if v.type == 1 then

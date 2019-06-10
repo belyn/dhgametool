@@ -97,7 +97,7 @@ ui.create = function()
   local createHeroList = function()
     local SCROLLVIEW_WIDTH = 943
     local SCROLLVIEW_HEIGHT = 112
-    local SCROLLCONTENT_WIDTH =  herolist * 90 + 8
+    local SCROLLCONTENT_WIDTH = #herolist * 90 + 8
     upvalue_512 = CCScrollView:create()
     scroll:setDirection(kCCScrollViewDirectionHorizontal)
     scroll:setAnchorPoint(ccp(0, 0))
@@ -115,7 +115,7 @@ ui.create = function()
     scroll:getContainer():addChild(blackBatch, 4)
     selectBatch = img.createBatchNodeForUI(img.ui.hook_btn_sel)
     scroll:getContainer():addChild(selectBatch, 5)
-    for i = 1,  herolist do
+    for i = 1, #herolist do
       local x, y = 45 + (i - 1) * 90 + 8, 56
       local heroBg = img.createUISprite(img.ui.herolist_head_bg)
       heroBg:setScale(0.92)

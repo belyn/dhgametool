@@ -17,7 +17,7 @@ ui.cost = function(l_1_0)
   local hasBuy = sealLandData:getBuySweepTimes()
   local all = 0
   local count = 0
-  for i = hasBuy + 1,  COST_GEM do
+  for i = hasBuy + 1, #COST_GEM do
     if l_1_0 <= count then
       do return end
     end

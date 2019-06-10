@@ -37,7 +37,7 @@ ui.create = function(l_1_0)
   board:addChild(showTitleShade)
   local teamnum = 0
   if mbrs then
-    teamnum =  mbrs
+    teamnum = #mbrs
   end
   local createinfoScroll, scroll = nil, nil
   local createItem = function(l_1_0)
@@ -151,12 +151,12 @@ ui.create = function(l_1_0)
       scroll:setAnchorPoint(CCPoint(0, 0))
       scroll:setPosition(CCPoint(42, 50))
       board:addChild(scroll)
-      for ii = 1,  mbrs do
+      for ii = 1, #mbrs do
         local tmp_item = createItem(ii)
         tmp_item.ax = 0.5
         tmp_item.px = 281
         scroll.addItem(tmp_item)
-        if ii ~=  mbrs then
+        if ii ~= #mbrs then
           scroll.addSpace(space_height)
         end
       end

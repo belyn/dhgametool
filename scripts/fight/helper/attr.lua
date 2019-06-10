@@ -18,7 +18,7 @@ helper.jobBuff = function(l_1_0)
 end
 
 helper.init = function()
-  if  isPercent == 0 then
+  if #isPercent == 0 then
     for _,name in ipairs(names) do
       local id = buffname2id(name)
       if cfgbuff[id].isPercent == 2 then
@@ -59,7 +59,7 @@ helper.attr = function(l_3_0, l_3_1, l_3_2, l_3_3, l_3_4)
   local addAttr = function(l_1_0, l_1_1)
     if isPercent[l_1_0] then
       if extra[l_1_0] then
-        extra[l_1_0][ extra[l_1_0] + 1] = l_1_1
+        extra[l_1_0][#extra[l_1_0] + 1] = l_1_1
       else
         extra[l_1_0] = {l_1_1}
       end
@@ -70,11 +70,11 @@ helper.attr = function(l_3_0, l_3_1, l_3_2, l_3_3, l_3_4)
   if l_3_3 and l_3_3 > 4 then
     local talenAttr = cfgtalen[l_3_3 - 4].base
     if talenAttr then
-      for i = 1,  talenAttr do
+      for i = 1, #talenAttr do
         addAttr(talenAttr[i].type, talenAttr[i].num)
       end
     end
-    for i = 1,  cfgtalen[l_3_3 - 4].talenSkills do
+    for i = 1, #cfgtalen[l_3_3 - 4].talenSkills do
       local pasSkill = cfgtalen[l_3_3 - 4].talenSkills[i]
       if cfgskill[pasSkill].trigger == 23 then
         for _,b in ipairs(cfgskill[pasSkill].effect) do
@@ -118,7 +118,7 @@ helper.attr = function(l_3_0, l_3_1, l_3_2, l_3_3, l_3_4)
             suit.num = suit.num + 1
             for _,id in (for generator) do
             end
-            suits[ suits + 1] = {form = cfg.form, id = id, num = 1}
+            suits[#suits + 1] = {form = cfg.form, id = id, num = 1}
           end
         end
         for _,suit in ipairs(suits) do
@@ -142,10 +142,10 @@ helper.attr = function(l_3_0, l_3_1, l_3_2, l_3_3, l_3_4)
         return n
          end
       local calGskill = function()
-        for ii = 1,  gskillData.jobs[cfg.job] do
+        for ii = 1, #gskillData.jobs[cfg.job] do
           local effects = gskillData.getBuffsEffects(gskillData.jobs[cfg.job][ii])
           if effects then
-            for jj = 1,  effects do
+            for jj = 1, #effects do
               addAttr(jobBuff[effects[jj].type], effects[jj].num)
             end
           end

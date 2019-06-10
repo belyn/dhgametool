@@ -112,7 +112,7 @@ ui.create = function(l_2_0)
   board:setPosition(scalep(467, 272))
   layer:addChild(board)
   local vipLv = player.vipLv() or 0
-  local heroNumLab = lbl.createFont1(16,  heros .. "/" .. cfgvip[vipLv].heroes + player.buy_hlimit * 5, ccc3(112, 54, 25))
+  local heroNumLab = lbl.createFont1(16, #heros .. "/" .. cfgvip[vipLv].heroes + player.buy_hlimit * 5, ccc3(112, 54, 25))
   heroNumLab:setPosition(110, 472)
   board:addChild(heroNumLab)
   local btnAdd0 = img.createUISprite(img.ui.main_icon_plus)
@@ -135,11 +135,11 @@ ui.create = function(l_2_0)
           tbl2string(l_1_0)
           bag.subGem(cfgherBag[player.buy_hlimit + 1].cost)
           player.buy_hlimit = player.buy_hlimit + 1
-          heroNumLab:setString( heros .. "/" .. cfgvip[vipLv].heroes + player.buy_hlimit * 5)
+          heroNumLab:setString(#heros .. "/" .. cfgvip[vipLv].heroes + player.buy_hlimit * 5)
             end)
       end
       end
-    if  cfgherBag <= player.buy_hlimit then
+    if #cfgherBag <= player.buy_hlimit then
       showToast(i18n.global.toast_buy_herolist_full.string)
     else
       local pr = {title = "", text = string.format(i18n.global.herolist_buynum_text.string, cfgherBag[player.buy_hlimit + 1].cost, 5), handle = onAdd, scale = true}
@@ -308,7 +308,7 @@ ui.create = function(l_2_0)
     local layer = CCLayer:create()
     local SCROLLVIEW_WIDTH = 710
     local SCROLLVIEW_HEIGHT = 411
-    local SCROLLCONTENT_HEIGHT = 23 + 101 * math.ceil( l_8_0 / 7)
+    local SCROLLCONTENT_HEIGHT = 23 + 101 * math.ceil(#l_8_0 / 7)
     local scroll = CCScrollView:create()
     scroll:setDirection(kCCScrollViewDirectionVertical)
     scroll:setAnchorPoint(ccp(0, 0))
@@ -405,7 +405,7 @@ ui.create = function(l_2_0)
       end
       createItem(i, v)
     end
-    local heroCount =  l_8_0
+    local heroCount = #l_8_0
     local showAfter = function()
       if initShowCount < heroCount then
         initShowCount = initShowCount + 1
@@ -472,22 +472,22 @@ ui.create = function(l_2_0)
     if model == "Hero" then
       for _,v in ipairs(heros) do
         if not group or cfghero[v.id].group == group then
-          herolist[ herolist + 1] = {hid = v.hid, id = v.id, lv = v.lv, star = v.star, wake = v.wake}
+          herolist[#herolist + 1] = {hid = v.hid, id = v.id, lv = v.lv, star = v.star, wake = v.wake}
         end
       end
       btnSort:setVisible(true)
       heroNumLab:setVisible(true)
       if sortType == "Level" then
-        for i = 1,  herolist do
-          for j = i + 1,  herolist do
+        for i = 1, #herolist do
+          for j = i + 1, #herolist do
             if herolist[i].lv < herolist[j].lv then
               herolist[i], herolist[j] = herolist[j], herolist[i]
             end
           end
         end
       elseif sortType == "Star" then
-        for i = 1,  herolist do
-          for j = i + 1,  herolist do
+        for i = 1, #herolist do
+          for j = i + 1, #herolist do
             if cfghero[herolist[i].id].qlt < cfghero[herolist[j].id].qlt then
               herolist[i], herolist[j] = herolist[j], herolist[i]
             end
@@ -509,11 +509,11 @@ ui.create = function(l_2_0)
     end
     for _,v in pairs(cfghero) do
       if v.showInGuide > 0 and (not group or v.group == group) then
-        herolist[ herolist + 1] = {id = _, lv = cfghero[_].maxLv}
+        herolist[#herolist + 1] = {id = _, lv = cfghero[_].maxLv}
       end
     end
-    for i = 1,  herolist do
-      for j = i + 1,  herolist do
+    for i = 1, #herolist do
+      for j = i + 1, #herolist do
         if herolist[j].id < herolist[i].id then
           herolist[i], herolist[j] = herolist[j], herolist[i]
         end
@@ -521,9 +521,9 @@ ui.create = function(l_2_0)
     end
     do
       local herobook = require("data.herobook")
-      for i = 1,  herolist do
+      for i = 1, #herolist do
         herolist[i].isHave = false
-        for j = 1,  herobook do
+        for j = 1, #herobook do
           if herolist[i].id == herobook[j] then
             herolist[i].isHave = true
           end

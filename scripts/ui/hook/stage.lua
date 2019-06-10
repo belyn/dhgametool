@@ -176,7 +176,7 @@ ui.create = function(l_1_0)
     arrayclear(items)
     content_layer:removeAllChildrenWithCleanup(true)
     local height = 0
-    for ii = 1,  cfgpoker[_stage_id].yes do
+    for ii = 1, #cfgpoker[_stage_id].yes do
       local tmp_objs = cfgpoker[_stage_id].yes
       local tmp_itemObj = {id = tmp_objs[ii].id, type = tmp_objs[ii].type}
       local tmp_item = createItem(tmp_itemObj)
@@ -185,13 +185,13 @@ ui.create = function(l_1_0)
       local pos_y = item_offset_y + item_step_y * (math.floor((ii + row_count - 1) / row_count) - 1)
       tmp_item:setPosition(CCPoint(pos_x, 0 - pos_y))
       content_layer:addChild(tmp_item)
-      items[ items + 1] = tmp_item
+      items[#items + 1] = tmp_item
       height = pos_y + 47
     end
     if hookdata.extra then
-      local tpos =  cfgpoker[_stage_id].yes
+      local tpos = #cfgpoker[_stage_id].yes
       if hookdata.extra.equips then
-        for ii = tpos + 1, tpos +  hookdata.extra.equips do
+        for ii = tpos + 1, tpos + #hookdata.extra.equips do
           local tmp_objs = hookdata.extra.equips
           local tmp_itemObj = {id = tmp_objs[ii - tpos].id, type = 2}
           local tmp_item = createItem(tmp_itemObj)
@@ -200,13 +200,13 @@ ui.create = function(l_1_0)
           local pos_y = item_offset_y + item_step_y * (math.floor((ii + row_count - 1) / row_count) - 1)
           tmp_item:setPosition(CCPoint(pos_x, 0 - pos_y))
           content_layer:addChild(tmp_item)
-          items[ items + 1] = tmp_item
+          items[#items + 1] = tmp_item
           height = pos_y + 47
         end
-        tpos = tpos +  hookdata.extra.equips
+        tpos = tpos + #hookdata.extra.equips
       end
       if hookdata.extra.items then
-        for ii = tpos + 1, tpos +  hookdata.extra.items do
+        for ii = tpos + 1, tpos + #hookdata.extra.items do
           local tmp_objs = hookdata.extra.items
           local tmp_itemObj = {id = tmp_objs[ii - (tpos)].id, type = 1}
           local tmp_item = createItem(tmp_itemObj)
@@ -215,7 +215,7 @@ ui.create = function(l_1_0)
           local pos_y = item_offset_y + item_step_y * (math.floor((ii + row_count - 1) / row_count) - 1)
           tmp_item:setPosition(CCPoint(pos_x, 0 - pos_y))
           content_layer:addChild(tmp_item)
-          items[ items + 1] = tmp_item
+          items[#items + 1] = tmp_item
           height = pos_y + 47
         end
       end
@@ -246,7 +246,7 @@ ui.create = function(l_1_0)
     upvalue_1024 = true
     if scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_6_0, l_6_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           playAnimTouchBegin(items[ii])
           upvalue_3072 = items[ii]
@@ -272,7 +272,7 @@ ui.create = function(l_1_0)
     end
     if isclick and scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_8_0, l_8_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           audio.play(audio.button)
           onClickItem(items[ii])

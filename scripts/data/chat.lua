@@ -43,34 +43,34 @@ chat.send = function(l_6_0, l_6_1)
 end
 
 chat.showRedDot = function()
-  if  chat.world.new_msgs > 0 then
+  if #chat.world.new_msgs > 0 then
     return true
   end
-  if  chat.guild.new_msgs > 0 then
+  if #chat.guild.new_msgs > 0 then
     return true
   end
-  if  chat.recruit.new_msgs > 0 then
+  if #chat.recruit.new_msgs > 0 then
     return true
   end
   return false
 end
 
 chat.showRedDotForWorld = function()
-  if  chat.world.new_msgs > 0 then
+  if #chat.world.new_msgs > 0 then
     return true
   end
   return false
 end
 
 chat.showRedDotForGuild = function()
-  if  chat.guild.new_msgs > 0 then
+  if #chat.guild.new_msgs > 0 then
     return true
   end
   return false
 end
 
 chat.showRedDotForRecruit = function()
-  if  chat.recruit.new_msgs > 0 then
+  if #chat.recruit.new_msgs > 0 then
     return true
   end
   return false
@@ -88,7 +88,7 @@ chat.world.add = function(l_12_0)
   if not chat.world then
     chat.world = {}
   end
-  chat.world[ chat.world + 1] = l_12_0
+  chat.world[#chat.world + 1] = l_12_0
   table.sort(chat.world, msgSort)
 end
 
@@ -96,7 +96,7 @@ chat.guild.add = function(l_13_0)
   if not chat.guild then
     chat.guild = {}
   end
-  chat.guild[ chat.guild + 1] = l_13_0
+  chat.guild[#chat.guild + 1] = l_13_0
   table.sort(chat.guild, msgSort)
 end
 
@@ -104,12 +104,12 @@ chat.recruit.add = function(l_14_0)
   if not chat.recruit then
     chat.recruit = {}
   end
-  chat.recruit[ chat.recruit + 1] = l_14_0
+  chat.recruit[#chat.recruit + 1] = l_14_0
   table.sort(chat.recruit, msgSort)
 end
 
 chat.delOld = function(l_15_0)
-  if  l_15_0 >= 60 then
+  if #l_15_0 >= 60 then
     for ii = 1, 30 do
       table.remove(l_15_0, 1)
     end
@@ -120,7 +120,7 @@ chat.addMsg = function(l_16_0, l_16_1)
   if not l_16_0 then
     l_16_0 = {}
   end
-  l_16_0[ l_16_0 + 1] = l_16_1
+  l_16_0[#l_16_0 + 1] = l_16_1
   chat.delOld(l_16_0)
   table.sort(l_16_0, msgSort)
 end
@@ -138,7 +138,7 @@ chat.getRecruitMsg = function()
 end
 
 chat.fetchWorldMsg = function()
-  if  chat.world.new_msgs <= 0 then
+  if #chat.world.new_msgs <= 0 then
     return nil
   end
   local tmp_obj = chat.world.new_msgs[1]
@@ -148,7 +148,7 @@ chat.fetchWorldMsg = function()
 end
 
 chat.fetchGuildMsg = function()
-  if  chat.guild.new_msgs <= 0 then
+  if #chat.guild.new_msgs <= 0 then
     return nil
   end
   local tmp_obj = chat.guild.new_msgs[1]
@@ -158,7 +158,7 @@ chat.fetchGuildMsg = function()
 end
 
 chat.fetchRecruitMsg = function()
-  if  chat.recruit.new_msgs <= 0 then
+  if #chat.recruit.new_msgs <= 0 then
     return nil
   end
   local tmp_obj = chat.recruit.new_msgs[1]
@@ -184,10 +184,10 @@ local onMsg = function(l_23_0)
 end
 
 chat.addMsgs = function(l_24_0)
-  if not l_24_0 or  l_24_0 == 0 then
+  if not l_24_0 or #l_24_0 == 0 then
     return 
   end
-  for ii = 1,  l_24_0 do
+  for ii = 1, #l_24_0 do
     onMsg(l_24_0[ii])
   end
 end

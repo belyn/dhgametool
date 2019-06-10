@@ -59,7 +59,7 @@ EditorAttributeNode.initUI = function(l_7_0)
   container:setContentSize(cc.size(width, height))
   local nodeInfoAry = l_7_0.selectedInfo.nodeInfoAry
   local specifyNode = nil
-  if  l_7_0.selectedInfo.nodeInfoAry == 1 then
+  if #l_7_0.selectedInfo.nodeInfoAry == 1 then
     specifyNode = nodeInfoAry[1].node
   end
   l_7_0:fixBaseAttributeNodePos(true)
@@ -612,7 +612,7 @@ EditorAttributeNode.fixBaseAttributeNodePos = function(l_10_0, l_10_1)
   local height = container:getContentSize().height
   local nodeInfoAry = l_10_0.selectedInfo.nodeInfoAry
   local specifyNode = nil
-  if  l_10_0.selectedInfo.nodeInfoAry == 1 then
+  if #l_10_0.selectedInfo.nodeInfoAry == 1 then
     specifyNode = nodeInfoAry[1].node
     local contentSize = specifyNode:getContentSize()
     local pos1 = specifyNode:convertToWorldSpace(cc.p(0, 0))

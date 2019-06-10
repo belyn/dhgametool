@@ -39,8 +39,8 @@ ui.create = function(l_1_0, l_1_1)
   tabEnemy:setPosition(board:getContentSize().width / 2, 404)
   board:addChild(tabEnemy)
   local mons = cfgwave[l_1_0].trial
-  local offset = 485 -  mons * 44
-  for i = 1,  mons do
+  local offset = 485 - #mons * 44
+  for i = 1, #mons do
     print(mons[i])
     local info = cfgmonster[mons[i]]
     local head = nil
@@ -58,8 +58,8 @@ ui.create = function(l_1_0, l_1_1)
   end
   local rewards = cfgwave[l_1_0].reward
   local showRewards = {}
-  offset = 470 -  rewards * 33
-  for i = 1,  rewards do
+  offset = 470 - #rewards * 33
+  for i = 1, #rewards do
     local showRewardsSp = nil
     if rewards[i].type == 1 then
       showRewardsSp = img.createItem(rewards[i].id, rewards[i].num)

@@ -14,7 +14,7 @@ activitylimit.init = function(l_1_0)
   activitylimit_data = l_1_0.status
   activitylimit.pull_time = os.time()
   if activitylimit_data then
-    for ii = 1,  activitylimit_data do
+    for ii = 1, #activitylimit_data do
       if activitylimit_data[ii].id <= 3 then
         do return end
       end
@@ -27,8 +27,8 @@ end
 
 activitylimit.showLimit = function()
   local activity = require("data.activity")
-  if activitylimit_data and  activitylimit_data > 0 then
-    for i = 1,  activitylimit_data do
+  if activitylimit_data and #activitylimit_data > 0 then
+    for i = 1, #activitylimit_data do
       if activitylimit_data[i].status == 0 then
         return true
       end
@@ -105,7 +105,7 @@ activitylimit.addlimitAct = function(l_3_0)
   if not activitylimit_data then
     activitylimit_data = {}
   end
-  for i = 1,  activitylimit_data do
+  for i = 1, #activitylimit_data do
     if activitylimit_data[i] == l_3_0 then
       return 
     end
@@ -114,7 +114,7 @@ activitylimit.addlimitAct = function(l_3_0)
       return 
     end
   end
-  activitylimit_data[ activitylimit_data + 1] = l_3_0
+  activitylimit_data[#activitylimit_data + 1] = l_3_0
 end
 
 activitylimit.GradeNotice = function(l_4_0)
@@ -202,7 +202,7 @@ activitylimit.getStatusById = function(l_7_0)
   if not activitylimit_data then
     return nil
   end
-  for ii = 1,  activitylimit_data do
+  for ii = 1, #activitylimit_data do
     if activitylimit_data[ii].id == l_7_0 then
       return activitylimit_data[ii]
     end
@@ -211,8 +211,8 @@ activitylimit.getStatusById = function(l_7_0)
 end
 
 activitylimit.showRedDot = function()
-  if activitylimit_data and  activitylimit_data > 0 then
-    for i = 1,  activitylimit_data do
+  if activitylimit_data and #activitylimit_data > 0 then
+    for i = 1, #activitylimit_data do
       if activitylimit_data[i].read == 0 then
         return true
       end
@@ -229,7 +229,7 @@ activitylimit.getPullIds = function()
   local ids = {}
   for _,info in pairs(activitylimit.IDS) do
     if info.pull then
-      ids[ ids + 1] = info.ID
+      ids[#ids + 1] = info.ID
     end
   end
   return ids
@@ -257,10 +257,10 @@ activitylimit.anyNew = function()
   if shopData.showRedDot() then
     return true
   end
-  if not activitylimit_data or  activitylimit_data == 0 then
+  if not activitylimit_data or #activitylimit_data == 0 then
     return false
   end
-  for ii = 1,  activitylimit_data do
+  for ii = 1, #activitylimit_data do
     if activitylimit_data[ii].read and activitylimit_data[ii].read == 0 then
       return true
     end

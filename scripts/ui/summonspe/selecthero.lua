@@ -20,7 +20,7 @@ ui.create = function(l_1_0)
     local tmpheros = clone(heros)
     for i,v in ipairs(tmpheros) do
       if cfghero[v.id].qlt > 3 and cfghero[v.id].qlt < 6 and cfghero[v.id].group < 5 and (group == 0 or cfghero[v.id].group == group) then
-        herolist[ herolist + 1] = {hid = v.hid, id = v.id, lv = v.lv, star = v.star, flag = v.flag}
+        herolist[#herolist + 1] = {hid = v.hid, id = v.id, lv = v.lv, star = v.star, flag = v.flag}
       end
     end
     table.sort(herolist, compareHero)
@@ -34,7 +34,7 @@ ui.create = function(l_1_0)
   layer:addChild(herolistBg)
   local SCROLLVIEW_WIDTH = 793
   local SCROLLVIEW_HEIGHT = 112
-  local SCROLLCONTENT_WIDTH =  herolist * 90 + 8
+  local SCROLLCONTENT_WIDTH = #herolist * 90 + 8
   local scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionHorizontal)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -64,7 +64,7 @@ ui.create = function(l_1_0)
   local createHerolist = function()
     showHeroLayer:removeAllChildrenWithCleanup(true)
     arrayclear(headIcons)
-    scroll:setContentSize(CCSizeMake( herolist * 90 + 8, SCROLLVIEW_HEIGHT))
+    scroll:setContentSize(CCSizeMake(#herolist * 90 + 8, SCROLLVIEW_HEIGHT))
     scroll:setContentOffset(ccp(0, 0))
     local iconBgBatch = img.createBatchNodeForUI(img.ui.herolist_head_bg)
     showHeroLayer:addChild(iconBgBatch, 1)
@@ -80,7 +80,7 @@ ui.create = function(l_1_0)
     showHeroLayer:addChild(selectBatch, 5)
     local lockBatch = img.createBatchNodeForUI(img.ui.devour_icon_lock)
     showHeroLayer:addChild(lockBatch, 6)
-    for i = 1,  herolist do
+    for i = 1, #herolist do
       local x, y = 45 + (i - 1) * 90 + 8, 56
       local heroBg = img.createUISprite(img.ui.herolist_head_bg)
       heroBg:setScale(0.92)

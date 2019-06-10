@@ -62,7 +62,7 @@ ui.create = function()
       if guildmill.order then
         guildmill.sortOrder()
         upvalue_512 = isorder()
-        upvalue_1536 = lbl.createMixFont1(16, string.format(i18n.global.gmill_order_tasknum.string,  guildmill.order), ccc3(78, 52, 32))
+        upvalue_1536 = lbl.createMixFont1(16, string.format(i18n.global.gmill_order_tasknum.string, #guildmill.order), ccc3(78, 52, 32))
         orderTasklab:setAnchorPoint(0, 0.5)
         orderTasklab:setPosition(CCPoint(50, 410))
         layer:addChild(orderTasklab)
@@ -80,15 +80,15 @@ ui.create = function()
         local tmp_bag = {items = {}, equips = {}}
         do
           if l_1_0.rewards[1].items then
-            for ii = 1,  l_1_0.rewards[1].items do
+            for ii = 1, #l_1_0.rewards[1].items do
               local tbl_p = tmp_bag.items
-              tbl_p[ tbl_p + 1] = {id = l_1_0.rewards[1].items[ii].id, num = l_1_0.rewards[1].items[ii].num}
+              tbl_p[#tbl_p + 1] = {id = l_1_0.rewards[1].items[ii].id, num = l_1_0.rewards[1].items[ii].num}
             end
           else
             if l_1_0.rewards[1].equips then
-              for ii = 1,  l_1_0.rewards[1].equips do
+              for ii = 1, #l_1_0.rewards[1].equips do
                 local tbl_p = tmp_bag.equips
-                tbl_p[ tbl_p + 1] = {id = l_1_0.rewards[1].equips[ii].id, num = l_1_0.rewards[1].equips[ii].num}
+                tbl_p[#tbl_p + 1] = {id = l_1_0.rewards[1].equips[ii].id, num = l_1_0.rewards[1].equips[ii].num}
               end
             end
           end
@@ -139,7 +139,7 @@ ui.create = function()
       recvorderBtn:setEnabled(false)
       if guildmill.pull_ocd_time == nil then
         guildmill.pull_ocd_time = {}
-        for i = 1,  guildmill.order do
+        for i = 1, #guildmill.order do
           guildmill.pull_ocd_time[i] = os.time()
         end
       end
@@ -148,12 +148,12 @@ ui.create = function()
       upvalue_1536 = isorder()
       layer:addChild(orderlayer)
       if orderTasklab == nil then
-        upvalue_3072 = lbl.createMixFont1(16, string.format(i18n.global.gmill_order_tasknum.string,  guildmill.order), ccc3(78, 52, 32))
+        upvalue_3072 = lbl.createMixFont1(16, string.format(i18n.global.gmill_order_tasknum.string, #guildmill.order), ccc3(78, 52, 32))
         orderTasklab:setAnchorPoint(0, 0.5)
         orderTasklab:setPosition(CCPoint(50, 410))
         layer:addChild(orderTasklab)
       else
-        orderTasklab:setString(string.format(i18n.global.gmill_order_tasknum.string,  guildmill.order))
+        orderTasklab:setString(string.format(i18n.global.gmill_order_tasknum.string, #guildmill.order))
       end
       end)
    end)
@@ -167,7 +167,7 @@ ui.create = function()
    end
   isorder = function()
     local isorderlayer = CCLayer:create()
-    local itemNum =  guildmill.order
+    local itemNum = #guildmill.order
     local SCROLL_CONTAINER_SIZE = itemNum * 250
     local Scroll = CCScrollView:create()
     Scroll:setDirection(kCCScrollViewDirectionHorizontal)
@@ -254,15 +254,15 @@ ui.create = function()
           end
           local tmp_bag = {items = {}, equips = {}}
           if l_1_0.reward.items then
-            for ii = 1,  l_1_0.reward.items do
+            for ii = 1, #l_1_0.reward.items do
               local tbl_p = tmp_bag.items
-              tbl_p[ tbl_p + 1] = {id = l_1_0.reward.items[ii].id, num = l_1_0.reward.items[ii].num}
+              tbl_p[#tbl_p + 1] = {id = l_1_0.reward.items[ii].id, num = l_1_0.reward.items[ii].num}
             end
           else
             if l_1_0.reward.equips then
-              for ii = 1,  l_1_0.reward.equips do
+              for ii = 1, #l_1_0.reward.equips do
                 local tbl_p = tmp_bag.equips
-                tbl_p[ tbl_p + 1] = {id = l_1_0.reward.equips[ii].id, num = l_1_0.reward.equips[ii].num}
+                tbl_p[#tbl_p + 1] = {id = l_1_0.reward.equips[ii].id, num = l_1_0.reward.equips[ii].num}
               end
             end
           end
@@ -274,12 +274,12 @@ ui.create = function()
           tbl2string(guildmill.order)
           orderlayer:removeFromParentAndCleanup(true)
           upvalue_2048 = nil
-          if guildmill.order and  guildmill.order > 0 then
+          if guildmill.order and #guildmill.order > 0 then
             upvalue_2048 = isorder()
           else
             upvalue_2048 = noorder()
           end
-          orderTasklab:setString(string.format(i18n.global.gmill_order_tasknum.string,  guildmill.order))
+          orderTasklab:setString(string.format(i18n.global.gmill_order_tasknum.string, #guildmill.order))
           layer:addChild(orderlayer)
             end)
          end)
@@ -288,11 +288,11 @@ ui.create = function()
       local rewardObj = cfgmill[orderID].reward
       local offset_x = 92
       do
-        for ii = 1,  rewardObj do
+        for ii = 1, #rewardObj do
           local itemObj = {}
           itemObj.id = rewardObj[ii].id
           if guildmill.order.rewards and upflag == false then
-            for ii = 1,  guildmill.order.rewards.items do
+            for ii = 1, #guildmill.order.rewards.items do
               if guildmill.order.rewards.items[ii].id == itemObj.id then
                 itemObj.num = guildmill.order.rewards.items[ii].num
               end
@@ -478,7 +478,7 @@ ui.create = function()
           local rewardObj = cfgmill[orderID].reward
           local offset_x = 92
           do
-            for ii = 1,  rewardObj do
+            for ii = 1, #rewardObj do
               if tmp_item[ii] then
                 tmp_item[ii]:removeFromParent()
                 tmp_item[ii] = nil
@@ -486,7 +486,7 @@ ui.create = function()
               local itemObj = {}
               itemObj.id = rewardObj[ii].id
               if guildmill.order.rewards and upflag == false then
-                for ii = 1,  guildmill.order.rewards.items do
+                for ii = 1, #guildmill.order.rewards.items do
                   if guildmill.order.rewards.items[ii].id == itemObj.id then
                     itemObj.num = guildmill.order.rewards.items[ii].num
                   end
@@ -530,7 +530,7 @@ ui.create = function()
       if guildmill.order == nil then
         return 
       end
-      for ii = 1,  guildmill.order do
+      for ii = 1, #guildmill.order do
         if guildmill.order[ii].cd and guildmill.pull_ocd_time[ii] and progressLabel[ii] and not tolua.isnull(progressLabel[ii]) then
           cd = math.max(0, guildmill.order[ii].cd + guildmill.pull_ocd_time[ii] - os.time())
           if cd > 0 then

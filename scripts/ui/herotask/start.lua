@@ -26,9 +26,9 @@ local initHerolistData = function(l_1_0)
      -- DECOMPILER ERROR: unhandled construct in 'if'
 
     if params.group and cfghero[v.id].group == params.group then
-      herolist[ herolist + 1] = v
+      herolist[#herolist + 1] = v
       for i,v in (for generator) do
-        herolist[ herolist + 1] = v
+        herolist[#herolist + 1] = v
       end
     end
     for i,v in ipairs(herolist) do
@@ -84,7 +84,7 @@ ui.create = function(l_2_0)
   timeIcon:setPosition(showTime:boundingBox():getMinX() - 5, 19)
   powerBg:addChild(timeIcon)
   local reward = conquset2items(l_2_0.reward)
-  local offsetX = 480 - 46 *  reward + 9
+  local offsetX = 480 - 46 * #reward + 9
   for i,v in ipairs(reward) do
     do
       local showRewardSprite = nil
@@ -116,7 +116,7 @@ ui.create = function(l_2_0)
   local baseHeroBg = {}
   local showHeros = {}
   local heroNum = cfgtask[l_2_0.id].heroNum
-  local offsetX = 480 - 26 *  l_2_0.conds + 5
+  local offsetX = 480 - 26 * #l_2_0.conds + 5
   local condition = {}
   for i,v in ipairs(l_2_0.conds) do
     do
@@ -305,7 +305,7 @@ ui.create = function(l_2_0)
           local headIcons = {}
           SCROLLVIEW_WIDTH = 793
           SCROLLVIEW_HEIGHT = 112
-          SCROLLCONTENT_WIDTH =  herolist * 90 + 8
+          SCROLLCONTENT_WIDTH = #herolist * 90 + 8
           kscroll = CCScrollView:create()
           kscroll:setDirection(kCCScrollViewDirectionHorizontal)
           kscroll:setAnchorPoint(ccp(0, 0))
@@ -441,7 +441,7 @@ ui.create = function(l_2_0)
             showHeroLayer2:addChild(blackBatch, 4)
             upvalue_2048 = img.createBatchNodeForUI(img.ui.hook_btn_sel)
             showHeroLayer2:addChild(selectBatch, 5)
-            for i = 1,  herolist do
+            for i = 1, #herolist do
               local x, y = 45 + (i - 1) * 90 + 8, 56
               local qlt = cfghero[herolist[i].id].maxStar
               local heroBg = nil
@@ -714,16 +714,16 @@ ui.create = function(l_2_0)
           end
           for i,k in ipairs(info.conds) do
             if not res[i] then
-              for j =  herolist, 1, -1 do
+              for j = #herolist, 1, -1 do
                  -- DECOMPILER ERROR: unhandled construct in 'if'
 
                  -- DECOMPILER ERROR: unhandled construct in 'if'
 
                 if not herolist[j].isUsed and k.type == 1 and cfghero[herolist[j].id].job == k.faction then
                   res[i] = true
-                  hids[ hids + 1] = herolist[j].hid
+                  hids[#hids + 1] = herolist[j].hid
                   herolist[j].isUsed = true
-                  for ii = i + 1,  info.conds do
+                  for ii = i + 1, #info.conds do
                     if info.conds[ii].type == 2 and info.conds[ii].faction <= cfghero[herolist[j].id].qlt then
                       res[ii] = true
                     end
@@ -737,9 +737,9 @@ ui.create = function(l_2_0)
 
                     if k.type == 2 and k.faction <= cfghero[herolist[j].id].qlt then
                       res[i] = true
-                      hids[ hids + 1] = herolist[j].hid
+                      hids[#hids + 1] = herolist[j].hid
                       herolist[j].isUsed = true
-                      for ii = i + 1,  info.conds do
+                      for ii = i + 1, #info.conds do
                         if info.conds[ii].type == 1 and cfghero[herolist[j].id].job == info.conds[ii].faction then
                           res[ii] = true
                         end
@@ -751,9 +751,9 @@ ui.create = function(l_2_0)
                         do return end
                         if k.type == 3 and cfghero[herolist[j].id].group == k.faction then
                           res[i] = true
-                          hids[ hids + 1] = herolist[j].hid
+                          hids[#hids + 1] = herolist[j].hid
                           herolist[j].isUsed = true
-                          for ii = i + 1,  info.conds do
+                          for ii = i + 1, #info.conds do
                             if info.conds[ii].type == 2 and info.conds[ii].faction <= cfghero[herolist[j].id].qlt then
                               res[ii] = true
                             end
@@ -782,11 +782,11 @@ ui.create = function(l_2_0)
                 else
                   end
                 end
-                if batchflag and  hids < heroNum then
-                  for i =  hids + 1, heroNum do
+                if batchflag and #hids < heroNum then
+                  for i = #hids + 1, heroNum do
                      -- DECOMPILER ERROR: Confused at declaration of local variable
 
-                    for j =  herolist, 1, -1 do
+                    for j = #herolist, 1, -1 do
                        -- DECOMPILER ERROR: Confused at declaration of local variable
 
                        -- DECOMPILER ERROR: Confused about usage of registers!
@@ -810,8 +810,8 @@ ui.create = function(l_2_0)
                   if checkConfirm == false then
                     showToast(i18n.global.herotask_lack_mat.string)
                   end
-                  if  hids <= heroNum then
-                    for i = 1,  hids do
+                  if #hids <= heroNum then
+                    for i = 1, #hids do
                        -- DECOMPILER ERROR: Confused at declaration of local variable
 
                       tpos = i
@@ -853,7 +853,7 @@ ui.create = function(l_2_0)
             return 
           end
           local heroNum = 0
-          for i = 1,  hids do
+          for i = 1, #hids do
             if hids[i] then
               heroNum = heroNum + 1
             end
@@ -878,7 +878,7 @@ ui.create = function(l_2_0)
             for i,v in ipairs(params.hids) do
               local hero = heros.find(v)
               local h = {hid = hero.hid, id = hero.id, lv = hero.lv, star = hero.star}
-              heroes[ heroes + 1] = h
+              heroes[#heroes + 1] = h
             end
             info.heroes = heroes
             for i,v in ipairs(htaskData.tasks) do

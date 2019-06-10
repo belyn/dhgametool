@@ -93,7 +93,7 @@ ui.create = function()
   lbl_des:setPosition(CCPoint(cboard_w / 2, 182))
   cboard:addChild(lbl_des)
   lbl_des:setVisible(false)
-  local count =  HMIDS
+  local count = #HMIDS
   local item_w = 78
   local item_h = 78
   local space_x = 10

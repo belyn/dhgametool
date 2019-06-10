@@ -9,14 +9,14 @@ local getVideoImgs = function()
   for ii = 1, 52 do
     imgs[ii] = string.format("DHImages/DH_logo_%02d.png", ii)
   end
-  imgs[ imgs + 1] = "DHImages/glow.png"
+  imgs[#imgs + 1] = "DHImages/glow.png"
   return imgs
 end
 
 local loadImgs = function(l_2_0)
   local textureCache = CCTextureCache:sharedTextureCache()
   local spriteframeCache = CCSpriteFrameCache:sharedSpriteFrameCache()
-  for ii = 1,  l_2_0 do
+  for ii = 1, #l_2_0 do
     local key = l_2_0[ii]
     if not spriteframeCache:spriteFrameByName(key) then
       local tex = textureCache:addImage(key)
@@ -31,7 +31,7 @@ end
 local unLoadImgs = function(l_3_0)
   local textureCache = CCTextureCache:sharedTextureCache()
   local spriteframeCache = CCSpriteFrameCache:sharedSpriteFrameCache()
-  for ii = 1,  l_3_0 do
+  for ii = 1, #l_3_0 do
     local key = l_3_0[ii]
     local tex = textureCache:textureForKey(key)
     if tex then

@@ -214,7 +214,7 @@ ui.create = function(l_1_0)
    end
   contentLayer.loadContent = function(l_6_0)
     contentLayer:removeAllChildrenWithCleanup(true)
-    if  htaskData.tasks < 1 then
+    if #htaskData.tasks < 1 then
       return 
     end
     local info = htaskData.tasks[l_6_0]
@@ -249,9 +249,9 @@ ui.create = function(l_1_0)
     refreshGem = 0
     upvalue_512 = {}
     scroll:getContainer():removeAllChildrenWithCleanup(true)
-    local height = 109 *  htaskData.tasks + 20
+    local height = 109 * #htaskData.tasks + 20
     scroll:setContentSize(CCSize(260, height))
-    if l_7_1 and  htaskData.tasks > 3 then
+    if l_7_1 and #htaskData.tasks > 3 then
       scroll:setContentOffset(ccp(0, l_7_1 + 109))
     else
       scroll:setContentOffset(ccp(0, 428 - height))
@@ -751,7 +751,7 @@ ui.create = function(l_1_0)
       end
     end
   end
-  showTitle:setString(string.format(i18n.global.herotask_info.string,  taskBg, cfgvip[vipLv].heroTask))
+  showTitle:setString(string.format(i18n.global.herotask_info.string, #taskBg, cfgvip[vipLv].heroTask))
   upvalue_10240 = true
    end
   local lasty = nil
@@ -841,11 +841,11 @@ ui.create = function(l_1_0)
   layer:scheduleUpdateWithPriorityLua(function()
     updateLabels()
     if openUpdate then
-      if  htaskData.tasks <  taskBg then
+      if #htaskData.tasks < #taskBg then
         createTasks(0, scroll:getContentOffset().y)
         labDiamond:setString(refreshGem)
       end
-      if  taskBg <  htaskData.tasks then
+      if #taskBg < #htaskData.tasks then
         createTasks(0)
         labDiamond:setString(refreshGem)
       end

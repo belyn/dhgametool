@@ -39,17 +39,17 @@ herotask.sortTask = function()
   local tasks = {}
   for i,v in ipairs(herotask.tasks) do
     if not v.heroes then
-      tasks[ tasks + 1] = v
+      tasks[#tasks + 1] = v
     end
   end
   for i,v in ipairs(herotask.tasks) do
     if v.heroes and v.cd and v.cd <= os.time() then
-      tasks[ tasks + 1] = v
+      tasks[#tasks + 1] = v
     end
   end
   for i,v in ipairs(herotask.tasks) do
     if v.cd and os.time() < v.cd then
-      tasks[ tasks + 1] = v
+      tasks[#tasks + 1] = v
     end
   end
   herotask.tasks = tasks
@@ -59,7 +59,7 @@ herotask.del = function(l_5_0)
   local tasks = {}
   for i,v in ipairs(herotask.tasks) do
     if v.tid ~= l_5_0 then
-      tasks[ tasks + 1] = v
+      tasks[#tasks + 1] = v
     end
   end
   herotask.tasks = tasks
@@ -67,9 +67,9 @@ end
 
 herotask.add = function(l_6_0)
   local tasks = {}
-  tasks[ tasks + 1] = l_6_0
+  tasks[#tasks + 1] = l_6_0
   for i,v in ipairs(herotask.tasks) do
-    tasks[ tasks + 1] = v
+    tasks[#tasks + 1] = v
   end
   herotask.tasks = tasks
 end

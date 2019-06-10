@@ -57,7 +57,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
   local SCROLL_VIEW_W = 545
   local SCROLL_VIEW_H = 306
   local SCROLL_CONTENT_W = 545
-  local SCROLL_CONTENT_H = math.ceil( l_1_0 / 6) > 3 and math.ceil( l_1_0 / 6) * (ITEM_H + SCROLL_INTERVAL) or 306
+  local SCROLL_CONTENT_H = math.ceil(#l_1_0 / 6) > 3 and math.ceil(#l_1_0 / 6) * (ITEM_H + SCROLL_INTERVAL) or 306
   ui.widget.scroll = CCScrollView:create()
   ui.widget.scroll:setDirection(kCCScrollViewDirectionVertical)
   ui.widget.scroll:setViewSize(CCSize(SCROLL_VIEW_W, SCROLL_VIEW_H))
@@ -101,7 +101,7 @@ end
 ui.addItems = function()
   local ITEM_H = 80
   local SCROLL_INTERVAL = 10
-  local SCROLL_CONTENT_H = math.ceil( ui.data.bag / 6) > 3 and math.ceil( ui.data.bag / 6) * (ITEM_H + SCROLL_INTERVAL) or 306
+  local SCROLL_CONTENT_H = math.ceil(#ui.data.bag / 6) > 3 and math.ceil(#ui.data.bag / 6) * (ITEM_H + SCROLL_INTERVAL) or 306
   for i,v in ipairs(ui.data.bag) do
     local item = nil
     if v.type == 1 then
@@ -158,7 +158,7 @@ ui.playSweepAnimation = function()
   local scaleTime = 0.35
   local moveTime = 0.2
   local stopTime = 0.2
-  local lines = math.ceil( ui.data.bag / 6)
+  local lines = math.ceil(#ui.data.bag / 6)
   local showLine = 1
   if lines > 3 then
     local delay1 = CCDelayTime:create(0.15 + (scaleTime + stopTime) * 3 + moveTime * 2)
@@ -179,7 +179,7 @@ ui.playSweepAnimation = function()
   ui.widget.layer:addChild(maskLayer, 999999)
   local delayTime = CCDelayTime:create(scaleTime + moveTime + stopTime)
   local callfunc = CCCallFunc:create(function()
-    local endNum = showLine == lines and  ui.data.bag - (lines - 1) * 6 or 6
+    local endNum = showLine == lines and #ui.data.bag - (lines - 1) * 6 or 6
     for i = 1, endNum do
       ui.widget.items[(showLine - 1) * 6 + i]:setVisible(true)
       local itemDelay = CCDelayTime:create(i * 0.05)

@@ -256,7 +256,7 @@ ui.create = function()
       building_lbl_xxx:addChild(lbl_xxx)
       bo:addChildFollowSlot("code_label", building_lbl_xxx)
     end
-    for i = 1,  airData.data.land.land do
+    for i = 1, #airData.data.land.land do
       flagRefresh[i] = false
       local info = airData.data.land
       local to = buildingType[cfgfloatland[info.land[i].id].type + 1]
@@ -274,13 +274,13 @@ ui.create = function()
         boLand[i]:addChildFollowSlot("code_label", iconCd[i])
       end
     end
-    for i = 1, 27 -  airData.data.land.land do
+    for i = 1, 27 - #airData.data.land.land do
       local to = buildingType[6]
       local bo = json.create(json.ui.kongzhan_xuanwo)
       bo.data = to
-      buildingObjs[i + 2 +  airData.data.land.land] = bo
+      buildingObjs[i + 2 + #airData.data.land.land] = bo
       bo:playAnimation("animation", -1)
-      animBg:addChildFollowSlot(to.code_name .. i +  airData.data.land.land, bo)
+      animBg:addChildFollowSlot(to.code_name .. i + #airData.data.land.land, bo)
     end
    end
   createBuildings()
@@ -315,7 +315,7 @@ ui.create = function()
       end)
    end)
   local npcChanges = function(l_11_0)
-    for i = 1,  l_11_0 do
+    for i = 1, #l_11_0 do
       buildingObjs[l_11_0[i] + 2]:playAnimation("loop", -1)
     end
    end
@@ -438,7 +438,7 @@ ui.create = function()
     upvalue_1536 = true
     upvalue_2048 = po.x
     upvalue_2560 = po.y
-    for ii = 1,  buildingObjs do
+    for ii = 1, #buildingObjs do
       local tObj = buildingObjs[ii]
       if tObj and tObj.data.tapFunc and tObj:getAabbBoundingBox():containsPoint(CCPoint(l_15_0, l_15_1)) then
         setShader(tObj, SHADER_HIGHLIGHT, true)
@@ -479,7 +479,7 @@ ui.create = function()
     if last_selected_sprite == 0 then
       return 
     end
-    for ii = 1, 2 +  airData.data.land.land do
+    for ii = 1, 2 + #airData.data.land.land do
       local tObj = buildingObjs[ii]
       tObj.pos = ii - 2
       if tObj.pos >= 1 and airData.data.land.land[tObj.pos].cdk then

@@ -15,7 +15,7 @@ ui.create = function(l_1_0)
   layer.addOkButton(function()
     require("fight.pvpgmill.loading").backToUI(video)
    end)
-  if l_1_0.rewards and  l_1_0.rewards > 0 then
+  if l_1_0.rewards and #l_1_0.rewards > 0 then
     layer.addRewardIcons(l_1_0.rewards[1])
   end
   return layer

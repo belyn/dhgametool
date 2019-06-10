@@ -67,7 +67,7 @@ reward.showRewardFortreasure = function(l_2_0)
   local equips = {}
   local items = {}
   pbbag.equips = equips
-  equips[ equips + 1] = l_2_0
+  equips[#equips + 1] = l_2_0
   local itemslayer = reward.showItems(pbbag)
   layer:addChild(itemslayer, 1)
   return layer
@@ -98,10 +98,10 @@ reward.showReward = function(l_3_0, l_3_1, l_3_2)
   layer:addChild(itemslayer, 1)
   local allnum = 0
   if l_3_0.items then
-    allnum = allnum +  l_3_0.items
+    allnum = allnum + #l_3_0.items
   end
   if l_3_0.equips then
-    allnum = allnum +  l_3_0.equips
+    allnum = allnum + #l_3_0.equips
   end
   local time = 0.6 + 0.3 * (allnum - 1)
   if l_3_1 then
@@ -181,10 +181,10 @@ reward.showItems = function(l_4_0)
   layer.tipsTag = false
   layer.allnum = 0
   if l_4_0.items then
-    layer.allnum = layer.allnum +  l_4_0.items
+    layer.allnum = layer.allnum + #l_4_0.items
   end
   if l_4_0.equips then
-    layer.allnum = layer.allnum +  l_4_0.equips
+    layer.allnum = layer.allnum + #l_4_0.equips
   end
   if l_4_0.equips then
     for i,pb in ipairs(l_4_0.equips) do
@@ -486,10 +486,10 @@ reward.createFloating = function(l_10_0)
   local cur = 1
   reward.allnum = 0
   if l_10_0.items then
-    reward.allnum = reward.allnum +  l_10_0.items
+    reward.allnum = reward.allnum + #l_10_0.items
   end
   if l_10_0.equips then
-    reward.allnum = reward.allnum +  l_10_0.equips
+    reward.allnum = reward.allnum + #l_10_0.equips
   end
   if l_10_0.equips then
     for i,pb in ipairs(l_10_0.equips) do

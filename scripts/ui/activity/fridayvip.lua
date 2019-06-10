@@ -25,7 +25,7 @@ ui.create = function()
   local vps = {}
   for _,v in ipairs(vp_ids) do
     local tmp_status = activityData.getStatusById(v)
-    vps[ vps + 1] = tmp_status
+    vps[#vps + 1] = tmp_status
   end
   local board = CCSprite:create()
   board:setContentSize(CCSizeMake(570, 438))
@@ -145,7 +145,7 @@ ui.create = function()
     local start_x = 47
     local step_x = 66
     local rewards = cfgactivity[l_2_0.id].rewards
-    for ii = 1,  rewards do
+    for ii = 1, #rewards do
       local _obj = rewards[ii]
       do
         if _obj.type == ItemType.Equip then
@@ -270,7 +270,7 @@ ui.create = function()
     return sortValue(l_4_0) < sortValue(l_4_1)
    end)
   local showList = function(l_5_0)
-    for ii = 1,  l_5_0 do
+    for ii = 1, #l_5_0 do
       local tmp_item = createItem(l_5_0[ii])
       tmp_item.obj = l_5_0[ii]
       tmp_item.ax = 0.5
@@ -316,13 +316,13 @@ ui.createItemTip = function(l_2_0, l_2_1)
   local giftId = itemObj.giftId
   local cfggift = require("config.gift")
   local giftObj = cfggift[giftId]
-  if not giftObj or not giftObj.giftGoods or  giftObj.giftGoods < 1 then
+  if not giftObj or not giftObj.giftGoods or #giftObj.giftGoods < 1 then
     return 
   end
   local start_x = 35
   local giftGoods = giftObj.giftGoods
   local bg = img.createUI9Sprite(img.ui.tips_bg)
-  local bg_w = start_x + 82 *  giftGoods + 24 * ( giftGoods - 1) + start_x
+  local bg_w = start_x + 82 * #giftGoods + 24 * (#giftGoods - 1) + start_x
   local bg_h = 192
   bg:setPreferredSize(CCSizeMake(bg_w, bg_h))
   bg:setScale(view.minScale)
@@ -335,7 +335,7 @@ ui.createItemTip = function(l_2_0, l_2_1)
   line:setScaleX(bg_w * 0.75 / line:getContentSize().width)
   line:setPosition(CCPoint(bg_w / 2, 142))
   bg:addChild(line)
-  for ii = 1,  giftGoods do
+  for ii = 1, #giftGoods do
     local _obj = giftGoods[ii]
     do
       if _obj.type == ItemType.Equip then

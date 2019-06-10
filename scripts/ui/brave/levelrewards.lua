@@ -41,7 +41,7 @@ ui.create = function(l_1_0)
   local judgeboxstatus = function(l_1_0)
     if rewardlevel[l_1_0] < databrave.stage then
       if databrave.nodes then
-        for i = 1,  databrave.nodes do
+        for i = 1, #databrave.nodes do
           if databrave.nodes[i] == rewardlevel[l_1_0] then
             return "3"
           end
@@ -195,11 +195,11 @@ ui.create = function(l_1_0)
     local stages = {}
     for i = 1, 5 do
       if judgeboxstatus(i) == "2" then
-        stageis[ stageis + 1] = i
-        stages[ stages + 1] = rewardlevel[i]
+        stageis[#stageis + 1] = i
+        stages[#stages + 1] = rewardlevel[i]
       end
     end
-    if  stageis < 1 then
+    if #stageis < 1 then
       return 
     end
     local param = {}
@@ -217,11 +217,11 @@ ui.create = function(l_1_0)
         local node = stages
         databrave.nodes = node
       else
-        for i = 1,  stages do
-          databrave.nodes[ databrave.nodes + 1] = stages[i]
+        for i = 1, #stages do
+          databrave.nodes[#databrave.nodes + 1] = stages[i]
         end
       end
-      for i = 1,  stageis do
+      for i = 1, #stageis do
         bravebox[stageis[i]]:stopAnimation()
         bravebox[stageis[i]]:playAnimation("3")
         itemBtn[stageis[i]]:setEnabled(false)
@@ -233,7 +233,7 @@ ui.create = function(l_1_0)
       bag.addRewards(l_1_0.reward)
       schedule(layer, 1, function()
         callback()
-        for i = 1,  stageis do
+        for i = 1, #stageis do
           bravebox[stageis[i]]:stopAnimation()
           bravebox[stageis[i]]:playAnimation("1")
           local blackicon = img.createUISprite(img.ui.brave_rl_black)

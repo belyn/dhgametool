@@ -327,7 +327,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
       end
       local p0 = Scroll:getContainer():convertToNodeSpace(ccp(l_6_0, l_6_1))
       do
-        for ii = 1,  itemBg do
+        for ii = 1, #itemBg do
           do
             if itemBg[ii]:boundingBox():containsPoint(p0) then
               audio.play(audio.button)
@@ -355,10 +355,10 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
                     if l_1_0 then
                       tbl2string(l_1_0)
                       if l_1_0.items then
-                        for i = 1,  l_1_0.items do
+                        for i = 1, #l_1_0.items do
                           if l_1_0.items[i].id == 2 then
                             bag.addGem(l_1_0.items[i].num)
-                            pbbag.items[ pbbag.items + 1] = l_1_0.items[i]
+                            pbbag.items[#pbbag.items + 1] = l_1_0.items[i]
                           else
                             bag.items.add(l_1_0.items[i])
                           end
@@ -375,7 +375,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
                         else
                           shop.pay[id] = shop.pay[id] + 1
                         end
-                        if  itemBg == 8 and (ii ==  itemBg or ii ==  itemBg - 1 or ii ==  itemBg - 2) then
+                        if #itemBg == 8 and (ii == #itemBg or ii == #itemBg - 1 or ii == #itemBg - 2) then
                           if id ~= 33 then
                             if lbllef1[ii] == nil then
                               lbllef1[ii] = lbl.createMixFont1(14, i18n.global.monthcard_left1.string, ccc3(255, 246, 223))
@@ -396,7 +396,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
                             subTitle:setString(i18n.global.activity_des_subed.string)
                           end
                         end
-                        if  itemBg == 7 and (ii ==  itemBg or ii ==  itemBg - 1) then
+                        if #itemBg == 7 and (ii == #itemBg or ii == #itemBg - 1) then
                           if lbllef1[ii] == nil then
                             lbllef1[ii] = lbl.createMixFont1(14, i18n.global.monthcard_left1.string, ccc3(255, 246, 223))
                             lbllef1[ii]:setAnchorPoint(CCPoint(0, 0.5))

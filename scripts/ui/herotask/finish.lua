@@ -61,7 +61,7 @@ ui.create = function(l_1_0)
   timeIcon:setPosition(showTime:boundingBox():getMinX() - 20, 19)
   powerBg:addChild(timeIcon)
   local reward = conquset2items(l_1_0.reward)
-  local offsetX = 480 - 46 *  reward + 9
+  local offsetX = 480 - 46 * #reward + 9
   for i,v in ipairs(reward) do
     do
       local showRewardSprite = nil
@@ -91,7 +91,7 @@ ui.create = function(l_1_0)
   end
   offsetX = 480 - 50 * cfgtask[l_1_0.id].heroNum + 9
   local heroes = l_1_0.heroes
-  for i = 1,  heroes do
+  for i = 1, #heroes do
     local param = {id = heroes[i].id, lv = heroes[i].lv, showGroup = true, showStar = heroes.star, wake = heroes[i].wake, orangeFx = nil, petID = nil, hid = heroes[i].hid}
     showHero[i] = img.createHeroHeadByParam(param)
     showHero[i]:setAnchorPoint(ccp(0, 0))
@@ -99,7 +99,7 @@ ui.create = function(l_1_0)
     showHero[i]:setPosition(offsetX + (i - 1) * 100, 323)
     showPowerBg:addChild(showHero[i])
   end
-  local offsetX = 480 - 26 *  l_1_0.conds + 5
+  local offsetX = 480 - 26 * #l_1_0.conds + 5
   local condition = {}
   for i,v in ipairs(l_1_0.conds) do
     condition[i] = img.createUISprite(img.ui.hook_rate_bg)

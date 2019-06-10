@@ -60,7 +60,7 @@ ui.create = function()
     return item
    end
   local blocks = string.split(ltext, "##")
-  for ii = 1,  blocks do
+  for ii = 1, #blocks do
     local tmp_item = createItem(blocks[ii])
     scroll.addItem(tmp_item)
   end

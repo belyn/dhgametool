@@ -53,28 +53,28 @@ local delAllSysRead = function(l_2_0)
   local sys_mails = maildata.getSysMails()
   local d_ids = {}
   local d_mails = {}
-  for ii = 1,  sys_mails do
+  for ii = 1, #sys_mails do
     local mailObj = sys_mails[ii]
      -- DECOMPILER ERROR: unhandled construct in 'if'
 
     if not mailObj.affix and mailObj.flag == 1 then
-      d_ids[ d_ids + 1] = mailObj.mid
-      d_mails[ d_mails + 1] = mailObj
+      d_ids[#d_ids + 1] = mailObj.mid
+      d_mails[#d_mails + 1] = mailObj
       do return end
       if mailObj.flag == 2 then
-        d_ids[ d_ids + 1] = mailObj.mid
-        d_mails[ d_mails + 1] = mailObj
+        d_ids[#d_ids + 1] = mailObj.mid
+        d_mails[#d_mails + 1] = mailObj
       end
     end
   end
-  if  d_ids <= 0 then
+  if #d_ids <= 0 then
     return 
   end
   local params = {sid = player.sid, deletes = d_ids}
   addWaitNet()
   netClient:op_mail(params, function(l_1_0)
     delWaitNet()
-    for ii = 1,  d_mails do
+    for ii = 1, #d_mails do
       maildata.delSys(d_mails[ii])
     end
     if callback then
@@ -453,10 +453,10 @@ ui.create = function(l_6_0)
       end
       local item_count = 0
       if l_4_0.affix.items then
-        item_count = item_count +  l_4_0.affix.items
+        item_count = item_count + #l_4_0.affix.items
       end
       if l_4_0.affix.equips then
-        item_count = item_count +  l_4_0.affix.equips
+        item_count = item_count + #l_4_0.affix.equips
       end
       local affix_container_w = 361
       local affix_container_h = math.floor((item_count + 3) / 4) * 92
@@ -831,10 +831,10 @@ ui.create = function(l_6_0)
       end
       local item_count = 0
       if l_7_0.affix.items then
-        item_count = item_count +  l_7_0.affix.items
+        item_count = item_count + #l_7_0.affix.items
       end
       if l_7_0.affix.equips then
-        item_count = item_count +  l_7_0.affix.equips
+        item_count = item_count + #l_7_0.affix.equips
       end
       local affix_container_w = 361
       local affix_container_h = math.floor((item_count + 3) / 4) * 92
@@ -1049,20 +1049,20 @@ ui.create = function(l_6_0)
     container.list_scroll = scroll
     arrayclear(items)
     scroll.addSpace(3)
-    for ii = 1,  l_11_0 do
+    for ii = 1, #l_11_0 do
       local tmp_item = createItem(l_11_0[ii])
       tmp_item.mailObj = l_11_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 152
       tmp_item.ay = 0.5
       scroll.addItem(tmp_item)
-      items[ items + 1] = tmp_item
-      if ii ~=  l_11_0 then
+      items[#items + 1] = tmp_item
+      if ii ~= #l_11_0 then
         scroll.addSpace(2)
       end
     end
     scroll.setOffsetBegin()
-    if  items > 0 then
+    if #items > 0 then
       showContent(items[1].mailObj)
       items[1].setRead()
       items[1].focus:setVisible(true)
@@ -1082,12 +1082,12 @@ ui.create = function(l_6_0)
       btn_batch_get:registerScriptTapHandler(function()
         audio.play(audio.button)
         local mids = {}
-        for ii = 1,  listObj do
+        for ii = 1, #listObj do
           if listObj[ii].flag ~= 2 and maildata.getTypeById(listObj[ii].id) == 1 then
-            mids[ mids + 1] = listObj[ii].mid
+            mids[#mids + 1] = listObj[ii].mid
           end
         end
-        if  mids <= 0 then
+        if #mids <= 0 then
           showToast(i18n.global.mail_get_nothing.string)
           return 
         end
@@ -1139,7 +1139,7 @@ ui.create = function(l_6_0)
   local createInb = function()
     container:removeAllChildrenWithCleanup(true)
     local maillist = maildata.getPlayerMails()
-    if not maillist or  maillist == 0 then
+    if not maillist or #maillist == 0 then
       showNomail()
       return 
     end
@@ -1148,7 +1148,7 @@ ui.create = function(l_6_0)
   local createSys = function()
     container:removeAllChildrenWithCleanup(true)
     local maillist = maildata.getSysMails()
-    if not maillist or  maillist == 0 then
+    if not maillist or #maillist == 0 then
       showNomail()
       return 
     end
@@ -1422,7 +1422,7 @@ ui.create = function(l_6_0)
     if current_tab ~= TAB.NEW and container.list_scroll and not tolua.isnull(container.list_scroll) then
       local obj = container.list_scroll.content_layer
       local p0 = obj:convertToNodeSpace(ccp(l_21_0, l_21_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           playAnimTouchBegin(items[ii])
           upvalue_3584 = items[ii]
@@ -1449,7 +1449,7 @@ ui.create = function(l_6_0)
       if container.list_scroll and not tolua.isnull(container.list_scroll) then
         local obj = container.list_scroll.content_layer
         local p0 = obj:convertToNodeSpace(ccp(l_23_0, l_23_1))
-        for ii = 1,  items do
+        for ii = 1, #items do
           if items[ii]:boundingBox():containsPoint(p0) and last_selet_item ~= items[ii] then
             audio.play(audio.button)
             if last_selet_item then

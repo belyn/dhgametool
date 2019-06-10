@@ -93,19 +93,19 @@ ui.getMapAndHeroIds = function(l_6_0)
   for _,h in ipairs(l_6_0.camp) do
     if h and h.pos ~= 7 then
       if h.skin then
-        skins[ skins + 1] = h.skin
+        skins[#skins + 1] = h.skin
       end
-      heroIds[ heroIds + 1] = h.id
+      heroIds[#heroIds + 1] = h.id
     end
   end
   if l_6_0.atk and l_6_0.atk.pet then
-    pets[ pets + 1] = l_6_0.atk.pet
+    pets[#pets + 1] = l_6_0.atk.pet
   end
   for _,m in ipairs(cfgwavetrial[l_6_0.stage].trial) do
-    heroIds[ heroIds + 1] = cfgmons[m].heroLink
+    heroIds[#heroIds + 1] = cfgmons[m].heroLink
   end
   if l_6_0.def and l_6_0.def.pet then
-    pets[ pets + 1] = l_6_0.def.pet
+    pets[#pets + 1] = l_6_0.def.pet
   end
   return mapId, heroIds, pets, skins
 end
@@ -118,26 +118,26 @@ ui.getMapAndHeroIds2 = function(l_7_0)
   for _,h in ipairs(l_7_0.camp) do
     if h and h.pos ~= 7 then
       if h.skin then
-        skins[ skins + 1] = h.skin
+        skins[#skins + 1] = h.skin
       end
       if h.hid then
         h.hid = nil
       end
-      heroIds[ heroIds + 1] = h.id
-      heroList[ heroList + 1] = h
+      heroIds[#heroIds + 1] = h.id
+      heroList[#heroList + 1] = h
     end
   end
   if l_7_0.atk and l_7_0.atk.pet then
-    pets[ pets + 1] = l_7_0.atk.pet
+    pets[#pets + 1] = l_7_0.atk.pet
   end
   for _,m in ipairs(cfgwavetrial[l_7_0.stage].trial) do
-    heroIds[ heroIds + 1] = cfgmons[m].heroLink
+    heroIds[#heroIds + 1] = cfgmons[m].heroLink
     local tInfo = clone(cfghero[cfgmons[m].heroLink])
     tInfo.id = cfgmons[m].heroLink
-    heroList[ heroList + 1] = tInfo
+    heroList[#heroList + 1] = tInfo
   end
   if l_7_0.def and l_7_0.def.pet then
-    pets[ pets + 1] = l_7_0.def.pet
+    pets[#pets + 1] = l_7_0.def.pet
   end
   return {mapId = mapId, heroIds = heroIds, pets = pets, skins = skins, heroList = heroList}
 end

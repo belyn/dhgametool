@@ -103,12 +103,12 @@ ui.create = function(l_1_0)
     scroll:setAnchorPoint(CCPoint(0, 0))
     scroll:setPosition(CCPoint(0, SCROLL_PADDING - 5))
     pboard:addChild(scroll)
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       local lbl_pub_title = lbl.createMix({font = 1, size = 18, text = l_4_0[ii].title, color = ccc3(148, 0, 0), width = SCROLL_VIEW_W - SCROLL_PADDING * 2, align = kCCTextAlignmentLeft})
       lbl_pub_title.ax = 0
       lbl_pub_title.px = SCROLL_PADDING
       scroll.addItem(lbl_pub_title)
-      for jj = 1,  l_4_0[ii].sub do
+      for jj = 1, #l_4_0[ii].sub do
         local lbl_sub_title = lbl.createMix({font = 1, size = 16, text = l_4_0[ii].sub[jj].title, color = ccc3(78, 35, 16), width = SCROLL_VIEW_W - 16, align = kCCTextAlignmentLeft})
         lbl_sub_title.ax = 0
         lbl_sub_title.px = SCROLL_PADDING
@@ -116,7 +116,7 @@ ui.create = function(l_1_0)
         if not l_4_0[ii].sub[jj].content then
           local sub_contents = {}
         end
-        for kk = 1,  sub_contents do
+        for kk = 1, #sub_contents do
           local lbl_sub_content = lbl.createMix({font = 1, size = 16, text = sub_contents[kk], color = ccc3(78, 35, 16), width = SCROLL_VIEW_W - 16, align = kCCTextAlignmentLeft})
           lbl_sub_content.height = lbl_sub_content:getContentSize().height
           lbl_sub_content.ax = 0

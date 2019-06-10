@@ -16,10 +16,10 @@ ui.create = function(l_1_0)
   layer.addOkButton(function()
     require("fight.gboss.loading").backToUI(video)
    end)
-  if l_1_0.hurts and  l_1_0.hurts > 0 then
+  if l_1_0.hurts and #l_1_0.hurts > 0 then
     local camp = {}
     for i,m in ipairs(cfg.monster) do
-      camp[ camp + 1] = {kind = "mons", id = m, pos = cfg.stand[i]}
+      camp[#camp + 1] = {kind = "mons", id = m, pos = cfg.stand[i]}
     end
     layer.addHurtsButton(l_1_0.camp, camp, l_1_0.hurts, l_1_0)
     layer.addHurtsSum(l_1_0.hurts)
@@ -28,10 +28,10 @@ ui.create = function(l_1_0)
     local equips, items = {}, {}
     for _,r in ipairs(cfg.reward) do
       if r.type == 1 then
-        items[ items + 1] = {id = r.id, num = r.num}
+        items[#items + 1] = {id = r.id, num = r.num}
         for _,r in (for generator) do
         end
-        equips[ equips + 1] = {id = r.id, num = r.num}
+        equips[#equips + 1] = {id = r.id, num = r.num}
       end
       layer.addRewardIcons({equips = equips, items = items}, true)
       return layer

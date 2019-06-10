@@ -171,7 +171,7 @@ ui.init = function()
   local onTouchBegan = function(l_3_0, l_3_1)
     start_click = true
     if ui.animations then
-      for ii = 1,  ui.animations do
+      for ii = 1, #ui.animations do
         local tObj = ui.animations[ii]
         if tObj:containsPoint(CCPoint(l_3_0, l_3_1)) then
           upvalue_1024 = l_3_0
@@ -197,7 +197,7 @@ ui.init = function()
     if not start_click then
       return 
     end
-    for ii = 1,  ui.animations do
+    for ii = 1, #ui.animations do
       local tObj = ui.animations[ii]
       if tObj:containsPoint(CCPoint(l_5_0, l_5_1)) then
         audio.play(audio.button)

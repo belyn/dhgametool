@@ -21,7 +21,7 @@ gskill.init = function()
       jobs[stype] = {}
     end
     local _tbl = jobs[stype]
-    _tbl[ _tbl + 1] = cfgguildskill[idx]
+    _tbl[#_tbl + 1] = cfgguildskill[idx]
   end
   for ii = 1, 5 do
     table.sort(jobs[ii], ssort)
@@ -65,10 +65,10 @@ end
 
 gskill.sync = function(l_7_0)
   gskill.init()
-  if not l_7_0 or  l_7_0 <= 0 then
+  if not l_7_0 or #l_7_0 <= 0 then
     return 
   end
-  for ii = 1,  l_7_0 do
+  for ii = 1, #l_7_0 do
     cfgguildskill[l_7_0[ii].id].lv = l_7_0[ii].lv
   end
 end
@@ -117,7 +117,7 @@ gskill.getBuffs = function(l_12_0)
   local buffs = {}
   local base_buffs = {}
   local base_effects = l_12_0.baseEffect
-  for ii = 1,  base_effects do
+  for ii = 1, #base_effects do
     local _n, _v = buffString(base_effects[ii].type, base_effects[ii].num)
     base_buffs[ii] = {}
     base_buffs[ii].name = _n
@@ -125,13 +125,13 @@ gskill.getBuffs = function(l_12_0)
   end
   if l_12_0.lv <= 0 then
     buffs = base_buffs
-    for ii = 1,  buffs do
+    for ii = 1, #buffs do
       buffs[ii].gvalue = buffs[ii].value
       buffs[ii].value = 0
     end
   else
     local effects = l_12_0.growEffect
-    for ii = 1,  effects do
+    for ii = 1, #effects do
       local _n, _v = buffString(effects[ii].type, base_effects[ii].num + effects[ii].num * (l_12_0.lv - 1))
       buffs[ii] = {}
       buffs[ii].name = _n
@@ -151,19 +151,19 @@ gskill.getBuffsEffects = function(l_13_0)
   local buffs = {}
   local base_buffs = {}
   local base_effects = l_13_0.baseEffect
-  for ii = 1,  base_effects do
+  for ii = 1, #base_effects do
     base_buffs[ii] = {}
     base_buffs[ii].type = base_effects[ii].type
     base_buffs[ii].num = base_effects[ii].num
   end
   if l_13_0.lv <= 0 then
     buffs = base_buffs
-    for ii = 1,  buffs do
+    for ii = 1, #buffs do
       buffs[ii].num = 0
     end
   else
     local effects = l_13_0.growEffect
-    for ii = 1,  effects do
+    for ii = 1, #effects do
       buffs[ii] = {}
       buffs[ii].type = effects[ii].type
       buffs[ii].num = base_effects[ii].num + effects[ii].num * (l_13_0.lv - 1)

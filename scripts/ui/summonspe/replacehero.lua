@@ -115,7 +115,7 @@ ui.create = function(l_2_0)
   layer:addChild(okmenu, 100)
   local heroinfoLayer, lefheroinfo, rigid, uphero, heroBody = nil, nil, nil, nil, nil
   local upcount = function(l_2_0, l_2_1)
-    for i = 1,  cfgdisplace do
+    for i = 1, #cfgdisplace do
       if cfgdisplace[i].group == l_2_0 and cfgdisplace[i].qlt == l_2_1 then
         return cfgdisplace[i].cost
       end

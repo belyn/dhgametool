@@ -25,7 +25,7 @@ end
 ui.create = function(l_2_0, l_2_1)
   local currentTab = 1
   local tabs = createTab()
-  if l_2_0 and l_2_0 > 0 and l_2_0 <=  tabs then
+  if l_2_0 and l_2_0 > 0 and l_2_0 <= #tabs then
     currentTab = l_2_0
   end
   local layer = CCLayer:create()
@@ -95,12 +95,12 @@ ui.create = function(l_2_0, l_2_1)
     if fromLayer then
       upvalue_1024 = nil
     end
-    for j = 1,  tabButtons do
+    for j = 1, #tabButtons do
       tabButtons[j]:setVisible(l_3_0 == j)
     end
    end
   local tabPoint = board:convertToWorldSpace(CCPointMake(board_w / 2, board_h - 2))
-  for i = 1,  tabs do
+  for i = 1, #tabs do
     do
       local tabNormal = img.createUISprite(img.ui.activity_home_tab1)
       local tabSelected = img.createUISprite(img.ui.activity_home_tab2)
@@ -114,7 +114,7 @@ ui.create = function(l_2_0, l_2_1)
       text:setPosition(tabNormal:getContentSize().width / 2, tabNormal:getContentSize().height / 2)
       tabNormal:addChild(text)
       local tab = CCMenuItemSprite:create(tabNormal, nil)
-      tab:setPosition(CCPoint(tabPoint.x - ( tabs - 1) / 2 * view.minScale * 192 + (i - 1) * view.minScale * 192, tabPoint.y))
+      tab:setPosition(CCPoint(tabPoint.x - (#tabs - 1) / 2 * view.minScale * 192 + (i - 1) * view.minScale * 192, tabPoint.y))
       tab:setAnchorPoint(0.5, 0)
       tab:setScale(view.minScale)
       tab:registerScriptTapHandler(function()
@@ -124,7 +124,7 @@ ui.create = function(l_2_0, l_2_1)
       local tabMenu = CCMenu:createWithItem(tab)
       tabMenu:setPosition(0, 0)
       layer:addChild(tabMenu, 102)
-      tabButtons[ tabButtons + 1] = tabSelected
+      tabButtons[#tabButtons + 1] = tabSelected
     end
   end
   tabSelectedFunc(currentTab)

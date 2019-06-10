@@ -67,7 +67,7 @@ end
 local initHeros = function()
   local tmpheros = {}
   for i,v in ipairs(heros) do
-    tmpheros[ tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, isUsed = false, flag = v.flag or 0}
+    tmpheros[#tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, isUsed = false, flag = v.flag or 0}
   end
   operData.heros = tmpheros
 end
@@ -84,7 +84,7 @@ local getCondition = function(l_3_0)
       end
     end
     if not isFind then
-      condition[ condition + 1] = {id = v, num = 1, select = {}}
+      condition[#condition + 1] = {id = v, num = 1, select = {}}
     end
   end
   operData.condition = condition
@@ -94,28 +94,28 @@ local numforhero = function(l_4_0)
   local headData = {}
   for i,v in ipairs(operData.heros) do
     if v.id == l_4_0.id and v.isUsed == false then
-      headData[ headData + 1] = v
+      headData[#headData + 1] = v
       for i,v in (for generator) do
       end
       if v.isUsed == false and l_4_0.id % 100 == 99 then
         if cfghero[v.id].group == (l_4_0.id - 4099) / 100 and cfghero[v.id].qlt == 4 and v.id < 5000 then
-          headData[ headData + 1] = v
+          headData[#headData + 1] = v
           for i,v in (for generator) do
           end
           if cfghero[v.id].group == (l_4_0.id - 5099) / 100 and cfghero[v.id].qlt == 5 and v.id >= 5000 then
-            headData[ headData + 1] = v
+            headData[#headData + 1] = v
             for i,v in (for generator) do
             end
             for j,k in ipairs(l_4_0.select) do
               if k == v.hid then
-                headData[ headData + 1] = v
+                headData[#headData + 1] = v
                 for i,v in (for generator) do
                 end
               end
             end
           end
           do
-            local surenum =  headData
+            local surenum = #headData
             for i,v in ipairs(headData) do
               if v.isUsed == true then
                 surenum = surenum - 1
@@ -138,21 +138,21 @@ local createSelectBoard = function(l_5_0, l_5_1)
   local headData = {}
   for i,v in ipairs(operData.heros) do
     if v.id == l_5_0.id and v.isUsed == false then
-      headData[ headData + 1] = v
+      headData[#headData + 1] = v
       for i,v in (for generator) do
       end
       if v.isUsed == false and l_5_0.id % 100 == 99 then
         if cfghero[v.id].group == (l_5_0.id - 4099) / 100 and cfghero[v.id].qlt == 4 and v.id < 5000 then
-          headData[ headData + 1] = v
+          headData[#headData + 1] = v
           for i,v in (for generator) do
           end
           if cfghero[v.id].group == (l_5_0.id - 5099) / 100 and cfghero[v.id].qlt == 5 and v.id >= 5000 then
-            headData[ headData + 1] = v
+            headData[#headData + 1] = v
             for i,v in (for generator) do
             end
             for j,k in ipairs(l_5_0.select) do
               if k == v.hid then
-                headData[ headData + 1] = v
+                headData[#headData + 1] = v
                 for i,v in (for generator) do
                 end
               end
@@ -182,18 +182,18 @@ local createSelectBoard = function(l_5_0, l_5_1)
           local curSelect = {}
           local backEvent = function()
             for i,v in ipairs(headData) do
-              if  tmpSelect == 0 and  curSelect ~= 0 then
-                for z = i,  curSelect do
+              if #tmpSelect == 0 and #curSelect ~= 0 then
+                for z = i, #curSelect do
                   if v.hid == curSelect[z] then
                     v.isUsed = true
                 else
                   end
                 end
               end
-              for j = 1,  tmpSelect do
+              for j = 1, #tmpSelect do
                 if v.hid == tmpSelect[j] then
                   local curflag = false
-                  for z = i,  curSelect do
+                  for z = i, #curSelect do
                     if v.hid == curSelect[z] then
                       curflag = true
                   else
@@ -222,7 +222,7 @@ local createSelectBoard = function(l_5_0, l_5_1)
             backEvent()
             audio.play(audio.button)
                end)
-          local height = 84 * math.ceil( headData / 5)
+          local height = 84 * math.ceil(#headData / 5)
           local scroll = CCScrollView:create()
           scroll:setDirection(kCCScrollViewDirectionVertical)
           scroll:setAnchorPoint(ccp(0, 0))
@@ -230,7 +230,7 @@ local createSelectBoard = function(l_5_0, l_5_1)
           scroll:setViewSize(CCSize(420, 225))
           scroll:setContentSize(CCSize(420, height))
           board:addChild(scroll)
-          if  headData == 0 then
+          if #headData == 0 then
             local empty = require("ui.empty").create({size = 16, text = i18n.global.empty_heromar.string, color = ccc3(255, 246, 223)})
             empty:setPosition(board:getContentSize().width / 2, board:getContentSize().height / 2)
             board:addChild(empty)
@@ -289,7 +289,7 @@ local createSelectBoard = function(l_5_0, l_5_1)
               return 
             end
             headData[l_4_0].isUsed = true
-            tmpSelect[ tmpSelect + 1] = headData[l_4_0].hid
+            tmpSelect[#tmpSelect + 1] = headData[l_4_0].hid
             local blackBoard = img.createUISprite(img.ui.hero_head_shade)
             blackBoard:setScale(0.93617021276596)
             blackBoard:setOpacity(120)
@@ -302,8 +302,8 @@ local createSelectBoard = function(l_5_0, l_5_1)
           local onUnselect = function(l_5_0)
             for i,v in ipairs(tmpSelect) do
               if v == headData[l_5_0].hid then
-                tmpSelect[i], tmpSelect[ tmpSelect] = tmpSelect[ tmpSelect], tmpSelect[i]
-                tmpSelect[ tmpSelect] = nil
+                tmpSelect[i], tmpSelect[#tmpSelect] = tmpSelect[#tmpSelect], tmpSelect[i]
+                tmpSelect[#tmpSelect] = nil
             else
               end
             end
@@ -316,7 +316,7 @@ local createSelectBoard = function(l_5_0, l_5_1)
             for j,k in ipairs(l_5_0.select) do
               if k == v.hid then
                 onSelect(i)
-                curSelect[ curSelect + 1] = v.hid
+                curSelect[#curSelect + 1] = v.hid
               end
             end
           end
@@ -337,7 +337,7 @@ local createSelectBoard = function(l_5_0, l_5_1)
               end
               for i,v in ipairs(showHeads) do
                 if v:boundingBox():containsPoint(pointOnScroll) then
-                  if not headData[i].isUsed and  tmpSelect < condition.num then
+                  if not headData[i].isUsed and #tmpSelect < condition.num then
                     onSelect(i)
                     for i,v in (for generator) do
                     end
@@ -597,8 +597,8 @@ ui.create = function()
           icon:runAction(CCRepeatForever:create(CCSequence:createWithTwoActions(CCFadeTo:create(0.5, 76.5), CCFadeTo:create(0.5, 255))))
           btnHero[i]:registerScriptTapHandler(function()
             local func = function()
-              showNum:setString( v.select .. "/" .. v.num)
-              if  v.select < v.num then
+              showNum:setString(#v.select .. "/" .. v.num)
+              if #v.select < v.num then
                 setShader(btnHero[i], SHADER_GRAY, true)
                 showNum:setColor(ccc3(255, 255, 255))
               else
@@ -606,7 +606,7 @@ ui.create = function()
                 showNum:setColor(ccc3(195, 255, 66))
               end
               for j,vv in ipairs(operData.condition) do
-                if vv.num -  vv.select <= numforhero(vv) then
+                if vv.num - #vv.select <= numforhero(vv) then
                   reddot[j]:setVisible(true)
                   for j,vv in (for generator) do
                   end
@@ -657,17 +657,17 @@ ui.create = function()
     scroll:getContainer():removeAllChildrenWithCleanup(true)
     for _,v in pairs(cfghero) do
       if v.showInForge and v.showInForge == 1 and (not defaultGroup or v.group == defaultGroup) then
-        heroTable[ heroTable + 1] = {id = _, qlt = v.qlt, group = v.group}
+        heroTable[#heroTable + 1] = {id = _, qlt = v.qlt, group = v.group}
       end
     end
-    for i = 1,  heroTable do
-      for j = i + 1,  heroTable do
+    for i = 1, #heroTable do
+      for j = i + 1, #heroTable do
         if heroTable[i].qlt < heroTable[j].qlt then
           heroTable[i], heroTable[j] = heroTable[j], heroTable[i]
         end
       end
     end
-    local SCROLLCONTENT_HEIGHT = math.ceil( heroTable / 4) * 84 + 10
+    local SCROLLCONTENT_HEIGHT = math.ceil(#heroTable / 4) * 84 + 10
     scroll:setContentSize(CCSizeMake(SCROLLVIEW_WIDTH, SCROLLCONTENT_HEIGHT))
     scroll:setContentOffset(ccp(0, SCROLLVIEW_HEIGHT - SCROLLCONTENT_HEIGHT))
     local iconBgBatch = img.createBatchNodeForUI(img.ui.herolist_head_bg)
@@ -845,9 +845,9 @@ ui.create = function()
       return 
     end
     for i,v in ipairs(operData.condition) do
-      if v.num <=  v.select then
+      if v.num <= #v.select then
         for j,k in ipairs(v.select) do
-          hids[ hids + 1] = k
+          hids[#hids + 1] = k
         end
         for i,v in (for generator) do
         end
@@ -894,7 +894,7 @@ ui.create = function()
           if tmp_status and tmp_status.limits and tmp_status.limits < cfgactivity[tmp_status.id].parameter[1].num then
             tmp_status.limits = tmp_status.limits + 1
             local tmp_status7 = activityData.getStatusById(IDS.HERO_SUMMON_7.ID)
-            if tmp_status.limits == cfgactivity[tmp_status.id].parameter[1].num and tmp_status7.limits <  cfgactivity[tmp_status7.id].parameter then
+            if tmp_status.limits == cfgactivity[tmp_status.id].parameter[1].num and tmp_status7.limits < #cfgactivity[tmp_status7.id].parameter then
               tmp_status7.limits = tmp_status7.limits + 1
             end
           end
@@ -905,8 +905,8 @@ ui.create = function()
         local hostHero = heros.find(hids[1])
         heroData.equips = hostHero.equips
         local tmpHids = {}
-        for i = 2,  hids do
-          tmpHids[ tmpHids + 1] = hids[i]
+        for i = 2, #hids do
+          tmpHids[#tmpHids + 1] = hids[i]
         end
         local exp, evolve, rune = heros.decompose(tmpHids)
         bag.items.add({id = ITEM_ID_HERO_EXP, num = exp})
@@ -943,7 +943,7 @@ ui.create = function()
                 heros.del(v)
               end
               anim:playAnimation("animation")
-              for i = 1,  showAnim do
+              for i = 1, #showAnim do
                 showAnim[i]:playAnimation("animation")
               end
               showHeroLayer:runAction(CCSequence:createWithTwoActions(CCDelayTime:create(1.5), CCCallFunc:create(function()

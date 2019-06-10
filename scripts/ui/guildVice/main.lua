@@ -65,7 +65,7 @@ ui.create = function(l_1_0)
   local lbl_buildings = {}
   local building_lbls = {1 = {name = i18n.global.guild_building_vice.string, pos = CCPoint(161 * view.minScale, 100 * view.minScale)}, 2 = {name = i18n.global.guild_building_keji.string, pos = CCPoint(806 * view.minScale, 87 * view.minScale)}, 3 = {name = i18n.global.guild_building_mofang.string, pos = CCPoint(577 * view.minScale, 176 * view.minScale)}, 4 = {name = i18n.global.guild_building_shop.string, pos = CCPoint(1123 * view.minScale, 97 * view.minScale)}, 5 = {name = i18n.global.guild_building_war.string, pos = CCPoint(1472 * view.minScale, 181 * view.minScale)}, 6 = {name = i18n.global.pray_title.string, pos = CCPoint(161 * view.minScale, 100 * view.minScale)}}
   local createBuildingLbls = function()
-    for ii = 1,  building_lbls do
+    for ii = 1, #building_lbls do
       local lbl_xxx = lbl.createFont2(18, building_lbls[ii].name, building_lbl_color)
       local building_lbl_xxx = img.createUI9Sprite(img.ui.main_building_lbl)
       local bd_size = lbl_xxx:boundingBox().size

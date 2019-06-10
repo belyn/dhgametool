@@ -136,7 +136,7 @@ ui.create = function()
     DHPayment:getInstance():restore(function(l_1_0, l_1_1)
       print("iap pull {")
       print("status", l_1_0)
-      if l_1_0 ~= "ok" or  l_1_1 == 0 then
+      if l_1_0 ~= "ok" or #l_1_1 == 0 then
         delWaitNet()
         print("iap pull }")
         showToast("have no subscription now.")
@@ -165,7 +165,7 @@ ui.create = function()
   bg:addChild(scroll)
   local contentDetail = string.split(i18n.global.vip_subscribe_text.string, "|||")
   local height = 0
-  for i =  contentDetail, 1, -1 do
+  for i = #contentDetail, 1, -1 do
     local label = lbl.create({kind = "ttf", font = 1, size = 14, text = contentDetail[i], color = ccc3(213, 215, 220), width = 479, align = kCCTextAlignmentLeft})
     label:setAnchorPoint(0, 1)
     scroll:getContainer():addChild(label)
@@ -250,7 +250,7 @@ ui.create = function()
       l_4_0 = true
     end
     weekBg1:setVisible(l_4_0)
-    weekBg2:setVisible(#l_4_0)
+    weekBg2:setVisible( l_4_0)
    end
   updateWeekBg(noFree)
   local weekBuy = img.createUISprite(img.ui.login_month_finish)

@@ -54,7 +54,7 @@ end
 preventAddiction.needPreventAddiction = function()
   local isChannel = isChannel()
   local lan = i18n.getLanguageShortName()
-  return (lan == "cn" and #isChannel)
+  return (lan == "cn" and  isChannel)
 end
 
 preventAddiction.getAdult = function()

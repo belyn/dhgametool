@@ -246,7 +246,7 @@ ui.create = function(l_1_0, l_1_1)
     layer.setHint(i18n.global.load_resource.string)
     local beginTime = os.time()
     local imgList, jsonList = img.getLoadListForUI(), json.getLoadListForUI()
-    local sum, num =  imgList, 0
+    local sum, num = #imgList, 0
     img.loadAsync(imgList, function()
       num = num + 1
       if layer.setPercentageForProgress then

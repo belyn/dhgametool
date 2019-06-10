@@ -253,26 +253,26 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
       end
       local sx = 25
       local px = 88
-      if  cfgfloatland[l_1_0.id].monster == 6 then
+      if #cfgfloatland[l_1_0.id].monster == 6 then
         sx = 70
       end
-      if  cfgfloatland[l_1_0.id].monster == 5 then
+      if #cfgfloatland[l_1_0.id].monster == 5 then
         sx = 115
       end
-      if  cfgfloatland[l_1_0.id].monster == 4 then
+      if #cfgfloatland[l_1_0.id].monster == 4 then
         sx = 160
       end
-      if  cfgfloatland[l_1_0.id].monster == 3 then
+      if #cfgfloatland[l_1_0.id].monster == 3 then
         sx = 205
       end
-      if  cfgfloatland[l_1_0.id].monster == 2 then
+      if #cfgfloatland[l_1_0.id].monster == 2 then
         sx = 250
       end
-      if  cfgfloatland[l_1_0.id].monster == 1 then
+      if #cfgfloatland[l_1_0.id].monster == 1 then
         sx = 295
       end
       local isdead = true
-      for ii = 1,  cfgfloatland[l_1_0.id].monster do
+      for ii = 1, #cfgfloatland[l_1_0.id].monster do
         local info = cfgmonster[cfgfloatland[l_1_0.id].monster[ii]]
         local npcIcon = img.createHeroHead(info.heroLink, info.lvShow, true, info.star)
         npcIcon:setScale(0.8)
@@ -297,11 +297,11 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
       end
       local rewards = {}
       for i,v in ipairs(cfgfloatland[l_1_0.id].killReward) do
-        rewards[ rewards + 1] = v
+        rewards[#rewards + 1] = v
       end
       local showRewards = {}
-      local offset = 314 -  rewards * 41
-      for i = 1,  rewards do
+      local offset = 314 - #rewards * 41
+      for i = 1, #rewards do
         local showRewardsSp = nil
         if rewards[i].type == 1 then
           showRewardsSp = img.createItem(rewards[i].id, rewards[i].num)

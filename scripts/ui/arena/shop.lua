@@ -88,7 +88,7 @@ ui.create = function()
   local itemBg = {}
   local setAlreadyBuy, createItemWithPos = nil, nil
   local currentPage = 1
-  local maxPage = math.floor(( cfgarenashop - 1) / 8) + 1
+  local maxPage = math.floor((#cfgarenashop - 1) / 8) + 1
   local board = img.createUISprite(img.ui.shop_board)
   board:setScale(view.minScale)
   board:setPosition(view.midX, view.midY - 30 * view.minScale)
@@ -118,7 +118,7 @@ ui.create = function()
   local createlist = function(l_1_0)
     showItemLayer:removeAllChildrenWithCleanup(true)
     for i = (l_1_0 - 1) * 8 + 1, l_1_0 * 8 do
-      if  dataarenashop.goods < i then
+      if #dataarenashop.goods < i then
         return 
       end
       if cfgarenashop[dataarenashop.goods[i].id].limitNumb and cfgarenashop[dataarenashop.goods[i].id].limitNumb <= dataarenashop.goods[i].num then

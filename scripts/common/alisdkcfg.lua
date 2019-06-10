@@ -111,7 +111,7 @@ cfg.pay = function(l_6_0, l_6_1)
             showToast("\232\174\162\229\141\149\229\188\130\229\184\184\239\188\140\232\175\183\231\161\174\232\174\164\230\148\175\228\187\152\229\174\140\230\136\144\228\186\134\239\188\140\232\129\148\231\179\187\229\174\162\230\156\141")
             return 
           end
-          if (l_1_0.reward.equips and  l_1_0.reward.equips > 0) or l_1_0.reward.items and  l_1_0.reward.items > 0 then
+          if (l_1_0.reward.equips and #l_1_0.reward.equips > 0) or l_1_0.reward.items and #l_1_0.reward.items > 0 then
             require("data.activity").pay()
           end
           if callback then

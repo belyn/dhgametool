@@ -101,16 +101,16 @@ end
 
 helper.add = function(l_18_0, l_18_1, l_18_2)
   if helper.isImpressId(l_18_1) then
-    for ii = 1,  l_18_0.buffs do
+    for ii = 1, #l_18_0.buffs do
       local _b = l_18_0.buffs[ii]
       if not _b.count then
         _b.count = (_b.id ~= l_18_1 or 1) + 1
         return 
       end
-      l_18_0.buffs[ l_18_0.buffs + 1] = {id = l_18_1, name = cfgbuff[l_18_1].name, value = l_18_2 or 0, count = 1}
+      l_18_0.buffs[#l_18_0.buffs + 1] = {id = l_18_1, name = cfgbuff[l_18_1].name, value = l_18_2 or 0, count = 1}
     else
       if not l_18_2 then
-        l_18_0.buffs[ l_18_0.buffs + 1] = {id = l_18_1, name = cfgbuff[l_18_1].name, value = arraycontains(helper.states(l_18_0), cfgbuff[l_18_1].name) or 0}
+        l_18_0.buffs[#l_18_0.buffs + 1] = {id = l_18_1, name = cfgbuff[l_18_1].name, value = arraycontains(helper.states(l_18_0), cfgbuff[l_18_1].name) or 0}
       end
        -- Warning: missing end command somewhere! Added here
     end
@@ -167,11 +167,11 @@ helper.states = function(l_24_0)
     if l_24_0.buffs then
       for _,b in ipairs(l_24_0.buffs) do
         if arraycontains(controls, b.name) and not arraycontains(states, b.name) then
-          states[ states + 1] = b.name
+          states[#states + 1] = b.name
           for _,b in (for generator) do
           end
           if arraycontains(impresses, b.name) and not arraycontains(states, b.name) then
-            states[ states + 1] = b.name
+            states[#states + 1] = b.name
           end
         end
       end

@@ -34,7 +34,7 @@ end
 
 img.getFramesOfLoading = function(l_2_0)
   local frames = {}
-  for ii = 1,  l_2_0 do
+  for ii = 1, #l_2_0 do
     local key = l_2_0[ii]
     local frame = spriteframeCache:spriteFrameByName(key)
     print("key=====:", key)
@@ -43,17 +43,17 @@ img.getFramesOfLoading = function(l_2_0)
       local size = tex:getContentSize()
       local rect = CCRect(0, 0, size.width, size.height)
       frame = CCSpriteFrame:createWithTexture(tex, rect)
-      frames[ frames + 1] = frame
+      frames[#frames + 1] = frame
       spriteframeCache:addSpriteFrame(frame, key)
     else
-      frames[ frames + 1] = frame
+      frames[#frames + 1] = frame
     end
   end
   return frames
 end
 
 img.unloadFramesOfLoading = function(l_3_0)
-  for ii = 1,  l_3_0 do
+  for ii = 1, #l_3_0 do
     local key = l_3_0[ii]
     local tex = textureCache:textureForKey(key)
     if tex then
@@ -95,7 +95,7 @@ img.initUnits = function()
                 local path = CCFileUtils:sharedFileUtils():fullPathForFilename(name)
                 if CCFileUtils:sharedFileUtils():isFileExist(path) then
                   img.packedUnit[id] = "spine_cha_" .. idStr
-                  ids[ ids + 1] = {id = id, str = idStr}
+                  ids[#ids + 1] = {id = id, str = idStr}
                   j = j + 1
                 else
                   j = j + 1
@@ -158,7 +158,7 @@ end
 img.createPlayerHeadById = function(l_10_0)
   local cfghead = require("config.head")
   local headData = require("data.head")
-  if l_10_0 <=  cfghead then
+  if l_10_0 <= #cfghead then
     local name = string.format("%s%04d.png", headDir, cfghead[l_10_0].iconId)
     return CCSprite:createWithSpriteFrameName(name)
   else
@@ -821,7 +821,7 @@ img.getLoadListForUI = function()
   local loadlist = {}
   local names = tablevalues(img.packedUI)
   for _,name in ipairs(names) do
-    loadlist[ loadlist + 1] = {texture = baseDir .. name .. ".png", plist = baseDir .. name .. ".plist"}
+    loadlist[#loadlist + 1] = {texture = baseDir .. name .. ".png", plist = baseDir .. name .. ".plist"}
   end
   return loadlist
 end
@@ -863,7 +863,7 @@ img.getAllBuff = function()
               local plist = baseDir .. "spine_fight_" .. name .. "_" .. i .. ".plist"
               local fullpath = CCFileUtils:sharedFileUtils():fullPathForFilename(texture)
               if CCFileUtils:sharedFileUtils():isFileExist(fullpath) then
-                loadlist[ loadlist + 1] = {texture = texture, plist = plist}
+                loadlist[#loadlist + 1] = {texture = texture, plist = plist}
                 i = i + 1
                 do return end
                 for name,_ in (for generator) do
@@ -895,13 +895,13 @@ img.getLoadListForFight = function(l_64_0, l_64_1, l_64_2)
       local name = string.format("%s%smap_%02d_%s.png", baseDir, mapDir, l_64_0, s)
       local path = CCFileUtils:sharedFileUtils():fullPathForFilename(name)
       if CCFileUtils:sharedFileUtils():isFileExist(path) then
-        loadlist[ loadlist + 1] = {texture = name, frame = name}
+        loadlist[#loadlist + 1] = {texture = name, frame = name}
       end
     end
   end
   for _,id in ipairs(l_64_1) do
     local unitResId = cfghero[id].heroBody
-    loadlist[ loadlist + 1] = {texture = baseDir .. img.packedUnit[unitResId] .. ".png", plist = baseDir .. img.packedUnit[unitResId] .. ".plist"}
+    loadlist[#loadlist + 1] = {texture = baseDir .. img.packedUnit[unitResId] .. ".png", plist = baseDir .. img.packedUnit[unitResId] .. ".plist"}
   end
   local fxNames = {}
   if not l_64_2 then
@@ -937,16 +937,16 @@ img.getLoadListForFight = function(l_64_0, l_64_1, l_64_2)
     end
     if cfghero[id].disillusSkill then
       local cfgdisillusSkill = cfghero[id].disillusSkill
-      for ii = 1,  cfgdisillusSkill do
+      for ii = 1, #cfgdisillusSkill do
         local cfgdisi = cfgdisillusSkill[ii].disi
-        for jj = 1,  cfgdisi do
+        for jj = 1, #cfgdisi do
           local sk = cfgdisi[jj]
           local sks = {}
           sks[1] = sk
           if sk and cfgskill[sk] and cfgskill[sk].effect and cfgskill[sk].effect[1].type == "changeCombat" then
             sks[2] = cfgskill[sk].effect[1].num
           end
-          for ii = 1,  sks do
+          for ii = 1, #sks do
             sk = sks[ii]
             if sk then
               for _,f in ipairs({"fxSelf", "fxMain1", "fxMain2", "fxHurt1", "fxHurt2"}) do
@@ -987,7 +987,7 @@ img.getLoadListForFight = function(l_64_0, l_64_1, l_64_2)
                 local plist = baseDir .. "spine_fight_" .. name .. "_" .. i .. ".plist"
                 local fullpath = CCFileUtils:sharedFileUtils():fullPathForFilename(texture)
                 if CCFileUtils:sharedFileUtils():isFileExist(fullpath) then
-                  loadlist[ loadlist + 1] = {texture = texture, plist = plist}
+                  loadlist[#loadlist + 1] = {texture = texture, plist = plist}
                   i = i + 1
                   do return end
                   for name,_ in (for generator) do
@@ -1024,7 +1024,7 @@ img.getLoadListForFight2 = function(l_65_0, l_65_1, l_65_2)
       local name = string.format("%s%smap_%02d_%s.png", baseDir, mapDir, l_65_0, s)
       local path = CCFileUtils:sharedFileUtils():fullPathForFilename(name)
       if CCFileUtils:sharedFileUtils():isFileExist(path) then
-        loadlist[ loadlist + 1] = {texture = name, frame = name}
+        loadlist[#loadlist + 1] = {texture = name, frame = name}
       end
     end
   end
@@ -1042,7 +1042,7 @@ img.getLoadListForFight2 = function(l_65_0, l_65_1, l_65_2)
     if hInfo.skin and cfgequip[hInfo.skin] then
       unitResId = cfgequip[hInfo.skin].heroBody
     end
-    loadlist[ loadlist + 1] = {texture = baseDir .. img.packedUnit[unitResId] .. ".png", plist = baseDir .. img.packedUnit[unitResId] .. ".plist"}
+    loadlist[#loadlist + 1] = {texture = baseDir .. img.packedUnit[unitResId] .. ".png", plist = baseDir .. img.packedUnit[unitResId] .. ".plist"}
     local skills = {}
     local skArray = nil
     if l_65_2 then
@@ -1119,7 +1119,7 @@ img.getLoadListForFight2 = function(l_65_0, l_65_1, l_65_2)
               local plist = baseDir .. "spine_fight_" .. name .. "_" .. i .. ".plist"
               local fullpath = CCFileUtils:sharedFileUtils():fullPathForFilename(texture)
               if CCFileUtils:sharedFileUtils():isFileExist(fullpath) then
-                loadlist[ loadlist + 1] = {texture = texture, plist = plist}
+                loadlist[#loadlist + 1] = {texture = texture, plist = plist}
                 i = i + 1
                 do return end
                 for name,_ in (for generator) do
@@ -1145,7 +1145,7 @@ img.getLoadListForPet = function(l_66_0)
   local cfgskill = require("config.skill")
   local cfgfx = require("config.fx")
   local loadlist = {}
-  if not l_66_0 or  l_66_0 <= 0 then
+  if not l_66_0 or #l_66_0 <= 0 then
     return loadlist
   end
   local cfgpet = require("config.pet")
@@ -1153,9 +1153,9 @@ img.getLoadListForPet = function(l_66_0)
   local pngNames = {}
   do
     local uiNames = {}
-    uiNames[ uiNames + 1] = "spine_ui_pet_1"
-    uiNames[ uiNames + 1] = "spine_ui_pet_2"
-    for ii = 1,  l_66_0 do
+    uiNames[#uiNames + 1] = "spine_ui_pet_1"
+    uiNames[#uiNames + 1] = "spine_ui_pet_2"
+    for ii = 1, #l_66_0 do
       local petid = l_66_0[ii].id
       local petInfo = petData.getData(petid)
       local petName = cfgpet[petid].petBody
@@ -1165,10 +1165,10 @@ img.getLoadListForPet = function(l_66_0)
       elseif petName == "ice" then
         petName = "icesoul"
       end
-      uiNames[ uiNames + 1] = string.format("spine_ui_%s%s", petName, l_66_0[ii].star + 1)
+      uiNames[#uiNames + 1] = string.format("spine_ui_%s%s", petName, l_66_0[ii].star + 1)
       local skills = {}
       local actSkillId = cfgpet[petid].actSkillId + l_66_0[ii].lv - 1
-      skills[ skills + 1] = actSkillId
+      skills[#skills + 1] = actSkillId
       local fxNames = {}
       for _,sk in ipairs(skills) do
         if sk then
@@ -1176,17 +1176,17 @@ img.getLoadListForPet = function(l_66_0)
             local fxes = cfgskill[sk][f]
             if fxes then
               for _,fx in ipairs(fxes) do
-                fxNames[ fxNames + 1] = cfgfx[fx].name
+                fxNames[#fxNames + 1] = cfgfx[fx].name
               end
             end
           end
         end
       end
-      for ii = 1,  fxNames do
-        pngNames[ pngNames + 1] = string.format("%s", fxNames[ii])
+      for ii = 1, #fxNames do
+        pngNames[#pngNames + 1] = string.format("%s", fxNames[ii])
       end
     end
-    for jj = 1,  pngNames do
+    for jj = 1, #pngNames do
       local name = pngNames[jj]
       local i = 1
       repeat
@@ -1195,19 +1195,19 @@ img.getLoadListForPet = function(l_66_0)
           local plist = baseDir .. "spine_fight_" .. name .. "_" .. i .. ".plist"
           local fullpath = CCFileUtils:sharedFileUtils():fullPathForFilename(texture)
           if CCFileUtils:sharedFileUtils():isFileExist(fullpath) then
-            loadlist[ loadlist + 1] = {texture = texture, plist = plist}
+            loadlist[#loadlist + 1] = {texture = texture, plist = plist}
             i = i + 1
             do return end
             do return end
         else
           end
-          for jj = 1,  uiNames do
+          for jj = 1, #uiNames do
             local name = uiNames[jj]
             local texture = baseDir .. name .. ".png"
             local plist = baseDir .. name .. ".plist"
             local fullpath = CCFileUtils:sharedFileUtils():fullPathForFilename(texture)
             if CCFileUtils:sharedFileUtils():isFileExist(fullpath) then
-              loadlist[ loadlist + 1] = {texture = texture, plist = plist}
+              loadlist[#loadlist + 1] = {texture = texture, plist = plist}
             end
           end
           return loadlist
@@ -1225,29 +1225,29 @@ img.getLoadListForSkin = function(l_67_0)
   local cfgfx = require("config.fx")
   local loadlist = {}
   local fxNames = {}
-  for ii = 1,  l_67_0 do
+  for ii = 1, #l_67_0 do
     local unitResId = cfgequip[l_67_0[ii]].heroBody
-    loadlist[ loadlist + 1] = {texture = baseDir .. img.packedUnit[unitResId] .. ".png", plist = baseDir .. img.packedUnit[unitResId] .. ".plist"}
+    loadlist[#loadlist + 1] = {texture = baseDir .. img.packedUnit[unitResId] .. ".png", plist = baseDir .. img.packedUnit[unitResId] .. ".plist"}
     local cfg = cfgequip[l_67_0[ii]]
     for _,f in ipairs({"fxSelf", "fxMain1", "fxMain2", "fxHurt1", "fxHurt2"}) do
       local fxes = cfg[f]
       if fxes then
         for _,fx in ipairs(fxes) do
           if cfgfx[fx].resName then
-            fxNames[ fxNames + 1] = cfgfx[fx].resName
+            fxNames[#fxNames + 1] = cfgfx[fx].resName
             for _,fx in (for generator) do
             end
-            fxNames[ fxNames + 1] = cfgfx[fx].name
+            fxNames[#fxNames + 1] = cfgfx[fx].name
           end
         end
       end
     end
     do
       local pngNames = {}
-      for ii = 1,  fxNames do
-        pngNames[ pngNames + 1] = string.format("%s", fxNames[ii])
+      for ii = 1, #fxNames do
+        pngNames[#pngNames + 1] = string.format("%s", fxNames[ii])
       end
-      for jj = 1,  pngNames do
+      for jj = 1, #pngNames do
         local name = pngNames[jj]
         local i = 1
         repeat
@@ -1256,7 +1256,7 @@ img.getLoadListForSkin = function(l_67_0)
             local plist = baseDir .. "spine_fight_" .. name .. "_" .. i .. ".plist"
             local fullpath = CCFileUtils:sharedFileUtils():fullPathForFilename(texture)
             if CCFileUtils:sharedFileUtils():isFileExist(fullpath) then
-              loadlist[ loadlist + 1] = {texture = texture, plist = plist}
+              loadlist[#loadlist + 1] = {texture = texture, plist = plist}
               i = i + 1
               do return end
               do return end

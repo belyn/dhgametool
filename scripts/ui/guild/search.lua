@@ -71,7 +71,7 @@ ui.create = function(l_2_0)
   local showList = function(l_2_0)
     container:removeAllChildrenWithCleanup(true)
     container.scroll = nil
-    if not l_2_0 or  l_2_0 <= 0 then
+    if not l_2_0 or #l_2_0 <= 0 then
       showToast(i18n.global.guild_search_none.string)
       return 
     end
@@ -80,13 +80,13 @@ ui.create = function(l_2_0)
     scroll:setPosition(CCPoint(0, 0))
     container:addChild(scroll)
     container.scroll = scroll
-    for ii = 1,  l_2_0 do
+    for ii = 1, #l_2_0 do
       local tmp_item = gitem.createItem(l_2_0[ii])
       tmp_item.guildObj = l_2_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 320
       scroll.addItem(tmp_item)
-      if ii ~=  l_2_0 then
+      if ii ~= #l_2_0 then
         scroll.addSpace(space_height)
       end
     end

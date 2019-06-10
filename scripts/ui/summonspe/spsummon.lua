@@ -32,7 +32,7 @@ local createPopupPieceBatchSummonResult = function(l_1_0)
   dialog.board:addChild(menu)
   dialog.board.tipsTag = false
   local px = dialog.board:getContentSize().width / 2 - 50
-  for i = 1,  l_1_0 do
+  for i = 1, #l_1_0 do
     do
       local item = img.createItem(l_1_0[i].id, l_1_0[i].num)
       local itemBtn = SpineMenuItem:create(json.ui.button, item)
@@ -212,7 +212,7 @@ ui.create = function()
       if datagacha.spacesummon > 15 then
         datagacha.spacesummon = datagacha.spacesummon - 15
       end
-      for i = 1,  l_1_0.items do
+      for i = 1, #l_1_0.items do
         bag.items.add({id = l_1_0.items[i].id, num = l_1_0.items[i].num})
       end
       if summontype - 10 == 1 then
@@ -300,7 +300,7 @@ ui.create = function()
       if datagacha.spacesummon > 15 then
         datagacha.spacesummon = datagacha.spacesummon - 15
       end
-      for i = 1,  l_1_0.items do
+      for i = 1, #l_1_0.items do
         bag.items.add({id = l_1_0.items[i].id, num = l_1_0.items[i].num})
       end
       if summontype - 10 == 1 then

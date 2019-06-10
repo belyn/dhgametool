@@ -21,7 +21,7 @@ local initHerolistData = function(l_1_0)
   local herolist = {}
   for i,v in ipairs(heros) do
     if v.lv >= 40 then
-      herolist[ herolist + 1] = clone(v)
+      herolist[#herolist + 1] = clone(v)
     end
   end
   for i,v in ipairs(herolist) do
@@ -40,7 +40,7 @@ local initHerolistData = function(l_1_0)
 end
 
 local onHadleBattle = function(l_2_0)
-  if  l_2_0.hids <= 0 then
+  if #l_2_0.hids <= 0 then
     showToast(i18n.global.toast_selhero_needhero.string)
     return 
   end
@@ -73,10 +73,10 @@ local onHadleBattle = function(l_2_0)
         if v.pos ~= 7 then
           v.hp = v.hpp
           if v.hp > 0 then
-            camp[ camp + 1] = clone(v)
+            camp[#camp + 1] = clone(v)
             for i,v in (for generator) do
             end
-            camp[ camp + 1] = clone(v)
+            camp[#camp + 1] = clone(v)
           end
         end
         video.def.camp = camp
@@ -99,7 +99,7 @@ local onHadleBattle = function(l_2_0)
             end
           end
           if not isFind then
-            databrave.heros[ databrave.heros + 1] = {hid = v.hid, hpp = v.hpp}
+            databrave.heros[#databrave.heros + 1] = {hid = v.hid, hpp = v.hpp}
           end
         end
         for i,v in ipairs(databrave.enemys[databrave.stage].camp) do
@@ -322,7 +322,7 @@ ui.create = function(l_3_0)
   layer:addChild(herolistBg)
   SCROLLVIEW_WIDTH = 943
   SCROLLVIEW_HEIGHT = 118
-  SCROLLCONTENT_WIDTH =  herolist * 90 + 8
+  SCROLLCONTENT_WIDTH = #herolist * 90 + 8
   scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionHorizontal)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -346,7 +346,7 @@ ui.create = function(l_3_0)
   scroll:getContainer():addChild(blackBatch, 4)
   selectBatch = img.createBatchNodeForUI(img.ui.hook_btn_sel)
   scroll:getContainer():addChild(selectBatch, 5)
-  for i = 1,  herolist do
+  for i = 1, #herolist do
     local x, y = 45 + (i - 1) * 90 + 8, 64
     local qlt = cfghero[herolist[i].id].maxStar
     local heroBg = nil
@@ -410,7 +410,7 @@ ui.create = function(l_3_0)
     if heroSkillBg:getChildByTag(1) then
       heroSkillBg:removeChildByTag(1)
     end
-    for i = 1,  require("ui.selecthero.campLayer").BuffTable do
+    for i = 1, #require("ui.selecthero.campLayer").BuffTable do
       campWidget.icon[i]:setVisible(false)
     end
     local heroids = {}
@@ -600,10 +600,10 @@ ui.create = function(l_3_0)
     local unit = {}
     for i = 1, 6 do
       if hids[i] and hids[i] > 0 then
-        unit[ unit + 1] = {hid = hids[i], pos = i}
-        local hh = heros.find(unit[ unit].hid)
+        unit[#unit + 1] = {hid = hids[i], pos = i}
+        local hh = heros.find(unit[#unit].hid)
         if hh and hh.wake then
-          unit[ unit].wake = hh.wake
+          unit[#unit].wake = hh.wake
         end
       end
     end

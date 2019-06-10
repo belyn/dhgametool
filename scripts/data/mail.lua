@@ -14,7 +14,7 @@ mail.not_reads = 0
 mail.showRedDot = function()
   if mail.mails and mail.mails.player_mails then
     local tmp_mails = mail.mails.player_mails
-    for ii = 1,  tmp_mails do
+    for ii = 1, #tmp_mails do
       if tmp_mails[ii].flag ~= 0 then
         return true
       end
@@ -22,7 +22,7 @@ mail.showRedDot = function()
   end
   if mail.mails and mail.mails.sys_mails then
     local tmp_mails = mail.mails.sys_mails
-    for ii = 1,  tmp_mails do
+    for ii = 1, #tmp_mails do
       if tmp_mails[ii].flag ~= 0 then
         return true
       end
@@ -76,7 +76,7 @@ local addPlayerMail = function(l_4_0)
   if not player_mails then
     player_mails = {}
   end
-  player_mails[ player_mails + 1] = l_4_0
+  player_mails[#player_mails + 1] = l_4_0
   table.sort(player_mails, mail_sort)
 end
 
@@ -84,7 +84,7 @@ local addSysMail = function(l_5_0)
   if not sys_mails then
     sys_mails = {}
   end
-  sys_mails[ sys_mails + 1] = l_5_0
+  sys_mails[#sys_mails + 1] = l_5_0
   table.sort(sys_mails, mail_sort)
 end
 
@@ -110,13 +110,13 @@ mail.addMails = function(l_7_0)
   if not l_7_0 then
     return 
   end
-  for ii = 1,  l_7_0 do
+  for ii = 1, #l_7_0 do
     addMail(l_7_0[ii])
   end
 end
 
 mail.delPlayer = function(l_8_0)
-  for ii = 1,  player_mails do
+  for ii = 1, #player_mails do
     if player_mails[ii] == l_8_0 then
       table.remove(player_mails, ii)
   else
@@ -125,7 +125,7 @@ mail.delPlayer = function(l_8_0)
 end
 
 mail.delSys = function(l_9_0)
-  for ii = 1,  sys_mails do
+  for ii = 1, #sys_mails do
     if sys_mails[ii] == l_9_0 then
       table.remove(sys_mails, ii)
   else
@@ -169,8 +169,8 @@ mail.affix = function(l_14_0, l_14_1)
 end
 
 mail.flagByMids = function(l_15_0)
-  for ii = 1,  l_15_0 do
-    for jj = 1,  sys_mails do
+  for ii = 1, #l_15_0 do
+    for jj = 1, #sys_mails do
       if sys_mails[jj].mid == l_15_0[ii] then
         sys_mails[jj].flag = 2
     else

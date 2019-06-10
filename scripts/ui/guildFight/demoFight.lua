@@ -84,9 +84,9 @@ ui.create = function(l_1_0)
     local box = (CCSprite:create())
     local _pos = nil
     if l_4_1 == "attacker" then
-      _pos = xy[ atkIds][l_4_1][l_4_2]
+      _pos = xy[#atkIds][l_4_1][l_4_2]
     else
-      _pos = xy[ defIds][l_4_1][l_4_2]
+      _pos = xy[#defIds][l_4_1][l_4_2]
     end
     box:setPosition(_pos.x, _pos.y)
     layer.box:addChild(box, 4 - l_4_2)
@@ -94,13 +94,13 @@ ui.create = function(l_1_0)
     card:setScale(op3(l_4_1 == "attacker", 0.3, 0.3))
     card:setFlipX(l_4_1 ~= "attacker")
     box:addChild(card)
-    units[ units + 1] = {heroId = l_4_0, box = box, card = card, size = "small", pos = op3(l_4_1 == "attacker", l_4_2, l_4_2 + 6), side = l_4_1, hp = op3(l_4_1 == "attacker", 100, math.random(5, 10)), atkId = cfghero[l_4_0].atkId}
+    units[#units + 1] = {heroId = l_4_0, box = box, card = card, size = "small", pos = op3(l_4_1 == "attacker", l_4_2, l_4_2 + 6), side = l_4_1, hp = op3(l_4_1 == "attacker", 100, math.random(5, 10)), atkId = cfghero[l_4_0].atkId}
     print("add unit --------------------", l_4_1)
     if l_4_1 == "attacker" then
-      units.atk_units[ units.atk_units + 1] = units[ units]
+      units.atk_units[#units.atk_units + 1] = units[#units]
     else
       print("add def_units-------------------------")
-      units.def_units[ units.def_units + 1] = units[ units]
+      units.def_units[#units.def_units + 1] = units[#units]
     end
    end
   layer.nextAction = function()
@@ -126,13 +126,13 @@ ui.create = function(l_1_0)
    end
   local imgList, jsonList = {}, {}
   layer.loadAllResources = function(l_7_0, l_7_1)
-    if  l_7_0 == 0 then
+    if #l_7_0 == 0 then
       l_7_1()
       return 
     end
     imgList = arraymerge(imgList, img.getLoadListForFight(nil, l_7_0, true))
     upvalue_1024 = arraymerge(jsonList, json.getLoadListForFight(l_7_0, true))
-    local sum, num =  imgList, 0
+    local sum, num = #imgList, 0
     img.loadAsync(imgList, function()
       num = num + 1
       if num == sum and not tolua.isnull(layer) then
@@ -166,7 +166,7 @@ ui.refreshIds = function(l_2_0)
     return 
   end
   local ids = l_2_0.atkIds
-  if ids == nil or  ids == 0 then
+  if ids == nil or #ids == 0 then
     return 
   end
   local atkValid = atkIds ~= nil
@@ -177,20 +177,20 @@ ui.refreshIds = function(l_2_0)
     else
       end
     end
-    if atkValid and  atkIds <  ids then
+    if atkValid and #atkIds < #ids then
       atkValid = false
     end
   end
   if not atkValid then
-    if  ids < 2 then
+    if #ids < 2 then
       atkIds = arraycp(ids)
     else
-      local i = math.random(1,  ids)
+      local i = math.random(1, #ids)
     end
     ui.jobSort(atkIds)
   end
   local ids = l_2_0.defIds
-  if ids == nil or  ids == 0 then
+  if ids == nil or #ids == 0 then
     return 
   end
   do
@@ -200,22 +200,22 @@ ui.refreshIds = function(l_2_0)
      -- DECOMPILER ERROR: Overwrote pending register.
 
     if ids[i] then
-      for _,id in ipairs(op3( ids < i + 1, ids[i + 1 -  ids], ids[i + 1])) do
+      for _,id in ipairs(op3(#ids < i + 1, ids[i + 1 - #ids], ids[i + 1])) do
         atkIds = {}
         if not arraycontains(ids, id) then
           defValid = false
       else
         end
       end
-      if defValid and  defIds <  ids then
+      if defValid and #defIds < #ids then
         defValid = false
       end
     end
     if not defValid then
-      if  ids < 2 then
+      if #ids < 2 then
         defIds = arraycp(ids)
       else
-        local i = math.random(1,  ids)
+        local i = math.random(1, #ids)
       end
       ui.jobSort(defIds)
     end
@@ -245,7 +245,7 @@ ui.mergeIds = function(l_4_0, l_4_1)
   local ids = arraycp(l_4_0)
   for _,id in ipairs(l_4_1) do
     if not arraycontains(ids, id) then
-      ids[ ids + 1] = id
+      ids[#ids + 1] = id
     end
   end
   return ids
@@ -255,7 +255,7 @@ ui.diffIds = function(l_5_0, l_5_1)
   local ids = {}
   for _,id in ipairs(l_5_1) do
     if not arraycontains(l_5_0, id) then
-      ids[ ids + 1] = id
+      ids[#ids + 1] = id
     end
   end
   return ids
@@ -279,9 +279,9 @@ ui.nextActorAndActee = function(l_6_0)
   local atk_units = l_6_0.atk_units
   local def_units = l_6_0.def_units
   if actor.side == "attacker" then
-    actee = def_units[math.random(1,  def_units)]
+    actee = def_units[math.random(1, #def_units)]
   else
-    actee = atk_units[math.random(1,  atk_units)]
+    actee = atk_units[math.random(1, #atk_units)]
   end
   return actor, actee
 end

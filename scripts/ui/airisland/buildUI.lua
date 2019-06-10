@@ -316,13 +316,13 @@ ui.addItems = function()
     end
   end
   local grayItems = {}
-  for i =  ui.items, 1, -1 do
+  for i = #ui.items, 1, -1 do
     if not ui.items[i].canBuild then
       table.insert(grayItems, ui.items[i])
       table.remove(ui.items, i)
     end
   end
-  for i =  grayItems, 1, -1 do
+  for i = #grayItems, 1, -1 do
     table.insert(ui.items, grayItems[i])
   end
   for i,v in ipairs(ui.items) do
@@ -335,7 +335,7 @@ ui.resetScroll = function()
     ui.scroll:setContentSize(CCSize(690, 256))
     ui.scroll:setContentOffset(ccp(0, 0))
   else
-    ui.scroll:setContentSize(CCSize(16 + 202 *  ui.items + 8 * ( ui.items - 1), 256))
+    ui.scroll:setContentSize(CCSize(16 + 202 * #ui.items + 8 * (#ui.items - 1), 256))
     ui.scroll:setContentOffset(ccp(0, 0))
   end
 end

@@ -144,10 +144,10 @@ end
 
 local ids = {}
 ui.getAllIds = function()
-  if  ids == 0 then
+  if #ids == 0 then
     for k,v in pairs(activitydata.IDS) do
       if k:beginwith("WEEKLY_GIFT") then
-        ids[ ids + 1] = v.ID
+        ids[#ids + 1] = v.ID
       end
     end
   end
@@ -160,7 +160,7 @@ ui.getActivityStatus = function()
     local status = activitydata.getStatusById(id)
     if status then
       status.read = 1
-      all[ all + 1] = status
+      all[#all + 1] = status
     end
   end
   table.sort(all, function(l_1_0, l_1_1)
@@ -237,10 +237,10 @@ ui.getConfigs = function(l_8_0)
   do
     local cfgInActivity, cfgInStore = {}, {}
     for _,s in ipairs(l_8_0) do
-      cfgInActivity[ cfgInActivity + 1] = cfgactivity[s.id]
+      cfgInActivity[#cfgInActivity + 1] = cfgactivity[s.id]
       for _,cfg in pairs(cfgstore) do
         if cfg.activity == s.id then
-          cfgInStore[ cfgInStore + 1] = cfg
+          cfgInStore[#cfgInStore + 1] = cfg
           for _,s in (for generator) do
           end
         end

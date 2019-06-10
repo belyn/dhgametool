@@ -75,7 +75,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
     end
     for i,thing in ipairs(things) do
       local icon, kind, t = nil, nil, nil
-      if thing.equips and  thing.equips > 0 then
+      if thing.equips and #thing.equips > 0 then
         kind = "equip"
         t = thing.equips[1]
         icon = img.createEquip(t.id, t.num)

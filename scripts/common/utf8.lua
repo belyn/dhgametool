@@ -7,7 +7,7 @@ utf8.char = function(l_1_0, l_1_1)
     l_1_1 = 1
   end
   local byte = string.byte(l_1_0, l_1_1)
-  for i =  FIRST_BYTE_MARK, 1, -1 do
+  for i = #FIRST_BYTE_MARK, 1, -1 do
     if FIRST_BYTE_MARK[i] <= byte then
       return string.sub(l_1_0, l_1_1, l_1_1 + i - 1)
     end
@@ -20,16 +20,16 @@ utf8.chars = function(l_2_0)
   do
     local i = 1
     repeat
-      if i <=  l_2_0 then
+      if i <= #l_2_0 then
         local char = utf8.char(l_2_0, i)
         if char == nil then
           return nil
         end
         table.insert(chars, char)
-        if i +  char - 1 ==  l_2_0 then
+        if i + #char - 1 == #l_2_0 then
           return chars
         end
-        i = i +  char
+        i = i + #char
       else
         return nil
       end
@@ -42,7 +42,7 @@ end
 utf8.len = function(l_3_0)
   local chars = utf8.chars(l_3_0)
   if chars ~= nil then
-    return  chars
+    return #chars
   end
   return nil
 end

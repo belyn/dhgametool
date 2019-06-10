@@ -617,12 +617,12 @@ ui.create = function(l_3_0)
   layer:addChild(scroll)
   layer.scroll = scroll
   local showList = function(l_4_0)
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       if ii == 1 then
         scroll.addSpace(4)
       end
       local tmp_item = createItem(l_4_0[ii])
-      touch_items[ touch_items + 1] = tmp_item
+      touch_items[#touch_items + 1] = tmp_item
       tmp_item.obj = l_4_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 167
@@ -678,7 +678,7 @@ ui.create = function(l_3_0)
     end
    end
   content_layer.selectActivity = function(l_10_0)
-    for i = 1,  activity_items do
+    for i = 1, #activity_items do
       if activity_items[i].id == l_10_0 then
         onSelect(i)
       end
@@ -692,7 +692,7 @@ ui.create = function(l_3_0)
       return true
     end
     local p1 = scroll.content_layer:convertToNodeSpace(ccp(l_11_0, l_11_1))
-    for ii = 1,  touch_items do
+    for ii = 1, #touch_items do
       if touch_items[ii]:boundingBox():containsPoint(p1) then
         upvalue_2560 = touch_items[ii]
       end
@@ -716,7 +716,7 @@ ui.create = function(l_3_0)
       backEvent()
     elseif isclick then
       local p1 = scroll.content_layer:convertToNodeSpace(ccp(l_13_0, l_13_1))
-      for ii = 1,  touch_items do
+      for ii = 1, #touch_items do
         if touch_items[ii]:boundingBox():containsPoint(p1) then
           audio.play(audio.button)
           onSelect(ii)
@@ -740,7 +740,7 @@ ui.create = function(l_3_0)
       return 
     end
     last_check_time = os.time()
-    for ii = 1,  touch_items do
+    for ii = 1, #touch_items do
       local item_status = touch_items[ii].obj.status
        -- DECOMPILER ERROR: unhandled construct in 'if'
 
@@ -787,7 +787,7 @@ ui.create = function(l_3_0)
    end
   local showNoActivityView = function()
     local show = true
-    for i = 1,  activity_items do
+    for i = 1, #activity_items do
       local activity = activity_items[i].status
       if activity.status == 0 and os.time() - activityData.pull_time <= activity.cd then
         show = false
@@ -833,10 +833,10 @@ ui.create = function(l_3_0)
       touch_items[l_18_0].obj.status.read = 1
     end
    end
-    if  touch_items > 0 then
+    if #touch_items > 0 then
       local page = 1
       if l_3_0 then
-        for i = 1,  touch_items do
+        for i = 1, #touch_items do
           if l_3_0 == "brokenboss" and touch_items[i].obj.id == IDS.CRUSHING_SPACE_1.ID then
             page = i
             do return end

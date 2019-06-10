@@ -226,7 +226,7 @@ ui.addItems = function()
 
    -- DECOMPILER ERROR: unhandled table 
 
-  for i =  ui.items, 1, -1 do
+  for i = #ui.items, 1, -1 do
      -- DECOMPILER ERROR: unhandled table 
 
     ui.items[i]:setPositionX(centerX)
@@ -234,7 +234,7 @@ ui.addItems = function()
 
      -- DECOMPILER ERROR: unhandled table 
 
-    ui.items[i]:setPositionY(startY + intervalY * ( ui.items - i))
+    ui.items[i]:setPositionY(startY + intervalY * (#ui.items - i))
   end
    -- DECOMPILER ERROR: unhandled table 
 

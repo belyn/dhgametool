@@ -92,7 +92,7 @@ helper.processTreasureEpOne = function(l_7_0)
   l_7_0.ep = l_7_0.ep or 0
   local h = herosdata.find(l_7_0.hid)
   if h and h.equips then
-    for ii = 1,  h.equips do
+    for ii = 1, #h.equips do
       local eid = h.equips[ii]
       local cfg = cfgequip[eid]
       if cfg and cfg.pos == EQUIP_POS_TREASURE then
@@ -114,10 +114,10 @@ helper.processTreasureEpOne = function(l_7_0)
 end
 
 helper.processTreasureEp = function(l_8_0)
-  if not l_8_0 or  l_8_0 <= 0 then
+  if not l_8_0 or #l_8_0 <= 0 then
     return 
   end
-  for ii = 1,  l_8_0 do
+  for ii = 1, #l_8_0 do
     helper.processTreasureEpOne(l_8_0[ii])
   end
 end

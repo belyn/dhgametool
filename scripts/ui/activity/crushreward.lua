@@ -40,7 +40,7 @@ local createItem = function(l_1_0, l_1_1, l_1_2, l_1_3, l_1_4)
   rank:setPosition(CCPoint(60, item_h / 2))
   item:addChild(rank)
   local offset_x = 155
-  for i = 1,  l_1_0.rewards do
+  for i = 1, #l_1_0.rewards do
     local tmp_item = nil
     do
       local itemObj = l_1_0.rewards[i]
@@ -132,18 +132,18 @@ ui.create = function(l_2_0)
     board:addChild(scroll)
     board.scroll = scroll
     scroll.addSpace(4)
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       local tmp_item = nil
       if ii > 2 then
-        tmp_item = createItem(l_4_0[ii], ii, layer,  l_4_0, l_4_0[ii - 1].rank)
+        tmp_item = createItem(l_4_0[ii], ii, layer, #l_4_0, l_4_0[ii - 1].rank)
       else
-        tmp_item = createItem(l_4_0[ii], ii, layer,  l_4_0)
+        tmp_item = createItem(l_4_0[ii], ii, layer, #l_4_0)
       end
       tmp_item.guildObj = l_4_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 302
       scroll.addItem(tmp_item)
-      if ii ~=  l_4_0 then
+      if ii ~= #l_4_0 then
         scroll.addSpace(space_height)
       end
     end

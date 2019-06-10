@@ -135,29 +135,29 @@ end
 local skillId = {}
 if heroData.wake == nil then
   if cfghero[heroData.id].actSkillId then
-    skillId[ skillId + 1] = {id = cfghero[heroData.id].actSkillId, lock = 0}
+    skillId[#skillId + 1] = {id = cfghero[heroData.id].actSkillId, lock = 0}
   end
   for i = 1, 6 do
     if cfghero[heroData.id].pasSkill" .. i .. "Id then
-      skillId[ skillId + 1] = {id = cfghero[heroData.id].pasSkill" .. i .. "Id, lock = cfghero[heroData.id].pasTier" .. }
+      skillId[#skillId + 1] = {id = cfghero[heroData.id].pasSkill" .. i .. "Id, lock = cfghero[heroData.id].pasTier" .. }
     end
   end
 elseif heroData.wake < 4 then
   if cfghero[heroData.id].disillusSkill[heroData.wake].disi[1] then
-    skillId[ skillId + 1] = {id = cfghero[heroData.id].disillusSkill[heroData.wake].disi[1], lock = 0}
+    skillId[#skillId + 1] = {id = cfghero[heroData.id].disillusSkill[heroData.wake].disi[1], lock = 0}
   end
   for i = 1, 6 do
     if cfghero[heroData.id].disillusSkill[heroData.wake].disi[i + 1] then
-      skillId[ skillId + 1] = {id = cfghero[heroData.id].disillusSkill[heroData.wake].disi[i + 1], lock = cfghero[heroData.id].pasTier" .. }
+      skillId[#skillId + 1] = {id = cfghero[heroData.id].disillusSkill[heroData.wake].disi[i + 1], lock = cfghero[heroData.id].pasTier" .. }
     end
   end
 else
   if cfghero[heroData.id].actSkillId then
-    skillId[ skillId + 1] = {id = cfghero[heroData.id].actSkillId, lock = 0}
+    skillId[#skillId + 1] = {id = cfghero[heroData.id].actSkillId, lock = 0}
   end
   for i = 1, 6 do
     if cfghero[heroData.id].pasSkill" .. i .. "Id then
-      skillId[ skillId + 1] = {id = cfghero[heroData.id].pasSkill" .. i .. "Id, lock = cfghero[heroData.id].pasTier" .. }
+      skillId[#skillId + 1] = {id = cfghero[heroData.id].pasSkill" .. i .. "Id, lock = cfghero[heroData.id].pasTier" .. }
     end
   end
 end

@@ -8,7 +8,7 @@ module("containers")
 local _RCFC_meta = {add = function(l_1_0)
   local value = l_1_0._message_descriptor._concrete_class()
   local listener = l_1_0._listener
-  rawset(l_1_0,  l_1_0 + 1, value)
+  rawset(l_1_0, #l_1_0 + 1, value)
   value:_SetListener(listener)
   if listener.dirty == false then
     listener:Modified()
@@ -32,7 +32,7 @@ end
 
 local _RSFC_meta = {append = function(l_5_0, l_5_1)
   l_5_0._type_checker(l_5_1)
-  rawset(l_5_0,  l_5_0 + 1, l_5_1)
+  rawset(l_5_0, #l_5_0 + 1, l_5_1)
   l_5_0._listener:Modified()
 end
 , remove = function(l_6_0, l_6_1)

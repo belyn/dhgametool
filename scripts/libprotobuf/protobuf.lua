@@ -70,7 +70,7 @@ end
 
 local _DefaultValueConstructorForField = function(l_4_0)
   if l_4_0.label == FieldDescriptor.LABEL_REPEATED then
-    if type(l_4_0.default_value) ~= "table" or  l_4_0.default_value ~= 0 then
+    if type(l_4_0.default_value) ~= "table" or #l_4_0.default_value ~= 0 then
       error("Repeated field default value not empty list:" .. tostring(l_4_0.default_value))
     end
     if l_4_0.cpp_type == FieldDescriptor.CPPTYPE_MESSAGE then
@@ -450,7 +450,7 @@ local _AddSerializePartialToStringMethod = function(l_29_0, l_29_1)
   local _serialize_partial_to_string = function(l_3_0)
     local out = {}
     local write = function(l_1_0)
-      out[ out + 1] = l_1_0
+      out[#out + 1] = l_1_0
       end
     _internal_serialize(l_3_0, write)
     return concat(out)
@@ -495,7 +495,7 @@ local _AddMergeFromStringMethod = function(l_30_0, l_30_1)
    end
   l_30_1._member._InternalParse = _internal_parse
   local merge_from_string = function(l_2_0, l_2_1)
-    local length =  l_2_1
+    local length = #l_2_1
     if _internal_parse(l_2_0, l_2_1, 0, length) ~= length then
       error("Unexpected end-group tag.")
     end
@@ -512,14 +512,14 @@ local _AddIsInitializedMethod = function(l_31_0, l_31_1)
   local required_fields = {}
   for _,field in ipairs(l_31_0.fields) do
     if field.label == FieldDescriptor.LABEL_REQUIRED then
-      required_fields[ required_fields + 1] = field
+      required_fields[#required_fields + 1] = field
     end
   end
   l_31_1._member.IsInitialized = function(l_1_0, l_1_1)
     for _,field in ipairs(required_fields) do
       if l_1_0._fields[field] == nil or field.cpp_type == FieldDescriptor.CPPTYPE_MESSAGE and not l_1_0._fields[field]._is_present_in_parent then
         if l_1_1 ~= nil then
-          l_1_1[ l_1_1 + 1] = message_meta._member.FindInitializationErrors(l_1_0)
+          l_1_1[#l_1_1 + 1] = message_meta._member.FindInitializationErrors(l_1_0)
         end
         return false
       end
@@ -530,7 +530,7 @@ local _AddIsInitializedMethod = function(l_31_0, l_31_1)
           for _,element in ipairs(value) do
             if not element:IsInitialized() then
               if l_1_1 ~= nil then
-                l_1_1[ l_1_1 + 1] = message_meta._member.FindInitializationErrors(l_1_0)
+                l_1_1[#l_1_1 + 1] = message_meta._member.FindInitializationErrors(l_1_0)
               end
               return false
             end
@@ -539,7 +539,7 @@ local _AddIsInitializedMethod = function(l_31_0, l_31_1)
           end
           if value._is_present_in_parent and not value:IsInitialized() then
             if l_1_1 ~= nil then
-              l_1_1[ l_1_1 + 1] = message_meta._member.FindInitializationErrors(l_1_0)
+              l_1_1[#l_1_1 + 1] = message_meta._member.FindInitializationErrors(l_1_0)
             end
             return false
           end
@@ -569,7 +569,7 @@ local _AddIsInitializedMethod = function(l_31_0, l_31_1)
               prefix = io:format("%s[%d].", name, i)
               sub_errors = element:FindInitializationErrors()
               for _,e in ipairs(sub_errors) do
-                errors[ errors + 1] = prefix .. e
+                errors[#errors + 1] = prefix .. e
               end
             end
             for field,value in (for generator) do
@@ -577,7 +577,7 @@ local _AddIsInitializedMethod = function(l_31_0, l_31_1)
             prefix = name .. "."
             sub_errors = value:FindInitializationErrors()
             for _,e in ipairs(sub_errors) do
-              errors[ errors + 1] = prefix .. e
+              errors[#errors + 1] = prefix .. e
             end
           end
         end

@@ -64,7 +64,7 @@ ui.create = function(l_1_0)
   showallPower:setPosition(powerIcon:boundingBox():getMaxX() + 15, powerIcon:boundingBox():getMidY())
   showPowerBg:addChild(showallPower)
   local playerBg = {}
-  for i =  teaminfo.mbrs + 1, 3 do
+  for i = #teaminfo.mbrs + 1, 3 do
     playerBg[i] = img.createUI9Sprite(img.ui.botton_fram_2)
     playerBg[i]:setPreferredSize(CCSize(228, 246))
     playerBg[i]:setAnchorPoint(ccp(0.5, 0))
@@ -85,7 +85,7 @@ ui.create = function(l_1_0)
     local dx = 246
     for i = 1, 3 do
       do
-        if i <=  teaminfo.mbrs then
+        if i <= #teaminfo.mbrs then
           if teaminfo.mbrs[i].uid == player.uid then
             playerBg[i] = img.createUI9Sprite(img.ui.botton_fram_3)
           else
@@ -453,7 +453,7 @@ ui.create = function(l_1_0)
   local submitBtn = SpineMenuItem:create(json.ui.button, submit)
   submitBtn:setAnchorPoint(0, 0)
   submitBtn:setPosition(CCPoint(board_w / 2 + 178, 27))
-  if  frdarena.team.mbrs < 3 then
+  if #frdarena.team.mbrs < 3 then
     submitBtn:setVisible(false)
   end
   local submitMenu = CCMenu:createWithItem(submitBtn)
@@ -479,14 +479,14 @@ ui.create = function(l_1_0)
       layer:removeFromParentAndCleanup(true)
       return 
     end
-    if (frdarena.team and  teaminfo.mbrs ~=  frdarena.team.mbrs) or frdarena.refreshOwner == true then
+    if (frdarena.team and #teaminfo.mbrs ~= #frdarena.team.mbrs) or frdarena.refreshOwner == true then
       frdarena.refreshOwner = false
       upvalue_1536 = clone(frdarena.team)
       teammateLayer:removeFromParentAndCleanup(true)
       upvalue_2048 = nil
       upvalue_2048 = createteamInfo()
       board:addChild(teammateLayer)
-      if  frdarena.team.mbrs < 3 or player.uid ~= teaminfo.leader then
+      if #frdarena.team.mbrs < 3 or player.uid ~= teaminfo.leader then
         submitBtn:setVisible(false)
       else
         submitBtn:setVisible(true)

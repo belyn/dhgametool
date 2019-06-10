@@ -25,10 +25,10 @@ local getHeroListData = function(l_2_0)
   local heros = clone(Dataheros)
   local herolist = {}
   for _,v in ipairs(heros) do
-    herolist[ herolist + 1] = {hid = v.hid, id = v.id, lv = v.lv, star = 3, isUsed = false}
+    herolist[#herolist + 1] = {hid = v.hid, id = v.id, lv = v.lv, star = 3, isUsed = false}
     for j,hid in ipairs(hids) do
-      if hid == herolist[ herolist].hid then
-        herolist[ herolist].isUsed = true
+      if hid == herolist[#herolist].hid then
+        herolist[#herolist].isUsed = true
       end
     end
   end
@@ -39,12 +39,12 @@ local getHeroListData = function(l_2_0)
       if v.isUsed == false then
         for j,group in ipairs(groups) do
           if cfghero[v.id].group == group then
-            h[ h + 1] = v
+            h[#h + 1] = v
           end
         end
         for _,v in (for generator) do
         end
-        h[ h + 1] = v
+        h[#h + 1] = v
       end
       herolist = h
     end
@@ -100,7 +100,7 @@ local createHeroList = function(l_4_0)
   local layer = CCLayer:create()
   local SCROLLVIEW_WIDTH = 710
   local SCROLLVIEW_HEIGHT = 331
-  local SCROLLCONTENT_HEIGHT = 23 + 101 * math.ceil( l_4_0 / 7)
+  local SCROLLCONTENT_HEIGHT = 23 + 101 * math.ceil(#l_4_0 / 7)
   local scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionVertical)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -127,12 +127,12 @@ local createHeroList = function(l_4_0)
         isFind = true
       end
     end
-    if condition.heroNum <=  hids then
+    if condition.heroNum <= #hids then
       return 
     end
     if not isFind then
       herolist[l_1_0].isUsed = true
-      hids[ hids + 1] = herolist[l_1_0].hid
+      hids[#hids + 1] = herolist[l_1_0].hid
     end
     local blackBoard = CCLayerColor:create(ccc4(0, 0, 0, 120))
     blackBoard:setContentSize(CCSize(92, 92))
@@ -149,7 +149,7 @@ local createHeroList = function(l_4_0)
     local h = {}
     for i,v in ipairs(hids) do
       if v ~= herolist[l_2_0].hid then
-        h[ h + 1] = v
+        h[#h + 1] = v
       end
     end
     upvalue_1536 = h

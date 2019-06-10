@@ -36,7 +36,7 @@ gate.pingBest = function(l_3_0, l_3_1)
   local list = l_3_0.list
   local minPing, index = nil, nil
   local pingRecursively = function(l_1_0)
-    if  list < l_1_0 then
+    if #list < l_1_0 then
       if index == nil then
         print("gate.pingBest: no gate available!")
         handler("error")
@@ -98,7 +98,7 @@ gate.getInfo = function()
   if info then
     for _,s in ipairs(LIST) do
       if not gate.contains(info.list, s) then
-        info.list[ info.list + 1] = {host = s.host, port = s.port}
+        info.list[#info.list + 1] = {host = s.host, port = s.port}
       end
     end
     if not gate.contains(info.list, info.best) then
@@ -113,7 +113,7 @@ gate.getLocalInfo = function()
   local info = {list = {}}
   local infoStr = string.split(userdata.getString(userdata.keys.gateServer), "|")
   reportEvent({event_type = "gate", event_name = "local gate", silence = "1", event_value = {desc = infoStr}})
-  if  infoStr ~= 3 then
+  if #infoStr ~= 3 then
     return 
   end
   for _,serverStr in ipairs(string.split(infoStr[1], ",")) do
@@ -121,7 +121,7 @@ gate.getLocalInfo = function()
     if host == nil or port == nil then
       return 
     end
-    info.list[ info.list + 1] = {host = host, port = port}
+    info.list[#info.list + 1] = {host = host, port = port}
   end
   local bestHost, bestPort = gate.getHostAndPort(infoStr[2])
   if bestHost == nil or bestPort == nil then
@@ -138,7 +138,7 @@ end
 
 gate.getHostAndPort = function(l_7_0)
   local server = string.split(l_7_0, ":")
-  if  server ~= 2 then
+  if #server ~= 2 then
     return 
   end
   local host = string.trim(server[1])
@@ -162,7 +162,7 @@ gate.contains = function(l_8_0, l_8_1)
 end
 
 gate.isSameList = function(l_9_0, l_9_1)
-  if  l_9_0 ==  l_9_1 then
+  if #l_9_0 == #l_9_1 then
     for _,s in ipairs(l_9_0) do
       if not gate.contains(l_9_1, s) then
         return false
@@ -186,7 +186,7 @@ end
 gate.save = function(l_11_0)
   local serverStr = {}
   for _,s in ipairs(l_11_0.list) do
-    serverStr[ serverStr + 1] = s.host .. ":" .. s.port
+    serverStr[#serverStr + 1] = s.host .. ":" .. s.port
   end
   local bestStr = l_11_0.best.host .. ":" .. l_11_0.best.port
   local str = table.concat(serverStr, ",") .. "|" .. bestStr .. "|" .. l_11_0.timestamp

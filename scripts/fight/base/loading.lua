@@ -14,7 +14,7 @@ ui.create = function()
     img.load(img.packedOthers.fightLoading[bgIndex])
   end
   local layer = require("fight.loadingbg.bg" .. bgIndex).create()
-  local tipsIndex = math.random( i18n.loadingtips)
+  local tipsIndex = math.random(#i18n.loadingtips)
   layer.setHint(i18n.loadingtips[tipsIndex].tips)
   layer.startLoading = function(l_1_0, l_1_1, l_1_2)
     audio.stopBackgroundMusic()
@@ -51,7 +51,7 @@ ui.create = function()
     if device.platform == "ios" and require("common.helper").isLowMem() then
       CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGBA4444)
     end
-    local sum, num =  l_3_0, 0
+    local sum, num = #l_3_0, 0
     img.loadAsync(l_3_0, function()
       num = num + 1
       if layer.setPercentageForProgress then

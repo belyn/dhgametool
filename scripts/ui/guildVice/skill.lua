@@ -231,7 +231,7 @@ ui.create = function()
     local b_offset_y = 204
     local b_step_y = -26
     local buffs = skilldata.getBuffs(skillObj)
-    for ii = 1,  buffs do
+    for ii = 1, #buffs do
       local lbl_cur = lbl.createFont1(14, buffs[ii].name .. "  +" .. buffs[ii].value, ccc3(130, 71, 35))
       lbl_cur:setAnchorPoint(CCPoint(0, 0))
       lbl_cur:setPosition(CCPoint(23, 204 + (ii - 1) * b_step_y))
@@ -289,7 +289,7 @@ ui.create = function()
     if not skilldata.isLighten(skillObj.idx) then
       btn_up:setEnabled(false)
       setShader(btn_up, SHADER_GRAY, true)
-      local buffs_count =  buffs
+      local buffs_count = #buffs
       local lbl_require = lbl.createFont1(14, string.format(i18n.global.need_pre_skill_lv.string, skillObj.lvReq), ccc3(212, 0, 0))
       lbl_require:setAnchorPoint(CCPoint(0, 0))
       lbl_require:setPosition(CCPoint(23, 204 + (buffs_count - 0) * b_step_y))

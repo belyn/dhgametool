@@ -149,7 +149,7 @@ tips.createMiddle = function(l_12_0, l_12_1, l_12_2, l_12_3, l_12_4)
       elseif attr.num == 0 then
         attr_str = name
       end
-      labels[ labels + 1] = {label = lbl.createMixFont1(18, attr_str, ccc3(251, 251, 251)), x = TIPS_MARGIN, offsetY = op3(i == 1, 0, 2)}
+      labels[#labels + 1] = {label = lbl.createMixFont1(18, attr_str, ccc3(251, 251, 251)), x = TIPS_MARGIN, offsetY = op3(i == 1, 0, 2)}
     end
   end
   if cfgequip[l_12_0.id].job or cfgequip[l_12_0.id].group then
@@ -161,15 +161,15 @@ tips.createMiddle = function(l_12_0, l_12_1, l_12_2, l_12_3, l_12_4)
     if cfgequip[l_12_0.id].job then
       for _,id in ipairs(cfgequip[l_12_0.id].job) do
         if cfgequip[l_12_0.id].job then
-          titleArr[ titleArr + 1] = i18n.global.job_" .. i.string
+          titleArr[#titleArr + 1] = i18n.global.job_" .. i.string
         end
       end
     else
       if cfgequip[l_12_0.id].group then
-        titleArr[ titleArr + 1] = i18n.global.hero_group_" .. cfgequip[l_12_0.id].grou.string
+        titleArr[#titleArr + 1] = i18n.global.hero_group_" .. cfgequip[l_12_0.id].grou.string
       end
     end
-    labels[ labels + 1] = {label = lbl.createMix({font = 1, size = 18, text = i18n.global.tips_activate.string .. table.concat(titleArr, ","), color = op3(activated, ccc3(237, 203, 31), ccc3(127, 127, 127)), width = LABEL_WIDTH, align = kCCTextAlignmentLeft}), x = TIPS_MARGIN, offsetY = 10}
+    labels[#labels + 1] = {label = lbl.createMix({font = 1, size = 18, text = i18n.global.tips_activate.string .. table.concat(titleArr, ","), color = op3(activated, ccc3(237, 203, 31), ccc3(127, 127, 127)), width = LABEL_WIDTH, align = kCCTextAlignmentLeft}), x = TIPS_MARGIN, offsetY = 10}
     local attrColor = op3(activated, ccc3(251, 251, 251), ccc3(127, 127, 127))
     for i = 1, 3 do
       local attr = cfgequip[l_12_0.id].act" .. 
@@ -181,12 +181,12 @@ tips.createMiddle = function(l_12_0, l_12_1, l_12_2, l_12_3, l_12_4)
         elseif attr.num == 0 then
           attr_str = name
         end
-        labels[ labels + 1] = {label = lbl.createMixFont1(18, attr_str, attrColor), x = TIPS_MARGIN, offsetY = op3(i == 1, 4, 2)}
+        labels[#labels + 1] = {label = lbl.createMixFont1(18, attr_str, attrColor), x = TIPS_MARGIN, offsetY = op3(i == 1, 4, 2)}
       end
     end
   end
   if cfgequip[l_12_0.id].form then
-    local sum =  cfgequip[l_12_0.id].form
+    local sum = #cfgequip[l_12_0.id].form
     local num = 0
     if owner then
       for _,id in ipairs(owner.equips) do
@@ -201,7 +201,7 @@ tips.createMiddle = function(l_12_0, l_12_1, l_12_2, l_12_3, l_12_4)
     else
       titleText = i18n.equip[l_12_0.id].suitName .. " (" .. sum .. ")"
     end
-    labels[ labels + 1] = {label = lbl.createMix({font = 1, size = 18, text = titleText, color = ccc3(237, 203, 31), width = LABEL_WIDTH, align = kCCTextAlignmentLeft}), x = TIPS_MARGIN, offsetY = 10}
+    labels[#labels + 1] = {label = lbl.createMix({font = 1, size = 18, text = titleText, color = ccc3(237, 203, 31), width = LABEL_WIDTH, align = kCCTextAlignmentLeft}), x = TIPS_MARGIN, offsetY = 10}
     for i = 1, 3 do
       local attr = cfgequip[l_12_0.id].suit" .. 
       if attr then
@@ -214,12 +214,12 @@ tips.createMiddle = function(l_12_0, l_12_1, l_12_2, l_12_3, l_12_4)
           attr_str = name
         end
         local attrColor = op3(i + 1 <= num, ccc3(126, 231, 48), ccc3(127, 127, 127))
-        labels[ labels + 1] = {label = lbl.createMixFont1(18, attr_str, attrColor), x = TIPS_MARGIN, offsetY = op3(i == 1, 4, 2)}
+        labels[#labels + 1] = {label = lbl.createMixFont1(18, attr_str, attrColor), x = TIPS_MARGIN, offsetY = op3(i == 1, 4, 2)}
       end
     end
   end
   if i18n.equip[l_12_0.id].explain then
-    labels[ labels + 1] = {label = lbl.createMix({font = 1, size = 18, text = i18n.equip[l_12_0.id].explain, color = ccc3(255, 242, 152), width = LABEL_WIDTH, align = kCCTextAlignmentLeft}), x = TIPS_MARGIN, offsetY = 10}
+    labels[#labels + 1] = {label = lbl.createMix({font = 1, size = 18, text = i18n.equip[l_12_0.id].explain, color = ccc3(255, 242, 152), width = LABEL_WIDTH, align = kCCTextAlignmentLeft}), x = TIPS_MARGIN, offsetY = 10}
   end
   local container, currentY = alignLabels(labels)
   local cHeight = not currentY
@@ -346,7 +346,7 @@ tips.createForDrop = function(l_15_0, l_15_1, l_15_2)
       btn0:setPreferredSize(CCSize(btnW, btnH))
       local btn = SpineMenuItem:create(json.ui.button, btn0)
       btn:setPosition(TIPS_WIDTH / 2, h - 27 - i * 78)
-      btn:setEnabled(#disable)
+      btn:setEnabled( disable)
       local fort, num = require("data.hook").getFortStageByStageId(stage)
       local text = string.format(i18n.global.tips_go_hook.string, fort, num)
       local btnLbl = lbl.createFont1(18, text, ccc3(115, 59, 5))
@@ -419,7 +419,7 @@ tips.createLayer = function(l_16_0, l_16_1, l_16_2, l_16_3, l_16_4)
         tips1:setVisible(false)
         upvalue_4608 = tips.create(layer, l_1_1, i18n.global.tips_drop.string, function()
           audio.play(audio.button)
-          if  can +  cannot == 0 then
+          if #can + #cannot == 0 then
             showToast(i18n.global.tips_no_drop.string)
             return 
           end
@@ -539,7 +539,7 @@ tips.dropStages = function(l_18_0)
   local max = require("data.hook").getMaxHookStage()
   local num = 3
   local can, cannot = {}, {}
-  if max > 0 and max <=  cfgpoker then
+  if max > 0 and max <= #cfgpoker then
     for i = max, 1, -1 do
       for _,info in ipairs(cfgpoker[i].yes) do
         if info.id == l_18_0 and info.type == 2 then
@@ -547,35 +547,35 @@ tips.dropStages = function(l_18_0)
       else
         end
       end
-      if  can == num then
+      if #can == num then
         do return end
       end
     end
   end
-  if max + 1 > 0 and max + 1 <=  cfgpoker then
-    for i = max + 1,  cfgpoker do
+  if max + 1 > 0 and max + 1 <= #cfgpoker then
+    for i = max + 1, #cfgpoker do
       for _,info in ipairs(cfgpoker[i].yes) do
         if info.id == l_18_0 and info.type == 2 then
           table.insert(cannot, i)
       else
         end
       end
-      if  cannot == num then
+      if #cannot == num then
         do return end
       end
     end
   end
-  if  can +  cannot <= 3 then
+  if #can + #cannot <= 3 then
     return can, cannot
-  elseif  can == 1 then
+  elseif #can == 1 then
     return can, {cannot[1], cannot[2]}
-  elseif  can == 2 then
+  elseif #can == 2 then
     return can, {cannot[1]}
    -- DECOMPILER ERROR: Unhandled construct in table
 
    -- DECOMPILER ERROR: unhandled table 
 
-  elseif  can == 3 then
+  elseif #can == 3 then
     return {can[2], can[3]}, can[2]
   end
    -- DECOMPILER ERROR: unhandled table 

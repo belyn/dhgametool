@@ -122,7 +122,7 @@ tips.create = function(l_1_0, l_1_1, l_1_2)
           local dialog = createdelete()
           layer:addChild(dialog, 300)
         else
-          if friend.friends.friendsList and  friend.friends.friendsList >= 30 then
+          if friend.friends.friendsList and #friend.friends.friendsList >= 30 then
             showToast(i18n.global.friend_friends_limit.string)
             return 
           end

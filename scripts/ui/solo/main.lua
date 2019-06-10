@@ -122,15 +122,15 @@ ui.create = function()
   ui.widget.sideSpine:addChildFollowSlot("1code_leftdrag2", ui.widget.evilBtn.menu)
   ui.widget.milkBtn = ui.createDrugBtn("milk")
   ui.widget.sideSpine:addChildFollowSlot("1code_leftdrag3", ui.widget.milkBtn.menu)
-  ui.widget.angelLabel = lbl.createFont2(14,  soloData.angel)
+  ui.widget.angelLabel = lbl.createFont2(14, #soloData.angel)
   ui.widget.angelLabel:setPosition(ccp(65, 19))
   ui.widget.angelLabel:setScale(1 / ui.widget.angelBtn:getScale())
   ui.widget.angelBtn.img:addChild(ui.widget.angelLabel)
-  ui.widget.evilLabel = lbl.createFont2(14,  soloData.evil)
+  ui.widget.evilLabel = lbl.createFont2(14, #soloData.evil)
   ui.widget.evilLabel:setPosition(ccp(65, 19))
   ui.widget.evilLabel:setScale(1 / ui.widget.evilBtn:getScale())
   ui.widget.evilBtn.img:addChild(ui.widget.evilLabel)
-  ui.widget.milkLabel = lbl.createFont2(14,  soloData.milk)
+  ui.widget.milkLabel = lbl.createFont2(14, #soloData.milk)
   ui.widget.milkLabel:setPosition(ccp(65, 19))
   ui.widget.milkLabel:setScale(1 / ui.widget.milkBtn:getScale())
   ui.widget.milkBtn.img:addChild(ui.widget.milkLabel)
@@ -200,7 +200,7 @@ ui.initData = function(l_3_0)
 end
 
 ui.initHandle = function()
-  if soloData.heroList == nil or  soloData.heroList == 0 then
+  if soloData.heroList == nil or #soloData.heroList == 0 then
     local selectUI = require("ui.solo.selectHeroes")
     selectUI.mainUI = ui
     ui.widget.selectLayer = selectUI.create()
@@ -576,7 +576,7 @@ ui.btnCallback = function()
 end
 
 ui.addHeroIcon = function()
-  for i = 1,  soloData.heroList do
+  for i = 1, #soloData.heroList do
     if ui.widget.heroIcons[i] then
       return 
     end
@@ -1430,7 +1430,7 @@ ui.savePotion = function()
   local label = {milk = ui.widget.milkLabel, angel = ui.widget.angelLabel, evil = ui.widget.evilLabel}
   if soloData.getBufType() == "milk" or soloData.getBufType() == "angel" or soloData.getBufType() == "evil" then
     table.insert(soloData[soloData.getBufType()], soloData.getBuf())
-    label[soloData.getBufType()]:setString( soloData[soloData.getBufType()])
+    label[soloData.getBufType()]:setString(#soloData[soloData.getBufType()])
     ui.savePotionSpine()
   end
 end
@@ -1633,7 +1633,7 @@ ui.storageReward = function(l_52_0)
 end
 
 ui.addDrugTipUI = function(l_53_0)
-  if  soloData[l_53_0] > 0 then
+  if #soloData[l_53_0] > 0 then
     print("\228\189\191\231\148\168\228\191\157\229\173\152\231\154\132\232\141\175\229\137\130")
     local drugText = {milk = i18n.global.solo_useMilk.string, angel = i18n.global.solo_useAngel.string, evil = i18n.global.solo_useEvil.string}
     do
@@ -1666,7 +1666,7 @@ ui.addDrugTipUI = function(l_53_0)
                   soloData.setBuf(drug)
                 end
                 table.remove(soloData[drugType], 1)
-                drugLabel[drugType]:setString( soloData[drugType])
+                drugLabel[drugType]:setString(#soloData[drugType])
               end
                   end)
           end
@@ -1696,9 +1696,9 @@ ui.modifyBufShow = function()
 end
 
 ui.playSweepAnimation = function()
-  ui.widget.milkLabel:setString( soloData.milk)
-  ui.widget.angelLabel:setString( soloData.angel)
-  ui.widget.evilLabel:setString( soloData.evil)
+  ui.widget.milkLabel:setString(#soloData.milk)
+  ui.widget.angelLabel:setString(#soloData.angel)
+  ui.widget.evilLabel:setString(#soloData.evil)
   bufStr = {speed = ui.widget.speedBuffBar, power = ui.widget.powerBuffBar, crit = ui.widget.critBuffBar}
   local delay = CCDelayTime:create(0.4)
   local callfunc = CCCallFunc:create(function()
@@ -1731,13 +1731,13 @@ ui.playSweepAnimation = function()
   ui.widget.spineNode:addChild(speedLight, 99999999)
   ui.widget.spineNode:addChild(powerLight, 99999999)
   ui.widget.spineNode:addChild(critLight, 99999999)
-  if soloData.angel and  soloData.angel > 0 then
+  if soloData.angel and #soloData.angel > 0 then
     angelLight:playAnimation("animation")
   end
-  if soloData.evil and  soloData.evil > 0 then
+  if soloData.evil and #soloData.evil > 0 then
     evilLight:playAnimation("animation")
   end
-  if soloData.milk and  soloData.milk > 0 then
+  if soloData.milk and #soloData.milk > 0 then
     milkLight:playAnimation("animation")
   end
   if soloData.speed and soloData.speed > 0 then

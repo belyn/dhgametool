@@ -29,7 +29,7 @@ local initfiveHeros = function(l_1_0)
     local tmpheros = {}
     for i,v in ipairs(heros) do
       if not v.flag then
-        tmpheros[ tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, wake = v.wake, star = v.star, isUsed = false, flag = not cfglifechange[v.id] or cfghero[v.id].maxStar ~= 5 or cfghero[v.id].group ~= l_1_0 or 0}
+        tmpheros[#tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, wake = v.wake, star = v.star, isUsed = false, flag = not cfglifechange[v.id] or cfghero[v.id].maxStar ~= 5 or cfghero[v.id].group ~= l_1_0 or 0}
       end
       fiveData.heros = tmpheros
     end
@@ -41,7 +41,7 @@ local createFiveSelectBoard = function(l_2_0, l_2_1)
   local layer = CCLayerColor:create(ccc4(0, 0, 0, 210))
   local headData = {}
   for i,v in ipairs(fiveData.heros) do
-    headData[ headData + 1] = v
+    headData[#headData + 1] = v
   end
   table.sort(headData, function(l_1_0, l_1_1)
     if l_1_0.id >= l_1_1.id then
@@ -78,7 +78,7 @@ local createFiveSelectBoard = function(l_2_0, l_2_1)
     backEvent()
     audio.play(audio.button)
    end)
-  local height = 84 * math.ceil( headData / 5)
+  local height = 84 * math.ceil(#headData / 5)
   local scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionVertical)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -86,7 +86,7 @@ local createFiveSelectBoard = function(l_2_0, l_2_1)
   scroll:setViewSize(CCSize(420, 225))
   scroll:setContentSize(CCSize(420, height))
   board:addChild(scroll)
-  if  headData == 0 then
+  if #headData == 0 then
     local empty = require("ui.empty").create({size = 16, text = i18n.global.empty_heromar.string, color = ccc3(255, 246, 223)})
     empty:setPosition(board:getContentSize().width / 2, board:getContentSize().height / 2)
     board:addChild(empty)
@@ -146,7 +146,7 @@ local createFiveSelectBoard = function(l_2_0, l_2_1)
       upvalue_1024 = headData[l_4_0].id
     end
     headData[l_4_0].isUsed = true
-    tmpSelect[ tmpSelect + 1] = headData[l_4_0].hid
+    tmpSelect[#tmpSelect + 1] = headData[l_4_0].hid
     local blackBoard = img.createUISprite(img.ui.hero_head_shade)
     blackBoard:setScale(0.93617021276596)
     blackBoard:setOpacity(120)
@@ -159,8 +159,8 @@ local createFiveSelectBoard = function(l_2_0, l_2_1)
   local onUnselect = function(l_5_0)
     for i,v in ipairs(tmpSelect) do
       if v == headData[l_5_0].hid then
-        tmpSelect[i], tmpSelect[ tmpSelect] = tmpSelect[ tmpSelect], tmpSelect[i]
-        tmpSelect[ tmpSelect] = nil
+        tmpSelect[i], tmpSelect[#tmpSelect] = tmpSelect[#tmpSelect], tmpSelect[i]
+        tmpSelect[#tmpSelect] = nil
     else
       end
     end
@@ -186,7 +186,7 @@ local createFiveSelectBoard = function(l_2_0, l_2_1)
       end
       for i,v in ipairs(showHeads) do
         if v:boundingBox():containsPoint(pointOnScroll) then
-          if not headData[i].isUsed and  tmpSelect < fiveNum then
+          if not headData[i].isUsed and #tmpSelect < fiveNum then
             if nowId ~= 0 and headData[i].id ~= nowId then
               showToast(i18n.global.tenchange_toast_samehero.string)
               return 
@@ -196,7 +196,7 @@ local createFiveSelectBoard = function(l_2_0, l_2_1)
             end
             if headData[i].isUsed == true then
               onUnselect(i)
-              if  tmpSelect == 0 then
+              if #tmpSelect == 0 then
                 upvalue_3584 = 0
               end
             end
@@ -248,7 +248,7 @@ local createFiveSelectBoard = function(l_2_0, l_2_1)
   board:addChild(menuSelect)
   btnSelect:registerScriptTapHandler(function()
     layer:removeFromParentAndCleanup(true)
-    if tmpSelect and  tmpSelect ~= 0 then
+    if tmpSelect and #tmpSelect ~= 0 then
       callfunc(tmpSelect, nowId)
     end
    end)
@@ -597,7 +597,7 @@ ui.create = function(l_3_0)
       upvalue_1536 = l_6_0
       menuFiveHero:removeFromParentAndCleanup()
       upvalue_2048 = nil
-      createBtnfive(l_6_1,  l_6_0)
+      createBtnfive(l_6_1, #l_6_0)
       end
     createBtnfive = function(l_7_0, l_7_1)
       fiveSp = img.createHeroHead(l_7_0, nil, true, true)
@@ -648,7 +648,7 @@ ui.create = function(l_3_0)
     changeLayer:addChild(menuChange)
     btnChange:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if fiveHids and  fiveHids < fiveNum then
+      if fiveHids and #fiveHids < fiveNum then
         showToast(i18n.global.hero_wake_no_hero.string)
         return 
       end
@@ -754,10 +754,10 @@ ui.create = function(l_3_0)
     local heroGroup = cfghero[heroData.id].group
     local returnReward = cfgtalenreturn[heroData.wake + 6].hero[heroGroup].hero
     local returnNum = 0
-    for i = 1,  returnReward + 1 do
+    for i = 1, #returnReward + 1 do
       local returnIconSp = nil
       local returnFiveCount = 5
-      if i <  returnReward + 1 then
+      if i < #returnReward + 1 then
         returnIconSp = img.createHeroHead(returnReward[i].id, 1, true, true, returnReward[i].wake, false)
         returnFiveCount = returnReward[i].count
       else
@@ -766,12 +766,12 @@ ui.create = function(l_3_0)
       end
       local btnReturnIcon = CCMenuItemSprite:create(returnIconSp, nil)
       btnReturnIcon:setScale(0.68)
-      btnReturnIcon:setPosition(bg_w / 2 - 42 *  returnReward + 86 * (i - 1), 178)
+      btnReturnIcon:setPosition(bg_w / 2 - 42 * #returnReward + 86 * (i - 1), 178)
       local menuReturnIcon = CCMenu:createWithItem(btnReturnIcon)
       menuReturnIcon:setPosition(0, 0)
       returnLayer:addChild(menuReturnIcon)
       local showHeroNum = lbl.createFont2(16, returnFiveCount, ccc3(255, 247, 229))
-      showHeroNum:setPosition(bg_w / 2 - 42 *  returnReward + 86 * (i - 1), 132)
+      showHeroNum:setPosition(bg_w / 2 - 42 * #returnReward + 86 * (i - 1), 132)
       returnLayer:addChild(showHeroNum)
       returnNum = returnNum + returnFiveCount
       btnReturnIcon:registerScriptTapHandler(function()
@@ -780,7 +780,7 @@ ui.create = function(l_3_0)
     end
     btnReturn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + returnNum - 1 then
+      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + returnNum - 1 then
         local gotoHeroDlg = require("ui.summon.tipsdialog")
         gotoHeroDlg.show(layer)
         return 

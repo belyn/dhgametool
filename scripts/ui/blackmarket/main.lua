@@ -127,8 +127,8 @@ ui.create = function()
   tableLayer:addChild(showItemLayer)
   local createCircles = function()
     currentPage = 1
-    upvalue_512 = math.floor(( datablackmarket.goods - 1) / 8) + 1
-    for i = 1,  circles do
+    upvalue_512 = math.floor((#datablackmarket.goods - 1) / 8) + 1
+    for i = 1, #circles do
       if not tolua.isnull(circles[i]) then
         circles[i]:removeFromParentAndCleanup(true)
       end
@@ -136,11 +136,11 @@ ui.create = function()
     upvalue_2048 = {}
     if maxPage > 1 then
       for i = 1, maxPage do
-        circlePos[ circlePos + 1] = {444 + (i - 1) * 30, 10}
+        circlePos[#circlePos + 1] = {444 + (i - 1) * 30, 10}
         local circleDark = img.createUISprite(img.ui.shop_circle_dark)
         circleDark:setPosition(circlePos[i][1], circlePos[i][2])
         tableLayer:addChild(circleDark, 10000)
-        circles[ circles + 1] = circleDark
+        circles[#circles + 1] = circleDark
       end
       if circleLight and not tolua.isnull(circleLight) then
         circleLight:removeFromParentAndCleanup(true)
@@ -154,8 +154,8 @@ ui.create = function()
     showItemLayer:removeAllChildrenWithCleanup(true)
     local start = (currentPage - 1) * 8 + 1
     local stop = start + 7
-    if  datablackmarket.goods < stop then
-      stop =  datablackmarket.goods
+    if #datablackmarket.goods < stop then
+      stop = #datablackmarket.goods
     end
     for i = start, stop do
       local itemConfig = datablackmarket.goods[i]

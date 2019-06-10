@@ -119,7 +119,7 @@ cfg.pay = function(l_5_0, l_5_1)
             showToast(i18n.global.error_server_status_wrong.string .. tostring(l_1_0.status))
             return 
           end
-          if (l_1_0.reward.equips and  l_1_0.reward.equips > 0) or l_1_0.reward.items and  l_1_0.reward.items > 0 then
+          if (l_1_0.reward.equips and #l_1_0.reward.equips > 0) or l_1_0.reward.items and #l_1_0.reward.items > 0 then
             require("data.activity").pay()
           end
           if callback then

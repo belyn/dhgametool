@@ -29,8 +29,8 @@ local createDailyRewards = function()
   scroll:setContentSize(CCSize(682, 0))
   layer:addChild(scroll)
   local showItems = {}
-  for i = 1,  cfgDaily do
-    local idx =  cfgDaily - i + 1
+  for i = 1, #cfgDaily do
+    local idx = #cfgDaily - i + 1
     local taskBg = img.createUI9Sprite(img.ui.botton_fram_2)
     taskBg:setPreferredSize(CCSize(650, 80))
     taskBg:setAnchorPoint(ccp(0.5, 0))
@@ -59,8 +59,8 @@ local createDailyRewards = function()
       showItem:setAnchorPoint(ccp(0, 0))
       showItem:setPosition(118 + 64 * j, taskBg:getPositionY() + 12)
       scroll:getContainer():addChild(showItem)
-      showItems[ showItems + 1] = showItem
-      showItems[ showItems].Info = v
+      showItems[#showItems + 1] = showItem
+      showItems[#showItems].Info = v
     end
     height = taskBg:boundingBox():getMaxY()
   end
@@ -113,8 +113,8 @@ local createDailyRewards = function()
     showItem:setAnchorPoint(ccp(0, 0))
     showItem:setPosition(-28 + 64 * i, showHighestBg:getPositionY() + 25)
     scroll:getContainer():addChild(showItem)
-    showItems[ showItems + 1] = showItem
-    showItems[ showItems].Info = v
+    showItems[#showItems + 1] = showItem
+    showItems[#showItems].Info = v
   end
   local titleRule = lbl.createMix({font = 1, size = 13, text = str, color = ccc3(93, 45, 18), width = 650, align = kCCTextAlignmentLeft})
   titleRule:setAnchorPoint(ccp(0, 0))
@@ -181,13 +181,13 @@ local createSeasonRewards = function()
   layer:addChild(scroll)
   local showItems = {}
   local cfgSeason = {}
-  for i = 1,  cfgSeasons do
+  for i = 1, #cfgSeasons do
     if cfgSeasons[i].arenaId == 1 then
-      cfgSeason[ cfgSeason + 1] = cfgSeasons[i]
+      cfgSeason[#cfgSeason + 1] = cfgSeasons[i]
     end
   end
-  for i = 1,  cfgSeason do
-    local idx =  cfgSeason - i + 1
+  for i = 1, #cfgSeason do
+    local idx = #cfgSeason - i + 1
     local taskBg = img.createUI9Sprite(img.ui.botton_fram_2)
     taskBg:setPreferredSize(CCSize(650, 80))
     taskBg:setAnchorPoint(ccp(0.5, 0))
@@ -216,8 +216,8 @@ local createSeasonRewards = function()
       showItem:setAnchorPoint(ccp(0, 0))
       showItem:setPosition(118 + 64 * j, taskBg:getPositionY() + 12)
       scroll:getContainer():addChild(showItem)
-      showItems[ showItems + 1] = showItem
-      showItems[ showItems].Info = v
+      showItems[#showItems + 1] = showItem
+      showItems[#showItems].Info = v
     end
     height = taskBg:boundingBox():getMaxY()
   end

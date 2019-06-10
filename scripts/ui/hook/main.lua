@@ -193,7 +193,7 @@ ui.create = function(l_1_0)
         fightAnim.refresh()
         return 
       end
-      if  stage_items > 0 and not tolua.isnull(stage_items[1]) then
+      if #stage_items > 0 and not tolua.isnull(stage_items[1]) then
         fightAnim.refresh()
         addRadar(stage_items[1])
       end
@@ -282,10 +282,10 @@ ui.create = function(l_1_0)
     shine_particle2:setVisible(false)
    end
   local anyReward = function()
-    if hookdata.reward and hookdata.reward.items and  hookdata.reward.items > 0 then
+    if hookdata.reward and hookdata.reward.items and #hookdata.reward.items > 0 then
       return true
     end
-    if hookdata.reward and hookdata.reward.equips and  hookdata.reward.equips > 0 then
+    if hookdata.reward and hookdata.reward.equips and #hookdata.reward.equips > 0 then
       return true
     end
     return false
@@ -682,12 +682,12 @@ ui.create = function(l_1_0)
     arrayclear(stage_items)
     local fortInfo = hookdata.getFortByStageId(l_23_0)
     local list_width = 0
-    for ii = 1,  fortInfo.stageId do
+    for ii = 1, #fortInfo.stageId do
       local tmp_stage_item = createStageItem(fortInfo.stageId[ii])
       tmp_stage_item.stage_id = fortInfo.stageId[ii]
       tmp_stage_item:setPosition(CCPoint(stage_offset_x + (ii - 1) * stage_step_x, SCROLL_VIEW_H / 2))
       content_layer:addChild(tmp_stage_item)
-      stage_items[ stage_items + 1] = tmp_stage_item
+      stage_items[#stage_items + 1] = tmp_stage_item
       list_width = stage_offset_x + (ii - 1) * stage_step_x + 100
     end
     if SCROLL_VIEW_W < list_width then
@@ -695,7 +695,7 @@ ui.create = function(l_1_0)
     else
       scroll:setContentSize(CCSizeMake(SCROLL_VIEW_W, SCROLL_VIEW_H))
     end
-    local stage_count =  fortInfo.stageId
+    local stage_count = #fortInfo.stageId
     local cur_idx = l_23_0 - fortInfo.stageId[1] + 1
     if cur_idx <= 0 then
       cur_idx = 1
@@ -762,7 +762,7 @@ ui.create = function(l_1_0)
     upvalue_1024 = true
     if scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_26_0, l_26_1))
-      for ii = 1,  stage_items do
+      for ii = 1, #stage_items do
         if stage_items[ii]:boundingBox():containsPoint(p0) then
           if stage_items[ii].stage_id ~= stage_id then
             playAnimTouchBegin(stage_items[ii])
@@ -794,7 +794,7 @@ ui.create = function(l_1_0)
     end
     if isclick and scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_28_0, l_28_1))
-      for ii = 1,  stage_items do
+      for ii = 1, #stage_items do
         if stage_items[ii]:boundingBox():containsPoint(p0) then
           audio.play(audio.button)
           onClickItem(stage_items[ii])
@@ -907,7 +907,7 @@ ui.create = function(l_1_0)
         return false
       end
       local fortInfo = hookdata.getFortByStageId(hookdata.getHookStage())
-      if fortInfo.stageId[ fortInfo.stageId] == tmp_stage_id and tmp_pve_stage_id and tmp_stage_id < tmp_pve_stage_id then
+      if fortInfo.stageId[#fortInfo.stageId] == tmp_stage_id and tmp_pve_stage_id and tmp_stage_id < tmp_pve_stage_id then
         return true
       end
     end

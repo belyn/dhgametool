@@ -55,7 +55,7 @@ end
 msg_format = function(l_3_0)
   local out = {}
   local write = function(l_1_0)
-    out[ out + 1] = l_1_0
+    out[#out + 1] = l_1_0
    end
   msg_format_indent(write, l_3_0, 0)
   return table.concat(out)

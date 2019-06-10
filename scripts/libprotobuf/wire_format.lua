@@ -106,7 +106,7 @@ StringByteSize = function(l_19_0, l_19_1)
 end
 
 BytesByteSize = function(l_20_0, l_20_1)
-  return TagByteSize(l_20_0) + _VarUInt64ByteSizeNoTag( l_20_1) +  l_20_1
+  return TagByteSize(l_20_0) + _VarUInt64ByteSizeNoTag(#l_20_1) + #l_20_1
 end
 
 MessageByteSize = function(l_21_0, l_21_1)

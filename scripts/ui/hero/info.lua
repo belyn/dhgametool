@@ -353,7 +353,7 @@ info.create = function(l_2_0, l_2_1)
     local showStat = {}
     for i,v in ipairs(stat) do
       if v.num > 0 then
-        showStat[ showStat + 1] = v.title .. "     +" .. v.num
+        showStat[#showStat + 1] = v.title .. "     +" .. v.num
       end
     end
     local showLayer = CCLayer:create()
@@ -602,20 +602,20 @@ info.create = function(l_2_0, l_2_1)
   local skillId = {}
   if heroData.wake == nil or heroData.wake >= 4 then
     if cfghero[heroData.id].actSkillId then
-      skillId[ skillId + 1] = {id = cfghero[heroData.id].actSkillId, lock = 0}
+      skillId[#skillId + 1] = {id = cfghero[heroData.id].actSkillId, lock = 0}
     end
     for i = 1, 6 do
       if cfghero[heroData.id].pasSkill" .. i .. "Id then
-        skillId[ skillId + 1] = {id = cfghero[heroData.id].pasSkill" .. i .. "Id, lock = cfghero[heroData.id].pasTier" .. }
+        skillId[#skillId + 1] = {id = cfghero[heroData.id].pasSkill" .. i .. "Id, lock = cfghero[heroData.id].pasTier" .. }
       end
     end
   else
     if cfghero[heroData.id].disillusSkill[heroData.wake].disi[1] then
-      skillId[ skillId + 1] = {id = cfghero[heroData.id].disillusSkill[heroData.wake].disi[1], lock = 0}
+      skillId[#skillId + 1] = {id = cfghero[heroData.id].disillusSkill[heroData.wake].disi[1], lock = 0}
     end
     for i = 1, 6 do
       if cfghero[heroData.id].disillusSkill[heroData.wake].disi[i + 1] then
-        skillId[ skillId + 1] = {id = cfghero[heroData.id].disillusSkill[heroData.wake].disi[i + 1], lock = cfghero[heroData.id].pasTier" .. }
+        skillId[#skillId + 1] = {id = cfghero[heroData.id].disillusSkill[heroData.wake].disi[i + 1], lock = cfghero[heroData.id].pasTier" .. }
       end
     end
   end

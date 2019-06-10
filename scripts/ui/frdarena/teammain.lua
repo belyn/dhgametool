@@ -145,12 +145,12 @@ ui.create = function()
       scroll:setAnchorPoint(CCPoint(0, 0))
       scroll:setPosition(CCPoint(50, 105))
       board:addChild(scroll)
-      for ii = 1,  l_4_0.team do
+      for ii = 1, #l_4_0.team do
         local tmp_item = createItem(l_4_0.team[ii], ii)
         tmp_item.ax = 0.5
         tmp_item.px = 369
         scroll.addItem(tmp_item)
-        if ii ~=  l_4_0.team then
+        if ii ~= #l_4_0.team then
           scroll.addSpace(space_height)
         end
       end
@@ -278,7 +278,7 @@ ui.create = function()
     if scroll and not tolua.isnull(scroll) then
       local obj = scroll.content_layer
       local p0 = obj:convertToNodeSpace(ccp(l_10_0, l_10_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii] and items[ii]:boundingBox():containsPoint(p0) then
           upvalue_2560 = items[ii]
         end
@@ -302,7 +302,7 @@ ui.create = function()
       if scroll and not tolua.isnull(scroll) then
         local obj = scroll.content_layer
         local p0 = obj:convertToNodeSpace(ccp(l_12_0, l_12_1))
-        for ii = 1,  items do
+        for ii = 1, #items do
           if items[ii] and items[ii]:boundingBox():containsPoint(p0) and last_selet_item ~= items[ii] then
             audio.play(audio.button)
             local params = {sid = player.sid, grp_id = teams[ii].id}

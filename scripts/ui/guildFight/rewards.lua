@@ -24,14 +24,14 @@ local createSeasonRewards = function(l_1_0, l_1_1, l_1_2)
   local showItems = {}
   local cfgSeason = {}
   do
-    for i = 1,  cfgSeasons do
+    for i = 1, #cfgSeasons do
       if cfgSeasons[i].type == 1 then
-        cfgSeason[ cfgSeason + 1] = cfgSeasons[i]
+        cfgSeason[#cfgSeason + 1] = cfgSeasons[i]
       end
     end
   end
-  for i = 1,  cfgSeason do
-    local idx =  cfgSeason - i + 1
+  for i = 1, #cfgSeason do
+    local idx = #cfgSeason - i + 1
     local taskBg = img.createUI9Sprite(img.ui.botton_fram_2)
     taskBg:setPreferredSize(CCSize(650, 84))
     taskBg:setAnchorPoint(ccp(0.5, 0))
@@ -67,8 +67,8 @@ local createSeasonRewards = function(l_1_0, l_1_1, l_1_2)
       showItem:setAnchorPoint(ccp(0, 0))
       showItem:setPosition(118 + 64 * j, taskBg:getPositionY() + 14)
       scroll:getContainer():addChild(showItem)
-      showItems[ showItems + 1] = showItem
-      showItems[ showItems].Info = v
+      showItems[#showItems + 1] = showItem
+      showItems[#showItems].Info = v
     end
     height = taskBg:boundingBox():getMaxY()
   end

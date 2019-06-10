@@ -80,12 +80,12 @@ ui.create = function(l_1_0)
     scroll:setPosition(CCPoint(35, 35))
     board:addChild(scroll)
     board.scroll = scroll
-    for ii = 1,  l_5_0 do
+    for ii = 1, #l_5_0 do
       local tmp_item = createItem(l_5_0[ii])
       tmp_item.ax = 0
       tmp_item.px = 0
       scroll.addItem(tmp_item)
-      if ii ~=  l_5_0 then
+      if ii ~= #l_5_0 then
         scroll.addSpace(space_height)
       end
     end

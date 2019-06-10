@@ -48,10 +48,10 @@ ui.create = function()
     if not l_2_0 then
       local logs = {}
     end
-    for i = 1,  logs / 2 do
-      logs[i], logs[ logs - i + 1] = logs[ logs - i + 1], logs[i]
+    for i = 1, #logs / 2 do
+      logs[i], logs[#logs - i + 1] = logs[#logs - i + 1], logs[i]
     end
-    local height = 105 *  logs
+    local height = 105 * #logs
     local scroll = CCScrollView:create()
     do
       scroll:setDirection(kCCScrollViewDirectionVertical)
@@ -61,7 +61,7 @@ ui.create = function()
       scroll:setContentSize(CCSize(702, height))
       scroll:setContentOffset(ccp(0, 435 - height))
       innerBg:addChild(scroll)
-      if  logs == 0 then
+      if #logs == 0 then
         local empty = require("ui.empty").create({text = i18n.global.empty_battlerec.string})
         empty:setPosition(innerBg:getContentSize().width / 2, innerBg:getContentSize().height / 2)
         innerBg:addChild(empty, 0, 101)
@@ -154,10 +154,10 @@ ui.create = function()
             ticketIcon:setPosition(34, 26)
             btnBattleSp:addChild(ticketIcon)
             local ticketCost = 0
-            if arenaData.fight <  cfgarena[1].cost then
+            if arenaData.fight < #cfgarena[1].cost then
               ticketCost = cfgarena[1].cost[arenaData.fight + 1]
             else
-              ticketCost = cfgarena[1].cost[ cfgarena[1].cost]
+              ticketCost = cfgarena[1].cost[#cfgarena[1].cost]
             end
             local showCost = lbl.createFont2(14, ticketCost)
             showCost:setPosition(34, 16)

@@ -141,7 +141,7 @@ ui.create = function(l_4_0)
             showToast(i18n.global.error_server_status_wrong.string .. tostring(l_3_0.status))
             return 
           end
-          if (l_3_0.reward.equips and  l_3_0.reward.equips > 0) or l_3_0.reward.items and  l_3_0.reward.items > 0 then
+          if (l_3_0.reward.equips and #l_3_0.reward.equips > 0) or l_3_0.reward.items and #l_3_0.reward.items > 0 then
             require("data.activity").pay()
           end
           layer:removeFromParentAndCleanup(true)
@@ -181,7 +181,7 @@ ui.create = function(l_4_0)
             showToast(i18n.global.error_server_status_wrong.string .. tostring(l_1_0.status))
             return 
           end
-          if (l_1_0.reward.equips and  l_1_0.reward.equips > 0) or l_1_0.reward.items and  l_1_0.reward.items > 0 then
+          if (l_1_0.reward.equips and #l_1_0.reward.equips > 0) or l_1_0.reward.items and #l_1_0.reward.items > 0 then
             require("data.activity").pay()
           end
           layer:removeFromParentAndCleanup(true)

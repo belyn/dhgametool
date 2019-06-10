@@ -26,7 +26,7 @@ local operData = {}
 local initHeros = function()
   local tmpheros = {}
   for i,v in ipairs(heros) do
-    tmpheros[ tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, isUsed = false, flag = v.flag or 0}
+    tmpheros[#tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, isUsed = false, flag = v.flag or 0}
   end
   operData.heros = tmpheros
 end
@@ -37,24 +37,24 @@ local createSelectBoard = function(l_2_0, l_2_1)
   for i,v in ipairs(operData.heros) do
     if v.isUsed == false then
       if cfghero[v.id].job == l_2_0.job and cfghero[v.id].maxStar == l_2_0.qlt and cfghero[v.id].group == l_2_0.group then
-        headData[ headData + 1] = v
+        headData[#headData + 1] = v
         for i,v in (for generator) do
         end
         if cfghero[v.id].group == l_2_0.group and cfghero[v.id].maxStar == l_2_0.qlt and l_2_0.job == 0 then
-          headData[ headData + 1] = v
+          headData[#headData + 1] = v
           for i,v in (for generator) do
           end
           if cfghero[v.id].job == l_2_0.job and cfghero[v.id].maxStar == l_2_0.qlt and l_2_0.group == 0 then
-            headData[ headData + 1] = v
+            headData[#headData + 1] = v
             for i,v in (for generator) do
             end
             if cfghero[v.id].job == l_2_0.job and cfghero[v.id].group == l_2_0.group and l_2_0.qlt == 0 then
-              headData[ headData + 1] = v
+              headData[#headData + 1] = v
               for i,v in (for generator) do
               end
               for j,k in ipairs(l_2_0.select) do
                 if k == v.hid then
-                  headData[ headData + 1] = v
+                  headData[#headData + 1] = v
                   for i,v in (for generator) do
                   end
                 end
@@ -77,18 +77,18 @@ local createSelectBoard = function(l_2_0, l_2_1)
             local curSelect = {}
             local backEvent = function()
               for i,v in ipairs(headData) do
-                if  tmpSelect == 0 and  curSelect ~= 0 then
-                  for z = i,  curSelect do
+                if #tmpSelect == 0 and #curSelect ~= 0 then
+                  for z = i, #curSelect do
                     if v.hid == curSelect[z] then
                       v.isUsed = true
                   else
                     end
                   end
                 end
-                for j = 1,  tmpSelect do
+                for j = 1, #tmpSelect do
                   if v.hid == tmpSelect[j] then
                     local curflag = false
-                    for z = i,  curSelect do
+                    for z = i, #curSelect do
                       if v.hid == curSelect[z] then
                         curflag = true
                     else
@@ -117,7 +117,7 @@ local createSelectBoard = function(l_2_0, l_2_1)
               backEvent()
               audio.play(audio.button)
                   end)
-            local height = 84 * math.ceil( headData / 5)
+            local height = 84 * math.ceil(#headData / 5)
             local scroll = CCScrollView:create()
             scroll:setDirection(kCCScrollViewDirectionVertical)
             scroll:setAnchorPoint(ccp(0, 0))
@@ -125,7 +125,7 @@ local createSelectBoard = function(l_2_0, l_2_1)
             scroll:setViewSize(CCSize(420, 225))
             scroll:setContentSize(CCSize(420, height))
             board:addChild(scroll)
-            if  headData == 0 then
+            if #headData == 0 then
               local empty = require("ui.empty").create({size = 16, text = i18n.global.empty_heromar.string, color = ccc3(255, 246, 223)})
               empty:setPosition(board:getContentSize().width / 2, board:getContentSize().height / 2)
               board:addChild(empty)
@@ -186,7 +186,7 @@ local createSelectBoard = function(l_2_0, l_2_1)
                 return 
               end
               headData[l_3_0].isUsed = true
-              tmpSelect[ tmpSelect + 1] = headData[l_3_0].hid
+              tmpSelect[#tmpSelect + 1] = headData[l_3_0].hid
               local blackBoard = img.createUISprite(img.ui.hero_head_shade)
               blackBoard:setScale(0.93617021276596)
               blackBoard:setOpacity(120)
@@ -199,8 +199,8 @@ local createSelectBoard = function(l_2_0, l_2_1)
             local onUnselect = function(l_4_0)
               for i,v in ipairs(tmpSelect) do
                 if v == headData[l_4_0].hid then
-                  tmpSelect[i], tmpSelect[ tmpSelect] = tmpSelect[ tmpSelect], tmpSelect[i]
-                  tmpSelect[ tmpSelect] = nil
+                  tmpSelect[i], tmpSelect[#tmpSelect] = tmpSelect[#tmpSelect], tmpSelect[i]
+                  tmpSelect[#tmpSelect] = nil
               else
                 end
               end
@@ -213,7 +213,7 @@ local createSelectBoard = function(l_2_0, l_2_1)
               for j,k in ipairs(l_2_0.select) do
                 if k == v.hid then
                   onSelect(i)
-                  curSelect[ curSelect + 1] = v.hid
+                  curSelect[#curSelect + 1] = v.hid
                 end
               end
             end
@@ -234,7 +234,7 @@ local createSelectBoard = function(l_2_0, l_2_1)
                 end
                 for i,v in ipairs(showHeads) do
                   if v:boundingBox():containsPoint(pointOnScroll) then
-                    if not headData[i].isUsed and  tmpSelect < condition.num then
+                    if not headData[i].isUsed and #tmpSelect < condition.num then
                       onSelect(i)
                       for i,v in (for generator) do
                       end
@@ -358,7 +358,7 @@ ui.createOplayer = function(l_3_0, l_3_1, l_3_2)
   labTip:setPosition(480, 285)
   showPowerBg:addChild(labTip)
   local cfgact = cfgactivity[IDS.ASYLUM_1.ID + l_3_0 - 1]
-  local ox = 532 - 52 *  cfgact.rewards
+  local ox = 532 - 52 * #cfgact.rewards
   local showReward = {}
   for i,v in ipairs(cfgact.rewards) do
     do
@@ -388,16 +388,16 @@ ui.createOplayer = function(l_3_0, l_3_1, l_3_2)
         end
       end
       local condition = cfgact.parameter
-      local sx = 518 - ( condition - 1) * 48
+      local sx = 518 - (#condition - 1) * 48
       do
         if cfgact.extra then
-          sx = 518 - ( condition +  cfgact.extra - 1) * 48
-          for i = 1,  cfgact.extra do
+          sx = 518 - (#condition + #cfgact.extra - 1) * 48
+          for i = 1, #cfgact.extra do
             local icon1 = img.createItem(cfgact.extra[i].id, cfgact.extra[i].num)
             local btnIcon1 = CCMenuItemSprite:create(icon1, nil)
             btnIcon1:setAnchorPoint(1, 0)
             btnIcon1:setScale(0.9)
-            btnIcon1:setPosition(sx + ( condition + i - 1) * 96, 174)
+            btnIcon1:setPosition(sx + (#condition + i - 1) * 96, 174)
             local menuIcon1 = CCMenu:createWithItem(btnIcon1)
             menuIcon1:setPosition(0, 0)
             showPowerBg:addChild(menuIcon1)
@@ -450,8 +450,8 @@ ui.createOplayer = function(l_3_0, l_3_1, l_3_2)
           btnHero[i]:registerScriptTapHandler(function()
             audio.play(audio.button)
             local func = function()
-              showNum:setString( v.select .. "/" .. v.num)
-              if  v.select < v.num then
+              showNum:setString(#v.select .. "/" .. v.num)
+              if #v.select < v.num then
                 setShader(btnHero[i], SHADER_GRAY, true)
                 showNum:setColor(ccc3(255, 255, 255))
               else
@@ -493,7 +493,7 @@ ui.createOplayer = function(l_3_0, l_3_1, l_3_2)
           btnYes:registerScriptTapHandler(function()
             dialoglayer:removeFromParentAndCleanup(true)
             if cfgact.extra then
-              for i = 1,  cfgact.extra do
+              for i = 1, #cfgact.extra do
                 if cfgact.extra[i].id == ITEM_ID_COIN and bag.coin() < cfgact.extra[i].num then
                   showToast(i18n.global.toast_hero_need_coin.string)
                   return 
@@ -509,9 +509,9 @@ ui.createOplayer = function(l_3_0, l_3_1, l_3_2)
               return 
             end
             for i,v in ipairs(condition) do
-              if v.num <=  v.select then
+              if v.num <= #v.select then
                 for j,k in ipairs(v.select) do
-                  hids[ hids + 1] = k
+                  hids[#hids + 1] = k
                 end
                 for i,v in (for generator) do
                 end
@@ -539,7 +539,7 @@ ui.createOplayer = function(l_3_0, l_3_1, l_3_2)
                 end
                 vps[pos].limits = vps[pos].limits - 1
                 if cfgact.extra then
-                  for ii = 1,  cfgact.extra do
+                  for ii = 1, #cfgact.extra do
                     if cfgact.extra[ii].id == ITEM_ID_COIN then
                       bag.subCoin(cfgact.extra[ii].num)
                     end
@@ -670,7 +670,7 @@ ui.create = function()
   local vps = {}
   for _,v in ipairs(vp_ids) do
     local tmp_status = activityData.getStatusById(v)
-    vps[ vps + 1] = tmp_status
+    vps[#vps + 1] = tmp_status
   end
   local board = CCSprite:create()
   board:setContentSize(CCSizeMake(576, 436))
@@ -705,7 +705,7 @@ ui.create = function()
     lbl_cd:setAnchorPoint(CCPoint(0, 0.5))
     lbl_cd:setPosition(CCPoint(lbl_cd_des:boundingBox():getMaxX() + 10, 380))
   end
-  local SCROLL_CONTAINER_SIZE =  vp_ids * 180 + 30
+  local SCROLL_CONTAINER_SIZE = #vp_ids * 180 + 30
   local scrollUI = require("ui.pet.scrollUI")
   local Scroll = scrollUI.create()
   Scroll:setDirection(kCCScrollViewDirectionHorizontal)
@@ -761,7 +761,7 @@ ui.create = function()
       getgrayfunc(l_3_0)
     end
    end
-  for i = 1,  vp_ids do
+  for i = 1, #vp_ids do
     createItem(i)
   end
   local createBtn = function(l_4_0)
@@ -827,12 +827,12 @@ ui.create = function()
   local menuRightraw = CCMenu:createWithItem(btnRightraw)
   menuRightraw:setPosition(0, 0)
   board:addChild(menuRightraw, 1)
-  if  vp_ids - 2 <= selectPos then
+  if #vp_ids - 2 <= selectPos then
     setShader(btnRightraw, SHADER_GRAY, true)
     btnRightraw:setEnabled(false)
   end
   local moveLeft = function()
-    if selectPos <  vp_ids - 2 then
+    if selectPos < #vp_ids - 2 then
       selectPos = selectPos + 1
     else
       return 
@@ -842,11 +842,11 @@ ui.create = function()
       clearShader(btnLeftraw, true)
       btnLeftraw:setEnabled(true)
     end
-    if  vp_ids - 2 <= selectPos then
+    if #vp_ids - 2 <= selectPos then
       setShader(btnRightraw, SHADER_GRAY, true)
       btnRightraw:setEnabled(false)
     end
-    for i = 1,  vp_ids do
+    for i = 1, #vp_ids do
       sign[i]:runAction(CCMoveBy:create(0.1, CCPoint(-154, 0)))
       sell[i]:runAction(CCMoveBy:create(0.1, CCPoint(-154, 0)))
       bottom[i]:runAction(CCMoveBy:create(0.1, CCPoint(-154, 0)))
@@ -860,7 +860,7 @@ ui.create = function()
       return 
     end
     setBtnStatus()
-    if selectPos ==  vp_ids - 3 then
+    if selectPos == #vp_ids - 3 then
       clearShader(btnRightraw, true)
       btnRightraw:setEnabled(true)
     end
@@ -868,7 +868,7 @@ ui.create = function()
       setShader(btnLeftraw, SHADER_GRAY, true)
       btnLeftraw:setEnabled(false)
     end
-    for i = 1,  vp_ids do
+    for i = 1, #vp_ids do
       sign[i]:runAction(CCMoveBy:create(0.1, CCPoint(154, 0)))
       sell[i]:runAction(CCMoveBy:create(0.1, CCPoint(154, 0)))
       bottom[i]:runAction(CCMoveBy:create(0.1, CCPoint(154, 0)))

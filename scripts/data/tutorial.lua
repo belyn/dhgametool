@@ -26,7 +26,7 @@ tutorial.init = function(l_1_0, l_1_1)
   upvalue_5120, upvalue_5632 = nil
   for id,t in ipairs(cfgtutorial) do
     if not arraycontains(names, t.name) then
-      names[ names + 1] = t.name
+      names[#names + 1] = t.name
     end
     if idMap[t.name] == nil then
       idMap[t.name] = {}
@@ -100,7 +100,7 @@ tutorial.decodeServerBits = function(l_5_0)
   do
     local bits = {}
     if l_5_0 and l_5_0 ~= 0 then
-      bits[ bits + 1] = bit.band(1, l_5_0)
+      bits[#bits + 1] = bit.band(1, l_5_0)
       l_5_0 = bit.brshift(l_5_0, 1)
     else
       return bits
@@ -139,7 +139,7 @@ tutorial.getExecuteId = function(l_8_0)
           end
         end
         local offset = nil
-        if  ids > 0 and cfgtutorial[ids[1]].layer == l_8_0 then
+        if #ids > 0 and cfgtutorial[ids[1]].layer == l_8_0 then
           offset = 1
         else
           for i,id in ipairs(ids) do
@@ -196,10 +196,10 @@ tutorial.goNext = function(l_12_0, l_12_1, l_12_2)
   if tutorial.is(l_12_0, l_12_1) then
     local id = curIds[curOffset]
     local ids = idMap[l_12_0][l_12_1]
-    if l_12_2 or ids[ ids] == id then
+    if l_12_2 or ids[#ids] == id then
       tutorial.finish(l_12_0, l_12_1)
     end
-    if curOffset ==  curIds then
+    if curOffset == #curIds then
       upvalue_512, upvalue_1024 = nil
     else
       upvalue_1024 = curOffset + 1

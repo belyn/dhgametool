@@ -36,13 +36,13 @@ protoParser.parsePbBag = function(l_3_0)
   end
   if l_3_0.items then
     data.items = {}
-    for ii = 1,  l_3_0.items do
+    for ii = 1, #l_3_0.items do
       data.items[ii] = protoParser.parsePbItem(l_3_0.items[ii])
     end
   end
   if l_3_0.equips then
     data.equips = {}
-    for ii = 1,  l_3_0.equips do
+    for ii = 1, #l_3_0.equips do
       data.equips[ii] = protoParser.parsePbEquip(l_3_0.equips[ii])
     end
   end
@@ -163,7 +163,7 @@ protoParser.parsePbrspSync = function(l_11_0)
   end
   if l_11_0.heroes then
     data.heroes = {}
-    for ii = 1,  l_11_0.heroes do
+    for ii = 1, #l_11_0.heroes do
       data.heroes[ii] = protoParser.parsePbHero(l_11_0.heroes[ii])
     end
   end
@@ -172,13 +172,13 @@ protoParser.parsePbrspSync = function(l_11_0)
   end
   if l_11_0.hero_ids then
     data.hero_ids = {}
-    for ii = 1,  l_11_0.hero_ids do
+    for ii = 1, #l_11_0.hero_ids do
       data.hero_ids[ii] = l_11_0.hero_ids[ii]
     end
   end
   if l_11_0.mails then
     data.mails = {}
-    for ii = 1,  l_11_0.mails do
+    for ii = 1, #l_11_0.mails do
       data.mails[ii] = protoParser.parsePbMail(l_11_0.mails[ii])
     end
   end
@@ -196,13 +196,13 @@ protoParser.parsePbrspGacha = function(l_12_0)
   end
   if l_12_0.heroes then
     data.heroes = {}
-    for ii = 1,  l_12_0.heroes do
+    for ii = 1, #l_12_0.heroes do
       data.heroes[ii] = protoParser.parsePbHero(l_12_0.heroes[ii])
     end
   end
   if l_12_0.items then
     data.items = {}
-    for ii = 1,  l_12_0.items do
+    for ii = 1, #l_12_0.items do
       data.items[ii] = protoParser.parsePbItem(l_12_0.items[ii])
     end
   end

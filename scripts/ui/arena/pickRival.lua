@@ -131,10 +131,10 @@ ui.create = function()
           ticketIcon:setPosition(34, 26)
           btnBattleSp:addChild(ticketIcon)
           local ticketCost = 0
-          if arenaData.fight <  cfgarena[1].cost then
+          if arenaData.fight < #cfgarena[1].cost then
             ticketCost = cfgarena[1].cost[arenaData.fight + 1]
           else
-            ticketCost = cfgarena[1].cost[ cfgarena[1].cost]
+            ticketCost = cfgarena[1].cost[#cfgarena[1].cost]
           end
           local showCost = lbl.createFont2(14, ticketCost)
           showCost:setPosition(34, 16)
@@ -167,7 +167,7 @@ ui.create = function()
    end
   local onRefresh = function()
     local Rivals = arenaData.refresh()
-    if  Rivals <= 0 then
+    if #Rivals <= 0 then
       local params = {sid = player.sid, id = 1}
       addWaitNet()
       net:pvp_refresh(params, function(l_1_0)

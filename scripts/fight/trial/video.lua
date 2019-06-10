@@ -19,7 +19,7 @@ ui.create = function(l_1_0)
   if l_1_0.atk and l_1_0.atk.pet then
     fHelper.addPetEp(layer)
   end
-  layer.playBGM(audio.fight_bg[math.random( audio.fight_bg)])
+  layer.playBGM(audio.fight_bg[math.random(#audio.fight_bg)])
   layer.getVideoAndUnits = function()
     local attackers = {}
     for i,h in ipairs(video.camp) do

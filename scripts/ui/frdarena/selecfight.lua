@@ -156,7 +156,7 @@ ui.create = function()
           showName:setAnchorPoint(ccp(0, 0))
           showName:setPosition(216, 55)
           oppoBg:addChild(showName)
-          for j = 1,  v.mbrs do
+          for j = 1, #v.mbrs do
             local playerHead = img.createPlayerHead(v.mbrs[j].logo, v.mbrs[j].lv)
             playerHead:setScale(0.7)
             playerHead:setPosition(48 + (j - 1) * 63, oppoBg:getContentSize().height / 2)
@@ -227,7 +227,7 @@ ui.create = function()
               breadlab:setString(string.format("%d/12", enegy))
               frdarena.team.score = l_1_0.atk.score
               local video = {}
-              for i = 1,  l_1_0.wins do
+              for i = 1, #l_1_0.wins do
                 video[i] = {}
                 video[i].atk = l_1_0.atk.mbrs[i]
                 video[i].def = l_1_0.def.mbrs[i]
@@ -262,8 +262,8 @@ ui.create = function()
                 end
               end
               if arenaSkip() == "enable" then
-                local tmp_videos = video[ video]
-                tmp_videos.idx =  video
+                local tmp_videos = video[#video]
+                tmp_videos.idx = #video
                 tmp_videos.videos = video
                 tmp_videos.skip = true
                 CCDirector:sharedDirector():getRunningScene():addChild(require("fight.pvpf3.final").create(tmp_videos), 1000)
@@ -278,7 +278,7 @@ ui.create = function()
    end
   local onRefresh = function()
     local Rivals = frdarena.refresh()
-    if  Rivals <= 0 then
+    if #Rivals <= 0 then
       local params = {sid = player.sid, id = 1}
       addWaitNet()
       net:gpvp_match(params, function(l_1_0)

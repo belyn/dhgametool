@@ -84,7 +84,7 @@ ui.create = function()
     layer:addChild(scroll)
     layer.scroll = scroll
     scroll.addSpace(4)
-    for ii = 1,  l_2_0 do
+    for ii = 1, #l_2_0 do
       local tmp_item = createItem(l_2_0[ii], ii)
       tmp_item.guildObj = l_2_0[ii]
       tmp_item.ax = 0.5
@@ -99,7 +99,7 @@ ui.create = function()
     net:gmill_donaterank(gParams, function(l_1_0)
       delWaitNet()
       tbl2string(l_1_0)
-      if l_1_0.assits and  l_1_0.assits > 0 then
+      if l_1_0.assits and #l_1_0.assits > 0 then
         if not l_1_0.assits then
           showList({})
         end

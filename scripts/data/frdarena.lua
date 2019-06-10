@@ -30,45 +30,45 @@ end
 
 frdarena.refresh = function()
   local riv = {}
-  for i = 1,  frdarena.rivals do
-    for j = i + 1,  frdarena.rivals do
+  for i = 1, #frdarena.rivals do
+    for j = i + 1, #frdarena.rivals do
       if frdarena.rivals[j].score < frdarena.rivals[i].score then
         frdarena.rivals[i], frdarena.rivals[j] = frdarena.rivals[j], frdarena.rivals[i]
       end
     end
   end
-  for i = 1,  frdarena.rivals do
-    local idx =  frdarena.rivals - i + 1
+  for i = 1, #frdarena.rivals do
+    local idx = #frdarena.rivals - i + 1
     if not frdarena.rivals[idx].isUsed then
-      riv[ riv + 1] = frdarena.rivals[idx]
+      riv[#riv + 1] = frdarena.rivals[idx]
       frdarena.rivals[idx].isUsed = true
     end
-    if  riv >= 2 then
+    if #riv >= 2 then
       do return end
     end
   end
-  for i = 1,  frdarena.rivals do
+  for i = 1, #frdarena.rivals do
     if not frdarena.rivals[i].isUsed then
-      riv[ riv + 1] = frdarena.rivals[i]
+      riv[#riv + 1] = frdarena.rivals[i]
       frdarena.rivals[i].isUsed = true
     end
-    if  riv >= 3 then
+    if #riv >= 3 then
       return riv
     end
   end
-  for i = 1,  frdarena.rivals do
-    local idx =  frdarena.rivals - i + 1
+  for i = 1, #frdarena.rivals do
+    local idx = #frdarena.rivals - i + 1
     if not frdarena.rivals[idx].isUsed then
-      riv[ riv + 1] = frdarena.rivals[idx]
+      riv[#riv + 1] = frdarena.rivals[idx]
       frdarena.rivals[idx].isUsed = true
     end
-    if  riv >= 3 then
+    if #riv >= 3 then
       return riv
     end
   end
-  if  riv ==  frdarena.rivals and  riv > 0 then
+  if #riv == #frdarena.rivals and #riv > 0 then
     return riv
-  elseif  riv < 2 then
+  elseif #riv < 2 then
     return {}
   end
   return riv
@@ -92,19 +92,19 @@ frdarena.addTeammate = function(l_8_0)
   if not frdarena.team.mbrs then
     frdarena.team.mbrs = {}
   end
-  for i = 1,  frdarena.team.mbrs do
+  for i = 1, #frdarena.team.mbrs do
     if frdarena.team.mbrs[i] == l_8_0 then
       return 
     end
   end
-  frdarena.team.mbrs[ frdarena.team.mbrs + 1] = l_8_0
+  frdarena.team.mbrs[#frdarena.team.mbrs + 1] = l_8_0
 end
 
 frdarena.delTeammate = function(l_9_0)
   if frdarena.team.mbrs == nil then
     return 
   end
-  for i = 1,  frdarena.team.mbrs do
+  for i = 1, #frdarena.team.mbrs do
     if frdarena.team.mbrs[i].uid == l_9_0.uid then
       table.remove(frdarena.team.mbrs, i)
   else
@@ -117,7 +117,7 @@ frdarena.submit = function()
 end
 
 frdarena.delOld = function(l_11_0)
-  if  l_11_0 >= 60 then
+  if #l_11_0 >= 60 then
     for ii = 1, 30 do
       table.remove(l_11_0, 1)
     end

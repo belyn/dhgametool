@@ -42,12 +42,12 @@ local showReward = function()
   tipsbg:addChild(plusIcon)
   local giftPer = {25, 40, 35}
   tipslayer.tipsTag = false
-  for i = 1,  cfgactivity[IDS.NEWYEAR.ID].rewards do
+  for i = 1, #cfgactivity[IDS.NEWYEAR.ID].rewards do
     do
       if cfgactivity[IDS.NEWYEAR.ID].rewards[i].type == 3 then
         local giftId = cfgactivity[IDS.NEWYEAR.ID].rewards[i].id
         do
-          for ii = 1,  cfggift[giftId].randomGoods do
+          for ii = 1, #cfggift[giftId].randomGoods do
             do
               local item = img.createItem(cfggift[giftId].randomGoods[ii].id, cfggift[giftId].randomGoods[ii].num)
               local itembtn = SpineMenuItem:create(json.ui.button, item)

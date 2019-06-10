@@ -22,8 +22,8 @@ local NetClient = require("net.netClient")
 local netClient = NetClient:getInstance()
 local space_height = 5
 ui.create = function(l_1_0)
-  if l_1_0 and  l_1_0 > 0 then
-    gdata.setApplyCount( l_1_0)
+  if l_1_0 and #l_1_0 > 0 then
+    gdata.setApplyCount(#l_1_0)
   else
     gdata.setApplyCount(0)
   end
@@ -33,10 +33,10 @@ ui.create = function(l_1_0)
   local board_h = board:getContentSize().height
   layer.setTitle(i18n.global.guild_applylist_board_title.string)
   local removeMem = function(l_1_0)
-    if not members or  members == 0 then
+    if not members or #members == 0 then
       return 
     end
-    for ii = 1,  members do
+    for ii = 1, #members do
       if members[ii].uid == l_1_0 then
         table.remove(members, ii)
         return 
@@ -143,7 +143,7 @@ ui.create = function(l_1_0)
    end
   showList = function(l_4_0)
     mem_container:removeAllChildrenWithCleanup(true)
-    if not l_4_0 or  l_4_0 <= 0 then
+    if not l_4_0 or #l_4_0 <= 0 then
       local ui_empty = require("ui.empty").create({text = i18n.global.empty_shenqing.string, color = ccc3(101, 54, 36)})
       ui_empty:setPosition(CCPoint(317, 220))
       mem_container:addChild(ui_empty)
@@ -155,13 +155,13 @@ ui.create = function(l_1_0)
     mem_container:addChild(scroll)
     mem_container.scroll = scroll
     scroll.addSpace(8)
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       local tmp_item = createItem(l_4_0[ii])
       tmp_item.memObj = l_4_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 317
       scroll.addItem(tmp_item)
-      if ii ~=  l_4_0 then
+      if ii ~= #l_4_0 then
         scroll.addSpace(space_height)
       end
     end

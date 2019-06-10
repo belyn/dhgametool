@@ -119,13 +119,13 @@ ui.create = function(l_2_0, l_2_1)
     board:addChild(scroll)
     board.scroll = scroll
     scroll.addSpace(4)
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       local tmp_item = createItem(l_4_0[ii], ii, mask)
       tmp_item.guildObj = l_4_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 302
       scroll.addItem(tmp_item)
-      if ii ~=  l_4_0 then
+      if ii ~= #l_4_0 then
         scroll.addSpace(space_height)
       end
     end

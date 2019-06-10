@@ -148,15 +148,15 @@ ui.create = function(l_1_0)
       if sel_hids[ii] then
         tmp_item = createHeroHead(sel_hids[ii])
         tmp_item.hid = sel_hids[ii]
-        sel_items[ sel_items + 1] = tmp_item
+        sel_items[#sel_items + 1] = tmp_item
       else
         tmp_item = createHeroHead()
-        sel_items[ sel_items + 1] = tmp_item
+        sel_items[#sel_items + 1] = tmp_item
       end
     else
       tmp_item = createLock()
       tmp_item.idx = ii
-      unlock_items[ unlock_items + 1] = tmp_item
+      unlock_items[#unlock_items + 1] = tmp_item
     end
   end
   local pos_x = offset_x + (ii - 1) % 8 * step_x
@@ -165,7 +165,7 @@ ui.create = function(l_1_0)
   board:addChild(tmp_item)
 end
 local findUnlockLv = function(l_6_0)
-  for ii = 1,  cfghooklock do
+  for ii = 1, #cfghooklock do
     if l_6_0 <= cfghooklock[ii].unlock then
       return ii
     end
@@ -225,7 +225,7 @@ local findHeroFromList = function(l_10_0, l_10_1)
   if not l_10_0 then
     return 
   end
-  for ii = 1,  l_10_0 do
+  for ii = 1, #l_10_0 do
     if l_10_0[ii].hid == l_10_1 then
       return l_10_0[ii]
     end
@@ -233,10 +233,10 @@ local findHeroFromList = function(l_10_0, l_10_1)
 end
 
 local initHeroList = function(l_11_0)
-  if not sel_hids or  sel_hids <= 0 then
+  if not sel_hids or #sel_hids <= 0 then
     return 
   end
-  for ii = 1,  sel_hids do
+  for ii = 1, #sel_hids do
     local _h = findHeroFromList(l_11_0, sel_hids[ii])
     if _h then
       _h.isSelected = true
@@ -258,14 +258,14 @@ local showHeroList = function()
   hero_list = herolistless(hero_list, sel_hids)
   initHeroList(hero_list)
   local list_width = 0
-  for ii = 1,  hero_list do
+  for ii = 1, #hero_list do
     local tmp_item = createListHeroHead(hero_list[ii])
     tmp_item.heroObj = hero_list[ii]
     local pos_x = item_offset_x + item_step_x * (ii - 1)
     local pos_y = item_offset_y
     tmp_item:setPosition(CCPoint(pos_x, pos_y))
     content_layer:addChild(tmp_item)
-    hero_items[ hero_items + 1] = tmp_item
+    hero_items[#hero_items + 1] = tmp_item
     list_width = pos_x + 67
   end
   if list_width < SCROLL_VIEW_W then
@@ -281,7 +281,7 @@ end
 
 showHeroList()
 local findFirstBlank = function()
-  for ii = 1,  sel_items do
+  for ii = 1, #sel_items do
     if not sel_items[ii].hid then
       return sel_items[ii]
     end
@@ -298,7 +298,7 @@ local touchHead = function(l_14_0, l_14_1)
 end
 
 local detouchHead = function(l_15_0)
-  for ii = 1,  sel_hids do
+  for ii = 1, #sel_hids do
     if sel_hids[ii] == l_15_0.hid then
       table.remove(sel_hids, ii)
   else
@@ -321,13 +321,13 @@ local below2above = function(l_16_0)
   end
   l_16_0.head_mask:setVisible(true)
   l_16_0.heroObj.isSelected = true
-  sel_hids[ sel_hids + 1] = l_16_0.heroObj.hid
-  sel_items[ sel_items + 1] = blank_item
+  sel_hids[#sel_hids + 1] = l_16_0.heroObj.hid
+  sel_items[#sel_items + 1] = blank_item
   touchHead(blank_item, l_16_0.heroObj.hid)
 end
 
 local findFromBelowList = function(l_17_0)
-  for ii = 1,  hero_items do
+  for ii = 1, #hero_items do
     if hero_items[ii].heroObj.hid == l_17_0 then
       return hero_items[ii]
     end
@@ -335,7 +335,7 @@ local findFromBelowList = function(l_17_0)
 end
 
 local findFromAboveList = function(l_18_0)
-  for ii = 1,  sel_items do
+  for ii = 1, #sel_items do
     if sel_items[ii].hid and sel_items[ii].hid == l_18_0 then
       return sel_items[ii]
     end
@@ -382,7 +382,7 @@ local teamChange = function(l_20_0)
       arrayclear(hookdata.hids)
       hookdata.hids = clone(_hids)
       hookdata.ids = {}
-      for ii = 1,  hookdata.hids do
+      for ii = 1, #hookdata.hids do
         hookdata.ids[ii] = hid2id(hookdata.hids[ii])
       end
       if callback then
@@ -395,7 +395,7 @@ end
 
 btn_confirm:registerScriptTapHandler(function()
   btn_confirm:setEnabled(false)
-  if not sel_hids or  sel_hids <= 0 then
+  if not sel_hids or #sel_hids <= 0 then
     showToast(i18n.global.hook_team_empty.string)
     btn_confirm:setEnabled(true)
     return 
@@ -428,7 +428,7 @@ local onTouchBegan = function(l_24_0, l_24_1)
   if scroll and not tolua.isnull(scroll) then
     local pp0 = list_board:convertToNodeSpace(ccp(l_24_0, l_24_1))
     local p0 = content_layer:convertToNodeSpace(ccp(l_24_0, l_24_1))
-    for ii = 1,  hero_items do
+    for ii = 1, #hero_items do
       if hero_items[ii]:boundingBox():containsPoint(p0) then
         playAnimTouchBegin(hero_items[ii])
         upvalue_3584 = hero_items[ii]
@@ -436,7 +436,7 @@ local onTouchBegan = function(l_24_0, l_24_1)
       end
     end
     local p1 = board:convertToNodeSpace(ccp(l_24_0, l_24_1))
-    for ii = 1,  sel_items do
+    for ii = 1, #sel_items do
       if sel_items[ii]:boundingBox():containsPoint(p1) then
         playAnimTouchBegin(sel_items[ii])
         upvalue_3584 = sel_items[ii]
@@ -464,7 +464,7 @@ local onTouchEnded = function(l_26_0, l_26_1)
   end
   if isclick and scroll and not tolua.isnull(scroll) then
     local p0 = content_layer:convertToNodeSpace(ccp(l_26_0, l_26_1))
-    for ii = 1,  hero_items do
+    for ii = 1, #hero_items do
       if hero_items[ii]:boundingBox():containsPoint(p0) then
         audio.play(audio.button)
         onClickBelowItem(hero_items[ii])
@@ -472,14 +472,14 @@ local onTouchEnded = function(l_26_0, l_26_1)
       end
     end
     local p1 = board:convertToNodeSpace(ccp(l_26_0, l_26_1))
-    for ii = 1,  sel_items do
+    for ii = 1, #sel_items do
       if sel_items[ii]:boundingBox():containsPoint(p1) then
         audio.play(audio.button)
         onClickAboveItem(sel_items[ii])
     else
       end
     end
-    for ii = 1,  unlock_items do
+    for ii = 1, #unlock_items do
       if unlock_items[ii]:boundingBox():containsPoint(p1) and unlock_items[ii].idx then
         showUnlock(findUnlockLv(unlock_items[ii].idx))
       end

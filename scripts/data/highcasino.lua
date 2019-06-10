@@ -20,10 +20,10 @@ end
 
 casino.ids2Pbbag = function(l_4_0)
   local _pbbag = {items = {}, equips = {}}
-  if not l_4_0 or  l_4_0 <= 0 then
+  if not l_4_0 or #l_4_0 <= 0 then
     return _pbbag
   end
-  for ii = 1,  l_4_0 do
+  for ii = 1, #l_4_0 do
     local _idx = l_4_0[ii]
     local p_tbl = nil
     if casino.items[_idx].type == 1 then
@@ -36,7 +36,7 @@ casino.ids2Pbbag = function(l_4_0)
     if p_tbl then
       local tmp_item = clone(casino.items[_idx])
       tmp_item.num = tmp_item.count
-      p_tbl[ p_tbl + 1] = tmp_item
+      p_tbl[#p_tbl + 1] = tmp_item
     end
   end
   return _pbbag
@@ -71,12 +71,12 @@ casino.subChips = function(l_8_0)
 end
 
 casino.getRateById = function(l_9_0, l_9_1)
-  if not casino.items or  casino.items <= 0 then
+  if not casino.items or #casino.items <= 0 then
     return 0
   end
   local self_weight = 0
   local total_weight = 0
-  for ii = 1,  casino.items do
+  for ii = 1, #casino.items do
     total_weight = total_weight + (casino.items[ii].weight or 2000)
     self_weight = casino.items[ii].id ~= l_9_0 or casino.items[ii].type ~= l_9_1 or casino.items[ii].weight or 0
   end

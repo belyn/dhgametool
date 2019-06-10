@@ -23,7 +23,7 @@ ui.create = function()
   local acts = {}
   for _,v in ipairs(act_ids) do
     local tmp_status = activityData.getStatusById(v)
-    acts[ acts + 1] = tmp_status
+    acts[#acts + 1] = tmp_status
   end
   local board = CCSprite:create()
   board:setContentSize(CCSizeMake(576, 436))
@@ -106,7 +106,7 @@ ui.create = function()
     local start_x = 254
     local step_x = 66
     local rewards = cfgactivity[l_1_0.id].rewards
-    for ii = 1,  rewards do
+    for ii = 1, #rewards do
       local _obj = rewards[ii]
       do
         if _obj.type == ItemType.Equip then
@@ -154,7 +154,7 @@ ui.create = function()
     return sortValue(l_3_0) < sortValue(l_3_1)
    end)
   local showList = function(l_4_0)
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       if ii == 1 then
         scroll.addSpace(3)
       end

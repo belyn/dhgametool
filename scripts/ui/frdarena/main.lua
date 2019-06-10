@@ -292,7 +292,7 @@ ui.create = function(l_1_0)
   bg1:addChild(scroll)
   local playerBg = {}
   local loadRank = function(l_9_0)
-    local height = 89 *  l_9_0 + 3
+    local height = 89 * #l_9_0 + 3
     scroll:getContainer():removeAllChildrenWithCleanup(true)
     scroll:setContentSize(CCSize(539, height))
     scroll:setContentOffset(ccp(0, 382 - height))
@@ -315,7 +315,7 @@ ui.create = function(l_1_0)
       scroll:getContainer():addChild(playerBg[i])
       showRank:setPosition(40, playerBg[i]:getContentSize().height / 2 + 1)
       playerBg[i]:addChild(showRank)
-      for j = 1,  v.mbrs do
+      for j = 1, #v.mbrs do
         local playerHead = img.createPlayerHead(v.mbrs[j].logo, v.mbrs[j].lv)
         playerHead:setScale(0.66)
         playerHead:setPosition(98 + (j - 1) * 60, playerBg[i]:getContentSize().height / 2 + 1)
@@ -383,7 +383,7 @@ ui.create = function(l_1_0)
         if l_2_0.team then
           frdarena.teams = l_2_0.team
           loadRank(l_2_0.team)
-          for i = 1,  frdarena.teams do
+          for i = 1, #frdarena.teams do
             if frdarena.teams[i].uid == player.uid then
               frdarena.team.rank = i
               if frdarena.trank and frdarena.team.rank < frdarena.trank then
@@ -413,7 +413,7 @@ ui.create = function(l_1_0)
     if scroll and not tolua.isnull(scroll) then
       local obj = scroll:getContainer()
       local p0 = obj:convertToNodeSpace(ccp(l_11_0, l_11_1))
-      for ii = 1,  playerBg do
+      for ii = 1, #playerBg do
         if playerBg[ii]:boundingBox():containsPoint(p0) then
           upvalue_2560 = playerBg[ii]
         end
@@ -437,7 +437,7 @@ ui.create = function(l_1_0)
       if scroll and not tolua.isnull(scroll) then
         local obj = scroll:getContainer()
         local p0 = obj:convertToNodeSpace(ccp(l_13_0, l_13_1))
-        for ii = 1,  playerBg do
+        for ii = 1, #playerBg do
           if playerBg[ii]:boundingBox():containsPoint(p0) and last_selet_item ~= playerBg[ii] then
             audio.play(audio.button)
             local params = {sid = player.sid, grp_id = frdarena.teams[ii].id}

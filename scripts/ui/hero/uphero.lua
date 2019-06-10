@@ -24,7 +24,7 @@ local initHeros = function(l_1_0)
     local tmpheros = {}
     for i,v in ipairs(heros) do
       if not v.flag then
-        tmpheros[ tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, wake = v.wake, isUsed = false, flag = v.hid == l_1_0 or 0}
+        tmpheros[#tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, wake = v.wake, isUsed = false, flag = v.hid == l_1_0 or 0}
       end
       operData.heros = tmpheros
     end
@@ -56,7 +56,7 @@ local getCondition = function(l_2_0, l_2_1)
       end
     end
     if not isFind then
-      condition[ condition + 1] = {id = v, num = 1, select = {}}
+      condition[#condition + 1] = {id = v, num = 1, select = {}}
     end
   end
   operData.condition = condition
@@ -67,33 +67,33 @@ local createSelectBoard = function(l_3_0, l_3_1)
   local headData = {}
   for i,v in ipairs(operData.heros) do
     if v.id == l_3_0.id and v.isUsed == false then
-      headData[ headData + 1] = v
+      headData[#headData + 1] = v
       for i,v in (for generator) do
       end
       if v.isUsed == false and l_3_0.id % 100 == 99 then
         if cfghero[v.id].group == (l_3_0.id - 4099) / 100 and cfghero[v.id].qlt == 4 and v.id < 5000 then
-          headData[ headData + 1] = v
+          headData[#headData + 1] = v
           for i,v in (for generator) do
           end
           if cfghero[v.id].group == (l_3_0.id - 5099) / 100 and cfghero[v.id].qlt == 5 and v.id >= 5000 then
-            headData[ headData + 1] = v
+            headData[#headData + 1] = v
             for i,v in (for generator) do
             end
             if cfghero[v.id].group == (l_3_0.id - 6099) / 100 and cfghero[v.id].qlt == 6 and v.id >= 60000 and v.wake == nil then
-              headData[ headData + 1] = v
+              headData[#headData + 1] = v
               for i,v in (for generator) do
               end
               if l_3_0.id == 9999 and v.wake == 3 then
-                headData[ headData + 1] = v
+                headData[#headData + 1] = v
                 for i,v in (for generator) do
                 end
                 if l_3_0.id == 10999 and v.wake == 4 then
-                  headData[ headData + 1] = v
+                  headData[#headData + 1] = v
                   for i,v in (for generator) do
                   end
                   for j,k in ipairs(l_3_0.select) do
                     if k == v.hid then
-                      headData[ headData + 1] = v
+                      headData[#headData + 1] = v
                       for i,v in (for generator) do
                       end
                     end
@@ -123,10 +123,10 @@ local createSelectBoard = function(l_3_0, l_3_1)
                 local curSelect = {}
                 local backEvent = function()
                   for i,v in ipairs(headData) do
-                    for j = 1,  tmpSelect do
+                    for j = 1, #tmpSelect do
                       if v.hid == tmpSelect[j] then
                         local curflag = false
-                        for z = i,  curSelect do
+                        for z = i, #curSelect do
                           if v.hid == curSelect[z] then
                             curflag = true
                         else
@@ -155,7 +155,7 @@ local createSelectBoard = function(l_3_0, l_3_1)
                   backEvent()
                   audio.play(audio.button)
                         end)
-                local height = 84 * math.ceil( headData / 5)
+                local height = 84 * math.ceil(#headData / 5)
                 local scroll = CCScrollView:create()
                 scroll:setDirection(kCCScrollViewDirectionVertical)
                 scroll:setAnchorPoint(ccp(0, 0))
@@ -163,7 +163,7 @@ local createSelectBoard = function(l_3_0, l_3_1)
                 scroll:setViewSize(CCSize(420, 225))
                 scroll:setContentSize(CCSize(420, height))
                 board:addChild(scroll)
-                if  headData == 0 then
+                if #headData == 0 then
                   local empty = require("ui.empty").create({size = 16, text = i18n.global.empty_heromar.string, color = ccc3(255, 246, 223)})
                   empty:setPosition(board:getContentSize().width / 2, board:getContentSize().height / 2)
                   board:addChild(empty)
@@ -221,7 +221,7 @@ local createSelectBoard = function(l_3_0, l_3_1)
                     return 
                   end
                   headData[l_4_0].isUsed = true
-                  tmpSelect[ tmpSelect + 1] = headData[l_4_0].hid
+                  tmpSelect[#tmpSelect + 1] = headData[l_4_0].hid
                   local blackBoard = img.createUISprite(img.ui.hero_head_shade)
                   blackBoard:setScale(0.93617021276596)
                   blackBoard:setOpacity(120)
@@ -234,8 +234,8 @@ local createSelectBoard = function(l_3_0, l_3_1)
                 local onUnselect = function(l_5_0)
                   for i,v in ipairs(tmpSelect) do
                     if v == headData[l_5_0].hid then
-                      tmpSelect[i], tmpSelect[ tmpSelect] = tmpSelect[ tmpSelect], tmpSelect[i]
-                      tmpSelect[ tmpSelect] = nil
+                      tmpSelect[i], tmpSelect[#tmpSelect] = tmpSelect[#tmpSelect], tmpSelect[i]
+                      tmpSelect[#tmpSelect] = nil
                   else
                     end
                   end
@@ -248,7 +248,7 @@ local createSelectBoard = function(l_3_0, l_3_1)
                   for j,k in ipairs(l_3_0.select) do
                     if k == v.hid then
                       onSelect(i)
-                      curSelect[ curSelect + 1] = v.hid
+                      curSelect[#curSelect + 1] = v.hid
                     end
                   end
                 end
@@ -269,7 +269,7 @@ local createSelectBoard = function(l_3_0, l_3_1)
                     end
                     for i,v in ipairs(showHeads) do
                       if v:boundingBox():containsPoint(pointOnScroll) then
-                        if not headData[i].isUsed and  tmpSelect < condition.num then
+                        if not headData[i].isUsed and #tmpSelect < condition.num then
                           onSelect(i)
                           for i,v in (for generator) do
                           end
@@ -424,8 +424,8 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
         local skillTips = {}
         local px = {54, 135, 217}
         local py = {195, 55, 196}
-        for ii = 1,  cfgtalen[ cfgtalen].talenSkills do
-          local skillId = cfgtalen[ cfgtalen].talenSkills[ii]
+        for ii = 1, #cfgtalen[#cfgtalen].talenSkills do
+          local skillId = cfgtalen[#cfgtalen].talenSkills[ii]
           skillIconBg[ii] = img.createUISprite(img.ui.hero_skill_bg)
           skillIconBg[ii]:setPosition(px[ii], py[ii])
           fazhen:addChild(skillIconBg[ii])
@@ -446,7 +446,7 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
         end
         local onTouch = function(l_1_0, l_1_1, l_1_2)
           local point = fazhen:convertToNodeSpace(ccp(l_1_1, l_1_2))
-          for ii = 1,  skillTips do
+          for ii = 1, #skillTips do
             if skillIconBg[ii]:boundingBox():containsPoint(point) then
               skillTips[ii]:setVisible(true)
             else
@@ -454,7 +454,7 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
             end
           end
           if l_1_0 ~= "began" and l_1_0 ~= "moved" then
-            for ii = 1,  skillTips do
+            for ii = 1, #skillTips do
               skillTips[ii]:setVisible(false)
             end
           end
@@ -564,7 +564,7 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
         levelCap:setAnchorPoint(0, 0.5)
         levelCap:setPosition(CCPoint(levelLab:boundingBox():getMaxX() + 15, 337))
         herolayer:addChild(levelCap)
-        for ii = 1,  cfgtalen[l_1_1 - 4].base do
+        for ii = 1, #cfgtalen[l_1_1 - 4].base do
           local cfgvalue = math.abs(cfgtalen[l_1_1 - 4].base[ii].num)
           if l_1_1 - 4 > 1 then
             cfgvalue = math.abs(cfgtalen[l_1_1 - 4].base[ii].num) - math.abs(cfgtalen[l_1_1 - 5].base[ii].num)
@@ -597,13 +597,13 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
         herolayer:addChild(skillTips)
         skillTips:setVisible(false)
         local selectsx = 95
-        if  operData.condition == 3 then
+        if #operData.condition == 3 then
           selectsx = selectsx + 40
         end
-        if  operData.condition == 2 then
+        if #operData.condition == 2 then
           selectsx = selectsx + 80
         end
-        if  operData.condition == 1 then
+        if #operData.condition == 1 then
           selectsx = selectsx + 120
         end
         for i,v in ipairs(operData.condition) do
@@ -632,8 +632,8 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
           icon:runAction(CCRepeatForever:create(CCSequence:createWithTwoActions(CCFadeTo:create(0.5, 76.5), CCFadeTo:create(0.5, 255))))
           btnHero:registerScriptTapHandler(function()
             local func = function()
-              showNum:setString( v.select .. "/" .. v.num)
-              if  v.select < v.num then
+              showNum:setString(#v.select .. "/" .. v.num)
+              if #v.select < v.num then
                 setShader(btnHero, SHADER_GRAY, true)
                 showNum:setColor(ccc3(255, 255, 255))
               else
@@ -840,13 +840,13 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
         tolv:setString(lvMax + 50)
       end
       local selectsx = 95
-      if  operData.condition == 3 then
+      if #operData.condition == 3 then
         selectsx = selectsx + 40
       end
-      if  operData.condition == 2 then
+      if #operData.condition == 2 then
         selectsx = selectsx + 80
       end
-      if  operData.condition == 1 then
+      if #operData.condition == 1 then
         selectsx = selectsx + 120
       end
       for i,v in ipairs(operData.condition) do
@@ -875,8 +875,8 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
         icon:runAction(CCRepeatForever:create(CCSequence:createWithTwoActions(CCFadeTo:create(0.5, 76.5), CCFadeTo:create(0.5, 255))))
         btnHero:registerScriptTapHandler(function()
           local func = function()
-            showNum:setString( v.select .. "/" .. v.num)
-            if  v.select < v.num then
+            showNum:setString(#v.select .. "/" .. v.num)
+            if #v.select < v.num then
               setShader(btnHero, SHADER_GRAY, true)
               showNum:setColor(ccc3(255, 255, 255))
             else
@@ -965,9 +965,9 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
           return 
         end
         for i,v in ipairs(operData.condition) do
-          if v.num <=  v.select then
+          if v.num <= #v.select then
             for j,k in ipairs(v.select) do
-              hids[ hids + 1] = k
+              hids[#hids + 1] = k
             end
             for i,v in (for generator) do
             end
@@ -988,7 +988,7 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
             ban:setTouchEnabled(true)
             ban:setTouchSwallowEnabled(true)
             layer:addChild(ban, 2000)
-            for i = 1,  operData.condition do
+            for i = 1, #operData.condition do
               showAnim[i]:playAnimation("animation")
             end
             local exp = heros.decomposeForwake(hids)
@@ -1044,9 +1044,9 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
         return 
       end
       for i,v in ipairs(operData.condition) do
-        if v.num <=  v.select then
+        if v.num <= #v.select then
           for j,k in ipairs(v.select) do
-            hids[ hids + 1] = k
+            hids[#hids + 1] = k
           end
           for i,v in (for generator) do
           end
@@ -1070,7 +1070,7 @@ uphero.create = function(l_4_0, l_4_1, l_4_2)
           ban:setTouchEnabled(true)
           ban:setTouchSwallowEnabled(true)
           layer:addChild(ban, 2000)
-          for i = 1,  operData.condition do
+          for i = 1, #operData.condition do
             showAnim[i]:playAnimation("animation")
           end
           for i = 1, 2 do

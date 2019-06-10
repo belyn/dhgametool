@@ -16,7 +16,7 @@ ui.create = function(l_1_0)
   layer.addOkButton(function()
     require("fight.pvp.loading").backToUI(video)
    end)
-  if l_1_0.hurts and  l_1_0.hurts > 0 then
+  if l_1_0.hurts and #l_1_0.hurts > 0 then
     print("youwei enter")
     layer.addHurtsButton(l_1_0.atk.camp, l_1_0.def.camp, l_1_0.hurts, l_1_0)
   end

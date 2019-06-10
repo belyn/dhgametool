@@ -313,7 +313,7 @@ ui.create = function(l_2_0)
       taskdata.increment(taskdata.TaskType.GUILD_SIGN)
       local tmp_pb_bag = {items = {1 = {id = ITEM_ID_GUILD_COIN, num = gdata.SIGN_COIN}}, equips = {}}
       if l_1_0.status == 0 then
-        tmp_pb_bag.items[ tmp_pb_bag.items + 1] = {id = ITEM_ID_GUILD_EXP, num = gdata.SIGN_EXP}
+        tmp_pb_bag.items[#tmp_pb_bag.items + 1] = {id = ITEM_ID_GUILD_EXP, num = gdata.SIGN_EXP}
       end
       CCDirector:sharedDirector():getRunningScene():addChild(rewards.createFloating(tmp_pb_bag), 100000)
       end)
@@ -395,15 +395,15 @@ ui.create = function(l_2_0)
     mem_container:addChild(scroll)
     mem_container.scroll = scroll
     scroll.addSpace(3)
-    for ii = 1,  l_16_0 do
+    for ii = 1, #l_16_0 do
       local tmp_item = createItem(l_16_0[ii])
       tmp_item.memObj = l_16_0[ii]
       tmp_item.ax = 0.5
       tmp_item.ay = 0.5
       tmp_item.px = 271
       scroll.addItem(tmp_item)
-      items[ items + 1] = tmp_item
-      if ii ~=  l_16_0 then
+      items[#items + 1] = tmp_item
+      if ii ~= #l_16_0 then
         scroll.addSpace(space_height)
       end
     end
@@ -531,7 +531,7 @@ ui.create = function(l_2_0)
     end
     if mem_container.scroll and not tolua.isnull(mem_container.scroll) then
       local p0 = mem_container.scroll.content_layer:convertToNodeSpace(ccp(l_22_0, l_22_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           playAnimTouchBegin(items[ii])
           upvalue_2560 = items[ii]
@@ -557,7 +557,7 @@ ui.create = function(l_2_0)
     end
     if isclick and mem_container.scroll and not tolua.isnull(mem_container.scroll) then
       local p0 = mem_container.scroll.content_layer:convertToNodeSpace(ccp(l_24_0, l_24_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           audio.play(audio.button)
           onClickItem(items[ii])

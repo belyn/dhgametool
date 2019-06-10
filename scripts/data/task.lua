@@ -124,7 +124,7 @@ task.syncInit = function(l_10_0)
     return 
   end
   local completed = 0
-  for ii = 1,  l_10_0.tasks do
+  for ii = 1, #l_10_0.tasks do
     local tid = l_10_0.tasks[ii].id
     local d_task = task.findFromDataById(tid)
     if d_task then

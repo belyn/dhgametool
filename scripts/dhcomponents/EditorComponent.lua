@@ -55,10 +55,10 @@ EditorComponent.init = function(l_3_0)
         l_3_0.deviceId = deviceId
         if not fileListMap[deviceId] then
           local luaTextArray = dhString.split(fileListText, "\n")
-          local line =  luaTextArray
+          local line = #luaTextArray
           table.insert(luaTextArray, line - 2, string.format("[\"%s\"]=\"%s\",", deviceId, deviceName))
           local text = ""
-          local count =  luaTextArray
+          local count = #luaTextArray
           for line,value in ipairs(luaTextArray) do
             text = text .. value
             if line ~= count then
@@ -174,7 +174,7 @@ end
 EditorComponent.writeToFile = function(l_5_0)
   for fileName,luaTextArray in pairs(l_5_0.luaTextMapArray) do
     local text = ""
-    local count =  luaTextArray
+    local count = #luaTextArray
     for line,value in ipairs(luaTextArray) do
       text = text .. value
       if line ~= count then
@@ -229,7 +229,7 @@ EditorComponent.mandateNode = function(l_7_0, l_7_1, l_7_2, l_7_3)
     if not luaTextArray then
       return 
     end
-    local line =  luaTextArray
+    local line = #luaTextArray
     local x, y = nil, nil
     if l_7_3 then
       x, y = l_7_3.x, l_7_3.y
@@ -362,7 +362,7 @@ EditorComponent.initOperation = function(l_13_0)
 end
 
 EditorComponent.pushOperation = function(l_14_0, l_14_1)
-  for i = l_14_0.optIndex + 1,  l_14_0.optDataArray do
+  for i = l_14_0.optIndex + 1, #l_14_0.optDataArray do
     l_14_0.optDataArray[i] = nil
   end
   local cloneNodeInfoMap = {}
@@ -370,7 +370,7 @@ EditorComponent.pushOperation = function(l_14_0, l_14_1)
     cloneNodeInfoMap[node] = clone(info.info)
   end
   table.insert(l_14_0.optDataArray, cloneNodeInfoMap)
-  l_14_0.optIndex =  l_14_0.optDataArray
+  l_14_0.optIndex = #l_14_0.optDataArray
   for node,info in pairs(l_14_1) do
     l_14_0.nodeInfoMap[node] = info.info
   end
@@ -407,7 +407,7 @@ EditorComponent.undoOperation = function(l_16_0)
 end
 
 EditorComponent.redoOperation = function(l_17_0)
-  if  l_17_0.optDataArray <= l_17_0.optIndex then
+  if #l_17_0.optDataArray <= l_17_0.optIndex then
     return 
   end
   l_17_0.optIndex = l_17_0.optIndex + 1

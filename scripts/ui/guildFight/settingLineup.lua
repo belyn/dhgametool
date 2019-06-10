@@ -83,18 +83,18 @@ ui.create = function(l_2_0, l_2_1)
   local teamsUid = params.uids
   local shadowUid = params.mask
   local judgeSet = function()
-    if  teamsUid ~=  param.uids then
+    if #teamsUid ~= #param.uids then
       return true
     end
-    for i = 1,  teamsUid do
+    for i = 1, #teamsUid do
       if teamsUid[i] ~= param.uids[i] then
         return true
       end
     end
-    if  shadowUid ~=  param.mask then
+    if #shadowUid ~= #param.mask then
       return true
     end
-    for i = 1,  shadowUid do
+    for i = 1, #shadowUid do
       if shadowUid[i] ~= param.mask[i] then
         return true
       end
@@ -193,7 +193,7 @@ ui.create = function(l_2_0, l_2_1)
   board:addChild(menuClose)
   btnClose:registerScriptTapHandler(function()
     audio.play(audio.button)
-    if judgeSet() == false or  params.uids < MIXLIMIXTEAME then
+    if judgeSet() == false or #params.uids < MIXLIMIXTEAME then
       layer:removeFromParentAndCleanup()
       return 
     end
@@ -220,7 +220,7 @@ ui.create = function(l_2_0, l_2_1)
   local powerIcon = img.createUISprite(img.ui.team_icon)
   powerIcon:setPosition(27, 21)
   showPowerBg:addChild(powerIcon)
-  local showteams = lbl.createFont2(20, string.format("%d/15",  params.uids), ccc3(255, 246, 223))
+  local showteams = lbl.createFont2(20, string.format("%d/15", #params.uids), ccc3(255, 246, 223))
   showteams:setAnchorPoint(ccp(0, 0.5))
   showteams:setPosition(powerIcon:boundingBox():getMaxX() + 15, powerIcon:boundingBox():getMidY())
   showPowerBg:addChild(showteams)
@@ -238,7 +238,7 @@ ui.create = function(l_2_0, l_2_1)
   local teamslayer, createteamlayer = nil, nil
   btnSetting:registerScriptTapHandler(function()
     audio.play(audio.button)
-    if  teamsUid < MIXLIMIXTEAME then
+    if #teamsUid < MIXLIMIXTEAME then
       showToast(i18n.global.guildFight_mix_teams.string)
       return 
     end
@@ -277,7 +277,7 @@ ui.create = function(l_2_0, l_2_1)
       end
       if l_5_2 then
         local aUidpos, bUidpos = nil, nil
-        for j = 1,  teamsUid do
+        for j = 1, #teamsUid do
           if params.mbrs[l_5_0].uid == teamsUid[j] then
             aUidpos = j
           end
@@ -301,7 +301,7 @@ ui.create = function(l_2_0, l_2_1)
     item:setPreferredSize(CCSizeMake(836, 100))
     local item_w = item:getContentSize().width
     local item_h = item:getContentSize().height
-    if l_6_1 <=  teamsUid then
+    if l_6_1 <= #teamsUid then
       local numlab = lbl.createFont1(16, l_6_1, ccc3(81, 39, 18))
       numlab:setPosition(37, item_h / 2)
       item:addChild(numlab)
@@ -337,7 +337,7 @@ ui.create = function(l_2_0, l_2_1)
       item:addChild(showHero)
     end
     local open = true
-    for ii = 1,  shadowUid do
+    for ii = 1, #shadowUid do
       if shadowUid[ii] == l_6_0.uid then
         open = false
     else
@@ -355,7 +355,7 @@ ui.create = function(l_2_0, l_2_1)
     shadowbg:addChild(closeshadow)
     local shadowBtn = SpineMenuItem:create(json.ui.button, shadowbg)
     shadowBtn:setPosition(659, item:getContentSize().height / 2 + 2)
-    if  teamsUid < l_6_1 then
+    if #teamsUid < l_6_1 then
       shadowBtn:setVisible(false)
     end
     local shadowmenu = CCMenu:createWithItem(shadowBtn)
@@ -369,14 +369,14 @@ ui.create = function(l_2_0, l_2_1)
     exchangebg:addChild(exchange)
     local exchangeBtn = SpineMenuItem:create(json.ui.button, exchangebg)
     exchangeBtn:setPosition(723, item:getContentSize().height / 2 + 2)
-    if  teamsUid < l_6_1 then
+    if #teamsUid < l_6_1 then
       exchangeBtn:setVisible(false)
     end
     local exchangemenu = CCMenu:createWithItem(exchangeBtn)
     exchangemenu:setPosition(0, 0)
     item:addChild(exchangemenu)
     local selectteam = false
-    for ii = 1,  teamsUid do
+    for ii = 1, #teamsUid do
       if teamsUid[ii] == l_6_0.uid then
         selectteam = true
     else
@@ -396,7 +396,7 @@ ui.create = function(l_2_0, l_2_1)
     shadowBtn:registerScriptTapHandler(function()
       audio.play(audio.button)
       if open == true then
-        if MAXSHADOW <=  shadowUid then
+        if MAXSHADOW <= #shadowUid then
           showToast(i18n.global.guildFight_shadow_limit.string)
           return 
         end
@@ -404,12 +404,12 @@ ui.create = function(l_2_0, l_2_1)
         closeshadow:setVisible(true)
         upvalue_512 = false
         showToast(i18n.global.guildFight_shadow_camp.string)
-        shadowUid[ shadowUid + 1] = teamObj.uid
+        shadowUid[#shadowUid + 1] = teamObj.uid
       else
         openshadow:setVisible(true)
         closeshadow:setVisible(false)
         upvalue_512 = true
-        for i = 1,  shadowUid do
+        for i = 1, #shadowUid do
           if shadowUid[i] == teamObj.uid then
             table.remove(shadowUid, i)
         else
@@ -420,37 +420,37 @@ ui.create = function(l_2_0, l_2_1)
       end)
     exchangeBtn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      layer:addChild(createChangePos(_idx,  teamsUid, changepos))
+      layer:addChild(createChangePos(_idx, #teamsUid, changepos))
       end)
     tickBtn:registerScriptTapHandler(function()
       audio.play(audio.button)
       if selectteam == false then
-        if MAXLIMIXTEAME <=  teamsUid then
+        if MAXLIMIXTEAME <= #teamsUid then
           showToast(i18n.global.guildFight_max_teams.string)
           return 
         end
         tick:setVisible(true)
         upvalue_512 = true
-        teamsUid[ teamsUid + 1] = teamObj.uid
-        showteams:setString(string.format("%d/15",  teamsUid))
-        changepos( teamsUid, _idx)
+        teamsUid[#teamsUid + 1] = teamObj.uid
+        showteams:setString(string.format("%d/15", #teamsUid))
+        changepos(#teamsUid, _idx)
       else
         tick:setVisible(false)
         upvalue_512 = false
-        for i = 1,  teamsUid do
+        for i = 1, #teamsUid do
           if teamsUid[i] == teamObj.uid then
             table.remove(teamsUid, i)
         else
           end
         end
-        for i = 1,  shadowUid do
+        for i = 1, #shadowUid do
           if shadowUid[i] == teamObj.uid then
             table.remove(shadowUid, i)
         else
           end
         end
         changepos(0, _idx)
-        showteams:setString(string.format("%d/15",  teamsUid))
+        showteams:setString(string.format("%d/15", #teamsUid))
       end
       end)
     return item
@@ -468,13 +468,13 @@ ui.create = function(l_2_0, l_2_1)
     tlayer:addChild(scroll)
     board.scroll = scroll
     scroll.addSpace(4)
-    for ii = 1,  params.mbrs do
+    for ii = 1, #params.mbrs do
       local tmp_item = createItem(params.mbrs[ii], ii)
       tmp_item.guildObj = params.mbrs[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 418
       scroll.addItem(tmp_item)
-      if ii ~=  params.mbrs then
+      if ii ~= #params.mbrs then
         scroll.addSpace(space_height)
       end
     end

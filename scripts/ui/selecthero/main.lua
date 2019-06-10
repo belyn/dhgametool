@@ -98,17 +98,17 @@ local initHerolistData = function(l_2_0)
   for i,v in ipairs(tmpheros) do
     if params.group then
       if cfghero[v.id].group == params.group then
-        herolist[ herolist + 1] = v
+        herolist[#herolist + 1] = v
         for i,v in (for generator) do
         end
         for j = 1, 6 do
           if params.hids[j] == v.hid then
-            herolist[ herolist + 1] = v
+            herolist[#herolist + 1] = v
           end
         end
         for i,v in (for generator) do
         end
-        herolist[ herolist + 1] = v
+        herolist[#herolist + 1] = v
       end
       for i,v in ipairs(herolist) do
         v.isUsed = false
@@ -128,7 +128,7 @@ end
 
 local onHadleBattle = function(l_3_0)
   print(l_3_0.type)
-  if  l_3_0.hids <= 0 then
+  if #l_3_0.hids <= 0 then
     showToast(i18n.global.toast_selhero_needhero.string)
     return 
   end
@@ -192,7 +192,7 @@ local onHadleBattle = function(l_3_0)
               end
             end
             for i,v in ipairs(params.camp) do
-              hids[ hids + 1] = v.hid
+              hids[#hids + 1] = v.hid
             end
             heros.setFlag(hids, 1)
             replaceScene(require("ui.arena.main").create())
@@ -217,7 +217,7 @@ local onHadleBattle = function(l_3_0)
       require("data.tutorial").goNext("hook", 2, true)
       local video = l_3_0.video
       video.camp = content.hids
-      for ii = 1,  video.camp do
+      for ii = 1, #video.camp do
         if video.camp[ii].pos == 7 then
           local petid = video.camp[ii].id
           local petData = require("data.pet")
@@ -719,7 +719,7 @@ local onHadleBattle = function(l_3_0)
       airData.calVit(l_17_0.num)
       bag.addRewards(l_17_0.reward)
       content.callback(l_17_0.reward, l_17_0.num)
-      if l_17_0.poss and  l_17_0.poss > 0 then
+      if l_17_0.poss and #l_17_0.poss > 0 then
         content.callback2(l_17_0.poss)
       end
       end)
@@ -743,7 +743,7 @@ local onHadleBattle = function(l_3_0)
       end
       if content.pos ~= 0 then
         local flaghp = false
-        for i = 1,  l_18_0.hpps do
+        for i = 1, #l_18_0.hpps do
           if l_18_0.hpps[i] ~= 0 then
             flaghp = true
         else
@@ -773,7 +773,7 @@ local onHadleBattle = function(l_3_0)
             end
           end
           for i,v in ipairs(params.camp) do
-            hids[ hids + 1] = v.hid
+            hids[#hids + 1] = v.hid
           end
           heros.setFlag(hids, 8)
           replaceScene(require("ui.frdarena.main").create())
@@ -810,12 +810,12 @@ local onHadleBattle = function(l_3_0)
       local reward = {}
       local equips = {}
       local items = {}
-      for i = 1,  cfgsealland[video.stage].firstReward do
+      for i = 1, #cfgsealland[video.stage].firstReward do
         local cfginfo = cfgsealland[video.stage].firstReward[i]
         if cfginfo.type == 1 then
-          items[ items + 1] = {id = cfginfo.id, num = cfginfo.num}
+          items[#items + 1] = {id = cfginfo.id, num = cfginfo.num}
         else
-          equips[ equips + 1] = {id = cfginfo.id, num = cfginfo.num}
+          equips[#equips + 1] = {id = cfginfo.id, num = cfginfo.num}
         end
       end
       reward.equips = equips
@@ -1031,7 +1031,7 @@ ui.create = function(l_4_0)
   layer:addChild(herolistBg)
   SCROLLVIEW_WIDTH = 793
   SCROLLVIEW_HEIGHT = 112
-  SCROLLCONTENT_WIDTH =  herolist * 90 + 8
+  SCROLLCONTENT_WIDTH = #herolist * 90 + 8
   scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionHorizontal)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -1061,7 +1061,7 @@ ui.create = function(l_4_0)
   local createHerolist = function()
     showHeroLayer:removeAllChildrenWithCleanup(true)
     arrayclear(headIcons)
-    scroll:setContentSize(CCSizeMake( herolist * 90 + 8, SCROLLVIEW_HEIGHT))
+    scroll:setContentSize(CCSizeMake(#herolist * 90 + 8, SCROLLVIEW_HEIGHT))
     scroll:setContentOffset(ccp(0, 0))
     local iconBgBatch = img.createBatchNodeForUI(img.ui.herolist_head_bg)
     showHeroLayer:addChild(iconBgBatch, 1)
@@ -1079,7 +1079,7 @@ ui.create = function(l_4_0)
     showHeroLayer:addChild(blackBatch, 5)
     upvalue_2560 = img.createBatchNodeForUI(img.ui.hook_btn_sel)
     showHeroLayer:addChild(selectBatch, 5)
-    for i = 1,  herolist do
+    for i = 1, #herolist do
       local x, y = 45 + (i - 1) * 90 + 8, 56
       local qlt = cfghero[herolist[i].id].maxStar
       local heroBg = nil
@@ -1117,7 +1117,7 @@ ui.create = function(l_4_0)
     if heroSkillBg:getChildByTag(1) then
       heroSkillBg:removeChildByTag(1)
     end
-    for i = 1,  require("ui.selecthero.campLayer").BuffTable do
+    for i = 1, #require("ui.selecthero.campLayer").BuffTable do
       campWidget.icon[i]:setVisible(false)
     end
     local heroids = {}
@@ -1473,10 +1473,10 @@ ui.create = function(l_4_0)
     local unit = {}
     for i = 1, 6 do
       if hids[i] and hids[i] > 0 then
-        unit[ unit + 1] = {hid = hids[i], pos = i}
+        unit[#unit + 1] = {hid = hids[i], pos = i}
         local hh = heros.find(hids[i])
         if hh and hh.wake then
-          unit[ unit].wake = hh.wake
+          unit[#unit].wake = hh.wake
         end
       end
     end
@@ -1607,7 +1607,7 @@ ui.create = function(l_4_0)
         end
       end
       end
-    if  herolist > 2 then
+    if #herolist > 2 then
       layer.tutocallBack = tutocallBack
     end
     require("ui.tutorial").show("ui.selected.pve", layer)

@@ -44,7 +44,7 @@ ui.create = function()
     if not l_2_0 then
       local ranks = {}
     end
-    local Height = 82 *  ranks + 6
+    local Height = 82 * #ranks + 6
     local scroll = CCScrollView:create()
     scroll:setDirection(kCCScrollViewDirectionVertical)
     scroll:setAnchorPoint(ccp(0, 0))

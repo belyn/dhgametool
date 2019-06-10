@@ -326,7 +326,7 @@ ui.create = function(l_2_0)
     return y
    end
   local initBorder = function(l_6_0)
-    for i = 1, math.max( borders, l_6_0) do
+    for i = 1, math.max(#borders, l_6_0) do
       if borders[i] ~= nil and l_6_0 < i then
         borders[i]:removeFromParent()
         borders[i] = nil
@@ -387,7 +387,7 @@ ui.create = function(l_2_0)
     enegyBottom:addChild(enegyIcon)
     initScroll(0)
     initBorder(0)
-    if friend.friends.friendsList == nil or  friend.friends.friendsList == 0 then
+    if friend.friends.friendsList == nil or #friend.friends.friendsList == 0 then
       title:setPosition(CCPoint(container:getContentSize().width / 2, 448))
       title_shadowD:setPosition(CCPoint(container:getContentSize().width / 2, 446))
       noFriends()
@@ -395,19 +395,19 @@ ui.create = function(l_2_0)
     end
     local recvallUids = {}
     local sendallUids = {}
-    local friendsLimitlab = lbl.createFont2(22, string.format("%d/%d",  friend.friends.friendsList, LIMIT_FRIEND))
+    local friendsLimitlab = lbl.createFont2(22, string.format("%d/%d", #friend.friends.friendsList, LIMIT_FRIEND))
     friendsLimitlab:setAnchorPoint(CCPoint(0, 0.5))
     friendsLimitlab:setPosition(CCPoint(title:boundingBox():getMaxX() + 10, 448))
     container:addChild(friendsLimitlab)
-    initScroll( friend.friends.friendsList, true)
-    initBorder( friend.friends.friendsList)
+    initScroll(#friend.friends.friendsList, true)
+    initBorder(#friend.friends.friendsList)
     for i,obj in ipairs(friend.friends.friendsList) do
       do
         if obj.flag == 2 or obj.flag == 3 then
-          recvallUids[ recvallUids + 1] = obj.uid
+          recvallUids[#recvallUids + 1] = obj.uid
         end
         if obj.flag == 0 or obj.flag == 2 or obj.flag == 4 or obj.flag == 6 then
-          sendallUids[ sendallUids + 1] = obj.uid
+          sendallUids[#sendallUids + 1] = obj.uid
         end
         icons[i] = img.createPlayerHead(obj.logo)
         icons[i].frdBtn = SpineMenuItem:create(json.ui.button, icons[i])
@@ -517,7 +517,7 @@ ui.create = function(l_2_0)
           local param = {}
           param.sid = player.sid
           local uids = {}
-          uids[ uids + 1] = obj.uid
+          uids[#uids + 1] = obj.uid
           param.recv = uids
           addWaitNet()
           net:frd_love(param, function(l_1_0)
@@ -536,7 +536,7 @@ ui.create = function(l_2_0)
               return 
             end
             obj.flag = obj.flag + 4
-            for ii = 1,  recvallUids do
+            for ii = 1, #recvallUids do
               if recvallUids[ii] == obj.uid then
                 table.remove(recvallUids, ii)
             else
@@ -548,7 +548,7 @@ ui.create = function(l_2_0)
             setShader(icons[i].recvloveBtn, SHADER_GRAY, true)
             icons[i].recvloveBtn:setEnabled(false)
             icons[i].aniheartLz:stopAnimation()
-            pbbag.items[ pbbag.items + 1] = {id = ITEM_ID_LOVE, num = 1}
+            pbbag.items[#pbbag.items + 1] = {id = ITEM_ID_LOVE, num = 1}
             local rewardlayer = reward.createFloating(pbbag, 1000)
             layer:addChild(rewardlayer, 1000)
                end)
@@ -579,7 +579,7 @@ ui.create = function(l_2_0)
             if friend.friends.friendsList[i] then
               friend.friends.friendsList[i].flag = friend.friends.friendsList[i].flag + 1
             end
-            for ii = 1,  sendallUids do
+            for ii = 1, #sendallUids do
               if sendallUids[ii] == obj.uid then
                 table.remove(sendallUids, ii)
             else
@@ -604,11 +604,11 @@ ui.create = function(l_2_0)
     recvallLab:setPosition(CCPoint(recvallBtn:getContentSize().width / 2, recvallBtn:getContentSize().height / 2 + 1))
     recvallSprite:addChild(recvallLab)
     recvallBtn:registerScriptTapHandler(function()
-      if  recvallUids == 0 and  sendallUids == 0 then
+      if #recvallUids == 0 and #sendallUids == 0 then
         showToast(i18n.global.friend_no_sendandrec_love.string)
         return 
       end
-      if LIMIT_FRIEND < friend.love +  recvallUids and  sendallUids == 0 then
+      if LIMIT_FRIEND < friend.love + #recvallUids and #sendallUids == 0 then
         showToast(string.format(i18n.global.friend_love_limit.string, LIMIT_FRIEND))
         return 
       end
@@ -642,7 +642,7 @@ ui.create = function(l_2_0)
           upvalue_1536 = {}
             end)
          end
-      if  recvallUids ~= 0 and friend.love +  recvallUids <= LIMIT_FRIEND then
+      if #recvallUids ~= 0 and friend.love + #recvallUids <= LIMIT_FRIEND then
         local pbbag = {}
         do
           pbbag.items = {}
@@ -673,17 +673,17 @@ ui.create = function(l_2_0)
             end
             bag.items.add({id = ITEM_ID_LOVE, num = l_2_0.status})
             lovelab:setString(string.format("%d", bag.items.find(ITEM_ID_LOVE).num))
-            pbbag.items[ pbbag.items + 1] = {id = ITEM_ID_LOVE, num = l_2_0.status}
+            pbbag.items[#pbbag.items + 1] = {id = ITEM_ID_LOVE, num = l_2_0.status}
             local rewardlayer = reward.createFloating(pbbag, 1000)
             layer:addChild(rewardlayer, 1000)
             upvalue_4608 = {}
-            if  sendallUids ~= 0 then
+            if #sendallUids ~= 0 then
               quicksend()
             end
                end)
         end
       else
-        if  sendallUids ~= 0 then
+        if #sendallUids ~= 0 then
           quicksend()
         end
       end
@@ -695,8 +695,8 @@ ui.create = function(l_2_0)
     initScroll(0)
     initBorder(0)
     if friend.friends.friendsRecmd then
-      initScroll( friend.friends.friendsRecmd, true)
-      initBorder( friend.friends.friendsRecmd)
+      initScroll(#friend.friends.friendsRecmd, true)
+      initBorder(#friend.friends.friendsRecmd)
       for i,obj in ipairs(friend.friends.friendsRecmd) do
         do
           icons[i] = img.createPlayerHead(obj.logo)
@@ -788,7 +788,7 @@ ui.create = function(l_2_0)
         showToast(i18n.global.friend_id_empty.string)
         return 
       end
-      if  inputFind:getText() ~= 8 then
+      if #inputFind:getText() ~= 8 then
         showToast(i18n.global.friend_no_id.string)
         return 
       end
@@ -830,12 +830,12 @@ ui.create = function(l_2_0)
     local applyUids = {}
     local requestsNum = 0
     if friend.friends.friendsApply then
-      initScroll( friend.friends.friendsApply, true)
-      initBorder( friend.friends.friendsApply)
-      requestsNum =  friend.friends.friendsApply
+      initScroll(#friend.friends.friendsApply, true)
+      initBorder(#friend.friends.friendsApply)
+      requestsNum = #friend.friends.friendsApply
       for i,obj in ipairs(friend.friends.friendsApply) do
         do
-          applyUids[ applyUids + 1] = obj.uid
+          applyUids[#applyUids + 1] = obj.uid
           icons[i] = img.createPlayerHead(obj.logo)
           icons[i].frdBtn = SpineMenuItem:create(json.ui.button, icons[i])
           icons[i].frdBtn:setScale(0.7)
@@ -889,7 +889,7 @@ ui.create = function(l_2_0)
             local param = {}
             param.sid = player.sid
             local uids = {}
-            uids[ uids + 1] = obj.uid
+            uids[#uids + 1] = obj.uid
             param.disagree = uids
             addWaitNet()
             net:frd_op(param, function(l_1_0)
@@ -961,7 +961,7 @@ ui.create = function(l_2_0)
     deleteallSprite:addChild(deleteallLab)
     deleteallBtn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if friend.friends.friendsApply == nil or  friend.friends.friendsApply == 0 then
+      if friend.friends.friendsApply == nil or #friend.friends.friendsApply == 0 then
         showToast(i18n.global.friend_no_application.string)
         return 
       end
@@ -976,7 +976,7 @@ ui.create = function(l_2_0)
           showToast(i18n.global.error_server_status_wrong.string .. tostring(l_1_0.status))
           return 
         end
-        for _ = 1,  friend.friends.friendsApply do
+        for _ = 1, #friend.friends.friendsApply do
           friend.delFriendsApply(friend.friends.friendsApply[1])
         end
         showFriends()
@@ -1032,7 +1032,7 @@ ui.create = function(l_2_0)
       container:addChild(combatLab)
       local rewardObj = cfgfriendstage[l_2_0].finalReward
       local offset_x = 281
-      for i = 1,  rewardObj do
+      for i = 1, #rewardObj do
         local tmp_item = nil
         do
           local itemObj = rewardObj[i]

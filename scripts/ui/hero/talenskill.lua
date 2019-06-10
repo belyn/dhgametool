@@ -51,7 +51,7 @@ ui.create = function(l_1_0)
     item:setPreferredSize(CCSizeMake(627, 157))
     local item_w = item:getContentSize().width
     local item_h = item:getContentSize().height
-    local skillId = cfgtalen[ cfgtalen].talenSkills[l_3_0]
+    local skillId = cfgtalen[#cfgtalen].talenSkills[l_3_0]
     local skillIconBg = img.createUISprite(img.ui.hero_skill_bg)
     skillIconBg:setPosition(70, item:getContentSize().height / 2)
     item:addChild(skillIconBg)

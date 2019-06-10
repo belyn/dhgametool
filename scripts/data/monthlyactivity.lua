@@ -15,17 +15,17 @@ mactivity.init = function(l_1_0)
   mactivity.redid = {}
   upvalue_512 = {}
   for i = 1, IDS.SCORE_FIGHT3.ID do
-    mactivity_data[ mactivity_data + 1] = {id = i, num = 0, cd = l_1_0.status.cd}
+    mactivity_data[#mactivity_data + 1] = {id = i, num = 0, cd = l_1_0.status.cd}
   end
   for i = IDS.SCORE_TARVEN_4.ID, IDS.SCORE_TARVEN_ALL.ID do
-    mactivity_data[ mactivity_data + 1] = {id = i, num = 0, cd = l_1_0.status.cd}
+    mactivity_data[#mactivity_data + 1] = {id = i, num = 0, cd = l_1_0.status.cd}
   end
   for i = IDS.FORGE_1.ID, IDS.FORGE_4.ID do
-    mactivity_data[ mactivity_data + 1] = {id = i, num = 0, cd = l_1_0.status.cd}
+    mactivity_data[#mactivity_data + 1] = {id = i, num = 0, cd = l_1_0.status.cd}
   end
-  mactivity_data[ mactivity_data + 1] = {id = IDS.CRUSHING_SPACE_1.ID, num = 0, cd = l_1_0.status.cd}
+  mactivity_data[#mactivity_data + 1] = {id = IDS.CRUSHING_SPACE_1.ID, num = 0, cd = l_1_0.status.cd}
   if l_1_0.status.war then
-    for j = 1,  l_1_0.status.war do
+    for j = 1, #l_1_0.status.war do
       if l_1_0.status.war[j].id == 1 then
         for i = 1, IDS.SCORE_FIGHT.ID do
           mactivity_data[i].num = l_1_0.status.war[j].num
@@ -41,7 +41,7 @@ mactivity.init = function(l_1_0)
     end
   end
   if l_1_0.status.htask then
-    for j = 1,  l_1_0.status.htask do
+    for j = 1, #l_1_0.status.htask do
       if l_1_0.status.htask[j].id == 4 then
         mactivity_data[IDS.SCORE_TARVEN_4.ID].num = l_1_0.status.htask[j].num
       else
@@ -63,7 +63,7 @@ mactivity.init = function(l_1_0)
     end
   end
   if l_1_0.status.hmerge then
-    for j = 1,  l_1_0.status.hmerge do
+    for j = 1, #l_1_0.status.hmerge do
       if l_1_0.status.hmerge[j].id == 5 then
         mactivity_data[IDS.FORGE_1.ID].num = l_1_0.status.hmerge[j].num
       else
@@ -82,15 +82,15 @@ mactivity.init = function(l_1_0)
     end
     mactivity.pull_time = os.time()
     if mactivity_data then
-      for ii = 1,  mactivity_data do
+      for ii = 1, #mactivity_data do
         if mactivity_data[ii].cd and mactivity_data[ii].cd > 0 then
           mactivity_data[ii].read = 0
         end
       end
     end
-    for i = 1,  mactivity_data do
+    for i = 1, #mactivity_data do
       if mactivity_data[i].id == IDS.SCORE_FIGHT.ID or mactivity_data[i].id == IDS.SCORE_TARVEN_4.ID or mactivity_data[i].id == IDS.FORGE_1.ID or mactivity_data[i].id == IDS.CRUSHING_SPACE_1.ID then
-        mactivity.redid[ mactivity.redid + 1] = mactivity_data[i]
+        mactivity.redid[#mactivity.redid + 1] = mactivity_data[i]
       end
     end
      -- Warning: missing end command somewhere! Added here
@@ -101,7 +101,7 @@ mactivity.addlimitAct = function(l_2_0)
   if not mactivity_data then
     mactivity_data = {}
   end
-  for i = 1,  mactivity_data do
+  for i = 1, #mactivity_data do
     if mactivity_data[i] == l_2_0 then
       return 
     end
@@ -110,7 +110,7 @@ mactivity.addlimitAct = function(l_2_0)
       return 
     end
   end
-  mactivity_data[ mactivity_data + 1] = l_2_0
+  mactivity_data[#mactivity_data + 1] = l_2_0
 end
 
 mactivity.GradeNotice = function(l_3_0)
@@ -198,7 +198,7 @@ mactivity.getStatusById = function(l_6_0)
   if not mactivity_data then
     return nil
   end
-  for ii = 1,  mactivity_data do
+  for ii = 1, #mactivity_data do
     if mactivity_data[ii].id == l_6_0 then
       return mactivity_data[ii]
     end
@@ -207,10 +207,10 @@ mactivity.getStatusById = function(l_6_0)
 end
 
 mactivity.showRedDot = function()
-  if not mactivity.redid or  mactivity.redid == 0 then
+  if not mactivity.redid or #mactivity.redid == 0 then
     return false
   end
-  for ii = 1,  mactivity.redid do
+  for ii = 1, #mactivity.redid do
     if mactivity.redid[ii].read and mactivity.redid[ii].read == 0 then
       return true
     end
@@ -222,7 +222,7 @@ mactivity.getPullIds = function()
   local ids = {}
   for _,info in pairs(mactivity.IDS) do
     if info.pull then
-      ids[ ids + 1] = info.ID
+      ids[#ids + 1] = info.ID
     end
   end
   return ids

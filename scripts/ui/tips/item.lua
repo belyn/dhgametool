@@ -28,10 +28,10 @@ local getEXQHeroList = function(l_1_0)
   if not herolist then
     return items
   end
-  for ii = 1,  herolist do
+  for ii = 1, #herolist do
     local tlist = require("config.herolist")[herolist[ii]].heroList
-    for jj = 1,  tlist do
-      items[ items + 1] = tlist[jj]
+    for jj = 1, #tlist do
+      items[#items + 1] = tlist[jj]
     end
   end
   return items
@@ -145,13 +145,13 @@ tips.createMiddle = function(l_14_0, l_14_1, l_14_2, l_14_3, l_14_4, l_14_5)
   if cfgitem[l_14_0.id].type == ITEM_KIND_JADE then
     for i,bonus in ipairs(cfgitem[l_14_0.id].JadeBonus) do
       local name, value = buffString(bonus.type, bonus.num)
-      labels[ labels + 1] = {label = lbl.createMixFont1(18, "+" .. value .. " " .. name, ccc3(126, 231, 48)), x = TIPS_MARGIN, offsetY = op3(attrNum == 1, 0, 2)}
+      labels[#labels + 1] = {label = lbl.createMixFont1(18, "+" .. value .. " " .. name, ccc3(126, 231, 48)), x = TIPS_MARGIN, offsetY = op3(attrNum == 1, 0, 2)}
     end
   end
    -- DECOMPILER ERROR: Confused while interpreting a jump as a 'while'
 
 end
-labels[ labels + 1] = {label = lbl.createMixFont1(18, i18n.global.tips_unsellable.string, ccc3(250, 53, 53)), x = TIPS_MARGIN, offsetY = op3(not l_14_1 or cfgitem[l_14_0.id].recovery == 1, 10, 0)}
+labels[#labels + 1] = {label = lbl.createMixFont1(18, i18n.global.tips_unsellable.string, ccc3(250, 53, 53)), x = TIPS_MARGIN, offsetY = op3(not l_14_1 or cfgitem[l_14_0.id].recovery == 1, 10, 0)}
 local container, currentY = alignLabels(labels)
 local cHeight = not currentY
 local vHeight = op3(cHeight < SCROLL_HEIGHT, cHeight, SCROLL_HEIGHT)

@@ -20,19 +20,19 @@ local getAttribute = function(l_1_0, l_1_1)
   if startIndex then
     local endIndex = string.find(l_1_0, " ", startIndex + 1)
     if endIndex then
-      value = string.sub(l_1_0, startIndex +  l_1_1 + 1, endIndex - 1)
+      value = string.sub(l_1_0, startIndex + #l_1_1 + 1, endIndex - 1)
     else
-      value = string.sub(l_1_0, startIndex +  l_1_1 + 1)
+      value = string.sub(l_1_0, startIndex + #l_1_1 + 1)
     end
     if string.byte(value, 1) == ASCII_DOUBLE_QUOTATION_MARK then
       if string.byte(value, -1) == ASCII_DOUBLE_QUOTATION_MARK then
-        value = string.sub(value, 2,  value - 1)
+        value = string.sub(value, 2, #value - 1)
       else
-        value = string.sub(value, 2,  value)
+        value = string.sub(value, 2, #value)
       end
     else
       if string.byte(value, -1) == ASCII_DOUBLE_QUOTATION_MARK then
-        value = string.sub(value, 1,  value - 1)
+        value = string.sub(value, 1, #value - 1)
       end
     end
   end
@@ -107,19 +107,19 @@ local isNumberOrLetter = function(l_5_0)
 end
 
 local isUTF8CharWrappable = function(l_6_0)
-  return (getByteCount(l_6_0) <= 1 and #isNumberOrLetter(l_6_0))
+  return (getByteCount(l_6_0) <= 1 and  isNumberOrLetter(l_6_0))
 end
 
 local getNextWordPos = function(l_7_0, l_7_1)
-  if  l_7_0 <= l_7_1 + 1 then
-    return  l_7_0
+  if #l_7_0 <= l_7_1 + 1 then
+    return #l_7_0
   end
-  for i = l_7_1 + 1,  l_7_0 do
+  for i = l_7_1 + 1, #l_7_0 do
     if isUTF8CharWrappable(l_7_0[i]) then
       return i
     end
   end
-  return  l_7_0
+  return #l_7_0
 end
 
 local getPrevWordPos = function(l_8_0, l_8_1)
@@ -147,10 +147,10 @@ end
 
 local findSplitPositionForWord = function(l_10_0, l_10_1, l_10_2, l_10_3, l_10_4)
   if l_10_4 <= 0 then
-    return  l_10_1
+    return #l_10_1
   end
   local startingNewLine = l_10_4 == l_10_3
-  return isWrappable(l_10_1) or (startingNewLine and  l_10_1) or 0
+  return isWrappable(l_10_1) or (startingNewLine and #l_10_1) or 0
   local idx = getNextWordPos(l_10_1, l_10_2)
   local leftStr = table.concat(l_10_1, "", 1, idx)
   l_10_0:setString(leftStr)
@@ -181,7 +181,7 @@ local findSplitPositionForWord = function(l_10_0, l_10_1, l_10_2, l_10_3, l_10_4
         l_10_0:setString(leftStr)
         textRendererWidth = l_10_0:getContentSize().width * scale
         if textRendererWidth < l_10_3 then
-          if newidx ==  l_10_1 then
+          if newidx == #l_10_1 then
             return newidx
           end
           idx = newidx
@@ -201,10 +201,10 @@ end
 
 local findSplitPositionForChar = function(l_11_0, l_11_1, l_11_2, l_11_3, l_11_4)
   if l_11_4 <= 0 then
-    return  l_11_1
+    return #l_11_1
   end
   local startingNewLine = l_11_4 == l_11_3
-  local stringLength =  l_11_1
+  local stringLength = #l_11_1
   local leftLength = l_11_2
   local leftStr = table.concat(l_11_1, "", 1, leftLength)
   l_11_0:setString(leftStr)
@@ -434,7 +434,7 @@ RichText.formatText = function(l_40_0)
     l_40_0.elementRenders = {}
     l_40_0.lineHeights = {}
     l_40_0:addNewLine()
-    for i = 1,  l_40_0.richElements do
+    for i = 1, #l_40_0.richElements do
       local element = l_40_0.richElements[i]
       if element.type == RichText.ELEMENT_TYPE.LABELTTF then
         l_40_0:handleTextRenderer(element)
@@ -466,10 +466,10 @@ RichText.formatText = function(l_40_0)
 end
 
 RichText.pushToContainer = function(l_41_0, l_41_1)
-  if  l_41_0.elementRenders <= 0 then
+  if #l_41_0.elementRenders <= 0 then
     return 
   end
-  table.insert(l_41_0.elementRenders[ l_41_0.elementRenders], l_41_1)
+  table.insert(l_41_0.elementRenders[#l_41_0.elementRenders], l_41_1)
 end
 
 RichText.formatRenderers = function(l_42_0)
@@ -477,27 +477,27 @@ RichText.formatRenderers = function(l_42_0)
   local fontSize = l_42_0.fontSize
   local newContentSizeHeight = 0
   local maxHeights = {}
-  for i = 1,  l_42_0.elementRenders do
+  for i = 1, #l_42_0.elementRenders do
     local row = l_42_0.elementRenders[i]
     local maxHeight = 0
-    for j = 1,  row do
+    for j = 1, #row do
       if maxHeight < row[j]:getContentSize().height * row[j]:getScale() then
         maxHeight = row[j]:getContentSize().height * row[j]:getScale()
       end
     end
-    maxHeight =  row > 0 or (l_42_0.lineHeights[i] ~= 0 and l_42_0.lineHeights[i]) or fontSize
+    maxHeight = #row > 0 or (l_42_0.lineHeights[i] ~= 0 and l_42_0.lineHeights[i]) or fontSize
     maxHeights[i] = maxHeight
     newContentSizeHeight = newContentSizeHeight + (i > 1 and (maxHeight) + verticalSpace or maxHeight)
   end
   l_42_0.customSize.height = newContentSizeHeight
   local nextPosY = l_42_0.customSize.height
-  for i = 1,  l_42_0.elementRenders do
+  for i = 1, #l_42_0.elementRenders do
     local row = l_42_0.elementRenders[i]
     local nextPosX = 0
     if i <= 1 or not maxHeights[i] + verticalSpace then
       nextPosY = nextPosY - maxHeights[i]
     end
-    for j = 1,  row do
+    for j = 1, #row do
       row[j]:setAnchorPoint(CCPoint(0, 0))
       row[j]:setPosition(nextPosX, nextPosY)
       l_42_0.renderNode:addChild(row[j])
@@ -511,8 +511,8 @@ RichText.formatRenderers = function(l_42_0)
 end
 
 RichText.stripTrailingWhitespace = function(l_43_0, l_43_1)
-  if  l_43_1 > 0 then
-    local node = l_43_1[ l_43_1]
+  if #l_43_1 > 0 then
+    local node = l_43_1[#l_43_1]
     local nodeType = tolua.type(node)
     if nodeType == "CCLabelTTF" or nodeType == "CCLabelBMFont" then
       local scale = node:getScale()
@@ -553,7 +553,7 @@ RichText.doHorizontalAlignment = function(l_47_0, l_47_1, l_47_2)
     local diff = l_47_0:stripTrailingWhitespace(l_47_1)
     local leftOver = l_47_0.customSize.width - (l_47_2 + diff)
     local leftPadding = l_47_0:getPaddingAmount(l_47_0.alignment, leftOver)
-    for i = 1,  l_47_1 do
+    for i = 1, #l_47_1 do
       l_47_1[i]:setPositionX(l_47_1[i]:getPositionX() + leftPadding)
     end
   end
@@ -580,7 +580,7 @@ RichText.handleTextRenderer = function(l_48_0, l_48_1)
           findNewLine = false
           if realLines > 0 then
             l_48_0:addNewLine()
-            l_48_0.lineHeights[ l_48_0.lineHeights] = l_48_1.size
+            l_48_0.lineHeights[#l_48_0.lineHeights] = l_48_1.size
           end
           realLines = realLines + 1
           local splitParts = 0
@@ -592,7 +592,7 @@ RichText.handleTextRenderer = function(l_48_0, l_48_1)
           until currentText ~= ""
           if splitParts > 0 then
             l_48_0:addNewLine()
-            l_48_0.lineHeights[ l_48_0.lineHeights] = l_48_1.size
+            l_48_0.lineHeights[#l_48_0.lineHeights] = l_48_1.size
           end
           splitParts = splitParts + 1
           local textRenderer = nil
@@ -611,7 +611,7 @@ RichText.handleTextRenderer = function(l_48_0, l_48_1)
           else
             local estimatedIdx = 0
             if textRendererWidth > 0 then
-              estimatedIdx = math.floor(l_48_0.leftSpaceWidth / textRendererWidth *  utf8Text)
+              estimatedIdx = math.floor(l_48_0.leftSpaceWidth / textRendererWidth * #utf8Text)
             else
               estimatedIdx = math.floor(l_48_0.leftSpaceWidth / l_48_1.size)
             end
@@ -627,8 +627,8 @@ RichText.handleTextRenderer = function(l_48_0, l_48_1)
             end
             do
               local newText = {}
-              if leftLength <  utf8Text then
-                for i = leftLength + 1,  utf8Text do
+              if leftLength < #utf8Text then
+                for i = leftLength + 1, #utf8Text do
                   table.insert(newText, utf8Text[i])
                 end
               end
@@ -676,7 +676,7 @@ end
 
 RichText.parseHTMLText = function(l_51_0, l_51_1)
   local startIndex = 0
-  local length =  l_51_1
+  local length = #l_51_1
   repeat
     repeat
       repeat

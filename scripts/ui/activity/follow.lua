@@ -22,7 +22,7 @@ ui.create = function()
   local acts = {}
   for _,v in ipairs(act_ids) do
     local tmp_status = activityData.getStatusById(v)
-    acts[ acts + 1] = tmp_status
+    acts[#acts + 1] = tmp_status
   end
   local board = CCSprite:create()
   board:setContentSize(CCSizeMake(570, 438))

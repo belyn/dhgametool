@@ -171,18 +171,18 @@ local searchHookDrop = function(l_2_0, l_2_1)
     if not cfg then
       return 
     end
-    for jj = 1,  cfg.yes do
+    for jj = 1, #cfg.yes do
       if l_2_0.id == cfg.yes[jj].id and l_2_1 == cfg.yes[jj].type then
         return ii
       end
     end
   end
-  for ii = stage_id,  cfgpoker do
+  for ii = stage_id, #cfgpoker do
     local cfg = cfgpoker[ii]
     if not cfg then
       return 
     end
-    for jj = 1,  cfg.yes do
+    for jj = 1, #cfg.yes do
       if l_2_0.id == cfg.yes[jj].id and l_2_1 == cfg.yes[jj].type then
         return ii
       end
@@ -207,7 +207,7 @@ tips.createLayer = function(l_3_0, l_3_1)
   container:addChild(name)
   currentY = name:boundingBox():getMinY()
   local btnBg = img.createUI9Sprite(img.ui.smith_drop_bg)
-  btnBg:setPreferredSize(CCSize(314, op3( cfg <= MAX_WAY, 70 *  cfg + 25, SCROLL_HEIGHT)))
+  btnBg:setPreferredSize(CCSize(314, op3(#cfg <= MAX_WAY, 70 * #cfg + 25, SCROLL_HEIGHT)))
   btnBg:setAnchorPoint(ccp(0, 1))
   btnBg:setPosition(TIPS_MARGIN, currentY - 15)
   container:addChild(btnBg)
@@ -475,7 +475,7 @@ tips.createLayer = function(l_3_0, l_3_1)
   local btnGetway = {}
   local createScrollLayer = function()
     local sccontainer = CCLayer:create()
-    for i = 1,  cfg do
+    for i = 1, #cfg do
       do
         local btnGetwaysp = img.createLogin9Sprite(img.login.button_9_small_mwhite)
         btnGetwaysp:setPreferredSize(CCSize(290, 68))
@@ -493,9 +493,9 @@ tips.createLayer = function(l_3_0, l_3_1)
             end)
       end
     end
-    local ccurrentY =  cfg * 70 + 22
+    local ccurrentY = #cfg * 70 + 22
     local cHeight = ccurrentY
-    local vHeight = op3( cfg <= MAX_WAY, cHeight, SCROLL_HEIGHT)
+    local vHeight = op3(#cfg <= MAX_WAY, cHeight, SCROLL_HEIGHT)
     local scroll = CCScrollView:create()
     scroll:setDirection(kCCScrollViewDirectionVertical)
     scroll:ignoreAnchorPointForPosition(false)

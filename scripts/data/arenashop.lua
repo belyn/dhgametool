@@ -9,7 +9,7 @@ end
 
 arenashop.init = function(l_2_0)
   arenashop.goods = l_2_0.item
-  for i = 1,  arenashop.goods do
+  for i = 1, #arenashop.goods do
     arenashop.goods[i]._id = i
   end
   table.sort(arenashop.goods, arenashop.compareMarket)

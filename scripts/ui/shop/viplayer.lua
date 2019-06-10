@@ -62,7 +62,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
   rigBtn:setPosition(780, 215)
   rigMenu:addChild(rigBtn)
   rigBtn:registerScriptTapHandler(function()
-    if infoVipLv <  cfgvip then
+    if infoVipLv < #cfgvip then
       infoVipLv = infoVipLv + 1
     end
     createVIPinfo(infoVipLv)
@@ -121,7 +121,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
     else
       lefBtn:setVisible(true)
     end
-    if l_4_0 ==  cfgvip then
+    if l_4_0 == #cfgvip then
       rigBtn:setVisible(false)
     else
       rigBtn:setVisible(true)

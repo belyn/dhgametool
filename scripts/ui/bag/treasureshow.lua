@@ -93,8 +93,8 @@ ui.create = function()
       do return end
     end
     if cfgequip[i].treasureNext == nil then
-      equips[ equips + 1] = cfgequip[i]
-      equips[ equips].id = i
+      equips[#equips + 1] = cfgequip[i]
+      equips[#equips].id = i
     end
   end
   table.sort(equips, compareTreasure)
@@ -103,7 +103,7 @@ ui.create = function()
     content_layer:removeAllChildrenWithCleanup(true)
     local height = 0
     local count = 0
-    for ii = 1,  equips do
+    for ii = 1, #equips do
       if l_4_0 == 0 or l_4_0 == cfgequip[equips[ii].id].qlt then
         local tmp_item = img.createEquip(equips[ii].id)
         count = count + 1
@@ -112,7 +112,7 @@ ui.create = function()
         local pos_y = item_offset_y + item_step_y * (math.floor((count + row_count - 1) / row_count) - 1)
         tmp_item:setPosition(CCPoint(pos_x, 0 - pos_y))
         content_layer:addChild(tmp_item)
-        items[ items + 1] = tmp_item
+        items[#items + 1] = tmp_item
         height = pos_y + 47
       end
     end
@@ -253,7 +253,7 @@ ui.create = function()
     upvalue_1024 = true
     if scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_12_0, l_12_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           playAnimTouchBegin(items[ii])
           upvalue_3072 = items[ii]
@@ -279,7 +279,7 @@ ui.create = function()
     end
     if isclick and scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_14_0, l_14_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           audio.play(audio.button)
           onClickItem(items[ii])

@@ -94,13 +94,13 @@ ui.create = function()
     bg:addChild(scroll)
     bg.scroll = scroll
     scroll.addSpace(4)
-    for ii = 1,  l_2_0 do
+    for ii = 1, #l_2_0 do
       local tmp_item = createItem(l_2_0[ii], ii, layer)
       tmp_item.guildObj = l_2_0[ii]
       tmp_item.ax = 1
       tmp_item.px = 302
       scroll.addItem(tmp_item)
-      if ii ~=  l_2_0 then
+      if ii ~= #l_2_0 then
         scroll.addSpace(space_height)
       end
     end

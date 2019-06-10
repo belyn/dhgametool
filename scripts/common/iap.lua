@@ -13,7 +13,7 @@ iap.pull = function(l_1_0)
       DHPayment:getInstance():pull(function(l_1_0, l_1_1)
       print("iap pull {")
       print("status", l_1_0)
-      if l_1_0 ~= "ok" or  l_1_1 == 0 then
+      if l_1_0 ~= "ok" or #l_1_1 == 0 then
         print("iap pull }")
         handler()
         return 
@@ -174,7 +174,7 @@ iap.verify = function(l_4_0, l_4_1)
     DHPayment:getInstance():consume(purchasesCopy, function()
       handler(data.reward)
       end)
-    if (l_1_0.reward.equips and  l_1_0.reward.equips > 0) or l_1_0.reward.items and  l_1_0.reward.items > 0 then
+    if (l_1_0.reward.equips and #l_1_0.reward.equips > 0) or l_1_0.reward.items and #l_1_0.reward.items > 0 then
       require("data.activity").pay()
       local money = 0
       local cfgstore = require("config.store")

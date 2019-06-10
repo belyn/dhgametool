@@ -11,13 +11,13 @@ monthlyshop.init = function(l_2_0)
   monthlyshop.mpiece = l_2_0.mpiece
   monthlyshop.mequip = l_2_0.mequip
   monthlyshop.mskin = l_2_0.mskin
-  for i = 1,  monthlyshop.mpiece do
+  for i = 1, #monthlyshop.mpiece do
     monthlyshop.mpiece[i]._id = i
   end
-  for i = 1,  monthlyshop.mequip do
+  for i = 1, #monthlyshop.mequip do
     monthlyshop.mequip[i]._id = i
   end
-  for i = 1,  monthlyshop.mskin do
+  for i = 1, #monthlyshop.mskin do
     monthlyshop.mskin[i]._id = i
   end
   monthlyshop.goods = monthlyshop.mpiece

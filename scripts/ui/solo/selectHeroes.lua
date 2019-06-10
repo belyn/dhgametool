@@ -30,17 +30,17 @@ local initHerolistData = function(l_1_0)
   for i,v in ipairs(tmpheros) do
     if params.group then
       if cfghero[v.id].group == params.group then
-        herolist[ herolist + 1] = v
+        herolist[#herolist + 1] = v
         for i,v in (for generator) do
         end
         for j = 1, 5 do
           if params.hids[j] == v.hid then
-            herolist[ herolist + 1] = v
+            herolist[#herolist + 1] = v
           end
         end
         for i,v in (for generator) do
         end
-        herolist[ herolist + 1] = v
+        herolist[#herolist + 1] = v
       end
       for i,v in ipairs(herolist) do
         v.isUsed = false
@@ -147,7 +147,7 @@ ui.create = function(l_2_0)
         end
       end
     end
-    if  heroHids > 0 then
+    if #heroHids > 0 then
       local soloData = require("data.solo")
       addWaitNet()
       local params = {sid = player.sid, hids = heroHids}
@@ -163,7 +163,7 @@ ui.create = function(l_2_0)
           do
             local bossArr = cfgSpkWave[1].trial
             local ehpp = {}
-            for i = 1,  bossArr do
+            for i = 1, #bossArr do
               ehpp[i] = 100
             end
             if not l_1_0.bufs then
@@ -245,7 +245,7 @@ ui.create = function(l_2_0)
                 parentLayer.modifyBufShow()
                 parentLayer.playSweepAnimation()
                      end
-              if  rewards > 0 then
+              if #rewards > 0 then
                 local darkLayer = CCLayerColor:create(ccc4(0, 0, 0, POPUP_DARK_OPACITY))
                 parentLayer.widget.layer:addChild(darkLayer, 99999)
                 local spineNode = json.create(json.ui.solo_sweep)
@@ -288,7 +288,7 @@ ui.create = function(l_2_0)
   layer:addChild(herolistBg)
   SCROLLVIEW_WIDTH = 793
   SCROLLVIEW_HEIGHT = 112
-  SCROLLCONTENT_WIDTH =  herolist * 90 + 8
+  SCROLLCONTENT_WIDTH = #herolist * 90 + 8
   scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionHorizontal)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -318,7 +318,7 @@ ui.create = function(l_2_0)
   local createHerolist = function()
     showHeroLayer:removeAllChildrenWithCleanup(true)
     arrayclear(headIcons)
-    scroll:setContentSize(CCSizeMake( herolist * 90 + 8, SCROLLVIEW_HEIGHT))
+    scroll:setContentSize(CCSizeMake(#herolist * 90 + 8, SCROLLVIEW_HEIGHT))
     scroll:setContentOffset(ccp(0, 0))
     local iconBgBatch = img.createBatchNodeForUI(img.ui.herolist_head_bg)
     showHeroLayer:addChild(iconBgBatch, 1)
@@ -336,7 +336,7 @@ ui.create = function(l_2_0)
     showHeroLayer:addChild(blackBatch, 4)
     upvalue_2560 = img.createBatchNodeForUI(img.ui.hook_btn_sel)
     showHeroLayer:addChild(selectBatch, 5)
-    for i = 1,  herolist do
+    for i = 1, #herolist do
       local x, y = 45 + (i - 1) * 90 + 8, 56
       local qlt = cfghero[herolist[i].id].maxStar
       local heroBg = nil

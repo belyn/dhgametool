@@ -143,13 +143,13 @@ ui.create = function()
     board:addChild(scroll)
     board.scroll = scroll
     scroll.addSpace(4)
-    for ii = 1,  l_4_0 - 1 do
+    for ii = 1, #l_4_0 - 1 do
       local tmp_item = createItem(l_4_0[ii], ii)
       tmp_item.guildObj = l_4_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 302
       scroll.addItem(tmp_item)
-      if ii ~=  l_4_0 then
+      if ii ~= #l_4_0 then
         scroll.addSpace(space_height)
       end
     end
@@ -161,12 +161,12 @@ ui.create = function()
     net:frd_boss_rank(gParams, function(l_1_0)
       delWaitNet()
       tbl2string(l_1_0)
-      if  l_1_0.assits > 1 then
+      if #l_1_0.assits > 1 then
         if not l_1_0.assits then
           showList({})
         end
       end
-      local self_item = createSelfItem(l_1_0.assits[ l_1_0.assits])
+      local self_item = createSelfItem(l_1_0.assits[#l_1_0.assits])
       self_item:setPosition(CCPoint(board_w / 2, 36))
       board:addChild(self_item, 3)
       end)

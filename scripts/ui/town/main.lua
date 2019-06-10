@@ -277,7 +277,7 @@ ui.create = function(l_1_0)
   local createBuildings = function()
     lbl_buildings = {}
     upvalue_512 = {}
-    for ii = 1,  buildings do
+    for ii = 1, #buildings do
       local to = buildings[ii]
       local bo = json.create(to.jsonName)
       bo.data = to
@@ -348,7 +348,7 @@ ui.create = function(l_1_0)
     upvalue_1536 = po.y
     upvalue_2048 = true
     upvalue_2560 = po.x
-    for ii = 1,  buildingObjs do
+    for ii = 1, #buildingObjs do
       local tObj = buildingObjs[ii]
       if tObj.data.tapFunc and tObj:getAabbBoundingBox():containsPoint(CCPoint(l_22_0, l_22_1)) then
         setShader(tObj, SHADER_HIGHLIGHT, true)
@@ -379,7 +379,7 @@ ui.create = function(l_1_0)
     if not isClick then
       return 
     end
-    for ii = 1,  buildingObjs do
+    for ii = 1, #buildingObjs do
       local tObj = buildingObjs[ii]
       if tObj:getAabbBoundingBox():containsPoint(CCPoint(l_24_0, l_24_1)) then
         print("you clicked " .. tObj.data.name)

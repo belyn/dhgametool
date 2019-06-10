@@ -24,7 +24,7 @@ local TENSUMMON = 2200
 local aniSummonzhen = nil
 ui.createInfo = function(l_1_0, l_1_1, l_1_2)
   local layer = ui.createLayer(l_1_2)
-  if  l_1_0 == 1 then
+  if #l_1_0 == 1 then
     aniSummonzhen:playAnimation("animation_1")
   else
     aniSummonzhen:playAnimation("animation_10")
@@ -43,7 +43,7 @@ end
 ui.actHeroSummon10 = function(l_2_0)
   local activityData = require("data.activity")
   local IDS = activityData.IDS
-  for i = 1,  l_2_0 do
+  for i = 1, #l_2_0 do
     if cfghero[l_2_0[i].id].maxStar == 5 then
       local tmp_status = activityData.getStatusById(IDS.HERO_SUMMON_1.ID)
       if cfghero[l_2_0[i].id].group == 2 then
@@ -64,7 +64,7 @@ ui.actHeroSummon10 = function(l_2_0)
       if tmp_status and tmp_status.limits and tmp_status.limits < cfgactivity[tmp_status.id].parameter[1].num then
         tmp_status.limits = tmp_status.limits + 1
         local tmp_status7 = activityData.getStatusById(IDS.HERO_SUMMON_7.ID)
-        if tmp_status.limits == cfgactivity[tmp_status.id].parameter[1].num and tmp_status7.limits <  cfgactivity[tmp_status7.id].parameter then
+        if tmp_status.limits == cfgactivity[tmp_status.id].parameter[1].num and tmp_status7.limits < #cfgactivity[tmp_status7.id].parameter then
           tmp_status7.limits = tmp_status7.limits + 1
         end
       end
@@ -78,7 +78,7 @@ end
 ui.checkGiftLimit = function(l_3_0)
   local activitylimit = require("data.activitylimit")
   local cfglimitgift = require("config.limitgift")
-  for i = 1,  l_3_0 do
+  for i = 1, #l_3_0 do
     if cfghero[l_3_0[i].id].qlt == 4 then
       local summon4_status = activitylimit.getStatusById(activitylimit.IDS.SUMMON_4.ID)
       if summon4_status == nil then
@@ -236,7 +236,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
   powerBar:addChild(progressLabel)
   helmetBtn:registerScriptTapHandler(function()
     audio.play(audio.button)
-    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 1 then
+    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 1 then
       local gotoHeroDlg = require("ui.summon.tipsdialog")
       gotoHeroDlg.show(layer)
       return 
@@ -335,7 +335,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
     layer.itemsummonBtn:setPosition(scalep(480, 124))
     layer.itemsummonBtn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 1 then
+      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 1 then
         local gotoHeroDlg = require("ui.summon.tipsdialog")
         gotoHeroDlg.show(layer)
         return 
@@ -368,7 +368,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         schedule(layer, 1, function()
           setBtnvisit(true)
             end)
-        if  l_1_0.heroes == 1 then
+        if #l_1_0.heroes == 1 then
           aniSummonzhen:playAnimation("animation_1_s")
         else
           aniSummonzhen:playAnimation("animation_10_s")
@@ -401,7 +401,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
     layer.itemsummon10Btn:setPosition(scalep(672, 124))
     layer.itemsummon10Btn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 10 then
+      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 10 then
         local gotoHeroDlg = require("ui.summon.tipsdialog")
         gotoHeroDlg.show(layer)
         return 
@@ -434,7 +434,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         schedule(layer, 1, function()
           setBtnvisit(true)
             end)
-        if  l_1_0.heroes == 1 then
+        if #l_1_0.heroes == 1 then
           aniSummonzhen:playAnimation("animation_1_s")
         else
           aniSummonzhen:playAnimation("animation_10_s")
@@ -443,7 +443,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         layer:addChild(ui.heroCards, 1000)
         heros.addAll(l_1_0.heroes)
         ui.actHeroSummon10(l_1_0.heroes)
-        for ii = 1,  l_1_0.heroes do
+        for ii = 1, #l_1_0.heroes do
           if cfghero[l_1_0.heroes[ii].id].maxStar == 5 then
             achieveData.add(ACHIEVE_TYPE_COMMONSUMMONFIVE, 1)
           end
@@ -478,7 +478,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
     layer.itemsummonBtn:setPosition(scalep(480, 94))
     layer.itemsummonBtn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 1 then
+      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 1 then
         local gotoHeroDlg = require("ui.summon.tipsdialog")
         gotoHeroDlg.show(layer)
         return 
@@ -525,7 +525,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
           setBtnvisit(true)
             end)
         ui.actHeroSummon10(l_1_0.heroes)
-        if  l_1_0.heroes == 1 then
+        if #l_1_0.heroes == 1 then
           aniSummonzhen:playAnimation("animation_1_s")
         else
           aniSummonzhen:playAnimation("animation_10_s")
@@ -537,7 +537,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         local activity = require("data.activity")
         activity.addScore(activity.IDS.SCORE_SUMMON.ID, 1)
         achieveData.add(ACHIEVE_TYPE_HIGHSUMMON, 1)
-        for i = 1,  l_1_0.heroes do
+        for i = 1, #l_1_0.heroes do
           if cfghero[l_1_0.heroes[i].id].qlt ~= 5 then
             achieveData.addSummonForAf(1)
           else
@@ -565,7 +565,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
     layer.gemsummonBtn:setPosition(scalep(672, 124))
     layer.gemsummonBtn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 1 then
+      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 1 then
         local gotoHeroDlg = require("ui.summon.tipsdialog")
         gotoHeroDlg.show(layer)
         return 
@@ -605,7 +605,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         schedule(layer, 1, function()
           setBtnvisit(true)
             end)
-        if  l_1_0.heroes == 1 then
+        if #l_1_0.heroes == 1 then
           aniSummonzhen:playAnimation("animation_1_s")
         else
           aniSummonzhen:playAnimation("animation_10_s")
@@ -618,7 +618,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         activity.addScore(activity.IDS.SCORE_SUMMON.ID, 1)
         ui.actHeroSummon10(l_1_0.heroes)
         achieveData.add(ACHIEVE_TYPE_HIGHSUMMON, 1)
-        for i = 1,  l_1_0.heroes do
+        for i = 1, #l_1_0.heroes do
           if cfghero[l_1_0.heroes[i].id].qlt ~= 5 then
             achieveData.addSummonForAf(1)
           else
@@ -665,7 +665,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
     layer.itemsummonBtn:setPosition(scalep(480, 94))
     layer.itemsummonBtn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 10 then
+      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 10 then
         local gotoHeroDlg = require("ui.summon.tipsdialog")
         gotoHeroDlg.show(layer)
         return 
@@ -712,7 +712,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         schedule(layer, 2, function()
           setBtnvisit(true)
             end)
-        if  l_1_0.heroes == 1 then
+        if #l_1_0.heroes == 1 then
           aniSummonzhen:playAnimation("animation_1_s")
         else
           aniSummonzhen:playAnimation("animation_10_s")
@@ -724,7 +724,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         local activity = require("data.activity")
         activity.addScore(activity.IDS.SCORE_SUMMON.ID, 10)
         achieveData.add(ACHIEVE_TYPE_HIGHSUMMON, 10)
-        for i = 1,  l_1_0.heroes do
+        for i = 1, #l_1_0.heroes do
           if cfghero[l_1_0.heroes[i].id].qlt ~= 5 then
             achieveData.addSummonForAf(1)
           else
@@ -753,7 +753,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
     layer.gemsummonBtn:setPosition(scalep(672, 94))
     layer.gemsummonBtn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 10 then
+      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 10 then
         local gotoHeroDlg = require("ui.summon.tipsdialog")
         gotoHeroDlg.show(layer)
         return 
@@ -794,7 +794,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         schedule(layer, 2, function()
           setBtnvisit(true)
             end)
-        if  l_1_0.heroes == 1 then
+        if #l_1_0.heroes == 1 then
           aniSummonzhen:playAnimation("animation_1_s")
         else
           aniSummonzhen:playAnimation("animation_10_s")
@@ -806,7 +806,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         local activity = require("data.activity")
         activity.addScore(activity.IDS.SCORE_SUMMON.ID, 10)
         achieveData.add(ACHIEVE_TYPE_HIGHSUMMON, 10)
-        for i = 1,  l_1_0.heroes do
+        for i = 1, #l_1_0.heroes do
           if cfghero[l_1_0.heroes[i].id].qlt ~= 5 then
             achieveData.addSummonForAf(1)
           else
@@ -853,7 +853,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
     layer.itemsummonBtn:setPosition(scalep(480, 94))
     layer.itemsummonBtn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 1 then
+      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 1 then
         local gotoHeroDlg = require("ui.summon.tipsdialog")
         gotoHeroDlg.show(layer)
         return 
@@ -887,7 +887,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
           setBtnvisit(true)
             end)
         ui.actHeroSummon10(l_1_0.heroes)
-        if  l_1_0.heroes == 1 then
+        if #l_1_0.heroes == 1 then
           aniSummonzhen:playAnimation("animation_1_s")
         else
           aniSummonzhen:playAnimation("animation_10_s")
@@ -919,7 +919,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
     layer.itemsummon10Btn:setPosition(scalep(672, 94))
     layer.itemsummon10Btn:registerScriptTapHandler(function()
       audio.play(audio.button)
-      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 10 then
+      if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 10 then
         local gotoHeroDlg = require("ui.summon.tipsdialog")
         gotoHeroDlg.show(layer)
         return 
@@ -953,7 +953,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
           setBtnvisit(true)
             end)
         ui.actHeroSummon10(l_1_0.heroes)
-        if  l_1_0.heroes == 1 then
+        if #l_1_0.heroes == 1 then
           aniSummonzhen:playAnimation("animation_1_s")
         else
           aniSummonzhen:playAnimation("animation_10_s")
@@ -962,7 +962,7 @@ ui.createHeroesShow = function(l_4_0, l_4_1, l_4_2)
         ui.checkGiftLimit(l_1_0.heroes)
         layer:addChild(ui.heroCards, 1000)
         heros.addAll(l_1_0.heroes)
-        for ii = 1,  l_1_0.heroes do
+        for ii = 1, #l_1_0.heroes do
           if cfghero[l_1_0.heroes[ii].id].maxStar == 5 then
             achieveData.add(ACHIEVE_TYPE_LOVESUMMONFIVE, 1)
           end
@@ -1023,7 +1023,7 @@ ui.createHeroesShowCards = function(l_5_0, l_5_1, l_5_2)
   local icons = {}
   local loopparcl = {}
   if l_5_0 then
-    if  l_5_0 == 10 then
+    if #l_5_0 == 10 then
       time = 2.4
       if l_5_2 then
         time = 3.6
@@ -1035,7 +1035,7 @@ ui.createHeroesShowCards = function(l_5_0, l_5_1, l_5_2)
           local icon = img.createHeroHeadByHid(hero.hid)
           icons[i] = CCMenuItemSprite:create(icon, nil)
           icons[i]:setScale(0.9)
-          local x, y = getPosition(i,  heroes)
+          local x, y = getPosition(i, #heroes)
           icons[i].menu = CCMenu:createWithItem(icons[i])
           icons[i].menu:ignoreAnchorPointForPosition(false)
           icons[i]:registerScriptTapHandler(function()
@@ -1055,7 +1055,7 @@ ui.createHeroesShowCards = function(l_5_0, l_5_1, l_5_2)
             aniSummontbtx:playAnimation("start")
             aniSummontbtx:appendNextAnimation("loop", -1)
           end
-          if i == 1 and  heroes == 1 then
+          if i == 1 and #heroes == 1 then
             aniSummonzhen:addChildFollowSlot("code_icon", icons[i].menu)
             aniSummonzhen:addChildFollowSlot("code_position", aniSummontbtx)
           else
@@ -1089,7 +1089,7 @@ ui.createHeroesShowCards = function(l_5_0, l_5_1, l_5_2)
     layer:addChild(aniSummonLz, 1001)
     local loopparcl = nil
     local tenloopparcl = {}
-    if  heroes <= 5 then
+    if #heroes <= 5 then
       loopparcl = particle.create("zh_loop")
       loopparcl:setScale(view.minScale)
       layer:addChild(loopparcl, 1001)
@@ -1103,7 +1103,7 @@ ui.createHeroesShowCards = function(l_5_0, l_5_1, l_5_2)
       aniSummonLz:playAnimation("animation2")
     end
     local onpartUpdate = function()
-      if  heroes <= 5 then
+      if #heroes <= 5 then
         loopparcl:setPosition(aniSummonLz:getBonePositionRelativeToLayer(string.format("code_ic%d", 1)))
       else
         for i = 1, 10 do

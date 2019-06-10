@@ -1,4 +1,4 @@
--- Command line was: scripts\common\func.lua 
+-- Command line was: E:\github\dhgametool\scripts\common\func.lua 
 
 require("common.const")
 local quickjson = json
@@ -62,7 +62,7 @@ end
 tablekeys = function(l_10_0)
   local keys = {}
   for k,v in pairs(l_10_0) do
-    keys[ keys + 1] = k
+    keys[#keys + 1] = k
   end
   return keys
 end
@@ -70,7 +70,7 @@ end
 tablevalues = function(l_11_0)
   local values = {}
   for k,v in pairs(l_11_0) do
-    values[ values + 1] = v
+    values[#values + 1] = v
   end
   return values
 end
@@ -122,7 +122,7 @@ end
 arraycp = function(l_14_0)
   local rt = {}
   for _,e in ipairs(l_14_0) do
-    rt[ rt + 1] = e
+    rt[#rt + 1] = e
   end
   return rt
 end
@@ -133,7 +133,7 @@ arraymerge = function(...)
     local tt = {}
     for _,t in ipairs(arg) do
       for _,v in ipairs(t) do
-        tt[ tt + 1] = v
+        tt[#tt + 1] = v
       end
     end
     return tt
@@ -149,7 +149,7 @@ arrayclear = function(l_16_0)
 end
 
 arrayModifyByKV = function(l_17_0, l_17_1, l_17_2, l_17_3, l_17_4)
-  local len =  l_17_0
+  local len = #l_17_0
   local i = 1
   repeat
     if i <= len then
@@ -166,7 +166,7 @@ arrayModifyByKV = function(l_17_0, l_17_1, l_17_2, l_17_3, l_17_4)
 end
 
 arrayDelByKV = function(l_18_0, l_18_1, l_18_2)
-  local len =  l_18_0
+  local len = #l_18_0
   local i = 1
   repeat
     if i <= len then
@@ -182,7 +182,7 @@ arrayDelByKV = function(l_18_0, l_18_1, l_18_2)
 end
 
 arrayfilter = function(l_19_0, l_19_1)
-  local len =  l_19_0
+  local len = #l_19_0
   local i = 1
   repeat
     repeat
@@ -214,7 +214,7 @@ arraycontains = function(l_20_0, l_20_1)
 end
 
 arrayequal = function(l_21_0, l_21_1)
-  if l_21_0 and l_21_1 and  l_21_0 ==  l_21_1 then
+  if l_21_0 and l_21_1 and #l_21_0 == #l_21_1 then
     for i,_ in ipairs(l_21_0) do
       if l_21_0[i] ~= l_21_1[i] then
         return false
@@ -253,11 +253,11 @@ isOnestore = function()
 end
 
 string.beginwith = function(l_25_0, l_25_1)
-  return  l_25_1 <=  l_25_0 and l_25_0:sub(1,  l_25_1) == l_25_1
+  return #l_25_1 <= #l_25_0 and l_25_0:sub(1, #l_25_1) == l_25_1
 end
 
 string.endwith = function(l_26_0, l_26_1)
-  return  l_26_1 <=  l_26_0 and l_26_0:sub(not  l_26_1, -1) == l_26_1
+  return #l_26_1 <= #l_26_0 and l_26_0:sub(not #l_26_1, -1) == l_26_1
 end
 
 isValidChar = function(l_27_0)
@@ -265,7 +265,7 @@ isValidChar = function(l_27_0)
   if CCApplication:sharedApplication():getTargetPlatform() ~= kTargetAndroid then
     return true
   end
-  return #utf8.isEmoji(l_27_0)
+  return  utf8.isEmoji(l_27_0)
 end
 
 containsInvalidChar = function(l_28_0)
@@ -288,7 +288,7 @@ replaceInvalidChars = function(l_29_0)
   if chars == nil then
     return l_29_0
   end
-  for i = 1,  chars do
+  for i = 1, #chars do
     if not isValidChar(chars[i]) then
       chars[i] = "*"
     end
@@ -577,7 +577,7 @@ getHeroSkin = function(l_46_0, l_46_1)
   if l_46_1 == nil and hero.visit == true then
     return nil
   end
-  for ii = 1,  hero.equips do
+  for ii = 1, #hero.equips do
     if cfgequip[hero.equips[ii]] and cfgequip[hero.equips[ii]].pos == 7 then
       return hero.equips[ii]
     end
@@ -679,24 +679,24 @@ herolistless = function(l_51_0, l_51_1)
   if not l_51_1 then
     l_51_1 = {}
   end
-  if not l_51_0 or  l_51_0 <= 200 then
+  if not l_51_0 or #l_51_0 <= 200 then
     return l_51_0
   end
   local count = 0
   local tlist = {}
-  for ii = 1,  l_51_0 do
+  for ii = 1, #l_51_0 do
     if count > 200 then
       if l_51_0[ii].lv > 1 then
-        tlist[ tlist + 1] = l_51_0[ii]
+        tlist[#tlist + 1] = l_51_0[ii]
       else
-        for jj = 1,  l_51_1 do
+        for jj = 1, #l_51_1 do
           if l_51_0[ii].hid and l_51_0[ii].hid == l_51_1[jj] then
-            tlist[ tlist + 1] = l_51_0[ii]
+            tlist[#tlist + 1] = l_51_0[ii]
         else
           end
         end
       else
-        tlist[ tlist + 1] = l_51_0[ii]
+        tlist[#tlist + 1] = l_51_0[ii]
       end
     end
     count = count + 1
@@ -1158,7 +1158,7 @@ getVersionDetail = function()
   local codeVersion = VERSION_CODE
   local uv = string.split(userVersion, ".")
   local cv = string.split(codeVersion, ".")
-  if  uv == 3 then
+  if #uv == 3 then
     local u1, u2, u3 = tonumber(uv[1], 10), tonumber(uv[2], 10), tonumber(uv[3], 10)
     local c1, c2, c3 = tonumber(cv[1], 10), tonumber(cv[2], 10), tonumber(cv[3], 10)
     if u1 and u2 and u3 then
@@ -1180,7 +1180,7 @@ end
 compareVersion = function(l_81_0, l_81_1)
   local a = string.split(string.trim(l_81_0), ".")
   local b = string.split(string.trim(l_81_1), ".")
-  assert( a == 3 and  b == 3)
+  assert(#a == 3 and #b == 3)
   local a1, a2, a3 = tonumber(a[1], 10), tonumber(a[2], 10), tonumber(a[3], 10)
   local b1, b2, b3 = tonumber(b[1], 10), tonumber(b[2], 10), tonumber(b[3], 10)
   assert(not a1 or not a2 or not a3 or not b1 or not b2 or b3)
@@ -1605,7 +1605,7 @@ isJadeUpgradable = function(l_99_0)
       end
     end
   end
-  return cfgequip[l_99_0].qlt <  maxJadeStars or cfgequip[l_99_0].star < maxJadeStars[ maxJadeStars]
+  return cfgequip[l_99_0].qlt < #maxJadeStars or cfgequip[l_99_0].star < maxJadeStars[#maxJadeStars]
 end
 
 checkHeroLockStatus = function(l_100_0)
@@ -1625,15 +1625,15 @@ checkHeroLockStatus = function(l_100_0)
     st.isLocked = true
     st.detail.isManualLocked = true
   end
-  for i = 1,  trainData do
+  for i = 1, #trainData do
     if trainData[i].hid == l_100_0 then
       st.isLocked = true
       st.detail.isTrain = true
     end
   end
   local teams = guildwarData.getSelfTeams()
-  for i = 1,  teams do
-    for j = 1,  teams[i].team do
+  for i = 1, #teams do
+    for j = 1, #teams[i].team do
       if teams[i].team[j].hid == l_100_0 then
         st.isLocked = true
         st.detail.isGuildWar = true
@@ -1656,9 +1656,9 @@ checkHeroLockStatus = function(l_100_0)
       st.detail.isGuildBoss = true
     end
   end
-  for i = 1,  herotaskData do
+  for i = 1, #herotaskData do
     if herotaskData[i].hids then
-      for j = 1,  herotaskData[i].hids do
+      for j = 1, #herotaskData[i].hids do
         if l_100_0 == herotaskData[i].hids[j] then
           st.isLocked = true
           st.detail.isHeroTask = true
@@ -1724,12 +1724,12 @@ conquset2items = function(l_101_0)
   local res = {}
   if l_101_0.items then
     for i,v in ipairs(l_101_0.items) do
-      res[ res + 1] = {type = 1, id = v.id, num = v.num}
+      res[#res + 1] = {type = 1, id = v.id, num = v.num}
     end
   end
   if l_101_0.equips then
     for i,v in ipairs(l_101_0.equips) do
-      res[ res + 1] = {type = 2, id = v.id, num = v.num}
+      res[#res + 1] = {type = 2, id = v.id, num = v.num}
     end
   end
   return res
@@ -1772,7 +1772,7 @@ coinAndExp = function(l_104_0, l_104_1)
   local coin, pexp, hexp = 0, 0, 0
   do
     local tmp_items = l_104_0.items
-    for ii =  tmp_items, 1, -1 do
+    for ii = #tmp_items, 1, -1 do
       local _remove_flag = false
       if tmp_items[ii].id == ITEM_ID_COIN then
         coin = tmp_items[ii].num
@@ -1817,11 +1817,11 @@ addHeadBox = function(l_106_0, l_106_1, l_106_2)
 end
 
 processSpecialHead = function(l_107_0)
-  if not l_107_0 or  l_107_0 <= 0 then
+  if not l_107_0 or #l_107_0 <= 0 then
     return 
   end
   local headdata = require("data.head")
-  for ii = 1,  l_107_0 do
+  for ii = 1, #l_107_0 do
     local head_id = headdata.getHeadIdByItemId(l_107_0[ii].id)
     if head_id and headdata[head_id] then
       headdata[head_id].isNew = true
@@ -1830,11 +1830,11 @@ processSpecialHead = function(l_107_0)
 end
 
 getCampBuff = function(l_108_0)
-  if not l_108_0 or  l_108_0 < 6 then
+  if not l_108_0 or #l_108_0 < 6 then
     return -1
   end
   local ids = {}
-  for ii = 1,  l_108_0 do
+  for ii = 1, #l_108_0 do
     ids[ii] = l_108_0[ii].heroId
   end
   return require("ui.selecthero.campLayer").checkUpdateForHeroids(ids)
@@ -1853,10 +1853,10 @@ end
 
 reward2Pbbag = function(l_110_0)
   local _pbbag = {items = {}, equips = {}}
-  if not l_110_0 or  l_110_0 <= 0 then
+  if not l_110_0 or #l_110_0 <= 0 then
     return _pbbag
   end
-  for ii = 1,  l_110_0 do
+  for ii = 1, #l_110_0 do
     local p_tbl = nil
     if l_110_0[ii].type == 1 then
       p_tbl = _pbbag.items
@@ -1868,7 +1868,7 @@ reward2Pbbag = function(l_110_0)
     if p_tbl then
       local tmp_item = clone(l_110_0[ii])
       tmp_item.num = tmp_item.num or tmp_item.count or 0
-      p_tbl[ p_tbl + 1] = tmp_item
+      p_tbl[#p_tbl + 1] = tmp_item
     end
   end
   return _pbbag
@@ -1879,16 +1879,16 @@ pbbag2reward = function(l_111_0)
   if not l_111_0 then
     return reward
   end
-  if l_111_0.equips and  l_111_0.equips > 0 then
+  if l_111_0.equips and #l_111_0.equips > 0 then
     local _tbl = l_111_0.equips
-    for ii = 1,  _tbl do
-      reward[ reward + 1] = {type = 2, id = _tbl[ii].id, num = _tbl[ii].num}
+    for ii = 1, #_tbl do
+      reward[#reward + 1] = {type = 2, id = _tbl[ii].id, num = _tbl[ii].num}
     end
   end
-  if l_111_0.items and  l_111_0.items > 0 then
+  if l_111_0.items and #l_111_0.items > 0 then
     local _tbl = l_111_0.items
-    for ii = 1,  _tbl do
-      reward[ reward + 1] = {type = 1, id = _tbl[ii].id, num = _tbl[ii].num}
+    for ii = 1, #_tbl do
+      reward[#reward + 1] = {type = 1, id = _tbl[ii].id, num = _tbl[ii].num}
     end
   end
   return reward
@@ -1945,7 +1945,7 @@ getBanlist = function()
   end
   local list = {}
   for k,_ in pairs(cfg) do
-    list[ list + 1] = k
+    list[#list + 1] = k
   end
   return list
 end
@@ -2001,7 +2001,7 @@ end
 
 processPetPosAtk1 = function(l_120_0)
   if l_120_0 and l_120_0.atk and l_120_0.atk.camp then
-    for ii = 1,  l_120_0.atk.camp do
+    for ii = 1, #l_120_0.atk.camp do
       if l_120_0.atk.camp[ii].pos == 7 then
         local petid = l_120_0.atk.camp[ii].id
         local petData = require("data.pet")
@@ -2016,7 +2016,7 @@ end
 
 processPetPosAtk2 = function(l_121_0)
   if l_121_0 and l_121_0.atk and l_121_0.atk.camp then
-    for ii = 1,  l_121_0.atk.camp do
+    for ii = 1, #l_121_0.atk.camp do
       if l_121_0.atk.camp[ii].pos == 7 then
         l_121_0.atk.pet = clone(l_121_0.atk.camp[ii])
         l_121_0.atk.camp[ii] = nil
@@ -2028,7 +2028,7 @@ end
 
 processPetPosDef2 = function(l_122_0)
   if l_122_0 and l_122_0.def and l_122_0.def.camp then
-    for ii = 1,  l_122_0.def.camp do
+    for ii = 1, #l_122_0.def.camp do
       if l_122_0.def.camp[ii].pos == 7 then
         l_122_0.def.pet = clone(l_122_0.def.camp[ii])
         l_122_0.def.camp[ii] = nil

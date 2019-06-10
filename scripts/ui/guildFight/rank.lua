@@ -142,7 +142,7 @@ ui.create = function(l_3_0, l_3_1, l_3_2)
     board:addChild(scroll)
     board.scroll = scroll
     scroll.addSpace(4)
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       if l_4_0[ii].gid == player.gid and l_4_0[ii].sid == player.sid then
         upvalue_1536 = ii
         upvalue_2048 = l_4_0[ii].score
@@ -152,7 +152,7 @@ ui.create = function(l_3_0, l_3_1, l_3_2)
       tmp_item.ax = 0.5
       tmp_item.px = 302
       scroll.addItem(tmp_item)
-      if ii ~=  l_4_0 then
+      if ii ~= #l_4_0 then
         scroll.addSpace(space_height)
       end
     end

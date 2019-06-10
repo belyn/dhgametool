@@ -95,7 +95,7 @@ ui.create = function()
     pgb_bg:addChild(lbl_pgb)
     pgb:setPercentage(numerator * 100 / l_1_0.instruct)
     local count = 0
-    for ii =  l_1_0.rewards, 1, -1 do
+    for ii = #l_1_0.rewards, 1, -1 do
       count = count + 1
       local reward = l_1_0.rewards[ii]
       do
@@ -146,15 +146,15 @@ ui.create = function()
   layer.scroll = scroll
   local activityItems = {}
   for i = activityData.IDS.FRIDAY_HAPPY_1.ID, activityData.IDS.FRIDAY_HAPPY_6.ID do
-    activityItems[ activityItems + 1] = clone(cfgactivity[i])
-    activityItems[ activityItems].id = i
+    activityItems[#activityItems + 1] = clone(cfgactivity[i])
+    activityItems[#activityItems].id = i
   end
   local showList = function(l_2_0)
     if not scroll or tolua.isnull(scroll) then
       return 
     end
     scroll.content_layer:removeAllChildrenWithCleanup(true)
-    for ii = 1,  l_2_0 do
+    for ii = 1, #l_2_0 do
       local item = createItem(l_2_0[ii])
       item.obj = l_2_0[ii]
       item.ax = 0.5

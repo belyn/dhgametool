@@ -36,7 +36,7 @@ ui.create = function(l_1_0)
   board:addChild(showTitleShade)
   local teamnum = 0
   if teams then
-    teamnum =  teams
+    teamnum = #teams
   end
   local requestslab = lbl.createFont1(16, string.format(i18n.global.friend_requesrs_rcvd.string, teamnum), ccc3(73, 38, 4))
   requestslab:setAnchorPoint(CCPoint(0, 0.5))
@@ -222,13 +222,13 @@ ui.create = function(l_1_0)
       scroll:setAnchorPoint(CCPoint(0, 0))
       scroll:setPosition(CCPoint(48, 45))
       board:addChild(scroll)
-      for ii = 1,  teams do
+      for ii = 1, #teams do
         local tmp_item = createItem(ii)
         tmp_item.ax = 0.5
         tmp_item.ay = 0.5
         tmp_item.px = 374
         scroll.addItem(tmp_item)
-        if ii ~=  teams then
+        if ii ~= #teams then
           scroll.addSpace(10)
         end
       end
@@ -253,7 +253,7 @@ ui.create = function(l_1_0)
     if scroll and not tolua.isnull(scroll) then
       local obj = scroll.content_layer
       local p0 = obj:convertToNodeSpace(ccp(l_6_0, l_6_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           playAnimTouchBegin(items[ii])
           upvalue_2560 = items[ii]
@@ -280,7 +280,7 @@ ui.create = function(l_1_0)
       if scroll and not tolua.isnull(scroll) then
         local obj = scroll.content_layer
         local p0 = obj:convertToNodeSpace(ccp(l_8_0, l_8_1))
-        for ii = 1,  items do
+        for ii = 1, #items do
           if items[ii]:boundingBox():containsPoint(p0) and last_selet_item ~= items[ii] then
             audio.play(audio.button)
             local params = {sid = player.sid, grp_id = teams[ii].id}

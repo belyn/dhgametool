@@ -410,7 +410,7 @@ ui.create = function()
   local itemBg = {}
   local setAlreadyBuy, createItemWithPos = nil, nil
   local currentPage = 1
-  local maxPage = math.floor(( shopConfig - 1) / 8) + 1
+  local maxPage = math.floor((#shopConfig - 1) / 8) + 1
   local board = img.createUISprite(img.ui.shop_board)
   board:setScale(view.minScale)
   board:setPosition(view.midX, view.midY - 30 * view.minScale)
@@ -451,7 +451,7 @@ ui.create = function()
       showItemLayer:removeAllChildrenWithCleanup(true)
     end
     for i = (l_1_0 - 1) * 8 + 1, l_1_0 * 8 do
-      if  shopConfig < i then
+      if #shopConfig < i then
         return 
       end
       itemBg[i] = createItemWithPos(shopConfig[i], i)
@@ -586,7 +586,7 @@ ui.create = function()
   local circlePos = {}
   if maxPage > 1 then
     for i = 1, maxPage do
-      circlePos[ circlePos + 1] = {400 + (i - 1) * 30, 60}
+      circlePos[#circlePos + 1] = {400 + (i - 1) * 30, 60}
       local circledark1 = img.createUISprite(img.ui.shop_circle_dark)
       circledark1:setPosition(circlePos[i][1], circlePos[i][2])
       board:addChild(circledark1)

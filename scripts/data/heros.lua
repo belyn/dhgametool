@@ -16,7 +16,7 @@ heros.init = function(l_1_0)
   for i,pb in ipairs(l_1_0) do
     local h = tablecp(pb)
     heros.adapt(h)
-    heros[ heros + 1] = h
+    heros[#heros + 1] = h
   end
 end
 
@@ -34,7 +34,7 @@ end
 heros.add = function(l_3_0)
   local h = tablecp(l_3_0)
   heros.adapt(h)
-  heros[ heros + 1] = h
+  heros[#heros + 1] = h
   if cfghero[h.id].qlt == GROUP_4 then
     achieveData.add(ACHIEVE_TYPE_GET_HERO_STAR4, 1)
   end
@@ -52,7 +52,7 @@ heros.addAllForReturn = function(l_4_0)
   for i,pb in ipairs(l_4_0) do
     local h = tablecp(pb)
     heros.adapt(h)
-    heros[ heros + 1] = h
+    heros[#heros + 1] = h
   end
 end
 
@@ -114,7 +114,7 @@ heros.findById = function(l_10_0)
   local rt = {}
   for i,h in ipairs(heros) do
     if h.id == l_10_0 then
-      rt[ rt + 1] = h
+      rt[#rt + 1] = h
     end
   end
   return rt

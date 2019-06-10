@@ -48,11 +48,11 @@ ui.create = function(l_1_0)
     if not l_2_0 then
       local logs = clone({})
     end
-    for i = 1,  logs / 2 do
-      logs[i], logs[ logs - i + 1] = logs[ logs - i + 1], logs[i]
+    for i = 1, #logs / 2 do
+      logs[i], logs[#logs - i + 1] = logs[#logs - i + 1], logs[i]
     end
-    local height = 105 *  logs
-    if  logs >= 10 then
+    local height = 105 * #logs
+    if #logs >= 10 then
       height = 1050
     end
     local scroll = CCScrollView:create()
@@ -64,7 +64,7 @@ ui.create = function(l_1_0)
       scroll:setContentSize(CCSize(778, height))
       scroll:setContentOffset(ccp(0, 435 - height))
       innerBg:addChild(scroll)
-      if  logs == 0 then
+      if #logs == 0 then
         local empty = require("ui.empty").create({text = i18n.global.empty_battlerec.string})
         empty:setPosition(innerBg:getContentSize().width / 2, innerBg:getContentSize().height / 2)
         innerBg:addChild(empty, 0, 101)

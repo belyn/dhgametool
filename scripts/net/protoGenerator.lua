@@ -57,12 +57,12 @@ end
 generator.genOpMailData = function(l_8_0)
   local _obj = dr2_logic_pb.pbreq_op_mail()
   if l_8_0.reads then
-    for ii = 1,  l_8_0.reads do
+    for ii = 1, #l_8_0.reads do
       _obj.reads:append(l_8_0.reads[ii])
     end
   end
   if l_8_0.deletes then
-    for ii = 1,  l_8_0.deletes do
+    for ii = 1, #l_8_0.deletes do
       _obj.deletes:append(l_8_0.deletes[ii])
     end
   end
@@ -75,12 +75,12 @@ end
 
 local objAssign = function(l_9_0, l_9_1, l_9_2, l_9_3)
   local fields = modules[l_9_0][string.upper(l_9_1)].fields
-  for ii = 1,  fields do
+  for ii = 1, #fields do
     if type(fields[ii].default_value) == "table" and fields[ii].message_type and l_9_3[fields[ii].name] then
       local _module_name = _base_module_name
       do
         local _class_name = fields[ii].message_type.name
-        for jj = 1,  l_9_3[fields[ii].name] do
+        for jj = 1, #l_9_3[fields[ii].name] do
           local tmp_obj = l_9_2[fields[ii].name]:add(modules[_module_name][_class_name]())
           objAssign(_module_name, _class_name, tmp_obj, l_9_3[fields[ii].name][jj])
         end
@@ -89,7 +89,7 @@ local objAssign = function(l_9_0, l_9_1, l_9_2, l_9_3)
       do
         if type(fields[ii].default_value) == "table" and l_9_3[fields[ii].name] then
           local _module_name = _base_module_name
-          for jj = 1,  l_9_3[fields[ii].name] do
+          for jj = 1, #l_9_3[fields[ii].name] do
             l_9_2[fields[ii].name]:append(l_9_3[fields[ii].name][jj])
           end
         end

@@ -54,10 +54,10 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
       if preVal ~= aftVal then
         local name, val = buffString(NAME[i], l_1_1[NAME[i]] - l_1_0[NAME[i]], true)
         if preVal < aftVal then
-          showStat[ showStat + 1] = {text = name .. "    +" .. val}
+          showStat[#showStat + 1] = {text = name .. "    +" .. val}
           for i,v in (for generator) do
           end
-          showStat[ showStat + 1] = {text = name .. "    " .. val, isRed = true}
+          showStat[#showStat + 1] = {text = name .. "    " .. val, isRed = true}
         end
       end
       do
@@ -91,7 +91,7 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
   local selectPos = 1
   local nowWearPos = 1
   if getHeroSkin(l_1_0.hid) then
-    for i = 1,  cfghero[l_1_0.id].skinId do
+    for i = 1, #cfghero[l_1_0.id].skinId do
       if cfghero[l_1_0.id].skinId[i] == getHeroSkin(l_1_0.hid) then
         selectPos = i
         nowWearPos = i
@@ -143,7 +143,7 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
         return 
       end
       if getHeroSkin(heroData.hid, true) then
-        for i = 1,  cfghero[heroData.id].skinId do
+        for i = 1, #cfghero[heroData.id].skinId do
           if cfghero[heroData.id].skinId[i] == getHeroSkin(heroData.hid, true) then
             upvalue_1024 = i
           end
@@ -167,7 +167,7 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
         return 
       end
       if getHeroSkin(heroData.hid, true) then
-        for i = 1,  cfghero[heroData.id].skinId do
+        for i = 1, #cfghero[heroData.id].skinId do
           if cfghero[heroData.id].skinId[i] == getHeroSkin(heroData.hid, true) then
             upvalue_1024 = i
           end
@@ -199,7 +199,7 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
   local wearLab = lbl.createFont1(18, i18n.global.tips_put_on.string, ccc3(115, 59, 5))
   wearLab:setPosition(CCPoint(wearBtn:getContentSize().width / 2, wearBtn:getContentSize().height / 2))
   wearSprite:addChild(wearLab)
-  local SCROLL_CONTAINER_SIZE =  cfghero[l_1_0.id].skinId * 180 + 30
+  local SCROLL_CONTAINER_SIZE = #cfghero[l_1_0.id].skinId * 180 + 30
   local skinBg = CCSprite:create()
   skinBg:setContentSize(CCSize(360, 240))
   skinBg:setPosition(212, 292)
@@ -215,7 +215,7 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
     wearBtn:setEnabled(false)
     setShader(wearBtn, SHADER_GRAY, true)
   end
-  for i = 1,  cfghero[l_1_0.id].skinId do
+  for i = 1, #cfghero[l_1_0.id].skinId do
     headIcons[i] = img.createSkinIcon(cfghero[l_1_0.id].skinId[i])
     headIcons[i]:setPosition(15 + 165 * (i + 1 - selectPos), 120)
     Scroll:getContainer():addChild(headIcons[i])
@@ -263,7 +263,7 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
         return 
       end
       if getHeroSkin(heroData.hid, true) then
-        for i = 1,  cfghero[heroData.id].skinId do
+        for i = 1, #cfghero[heroData.id].skinId do
           if cfghero[heroData.id].skinId[i] == getHeroSkin(heroData.hid, true) then
             upvalue_1024 = i
           end
@@ -284,7 +284,7 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
       end
       local nattr = heroData.attr()
       onUpNum(attr, nattr)
-      for ii = 1,  cfghero[heroData.id].skinId do
+      for ii = 1, #cfghero[heroData.id].skinId do
         local skinnum = 0
         if bag.equips.find(cfghero[heroData.id].skinId[ii]) then
           skinnum = bag.equips.find(cfghero[heroData.id].skinId[ii]).num
@@ -335,10 +335,10 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
         else
           end
         end
-        heroData.equips[ heroData.equips + 1] = cfghero[heroData.id].skinId[selectPos]
+        heroData.equips[#heroData.equips + 1] = cfghero[heroData.id].skinId[selectPos]
         local nattr = heroData.attr()
         onUpNum(attr, nattr)
-        for ii = 1,  cfghero[heroData.id].skinId do
+        for ii = 1, #cfghero[heroData.id].skinId do
           local skinnum = 0
           if bag.equips.find(cfghero[heroData.id].skinId[ii]) then
             skinnum = bag.equips.find(cfghero[heroData.id].skinId[ii]).num
@@ -360,12 +360,12 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
       end)
    end)
   local moveLeft = function()
-    if selectPos <  cfghero[heroData.id].skinId then
+    if selectPos < #cfghero[heroData.id].skinId then
       selectPos = selectPos + 1
     else
       return 
     end
-    for i = 1,  cfghero[heroData.id].skinId do
+    for i = 1, #cfghero[heroData.id].skinId do
       if i == selectPos - 1 then
         local arr = CCArray:create()
         arr:addObject(CCMoveBy:create(0.1, CCPoint(-165, 0)))
@@ -406,7 +406,7 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
     else
       return 
     end
-    for i = 1,  cfghero[heroData.id].skinId do
+    for i = 1, #cfghero[heroData.id].skinId do
       if i == selectPos + 1 then
         local arr = CCArray:create()
         arr:addObject(CCMoveBy:create(0.1, CCPoint(165, 0)))
@@ -475,7 +475,7 @@ skin.create = function(l_1_0, l_1_1, l_1_2)
         upvalue_512 = nil
       end
       local p0 = skinBg:convertToNodeSpace(ccp(l_12_0, l_12_1))
-      for ii = 1,  headIcons do
+      for ii = 1, #headIcons do
         if headIcons[ii]:boundingBox():containsPoint(p0) then
           audio.play(audio.button)
           if ii == selectPos + 1 then

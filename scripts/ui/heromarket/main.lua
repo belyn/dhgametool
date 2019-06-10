@@ -123,7 +123,7 @@ ui.create = function()
   local createlist = function(l_1_0)
     showItemLayer:removeAllChildrenWithCleanup(true)
     for i = (l_1_0 - 1) * 8 + 1, l_1_0 * 8 do
-      if  dataheromarket.goods < i then
+      if #dataheromarket.goods < i then
         return 
       end
       if cfgheromarket[dataheromarket.goods[i].id].limitNumb <= dataheromarket.goods[i].num then
@@ -282,7 +282,7 @@ ui.create = function()
         upvalue_512 = true
       end
       for i = (currentPage - 1) * 8 + 1, currentPage * 8 do
-        if  dataheromarket.goods < i then
+        if #dataheromarket.goods < i then
           return 
         end
         if dataheromarket.goods[i].cd then

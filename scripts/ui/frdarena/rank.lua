@@ -32,7 +32,7 @@ local createItem = function(l_1_0, l_1_1)
   local item_h = item:getContentSize().height
   rank:setPosition(CCPoint(46, item_h / 2))
   item:addChild(rank)
-  for j = 1,  l_1_0.mbrs do
+  for j = 1, #l_1_0.mbrs do
     local playerHead = img.createPlayerHead(l_1_0.mbrs[j].logo, l_1_0.mbrs[j].lv)
     playerHead:setScale(0.66)
     playerHead:setPosition(98 + (j - 1) * 60, item:getContentSize().height / 2 + 1)
@@ -80,7 +80,7 @@ local createSelfItem = function(l_2_0, l_2_1)
    -- DECOMPILER ERROR: Confused while interpreting a jump as a 'while'
 
 end
-for j = 1,  l_2_0.mbrs do
+for j = 1, #l_2_0.mbrs do
   local playerHead = img.createPlayerHead(l_2_0.mbrs[j].logo, l_2_0.mbrs[j].lv)
   playerHead:setScale(0.66)
   playerHead:setPosition(98 + (j - 1) * 60, item:getContentSize().height / 2 + 1)
@@ -163,13 +163,13 @@ ui.create = function()
     board:addChild(scroll)
     board.scroll = scroll
     scroll.addSpace(4)
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       local tmp_item = createItem(l_4_0[ii], ii)
       tmp_item.guildObj = l_4_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 302
       scroll.addItem(tmp_item)
-      if ii ~=  l_4_0 then
+      if ii ~= #l_4_0 then
         scroll.addSpace(space_height)
       end
     end

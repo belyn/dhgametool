@@ -203,7 +203,7 @@ ui.create = function(l_1_0)
     container:removeAllChildrenWithCleanup(true)
     for ii = (l_8_0 - 1) * 8 + 1, l_8_0 * 8 do
       do
-        if  cfgguildboss < ii then
+        if #cfgguildboss < ii then
           do return end
         end
         local tmp_item = createItem(ii)

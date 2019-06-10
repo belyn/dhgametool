@@ -143,7 +143,7 @@ ui.create = function(l_4_0)
   layer.showAllUnits = function()
     for i,unit in ipairs(units) do
       local t = fHelper.playUnitComeIn(unit)
-      if i ==  units then
+      if i == #units then
         schedule(layer, t, function()
         layer.nextFrame()
          end)
@@ -201,11 +201,11 @@ ui.create = function(l_4_0)
     local actees2 = {}
     for _,pos in ipairs(frame.targets) do
       local actee = layer.findByPos(units, pos)
-      actees1[ actees1 + 1] = actee
+      actees1[#actees1 + 1] = actee
     end
     for _,pos in ipairs(frame.targets2) do
       local actee = layer.findByPos(units, pos)
-      actees2[ actees2 + 1] = actee
+      actees2[#actees2 + 1] = actee
     end
     if frame.action == actor.atkId then
       local miss = true
@@ -409,8 +409,8 @@ ui.create = function(l_4_0)
     return false
    end
   layer.keepCorpse = function(l_12_0)
-    if index <  video.frames then
-      for idx = index + 1,  video.frames do
+    if index < #video.frames then
+      for idx = index + 1, #video.frames do
         local frame = video.frames[idx]
         if frame.pos == l_12_0 and frame.action then
           return true
@@ -425,7 +425,7 @@ ui.create = function(l_4_0)
     return false
    end
   layer.isTimeout = function()
-    if  video.frames <= index then
+    if #video.frames <= index then
       for _,attacker in ipairs(attackers) do
         if attacker.hp > 0 then
           return true
@@ -438,7 +438,7 @@ ui.create = function(l_4_0)
     if not l_14_0 then
       l_14_0 = 1
     end
-    if  video.frames <= index then
+    if #video.frames <= index then
       layer.isEnd = true
       if (type(video.win) == "boolean" and video.win) or type(video.win) == "number" and video.win > 0 then
         schedule(layer:getParent(), l_14_0, function()
@@ -478,7 +478,7 @@ ui.create = function(l_4_0)
     return true
    end
   layer.onSkip = function()
-    index =  video.frames
+    index = #video.frames
     layer.checkWin(0.1)
    end
   layer.findByPos = function(l_19_0, l_19_1)
@@ -550,16 +550,16 @@ ui.decodeVideoFrame = function(l_6_0)
       i = 6
     end
     repeat
-      if i <  l_6_0 then
+      if i < #l_6_0 then
         local lens = {}
         local map = {1, 2, 3, 6}
         for _,n in ipairs({6, 4, 2, 0}) do
-          lens[ lens + 1] = map[bit.band(3, bit.brshift(l_6_0[i], n)) + 1]
+          lens[#lens + 1] = map[bit.band(3, bit.brshift(l_6_0[i], n)) + 1]
         end
         i = i + 1
         for _,len in ipairs(lens) do
-          if i + len - 1 <=  l_6_0 then
-            frame.buffs[ frame.buffs + 1] = ui.decodeVideoBuffs(l_6_0, i, len)
+          if i + len - 1 <= #l_6_0 then
+            frame.buffs[#frame.buffs + 1] = ui.decodeVideoBuffs(l_6_0, i, len)
           end
           i = i + len
         end
@@ -578,9 +578,9 @@ ui.decodeVideoTargets = function(l_7_0, l_7_1, l_7_2, l_7_3)
   for i = 0, 11 do
     if bit.band(2 ^ i, code) > 0 then
       if i + 1 <= 6 then
-        attackers[ attackers + 1] = i + 1
+        attackers[#attackers + 1] = i + 1
       else
-        defenders[ defenders + 1] = i + 1
+        defenders[#defenders + 1] = i + 1
       end
     end
   end
@@ -670,7 +670,7 @@ ui.printVideo = function(l_10_0, l_10_1, l_10_2)
     l_10_1 = 1
   end
   if not l_10_2 then
-    l_10_2 =  l_10_0.frames
+    l_10_2 = #l_10_0.frames
   end
   cclog("video = {")
   cclog("    video_id:%s win:%s", tostring(l_10_0.video_id), tostring(l_10_0.win))
@@ -696,7 +696,7 @@ end
 ui.getVideoEpString = function(l_11_0)
   local s = {}
   for pos,ep in pairs(l_11_0.ep) do
-    s[ s + 1] = pos .. ":" .. ep
+    s[#s + 1] = pos .. ":" .. ep
   end
   return table.concat(s, ", ")
 end

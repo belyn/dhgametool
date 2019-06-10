@@ -94,13 +94,13 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
     content_layer:removeAllChildrenWithCleanup(true)
     local height = 0
     local showbag = {}
-    for ii = 1,  _bag do
+    for ii = 1, #_bag do
       local flag = false
-      if  showbag == 0 then
-        showbag[ showbag + 1] = _bag[ii]
-        showbag[ showbag].num = 1
+      if #showbag == 0 then
+        showbag[#showbag + 1] = _bag[ii]
+        showbag[#showbag].num = 1
       else
-        for j = 1,  showbag do
+        for j = 1, #showbag do
           if showbag[j].id == _bag[ii].id then
             showbag[j].num = showbag[j].num + 1
             flag = true
@@ -108,12 +108,12 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
           end
         end
         if flag == false then
-          showbag[ showbag + 1] = _bag[ii]
-          showbag[ showbag].num = 1
+          showbag[#showbag + 1] = _bag[ii]
+          showbag[#showbag].num = 1
         end
       end
     end
-    for ii = 1,  showbag do
+    for ii = 1, #showbag do
       local bottom = img.createUI9Sprite(img.ui.botton_fram_2)
       bottom:setPreferredSize(CCSizeMake(175, 102))
       local tmp_item = createItem(showbag[ii])
@@ -129,7 +129,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
       content_layer:addChild(bottom)
       content_layer:addChild(tmp_item)
       content_layer:addChild(numlabal)
-      items[ items + 1] = tmp_item
+      items[#items + 1] = tmp_item
       height = pos_y + 47
     end
     if height < SCROLL_VIEW_H then
@@ -152,7 +152,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
     upvalue_1024 = true
     if scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_5_0, l_5_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           upvalue_3072 = items[ii]
       else
@@ -175,7 +175,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
     end
     if isclick and scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_7_0, l_7_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           audio.play(audio.button)
           onClickItem(items[ii])

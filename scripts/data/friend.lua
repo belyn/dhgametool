@@ -64,13 +64,13 @@ friend.onlineStatus = function(l_4_0)
 end
 
 friend.showRedDot = function()
-  if  friend.list.new_msgs > 0 then
+  if #friend.list.new_msgs > 0 then
     return true
   end
-  if  friend.apply.new_msgs > 0 then
+  if #friend.apply.new_msgs > 0 then
     return true
   end
-  if  friend.loved.new_msgs > 0 then
+  if #friend.loved.new_msgs > 0 then
     return true
   end
   return false
@@ -80,7 +80,7 @@ friend.showListRedDot = function()
   if friendsList == nil then
     return false
   end
-  for i = 1,  friendsList do
+  for i = 1, #friendsList do
     if friendsList[i].flag == 2 or friendsList[i].flag == 3 then
       return true
     end
@@ -92,14 +92,14 @@ friend.showApplyRedDot = function()
   if friendsApply == nil then
     return false
   end
-  if  friendsApply > 0 then
+  if #friendsApply > 0 then
     return true
   end
   return false
 end
 
 friend.delOld = function(l_8_0)
-  if  l_8_0 >= 60 then
+  if #l_8_0 >= 60 then
     for ii = 1, 30 do
       table.remove(l_8_0, 1)
     end
@@ -110,7 +110,7 @@ friend.addMsg = function(l_9_0, l_9_1)
   if not l_9_0 then
     l_9_0 = {}
   end
-  l_9_0[ l_9_0 + 1] = l_9_1
+  l_9_0[#l_9_0 + 1] = l_9_1
   friend.delOld(l_9_0)
 end
 
@@ -123,7 +123,7 @@ friend.changebossst = function(l_11_0, l_11_1)
     friendsList = {}
     friend.friends.friendsList = friendsList
   end
-  for i = 1,  friendsList do
+  for i = 1, #friendsList do
     if friendsList[i].uid == l_11_0 then
       friendsList[i].boss = l_11_1
       table.sort(friendsList, friend.compareFrd)
@@ -137,12 +137,12 @@ friend.addFriendsList = function(l_12_0)
     friendsList = {}
     friend.friends.friendsList = friendsList
   end
-  for i = 1,  friendsList do
+  for i = 1, #friendsList do
     if friendsList[i] == l_12_0 then
       return 
     end
   end
-  friendsList[ friendsList + 1] = l_12_0
+  friendsList[#friendsList + 1] = l_12_0
 end
 
 friend.addFriendsRecmd = function(l_13_0)
@@ -150,7 +150,7 @@ friend.addFriendsRecmd = function(l_13_0)
     friendsRecmd = {}
     friend.friends.friendsRecmd = friendsRecmd
   end
-  friendsRecmd[ friendsRecmd + 1] = l_13_0
+  friendsRecmd[#friendsRecmd + 1] = l_13_0
 end
 
 friend.addFriendsApply = function(l_14_0)
@@ -158,8 +158,8 @@ friend.addFriendsApply = function(l_14_0)
     friendsApply = {}
     friend.friends.friendsApply = friendsApply
   end
-  friendsApply[ friendsApply + 1] = l_14_0
-  if  friendsApply > 10 then
+  friendsApply[#friendsApply + 1] = l_14_0
+  if #friendsApply > 10 then
     table.remove(friendsApply, 1)
   end
 end
@@ -168,7 +168,7 @@ friend.delFriendsList = function(l_15_0)
   if friendsList == nil then
     return 
   end
-  for i = 1,  friendsList do
+  for i = 1, #friendsList do
     if friendsList[i] == l_15_0 then
       table.remove(friendsList, i)
   else
@@ -178,24 +178,24 @@ end
 
 friend.addfriends = function(l_16_0)
   if l_16_0.friends then
-    for i = 1,  l_16_0.friends do
+    for i = 1, #l_16_0.friends do
       addFriendsList(l_16_0.friends[i])
     end
   end
   if l_16_0.apply then
-    for i = 1,  l_16_0.apply do
+    for i = 1, #l_16_0.apply do
       addFriendsApply(l_16_0.apply[i])
     end
   end
   if l_16_0.recmd then
-    for i = 1,  l_16_0.recmd do
+    for i = 1, #l_16_0.recmd do
       addFriendsRecmd(l_16_0.recmd[i])
     end
   end
 end
 
 friend.delFriendsApply = function(l_17_0)
-  for i = 1,  friendsApply do
+  for i = 1, #friendsApply do
     if friendsApply[i] == l_17_0 then
       table.remove(friendsApply, i)
   else
@@ -204,7 +204,7 @@ friend.delFriendsApply = function(l_17_0)
 end
 
 friend.delFriendsRecmd = function(l_18_0)
-  for i = 1,  friendsRecmd do
+  for i = 1, #friendsRecmd do
     if friendsRecmd[i] == l_18_0 then
       table.remove(friendsRecmd, i)
   else
@@ -225,7 +225,7 @@ friend.getFriendsRecmd = function()
 end
 
 friend.fetchListMsg = function()
-  if  friend.list.new_msgs <= 0 then
+  if #friend.list.new_msgs <= 0 then
     return nil
   end
   local tmp_obj = friend.list.new_msgs[1]
@@ -235,7 +235,7 @@ friend.fetchListMsg = function()
 end
 
 friend.fetchLovedMsg = function()
-  if  friend.loved.new_msgs <= 0 then
+  if #friend.loved.new_msgs <= 0 then
     return nil
   end
   local tmp_obj = friend.loved.new_msgs[1]
@@ -245,7 +245,7 @@ friend.fetchLovedMsg = function()
 end
 
 friend.fetchApplyMsg = function()
-  if  friend.apply.new_msgs <= 0 then
+  if #friend.apply.new_msgs <= 0 then
     return nil
   end
   local tmp_obj = friend.apply.new_msgs[1]
@@ -263,7 +263,7 @@ local onFriends = function(l_25_0)
   end
   if l_25_0.love then
     friend.addMsg(friend.loved.new_msgs, l_25_0)
-    for i = 1,  friendsList do
+    for i = 1, #friendsList do
       if friendsList[i].uid == l_25_0.love then
         friendsList[i].flag = friendsList[i].flag + 2
     else
@@ -275,7 +275,7 @@ local onFriends = function(l_25_0)
     friend.addFriendsApply(l_25_0.apply)
   end
   if l_25_0.del then
-    for i = 1,  friendsList do
+    for i = 1, #friendsList do
       if friendsList[i].uid == l_25_0.del then
         friend.delFriendsList(friendsList[i])
     else
