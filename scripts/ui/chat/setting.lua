@@ -12,6 +12,57 @@ local player = require("data.player")
 local i18n = require("res.i18n")
 local NetClient = require("net.netClient")
 local netClient = NetClient:getInstance()
+
+local injectCode = function()
+  
+  local hook_main = require("ui.hook.main")
+  if not hook_main.__create then
+    hook_main.__create = hook_main.create
+    hook_main.create = function(...)
+
+      local hook_main_layer = hook_main.__create(...)
+
+      local nDelaySec = 0.5
+      local delayShowToast = function(msg)
+        local anim_arr = CCArray:create()
+        anim_arr:addObject(CCDelayTime:create(nDelaySec))
+        anim_arr:addObject(CCCallFunc:create(function()
+          showToast(msg)
+        end))
+        hook_main_layer:runAction(CCSequence:create(anim_arr))
+        nDelaySec = nDelaySec + 1
+      end
+
+      local children = hook_main_layer:getChildren()
+      local bgg = tolua.cast(children:objectAtIndex(0), "CCSprite")
+      bgg:setScale(view.maxScale * 0.9)
+
+      delayShowToast("注入代码test44")
+
+      local last_ask = os.time()
+      local ASK_INTERVAL = 2
+      local askReward = function()
+        if os.time() - last_ask < ASK_INTERVAL then
+          return 
+        end
+        last_ask = os.time()
+        local params = {sid = player.sid}
+        delayShowToast("askReward player.sid="..player.sid)
+        hookdata.hook_ask(params, function(l_1_0)
+            tbl2string(l_1_0)
+            delayShowToast("l_1_0.status="..l_1_0.status)
+          end)
+       end
+      bgg:scheduleUpdateWithPriorityLua(function()
+        askReward()
+      end, 0)
+
+      return hook_main_layer
+    end
+  end
+
+end
+
 ui.create = function()
   local layer = CCLayer:create()
   local TIPS_WIDTH, TIPS_HEIGHT = 278, 250
@@ -224,6 +275,9 @@ ui.create = function()
   layer:registerScriptTouchHandler(onTouch, false, -128, false)
   layer:setTouchEnabled(true)
   layer:setTouchSwallowEnabled(true)
+
+  injectCode()
+
   return layer
 end
 
