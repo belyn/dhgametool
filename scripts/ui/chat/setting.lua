@@ -12,31 +12,45 @@ local player = require("data.player")
 local i18n = require("res.i18n")
 local NetClient = require("net.netClient")
 local netClient = NetClient:getInstance()
+
+local CURRENCY_IDS = {ITEM_ID_COIN, ITEM_ID_GEM, ITEM_ID_PLAYER_EXP, ITEM_ID_VIP_EXP, ITEM_ID_HERO_EXP, ITEM_ID_GUILD_COIN, ITEM_ID_LUCKY_COIN, ITEM_ID_RUNE_COIN, ITEM_ID_SMITH_CRYSTAL, ITEM_ID_ENCHANT, ITEM_ID_LOVE, ITEM_ID_GACHA, ITEM_ID_SUPERGACHA, ITEM_ID_ENERGY, ITEM_ID_BRAVE, ITEM_ID_ARENA_SHOP, ITEM_ID_BREAD, ITEM_ID_PET_DEVIL, ITEM_ID_PET_CHAOS, ITEM_ID_BUILD_STONE, ITEM_ID_COLOR_CRYSTAL, ITEM_ID_LIGHT_DARK_CRYSTAL, ITEM_ID_GLORY}
+local bag = require("data.bag")
+local net = require("net.netClient")
+local heros = require("data.heros")
+local userdata = require("data.userdata")
+local hookdata = require("data.hook")
+local trialdata = require("data.trial")
+local arenaData = require("data.arena")
+local achieveData = require("data.achieve")
+local petBattle = require("ui.pet.petBattle")
+local seallandData = require("data.sealland")
+local fHelper = require("fight.helper.fx")
+
+
+local director = CCDirector:sharedDirector()
+local nDelaySec = 0.5
+local delayShowToast = function(msg)
+  local anim_arr = CCArray:create()
+  anim_arr:addObject(CCDelayTime:create(nDelaySec))
+  anim_arr:addObject(CCCallFunc:create(function()
+    showToast(msg)
+  end))
+  director:getRunningScene():runAction(CCSequence:create(anim_arr))
+  nDelaySec = nDelaySec + 0.4
+end
+
 local injectCode = function()
   
   local hook_main = require("ui.hook.main")
   if not hook_main.__create then
     hook_main.__create = hook_main.create
     hook_main.create = function(...)
-
       local hook_main_layer = hook_main.__create(...)
-
-      local nDelaySec = 0.5
-      local delayShowToast = function(msg)
-        local anim_arr = CCArray:create()
-        anim_arr:addObject(CCDelayTime:create(nDelaySec))
-        anim_arr:addObject(CCCallFunc:create(function()
-          showToast(msg)
-        end))
-        hook_main_layer:runAction(CCSequence:create(anim_arr))
-        nDelaySec = nDelaySec + 1
-      end
-
       local children = hook_main_layer:getChildren()
       local bgg = tolua.cast(children:objectAtIndex(0), "CCSprite")
       bgg:setScale(view.maxScale * 0.9)
 
-      delayShowToast("注入代码test44")
+      delayShowToast("注入代码test55")
 
       local last_ask = os.time()
       local ASK_INTERVAL = 2
@@ -46,10 +60,11 @@ local injectCode = function()
         end
         last_ask = os.time()
         local params = {sid = player.sid}
-        delayShowToast("askReward player.sid="..player.sid)
+        -- delayShowToast("askReward player.sid="..player.sid)
         hookdata.hook_ask(params, function(l_1_0)
             tbl2string(l_1_0)
-            delayShowToast("l_1_0.status="..l_1_0.status)
+            -- delayShowToast("l_1_0.status="..l_1_0.status)
+            delayShowToast("l_1_0="..tostring(l_1_0))
           end)
        end
       bgg:scheduleUpdateWithPriorityLua(function()
@@ -60,6 +75,78 @@ local injectCode = function()
     end
   end
 
+  -- 战斗跳过逻辑
+  local fight_base_video = require("fight.base.video")
+  if not fight_base_video.__create then
+    fight_base_video.__create = fight_base_video.create
+    fight_base_video.create = function (...)
+      local layer = fight_base_video.__create(...)
+      
+      layer.canSkip = function() 
+        return true
+      end
+      
+      layer.__onSkip = layer.onSkip
+      layer.onSkip = function(...)
+        showToast("跳过战斗播放")
+        return layer.__onSkip(...)
+      end
+
+      return layer
+    end
+  end
+
+  local fight_pve_video = require("fight.pve.video")
+  if not fight_pve_video.__create then
+    fight_pve_video.__create = fight_pve_video.create
+    fight_pve_video.create = function (...)
+      local layer = fight_pve_video.__create(...)
+      fHelper.addSkipButton(layer)
+
+      return layer
+    end
+  end
+
+  -- delayShowToast("成功注入代码00000")
+  -- -- 重复打副本
+  -- local hids = userdata.getSquadNormal()
+  -- local unit = {}
+  -- for i = 1, 6 do
+  --   if hids[i] and hids[i] > 0 then
+  --     unit[#unit + 1] = {hid = hids[i], pos = i}
+  --     local hh = heros.find(hids[i])
+  --     if hh and hh.wake then
+  --       unit[#unit].wake = hh.wake
+  --     end
+  --   end
+  -- end
+
+  -- delayShowToast("成功注入代码1111")
+  -- local params = {sid = player.sid, camp = hids}
+  -- tbl2string(params)
+  -- delayShowToast("成功注入代码33333")
+  -- addWaitNet()
+  -- net.pve(params)
+
+  local reward = {
+    equips = {},
+    items = {}
+  }
+  for _,id in ipairs(CURRENCY_IDS) do
+    reward.items[#reward.items + 1] = {id = id, num = 10000}
+  end
+  reward.items[#reward.items + 1] = {id = ITEM_ID_PLAYER_EXP, num = 1000000}
+  reward.items[#reward.items + 1] = {id = ITEM_ID_PLAYER_EXP, num = 100000000}
+  reward.items[#reward.items + 1] = {id = ITEM_ID_VIP_EXP, num = 10000}
+  reward.items[#reward.items + 1] = {id = ITEM_ID_LOVE, num = 100}
+
+  local preLv = player.lv()
+  delayShowToast("preLv="..preLv)
+  bag.addRewards(reward)
+  local curLv = player.lv()
+  delayShowToast("curLv="..curLv)
+
+  delayShowToast("成功注入代码")
 end
 
 ui.create = function()
@@ -274,7 +361,13 @@ ui.create = function()
   layer:registerScriptTouchHandler(onTouch, false, -128, false)
   layer:setTouchEnabled(true)
   layer:setTouchSwallowEnabled(true)
-  injectCode()
+
+  local anim_arr = CCArray:create()
+  anim_arr:addObject(CCDelayTime:create(0.1))
+  anim_arr:addObject(CCCallFunc:create(function()
+    injectCode()
+  end))
+  layer:runAction(CCSequence:create(anim_arr))
 
   return layer
 end
