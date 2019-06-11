@@ -281,22 +281,22 @@ ui.create = function(l_1_0)
       end
       local sx = 25
       local px = 90
-      if  cfgfloatland[l_1_0.id].monster == 5 then
+      if #cfgfloatland[l_1_0.id].monster == 5 then
         sx = 70
       end
-      if  cfgfloatland[l_1_0.id].monster == 4 then
+      if #cfgfloatland[l_1_0.id].monster == 4 then
         sx = 115
       end
-      if  cfgfloatland[l_1_0.id].monster == 3 then
+      if #cfgfloatland[l_1_0.id].monster == 3 then
         sx = 160
       end
-      if  cfgfloatland[l_1_0.id].monster == 2 then
+      if #cfgfloatland[l_1_0.id].monster == 2 then
         sx = 205
       end
-      if  cfgfloatland[l_1_0.id].monster == 1 then
+      if #cfgfloatland[l_1_0.id].monster == 1 then
         sx = 250
       end
-      for ii = 1,  cfgfloatland[l_1_0.id].monster do
+      for ii = 1, #cfgfloatland[l_1_0.id].monster do
         local info = cfgmonster[cfgfloatland[l_1_0.id].monster[ii]]
         local bossIcon = img.createHeroHead(info.heroLink, info.lvShow, true, info.star)
         bossIcon:setScale(0.85)

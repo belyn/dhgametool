@@ -53,7 +53,7 @@ ui.create = function()
     if not l_2_0 then
       local logs = {}
     end
-    local height = 98 *  logs
+    local height = 98 * #logs
     scroll = CCScrollView:create()
     scroll:setDirection(kCCScrollViewDirectionVertical)
     scroll:setAnchorPoint(ccp(0, 0))
@@ -62,7 +62,7 @@ ui.create = function()
     scroll:setContentSize(CCSize(600, height))
     scroll:setContentOffset(ccp(0, 410 - height))
     innerBg:addChild(scroll)
-    if  logs == 0 then
+    if #logs == 0 then
       local empty = require("ui.empty").create({text = i18n.global.empty_battlerec.string})
       empty:setPosition(innerBg:getContentSize().width / 2, innerBg:getContentSize().height / 2)
       innerBg:addChild(empty, 0, 101)

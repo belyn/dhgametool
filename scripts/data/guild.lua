@@ -16,7 +16,7 @@ guild.SIGN_EXP = 30
 guild.SIGN_COIN = 50
 local flags = {}
 local initFlag = function()
-  for ii = 1,  cfgguildFlag do
+  for ii = 1, #cfgguildFlag do
     flags[ii] = ii
   end
 end
@@ -47,7 +47,7 @@ guild.self = function()
   if not guild.members then
     return nil
   end
-  for ii = 1,  guild.members do
+  for ii = 1, #guild.members do
     if guild.members[ii].uid == player.uid then
       return guild.members[ii]
     end
@@ -64,10 +64,10 @@ guild.selfTitle = function()
 end
 
 guild.removeMemByUid = function(l_7_0)
-  if not guild.members or  guild.members == 0 then
+  if not guild.members or #guild.members == 0 then
     return 
   end
-  for ii = 1,  guild.members do
+  for ii = 1, #guild.members do
     if guild.members[ii].uid == l_7_0 then
       table.remove(guild.members, ii)
       return 
@@ -79,12 +79,12 @@ guild.Lv = function(l_8_0)
   if not l_8_0 then
     l_8_0 = guild.guildObj.exp
   end
-  for ii = 1,  guildexp do
+  for ii = 1, #guildexp do
     if l_8_0 < guildexp[ii].allExp then
       return ii - 1
     end
   end
-  return  guildexp
+  return #guildexp
 end
 
 guild.maxMember = function(l_9_0)
@@ -103,8 +103,8 @@ end
 
 guild.upLvExp = function(l_12_0)
   local lv = guild.Lv(l_12_0)
-  if  guildexp <= lv then
-    lv =  guildexp - 1
+  if #guildexp <= lv then
+    lv = #guildexp - 1
   end
   return guildexp[lv + 1].allExp - guildexp[lv].allExp
 end

@@ -317,9 +317,9 @@ guildFightMain.createLeftTab = function(l_4_0, l_4_1)
   innerBg:addChild(guildTeamTitle)
   droidhangComponents:mandateNode(guildTeamTitle, "iFF9_j1MWOF")
   if not l_4_1.uids then
-    local teamCount =  {}
+    local teamCount = #{}
   end
-  local guildTeamDesc = lbl.createFont2(18, string.format("%d/%d", teamCount,  l_4_1.mbrs))
+  local guildTeamDesc = lbl.createFont2(18, string.format("%d/%d", teamCount, #l_4_1.mbrs))
   guildTeamDesc:setAnchorPoint(0, 0.5)
   guildTeamDesc:setPosition(guildTeamTitle:getPositionX() + guildTeamTitle:getContentSize().width * guildTeamTitle:getScaleX(), guildTeamTitle:getPositionY())
   innerBg:addChild(guildTeamDesc)
@@ -849,7 +849,7 @@ guildFightMain.createRightTabFighting = function(l_7_0, l_7_1, l_7_2)
           for i,vm in ipairs(data.mbrs) do
             for j,vu in ipairs(data.uids) do
               if vm.uid == vu then
-                mbrss[ mbrss + 1] = vm
+                mbrss[#mbrss + 1] = vm
                 for i,vm in (for generator) do
                 end
               end

@@ -40,7 +40,7 @@ ui.create = function()
     if not l_2_0 then
       local records = {}
     end
-    if  records == 0 then
+    if #records == 0 then
       local empty = require("ui.empty").create({text = i18n.global.empty_tongguan.string})
       empty:setPosition(board:getContentSize().width / 2, board:getContentSize().height / 2)
       board:addChild(empty)

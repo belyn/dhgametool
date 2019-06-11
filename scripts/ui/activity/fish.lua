@@ -26,7 +26,7 @@ ui.create = function()
   local vps = {}
   for _,v in ipairs(vp_ids) do
     local tmp_status = activityData.getStatusById(v)
-    vps[ vps + 1] = tmp_status
+    vps[#vps + 1] = tmp_status
   end
   local board = CCSprite:create()
   board:setContentSize(CCSizeMake(570, 438))
@@ -241,7 +241,7 @@ ui.create = function()
   local start_y = -73
   local step_y = -161
   local showList = function(l_5_0)
-    for ii = 1,  l_5_0 do
+    for ii = 1, #l_5_0 do
       local _x = start_x + (ii - 1) % ITEM_PER_ROW * step_x
       local _y = start_y + math.floor((ii + ITEM_PER_ROW - 1) / ITEM_PER_ROW - 1) * step_y
       local tmp_item = createItem(l_5_0[ii])
@@ -249,7 +249,7 @@ ui.create = function()
       tmp_item:setPosition(CCPoint(_x, _y))
       scroll.content_layer:addChild(tmp_item)
     end
-    local content_h = 0 - start_y - math.floor(( l_5_0 + ITEM_PER_ROW - 1) / ITEM_PER_ROW - 1) * step_y - step_y / 2
+    local content_h = 0 - start_y - math.floor((#l_5_0 + ITEM_PER_ROW - 1) / ITEM_PER_ROW - 1) * step_y - step_y / 2
     scroll:setContentSize(CCSizeMake(scroll.width, content_h))
     scroll.content_layer:setPosition(CCPoint(0, content_h))
     scroll:setContentOffset(CCPoint(0, scroll.height - content_h))

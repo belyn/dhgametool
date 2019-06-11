@@ -62,13 +62,13 @@ tips.create = function(l_1_0)
     for i,v in ipairs(l_1_0.buttons) do
       do
         local btnSp = img.createLogin9Sprite(COLOR2TYPE[v.Color])
-        if  l_1_0.buttons == 3 then
+        if #l_1_0.buttons == 3 then
           btnSp:setPreferredSize(CCSize(150, 50))
         else
           btnSp:setPreferredSize(CCSize(118, 50))
         end
         local btn = HHMenuItem:create(btnSp)
-        btn:setPosition(BUTTON_POSX[ l_1_0.buttons][i], TIPS_HEIGHT - 296)
+        btn:setPosition(BUTTON_POSX[#l_1_0.buttons][i], TIPS_HEIGHT - 296)
         local menu = CCMenu:createWithItem(btn)
         menu:setPosition(0, 0)
         board:addChild(menu)

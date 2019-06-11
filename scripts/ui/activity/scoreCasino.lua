@@ -105,7 +105,7 @@ ui.create = function()
     lbl_pgb:setPosition(CCPoint(pgb_bg:getContentSize().width / 2, pgb_bg:getContentSize().height / 2))
     pgb_bg:addChild(lbl_pgb)
     local r_pos = {1 = 490, 2 = 420, 3 = 350, 4 = 280}
-    for ii = 1,  l_1_0.rewards do
+    for ii = 1, #l_1_0.rewards do
       local _obj = l_1_0.rewards[ii]
       do
         if _obj.type == ItemType.Equip then
@@ -167,7 +167,7 @@ ui.create = function()
   layer.scroll = scroll
   local items = {}
   for ii = 3, 0, -1 do
-    items[ items + 1] = clone(cfgactivity[st1.id - ii])
+    items[#items + 1] = clone(cfgactivity[st1.id - ii])
   end
   local sortValue = function(l_2_0)
     if l_2_0.instruct <= st1.limits then
@@ -180,7 +180,7 @@ ui.create = function()
     return sortValue(l_3_0) < sortValue(l_3_1)
    end)
   local showList = function(l_4_0)
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       local tmp_item = createItem(l_4_0[ii])
       tmp_item.obj = l_4_0[ii]
       tmp_item.ax = 0.5

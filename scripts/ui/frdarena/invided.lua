@@ -35,7 +35,7 @@ ui.create = function(l_1_0)
   board:addChild(showTitleShade)
   local teamnum = 0
   if l_1_0 then
-    teamnum =  l_1_0
+    teamnum = #l_1_0
   end
   local requestslab = lbl.createFont1(16, string.format(i18n.global.friend_requesrs_rcvd.string, teamnum), ccc3(73, 38, 4))
   requestslab:setAnchorPoint(CCPoint(0, 0.5))
@@ -116,7 +116,7 @@ ui.create = function(l_1_0)
       param.sid = player.sid
       param.type = 2
       param.uid = mbrs[_idx].uid
-      if  frdarena.team >= 3 then
+      if #frdarena.team >= 3 then
         showToast(i18n.global.frdpvp_team_teamfull.string)
         return 
       end
@@ -210,12 +210,12 @@ ui.create = function(l_1_0)
       scroll:setAnchorPoint(CCPoint(0, 0))
       scroll:setPosition(CCPoint(42, 50))
       board:addChild(scroll)
-      for ii = 1,  mbrs do
+      for ii = 1, #mbrs do
         local tmp_item = createItem(ii)
         tmp_item.ax = 0.5
         tmp_item.px = 281
         scroll.addItem(tmp_item)
-        if ii ~=  mbrs then
+        if ii ~= #mbrs then
           scroll.addSpace(space_height)
         end
       end

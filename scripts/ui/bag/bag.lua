@@ -133,8 +133,8 @@ bag.create = function()
    end
   layer.showEquips = function(l_5_0, l_5_1)
     table.sort(l_5_0, compareEquip)
-    initScroll( l_5_0, "equip", l_5_1)
-    if  l_5_0 == 0 then
+    initScroll(#l_5_0, "equip", l_5_1)
+    if #l_5_0 == 0 then
       layer.emptyBox = empty.create({text = i18n.global.empty_equips.string})
       layer.emptyBox:setPosition(innerBg:getContentSize().width / 2, innerBg:getContentSize().height / 2)
       innerBg:addChild(layer.emptyBox)
@@ -154,8 +154,8 @@ bag.create = function()
    end
   layer.showItems = function(l_6_0, l_6_1)
     table.sort(l_6_0, compareItem)
-    initScroll( l_6_0, "item", l_6_1)
-    if  l_6_0 == 0 then
+    initScroll(#l_6_0, "item", l_6_1)
+    if #l_6_0 == 0 then
       layer.emptyBox = empty.create({text = i18n.global.empty_items.string})
       layer.emptyBox:setPosition(innerBg:getContentSize().width / 2, innerBg:getContentSize().height / 2)
       innerBg:addChild(layer.emptyBox)
@@ -174,8 +174,8 @@ bag.create = function()
    end
   layer.showPieces = function(l_7_0)
     table.sort(l_7_0, compareHeroPiece)
-    initScroll( l_7_0, "piece")
-    if  l_7_0 == 0 then
+    initScroll(#l_7_0, "piece")
+    if #l_7_0 == 0 then
       layer.emptyBox = empty.create({text = i18n.global.empty_pieces.string})
       layer.emptyBox:setPosition(innerBg:getContentSize().width / 2, innerBg:getContentSize().height / 2)
       innerBg:addChild(layer.emptyBox)
@@ -225,8 +225,8 @@ bag.create = function()
       end
       return l_1_0.id < l_1_1.id
       end)
-    initScroll( l_8_0, "treasure")
-    if  l_8_0 == 0 then
+    initScroll(#l_8_0, "treasure")
+    if #l_8_0 == 0 then
       layer.emptyBox = empty.create({text = i18n.global.empty_treasure.string})
       layer.emptyBox:setPosition(innerBg:getContentSize().width / 2, innerBg:getContentSize().height / 2)
       innerBg:addChild(layer.emptyBox)
@@ -283,7 +283,7 @@ bag.create = function()
       local p0 = scroll:getParent():convertToNodeSpace(ccp(l_12_0, l_12_1))
       if scroll:getBoundingBox():containsPoint(p0) then
         local p1 = nil
-        if  icons > 0 then
+        if #icons > 0 then
           p1 = icons[1]:getParent():convertToNodeSpace(ccp(l_12_0, l_12_1))
         end
         for _,icon in ipairs(icons) do

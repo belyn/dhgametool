@@ -45,45 +45,45 @@ end
 
 arena.refresh = function()
   local riv = {}
-  for i = 1,  arena.rivals do
-    for j = i + 1,  arena.rivals do
+  for i = 1, #arena.rivals do
+    for j = i + 1, #arena.rivals do
       if arena.rivals[j].score < arena.rivals[i].score then
         arena.rivals[i], arena.rivals[j] = arena.rivals[j], arena.rivals[i]
       end
     end
   end
-  for i = 1,  arena.rivals do
-    local idx =  arena.rivals - i + 1
+  for i = 1, #arena.rivals do
+    local idx = #arena.rivals - i + 1
     if not arena.rivals[idx].isUsed then
-      riv[ riv + 1] = arena.rivals[idx]
+      riv[#riv + 1] = arena.rivals[idx]
       arena.rivals[idx].isUsed = true
     end
-    if  riv >= 2 then
+    if #riv >= 2 then
       do return end
     end
   end
-  for i = 1,  arena.rivals do
+  for i = 1, #arena.rivals do
     if not arena.rivals[i].isUsed then
-      riv[ riv + 1] = arena.rivals[i]
+      riv[#riv + 1] = arena.rivals[i]
       arena.rivals[i].isUsed = true
     end
-    if  riv >= 3 then
+    if #riv >= 3 then
       return riv
     end
   end
-  for i = 1,  arena.rivals do
-    local idx =  arena.rivals - i + 1
+  for i = 1, #arena.rivals do
+    local idx = #arena.rivals - i + 1
     if not arena.rivals[idx].isUsed then
-      riv[ riv + 1] = arena.rivals[idx]
+      riv[#riv + 1] = arena.rivals[idx]
       arena.rivals[idx].isUsed = true
     end
-    if  riv >= 3 then
+    if #riv >= 3 then
       return riv
     end
   end
-  if  riv ==  arena.rivals and  riv > 0 then
+  if #riv == #arena.rivals and #riv > 0 then
     return riv
-  elseif  riv < 2 then
+  elseif #riv < 2 then
     return {}
   end
   return riv

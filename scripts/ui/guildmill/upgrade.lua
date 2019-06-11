@@ -42,11 +42,11 @@ ui.create = function()
   local milllayer, donateBtn1, donateBtn10 = nil, nil, nil
   local createmill = function(l_1_0, l_1_1)
     local curlayer = CCLayer:create()
-    if l_1_0 ==  cfgmilllv and cfgmilllv[ cfgmilllv].gold < l_1_1 + 1000000 then
+    if l_1_0 == #cfgmilllv and cfgmilllv[#cfgmilllv].gold < l_1_1 + 1000000 then
       donateBtn10:setEnabled(false)
       setShader(donateBtn10, SHADER_GRAY, true)
     end
-    if l_1_0 ~=  cfgmilllv then
+    if l_1_0 ~= #cfgmilllv then
       progressLabel:setString(num2KM(l_1_1) .. "/" .. num2KM(cfgmilllv[l_1_0 + 1].gold))
       coinProgress:setPercentage(l_1_1 / cfgmilllv[l_1_0 + 1].gold * 100)
       local lnpcboard = img.createUI9Sprite(img.ui.botton_fram_4)
@@ -93,7 +93,7 @@ ui.create = function()
     line1:setPreferredSize(CCSize(238, 2))
     line1:setPosition(CCPoint(198, 255))
     curlayer:addChild(line1)
-    if l_1_0 ~=  cfgmilllv then
+    if l_1_0 ~= #cfgmilllv then
       local row = img.createUISprite(img.ui.arrow)
       row:setPosition(358, 285)
       curlayer:addChild(row)

@@ -201,11 +201,11 @@ ui.createMyItem = function()
 end
 
 ui.addItems = function()
-  if  ui.data.rankList <= 0 then
+  if #ui.data.rankList <= 0 then
     return 
   end
-  print("\230\142\146\232\161\140\230\166\156\233\149\191\229\186\166" ..  ui.data.rankList)
-  for i = 1,  ui.data.rankList do
+  print("\230\142\146\232\161\140\230\166\156\233\149\191\229\186\166" .. #ui.data.rankList)
+  for i = 1, #ui.data.rankList do
     ui.widget.rankList[i] = ui.createItem(ui.data.rankList[i], i)
     ui.widget.rankList[i].ax = 0.5
     ui.widget.rankList[i].px = 302

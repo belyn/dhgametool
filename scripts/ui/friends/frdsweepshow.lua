@@ -145,13 +145,13 @@ ui.create = function(l_1_0, l_1_1)
    end
   local rewards = {}
   if _bag.equips then
-    for ii = 1,  _bag.equips do
-      rewards[ rewards + 1] = {type = ItemType.Equip, id = _bag.equips[ii].id, num = _bag.equips[ii].num}
+    for ii = 1, #_bag.equips do
+      rewards[#rewards + 1] = {type = ItemType.Equip, id = _bag.equips[ii].id, num = _bag.equips[ii].num}
     end
   end
   if _bag.items then
-    for ii = 1,  _bag.items do
-      rewards[ rewards + 1] = {type = ItemType.Item, id = _bag.items[ii].id, num = _bag.items[ii].num}
+    for ii = 1, #_bag.items do
+      rewards[#rewards + 1] = {type = ItemType.Item, id = _bag.items[ii].id, num = _bag.items[ii].num}
     end
   end
   local items = {}
@@ -165,7 +165,7 @@ ui.create = function(l_1_0, l_1_1)
     content_layer:removeAllChildrenWithCleanup(true)
     local height = 0
     local count = 0
-    for ii = 1,  rewards do
+    for ii = 1, #rewards do
       local tmp_item = createItem(rewards[ii])
       if tmp_item then
         count = count + 1
@@ -174,7 +174,7 @@ ui.create = function(l_1_0, l_1_1)
         local pos_y = item_offset_y + item_step_y * (math.floor((count + row_count - 1) / row_count) - 1)
         tmp_item:setPosition(CCPoint(pos_x, 0 - pos_y))
         content_layer:addChild(tmp_item)
-        items[ items + 1] = tmp_item
+        items[#items + 1] = tmp_item
         height = pos_y + 47
       end
     end
@@ -204,7 +204,7 @@ ui.create = function(l_1_0, l_1_1)
     upvalue_1024 = true
     if scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_6_0, l_6_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           playAnimTouchBegin(items[ii])
           upvalue_3072 = items[ii]
@@ -230,7 +230,7 @@ ui.create = function(l_1_0, l_1_1)
     end
     if isclick and scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_8_0, l_8_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           audio.play(audio.button)
           onClickItem(items[ii])

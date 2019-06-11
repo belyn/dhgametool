@@ -28,7 +28,7 @@ sealLand.init = function(l_1_0, l_1_1)
     levels[5] = l_1_1.stages[5]
     levels[6] = l_1_1.stages[6]
   end
-  for i = 1,  levels do
+  for i = 1, #levels do
     local count = levels[i] % 1000 - 1
     if count >= 10 then
       upvalue_1536 = 5

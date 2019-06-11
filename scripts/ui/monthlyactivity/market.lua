@@ -197,7 +197,7 @@ ui.create = function()
   local createlist = function(l_2_0)
     showItemLayer:removeAllChildrenWithCleanup(true)
     for i = (l_2_0 - 1) * 8 + 1, l_2_0 * 8 do
-      if  dataarenashop.goods < i then
+      if #dataarenashop.goods < i then
         return 
       end
       if cfgarenashop[dataarenashop.goods[i].id].limitNumb and cfgarenashop[dataarenashop.goods[i].id].limitNumb <= dataarenashop.goods[i].num then
@@ -300,7 +300,7 @@ ui.create = function()
         return 
       end
       dataarenashop.init(l_1_0, true)
-      upvalue_1024 = math.floor(( dataarenashop.goods - 1) / 8) + 1
+      upvalue_1024 = math.floor((#dataarenashop.goods - 1) / 8) + 1
       upvalue_1536 = createCircleAndRaw()
       board:addChild(circleLayer)
       createTag()
@@ -407,7 +407,7 @@ ui.create = function()
       audio.play(audio.button)
       upvalue_512 = 1
       dataarenashop.goods = dataarenashop.mpiece
-      upvalue_1536 = math.floor(( dataarenashop.goods - 1) / 8) + 1
+      upvalue_1536 = math.floor((#dataarenashop.goods - 1) / 8) + 1
       showdot(currentPage)
       createlist(currentPage)
       upvalue_2560 = createCircleAndRaw()
@@ -420,7 +420,7 @@ ui.create = function()
       audio.play(audio.button)
       upvalue_512 = 1
       dataarenashop.goods = dataarenashop.mequip
-      upvalue_1536 = math.floor(( dataarenashop.goods - 1) / 8) + 1
+      upvalue_1536 = math.floor((#dataarenashop.goods - 1) / 8) + 1
       showdot(currentPage)
       createlist(currentPage)
       upvalue_2560 = createCircleAndRaw()
@@ -433,7 +433,7 @@ ui.create = function()
       audio.play(audio.button)
       upvalue_512 = 1
       dataarenashop.goods = dataarenashop.mskin
-      upvalue_1536 = math.floor(( dataarenashop.goods - 1) / 8) + 1
+      upvalue_1536 = math.floor((#dataarenashop.goods - 1) / 8) + 1
       showdot(currentPage)
       createlist(currentPage)
       upvalue_2560 = createCircleAndRaw()

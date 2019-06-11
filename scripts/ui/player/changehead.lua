@@ -27,7 +27,7 @@ ui.create = function()
     local hidePetHead = function()
       local cfgpet = require("config.pet")
       for k,v in pairs(cfgpet) do
-        for ii = 1,  v.petIcon do
+        for ii = 1, #v.petIcon do
           if headData[v.petIcon[ii]] then
             headData[v.petIcon[ii]].hide = true
           end
@@ -73,7 +73,7 @@ ui.create = function()
       local title_menu = CCMenu:createWithItem(title)
       title_menu:setPosition(CCPoint(0, 0))
       board:addChild(title_menu)
-      TABS[ TABS + 1] = title
+      TABS[#TABS + 1] = title
       return title
       end
     createTitle(i18n.global.head_hero.string, 149, 400)
@@ -119,7 +119,7 @@ ui.create = function()
               do
                 local y = count - (x - 1) * 6
                 upvalue_512 = count + 1
-                if i <=  cfghead then
+                if i <= #cfghead then
                   showHeads[i] = img.createPlayerHead(i)
                   if player.logo == i then
                     addSel(showHeads[i])
@@ -142,7 +142,7 @@ ui.create = function()
               end
               for i,v in (for generator) do
               end
-              if i <=  cfghead then
+              if i <= #cfghead then
                 showHeads[i] = img.createPlayerHead(i)
               else
                 showHeads[i] = img.createPlayerHead(v.iconId)
@@ -153,7 +153,7 @@ ui.create = function()
               scroll:getContainer():addChild(showHeads[i])
             end
           end
-          for i = 1,  headData do
+          for i = 1, #headData do
             if headData[i] and headData[i].isNew and headData[i].type == currentTab then
               headData[i].isNew = false
             end
@@ -183,7 +183,7 @@ ui.create = function()
     local onSelect = function(l_7_0)
       audio.play(audio.button)
       local params = {sid = player.sid, logo = l_7_0}
-      if  cfghead < l_7_0 then
+      if #cfghead < l_7_0 then
         params.logo = headData[l_7_0].iconId
       end
       addWaitNet()

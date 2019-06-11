@@ -200,7 +200,7 @@ ui.update = function(l_3_0, l_3_1, l_3_2, l_3_3)
    end
   local updateFile = function(l_3_0)
     local info = upInfo.files[l_3_0]
-    local percent = math.floor(l_3_0 /  upInfo.files * 100)
+    local percent = math.floor(l_3_0 / #upInfo.files * 100)
     if checkFile then
       layer.setHint(i18n.global.filechecking.string .. " " .. percent .. "%")
     else
@@ -210,7 +210,7 @@ ui.update = function(l_3_0, l_3_1, l_3_2, l_3_3)
       layer.setPercentageForProgress(percent)
     end
     local goNext = function(l_1_0)
-      if l_1_0 <  upInfo.files then
+      if l_1_0 < #upInfo.files then
         updateFile(l_1_0 + 1)
       else
         onSuccess()
@@ -255,13 +255,13 @@ ui.update = function(l_3_0, l_3_1, l_3_2, l_3_3)
       end
       local tfiles = cjson.decode(l_4_0)
       upInfo.files = tfiles
-      if upInfo.files and  upInfo.files > 0 then
+      if upInfo.files and #upInfo.files > 0 then
         ui.thDownload({layer = layer, newDir = newDir, oldDir = oldDir, upInfo = upInfo, progressCb = progressCb, successCb = onSuccess, checkFile = checkFile})
       else
         onSuccess()
       end
       end)
-  elseif l_3_3.files and  l_3_3.files > 0 then
+  elseif l_3_3.files and #l_3_3.files > 0 then
     ui.thDownload({layer = l_3_0, newDir = newDir, oldDir = oldDir, upInfo = l_3_3, progressCb = progressCb, successCb = onSuccess, checkFile = l_3_1})
   else
     onSuccess()
@@ -358,7 +358,7 @@ end
 ui.getAppDir = function()
   local file = "scripts/shop.lua"
   local path = CCFileUtils:sharedFileUtils():fullPathForFilename(file)
-  return path:sub(1, not  file - 1)
+  return path:sub(1, not #file - 1)
 end
 
 ui.clearLoaded = function()
@@ -428,7 +428,7 @@ ui.thDownload = function(l_15_0)
   local progressCb = l_15_0.progressCb
   local successCb = l_15_0.successCb
   local checkFile = l_15_0.checkFile
-  local total =  upInfo.files
+  local total = #upInfo.files
   local workers = 8
   if upInfo.thcount and upInfo.thcount > 1 then
     workers = upInfo.thcount
@@ -479,10 +479,10 @@ ui.thDownload = function(l_15_0)
   end
   local running_workers = {}
   local findIdleWorker = function()
-    if  idle_workers <= 0 then
+    if #idle_workers <= 0 then
       return 
     end
-    return idle_workers[ idle_workers]
+    return idle_workers[#idle_workers]
    end
   local run2idle = function(l_3_0)
     for k,v in pairs(running_workers) do

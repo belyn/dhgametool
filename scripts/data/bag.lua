@@ -29,7 +29,7 @@ equips.init = function(l_2_0)
     if not e.attr then
       e.attr = {}
     end
-    equips[ equips + 1] = e
+    equips[#equips + 1] = e
   end
 end
 
@@ -42,7 +42,7 @@ equips.add = function(l_3_0)
     e.num = e.num + l_3_0.num
     e.showRedDot = true
   else
-    equips[ equips + 1] = {id = l_3_0.id, num = l_3_0.num, showRedDot = true}
+    equips[#equips + 1] = {id = l_3_0.id, num = l_3_0.num, showRedDot = true}
   end
   if cfgequip[l_3_0.id].pos == EQUIP_POS_SKIN then
     head.addSkinHead(l_3_0.id)
@@ -70,7 +70,7 @@ equips.returnbag = function(l_4_0)
       e.num = e.num + l_4_0.num
       e.showRedDot = true
     else
-      equips[ equips + 1] = {id = l_4_0.id, num = l_4_0.num, showRedDot = true}
+      equips[#equips + 1] = {id = l_4_0.id, num = l_4_0.num, showRedDot = true}
     end
   end
 end
@@ -128,9 +128,9 @@ equips.skin = function(l_10_0)
   for i,eq in ipairs(equips) do
     if cfgequip[eq.id].pos == EQUIP_POS_SKIN and (not l_10_0 or cfghero[cfgequip[eq.id].heroId[1]].group == l_10_0) then
       for j = 1, eq.num do
-        eqs[ eqs + 1] = clone(eq)
-        eqs[ eqs].num = 1
-        eqs[ eqs].flag = true
+        eqs[#eqs + 1] = clone(eq)
+        eqs[#eqs].num = 1
+        eqs[#eqs].flag = true
       end
     end
   end
@@ -148,7 +148,7 @@ end
 items.init = function(l_12_0)
   arrayclear(items)
   for _,id in ipairs(CURRENCY_IDS) do
-    items[ items + 1] = {id = id, num = 0}
+    items[#items + 1] = {id = id, num = 0}
   end
   items.addAll(l_12_0)
 end
@@ -165,7 +165,7 @@ items.add = function(l_13_0)
     t.num = t.num + l_13_0.num
   else
     t = {id = l_13_0.id, num = l_13_0.num}
-    items[ items + 1] = t
+    items[#items + 1] = t
   end
   local player = require("data.player")
   if t.id == ITEM_ID_PLAYER_EXP and player.maxExp() < t.num then

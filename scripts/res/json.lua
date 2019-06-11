@@ -61,7 +61,7 @@ json.createSpineHero = function(l_5_0)
     hero:registerSkin(cfghero[l_5_0].heroskin)
   end
   if cfghero[l_5_0].anims then
-    for i = 1,  cfghero[l_5_0].anims do
+    for i = 1, #cfghero[l_5_0].anims do
       local jsonname = "spinejson/unit/" .. cfghero[l_5_0].anims[i] .. ".json"
       json.load(jsonname)
       local heroloop = DHSkeletonAnimation:createWithKey(jsonname)
@@ -80,7 +80,7 @@ json.createSpineHeroSkin = function(l_6_0)
   hero:scheduleUpdateLua()
   hero:playAnimation("stand", -1)
   if cfgequip[l_6_0].anims then
-    for i = 1,  cfgequip[l_6_0].anims do
+    for i = 1, #cfgequip[l_6_0].anims do
       local jsonname = "spinejson/unit/" .. cfgequip[l_6_0].anims[i] .. ".json"
       json.load(jsonname)
       local heroloop = DHSkeletonAnimation:createWithKey(jsonname)
@@ -231,10 +231,10 @@ json.getAllBuff = function()
     end
   end
   for fxName,_ in pairs(fxNames) do
-    loadlist[ loadlist + 1] = json.keyForFight(fxName)
+    loadlist[#loadlist + 1] = json.keyForFight(fxName)
   end
   for _,p in pairs(json.fight) do
-    loadlist[ loadlist + 1] = p
+    loadlist[#loadlist + 1] = p
   end
   return loadlist
 end
@@ -246,11 +246,11 @@ json.getLoadListForFight = function(l_23_0, l_23_1)
   local loadlist = {}
   for _,id in ipairs(l_23_0) do
     local unitResId = cfghero[id].heroBody
-    loadlist[ loadlist + 1] = json.unit[unitResId]
+    loadlist[#loadlist + 1] = json.unit[unitResId]
     if cfghero[id].anims then
-      for i = 1,  cfghero[id].anims do
+      for i = 1, #cfghero[id].anims do
         local jsonname = "spinejson/unit/" .. cfghero[id].anims[i] .. ".json"
-        loadlist[ loadlist + 1] = jsonname
+        loadlist[#loadlist + 1] = jsonname
       end
     end
   end
@@ -285,10 +285,10 @@ json.getLoadListForFight = function(l_23_0, l_23_1)
     end
   end
   for fxName,_ in pairs(fxNames) do
-    loadlist[ loadlist + 1] = json.keyForFight(fxName)
+    loadlist[#loadlist + 1] = json.keyForFight(fxName)
   end
   for _,p in pairs(json.fight) do
-    loadlist[ loadlist + 1] = p
+    loadlist[#loadlist + 1] = p
   end
   return loadlist
 end
@@ -315,12 +315,12 @@ json.getLoadListForFight2 = function(l_24_0, l_24_1)
     if hInfo.skin and cfgequip[hInfo.skin] then
       unitResId = cfgequip[hInfo.skin].heroBody
     end
-    loadlist[ loadlist + 1] = json.unit[unitResId]
+    loadlist[#loadlist + 1] = json.unit[unitResId]
     local anims = cfghero[hInfo.id].anims
     if (hInfo.skin and cfgequip[hInfo.skin] and cfgequip[hInfo.skin].anims) or anims then
-      for i = 1,  anims do
+      for i = 1, #anims do
         local jsonname = "spinejson/unit/" .. anims[i] .. ".json"
-        loadlist[ loadlist + 1] = jsonname
+        loadlist[#loadlist + 1] = jsonname
       end
     end
     local skills = {}
@@ -377,10 +377,10 @@ json.getLoadListForFight2 = function(l_24_0, l_24_1)
     end
   end
   for fxName,_ in pairs(fxNames) do
-    loadlist[ loadlist + 1] = json.keyForFight(fxName)
+    loadlist[#loadlist + 1] = json.keyForFight(fxName)
   end
   for _,p in pairs(json.fight) do
-    loadlist[ loadlist + 1] = p
+    loadlist[#loadlist + 1] = p
   end
   return loadlist
 end
@@ -389,16 +389,16 @@ json.getLoadListForPet = function(l_25_0)
   local cfgskill = require("config.skill")
   local cfgfx = require("config.fx")
   local loadlist = {}
-  if not l_25_0 or  l_25_0 <= 0 then
+  if not l_25_0 or #l_25_0 <= 0 then
     return loadlist
   end
   local cfgpet = require("config.pet")
   local pngNames = {}
-  for ii = 1,  l_25_0 do
+  for ii = 1, #l_25_0 do
     local petid = l_25_0[ii].id
     local skills = {}
     local actSkillId = cfgpet[petid].actSkillId + l_25_0[ii].lv - 1
-    skills[ skills + 1] = actSkillId
+    skills[#skills + 1] = actSkillId
     local fxNames = {}
     for _,sk in ipairs(skills) do
       if sk then
@@ -406,14 +406,14 @@ json.getLoadListForPet = function(l_25_0)
           local fxes = cfgskill[sk][f]
           if fxes then
             for _,fx in ipairs(fxes) do
-              fxNames[ fxNames + 1] = cfgfx[fx].name
+              fxNames[#fxNames + 1] = cfgfx[fx].name
             end
           end
         end
       end
     end
-    for ii = 1,  fxNames do
-      loadlist[ loadlist + 1] = json.keyForFight(fxNames[ii])
+    for ii = 1, #fxNames do
+      loadlist[#loadlist + 1] = json.keyForFight(fxNames[ii])
     end
   end
   return loadlist
@@ -424,21 +424,21 @@ json.getLoadListForSkin = function(l_26_0)
   local cfgfx = require("config.fx")
   local loadlist = {}
   local fxNames = {}
-  for ii = 1,  l_26_0 do
+  for ii = 1, #l_26_0 do
     local unitResId = cfgequip[l_26_0[ii]].heroBody
-    loadlist[ loadlist + 1] = json.unit[unitResId]
+    loadlist[#loadlist + 1] = json.unit[unitResId]
     local cfg = cfgequip[l_26_0[ii]]
     for _,f in ipairs({"fxSelf", "fxMain1", "fxMain2", "fxHurt1", "fxHurt2"}) do
       local fxes = cfg[f]
       if fxes then
         for _,fx in ipairs(fxes) do
-          fxNames[ fxNames + 1] = cfgfx[fx].name
+          fxNames[#fxNames + 1] = cfgfx[fx].name
         end
       end
     end
   end
-  for ii = 1,  fxNames do
-    loadlist[ loadlist + 1] = json.keyForFight(fxNames[ii])
+  for ii = 1, #fxNames do
+    loadlist[#loadlist + 1] = json.keyForFight(fxNames[ii])
   end
   return loadlist
 end

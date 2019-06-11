@@ -49,15 +49,15 @@ ui.getMapAndHeroIds = function(l_3_0)
   for _,h in ipairs(l_3_0.camp) do
     local skin = getHeroSkin(h.hid)
     if skin then
-      skins[ skins + 1] = skin
+      skins[#skins + 1] = skin
     end
-    heroIds[ heroIds + 1] = herosdata.find(h.hid).id
+    heroIds[#heroIds + 1] = herosdata.find(h.hid).id
   end
   if l_3_0.atk and l_3_0.atk.pet then
-    pets[ pets + 1] = l_3_0.atk.pet
+    pets[#pets + 1] = l_3_0.atk.pet
   end
   for _,m in ipairs(cfgbrokenboss[l_3_0.stage].monster) do
-    heroIds[ heroIds + 1] = cfgmons[m].heroLink
+    heroIds[#heroIds + 1] = cfgmons[m].heroLink
   end
   return mapId, heroIds, pets, skins
 end
@@ -70,19 +70,19 @@ ui.getMapAndHeroIds2 = function(l_4_0)
   for _,h in ipairs(l_4_0.camp) do
     local skin = getHeroSkin(h.hid)
     if skin then
-      skins[ skins + 1] = skin
+      skins[#skins + 1] = skin
     end
-    heroIds[ heroIds + 1] = herosdata.find(h.hid).id
-    heroList[ heroList + 1] = h
+    heroIds[#heroIds + 1] = herosdata.find(h.hid).id
+    heroList[#heroList + 1] = h
   end
   if l_4_0.atk and l_4_0.atk.pet then
-    pets[ pets + 1] = l_4_0.atk.pet
+    pets[#pets + 1] = l_4_0.atk.pet
   end
   for _,m in ipairs(cfgbrokenboss[l_4_0.stage].monster) do
-    heroIds[ heroIds + 1] = cfgmons[m].heroLink
+    heroIds[#heroIds + 1] = cfgmons[m].heroLink
     local tInfo = clone(cfghero[cfgmons[m].heroLink])
     tInfo.id = cfgmons[m].heroLink
-    heroList[ heroList + 1] = tInfo
+    heroList[#heroList + 1] = tInfo
   end
   return {mapId = mapId, heroIds = heroIds, pets = pets, skins = skins, heroList = heroList}
 end

@@ -57,7 +57,7 @@ ui.create = function(l_1_0)
   ui.widget.board:setAnchorPoint(CCPoint(0.5, 0.5))
   ui.widget.board:setPosition(CCPoint(width / 2, 230))
   ui.widget.bg:addChild(ui.widget.board)
-  ui.widget.totalLabel = lbl.createFont1(18, i18n.global.solo_total.string .. ":" ..  ui.data.idList, ccc3(81, 39, 18))
+  ui.widget.totalLabel = lbl.createFont1(18, i18n.global.solo_total.string .. ":" .. #ui.data.idList, ccc3(81, 39, 18))
   ui.widget.totalLabel:setAnchorPoint(CCPoint(0, 0.5))
   ui.widget.totalLabel:setPosition(CCPoint(24, 360))
   ui.widget.board:addChild(ui.widget.totalLabel)
@@ -104,7 +104,7 @@ ui.create = function(l_1_0)
   local SCROLL_VIEW_W = 560
   local SCROLL_VIEW_H = 320
   local SCROLL_CONTENT_W = 560
-  local SCROLL_CONTENT_H = SCROLL_VIEW_H < (ITEM_H + SCROLL_INTERVAL) *  ui.data.idList and (ITEM_H + SCROLL_INTERVAL) *  ui.data.idList or SCROLL_VIEW_H
+  local SCROLL_CONTENT_H = SCROLL_VIEW_H < (ITEM_H + SCROLL_INTERVAL) * #ui.data.idList and (ITEM_H + SCROLL_INTERVAL) * #ui.data.idList or SCROLL_VIEW_H
   ui.widget.scroll = CCScrollView:create()
   ui.widget.scroll:setDirection(kCCScrollViewDirectionVertical)
   ui.widget.scroll:setViewSize(CCSize(SCROLL_VIEW_W, SCROLL_VIEW_H))
@@ -286,7 +286,7 @@ end
 for i,v in ipairs(ui.widget.items) do
   v:setPositionY(height - (i - 0.5) * (ITEM_H + SCROLL_INTERVAL))
 end
-ui.widget.totalLabel:setString(i18n.global.solo_total.string .. ":" ..  ui.widget.items)
+ui.widget.totalLabel:setString(i18n.global.solo_total.string .. ":" .. #ui.widget.items)
 end
 
 return ui

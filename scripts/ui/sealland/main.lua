@@ -123,7 +123,7 @@ ui.createScrollView = function(l_4_0, l_4_1, l_4_2)
         rewardContainer:setPosition(CCPoint(234, item_h / 2))
         item:addChild(rewardContainer)
         if rewards then
-          for ii = 1,  rewards do
+          for ii = 1, #rewards do
             local reward = rewards[ii]
             local rewardNode = nil
             if reward.type == 1 then
@@ -159,7 +159,7 @@ ui.createScrollView = function(l_4_0, l_4_1, l_4_2)
   local pairsTable = function(l_2_0)
     local a = {}
     for n in pairs(l_2_0) do
-      a[ a + 1] = n
+      a[#a + 1] = n
     end
     table.sort(a)
     local i = 0
@@ -177,9 +177,9 @@ ui.createScrollView = function(l_4_0, l_4_1, l_4_2)
     for k,v in pairsTable(sealLandConfig) do
       if v.type == camp then
         v.id = k
-        data[ data + 1] = v
+        data[#data + 1] = v
         if k == currentLevel then
-          s =  data
+          s = #data
           e = s + 5
         end
       end
@@ -188,9 +188,9 @@ ui.createScrollView = function(l_4_0, l_4_1, l_4_2)
       s = s - 1
       e = e - 1
     end
-    if s == 0 or  data < e then
-      s =  data - 5
-      e =  data
+    if s == 0 or #data < e then
+      s = #data - 5
+      e = #data
     end
     for i = 0, e - (s) do
       local viewItem = createItem(data[s + i], data[s + i].id, i + 1, s + i)
@@ -491,7 +491,7 @@ ui.create = function(l_5_0)
    end)
   local isClickCamp = function(l_18_0, l_18_1)
     if type == 0 then
-      for i = 1,  slots do
+      for i = 1, #slots do
         if main_ani:getAabbBoundingBoxBySlot(slots[i]):containsPoint(CCPoint(l_18_0, l_18_1)) and i ~= 1 then
           return i
         end

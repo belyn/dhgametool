@@ -12,21 +12,21 @@ cfgguildMarket = function(l_1_0, l_1_1)
 end
 
 heromarket.getMaxPage = function()
-  local maxPage = math.floor(( heromarket.goods - 1) / 8) + 1
+  local maxPage = math.floor((#heromarket.goods - 1) / 8) + 1
   return maxPage
 end
 
 heromarket.init = function(l_3_0)
   heromarket.goods = l_3_0.item
   heromarket.pull_time = os.time()
-  for i = 1,  heromarket.goods do
+  for i = 1, #heromarket.goods do
     heromarket.goods[i]._id = i
   end
   table.sort(heromarket.goods, cfgguildMarket)
 end
 
 heromarket.rm = function(l_4_0)
-  for i = 1,  heromarket.goods do
+  for i = 1, #heromarket.goods do
     if i == l_4_0 then
       table.remove(heromarket.goods, l_4_0)
   else

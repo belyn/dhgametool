@@ -187,7 +187,7 @@ cfg.pay = function(l_6_0, l_6_1)
                end)
           return 
         end
-        if (l_1_0.reward.equips and  l_1_0.reward.equips > 0) or l_1_0.reward.items and  l_1_0.reward.items > 0 then
+        if (l_1_0.reward.equips and #l_1_0.reward.equips > 0) or l_1_0.reward.items and #l_1_0.reward.items > 0 then
           require("data.activity").pay()
         end
         if callback then

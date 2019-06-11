@@ -24,7 +24,7 @@ hook.getFortIdByStageId = function(l_2_0)
 end
 
 hook.lastStage = function()
-  return  cfgstage
+  return #cfgstage
 end
 
 hook.getStageLv = function(l_4_0)
@@ -119,14 +119,14 @@ hook.init = function(l_15_0)
     return 
   end
   hook.hids = {}
-  if l_15_0.hids and  l_15_0.hids > 0 then
-    for ii = 1,  l_15_0.hids do
+  if l_15_0.hids and #l_15_0.hids > 0 then
+    for ii = 1, #l_15_0.hids do
       hook.hids[ii] = l_15_0.hids[ii]
     end
   end
   hook.ids = {}
-  if l_15_0.ids and  l_15_0.ids > 0 then
-    for ii = 1,  l_15_0.ids do
+  if l_15_0.ids and #l_15_0.ids > 0 then
+    for ii = 1, #l_15_0.ids do
       hook.ids[ii] = l_15_0.ids[ii]
     end
   end
@@ -139,14 +139,14 @@ hook.pveWin = function()
   local tmp_stage = nil
   local tmp_pve_stage_id = hook.getPveStageId()
   if hook.lastStage() < tmp_pve_stage_id then
-    tmp_stage = cfgstage[ cfgstage].next
+    tmp_stage = cfgstage[#cfgstage].next
   else
     tmp_stage = cfgstage[tmp_pve_stage_id].next
   end
   local achieveData = require("data.achieve")
   local fort = 0
-  if  cfgstage < tmp_stage then
-    fort = cfgstage[ cfgstage].fortId
+  if #cfgstage < tmp_stage then
+    fort = cfgstage[#cfgstage].fortId
   else
     fort = cfgstage[tmp_stage].fortId - 1
   end
@@ -169,11 +169,11 @@ hook.getAllPower = function(l_19_0)
   if not l_19_0 then
     local tmp_hids = hook.hids
   end
-  if not tmp_hids or  tmp_hids == 0 then
+  if not tmp_hids or #tmp_hids == 0 then
     return 0
   end
   local power = 0
-  for ii = 1,  tmp_hids do
+  for ii = 1, #tmp_hids do
     local h = herodata.find(tmp_hids[ii])
     if h then
       power = power + herodata.power(tmp_hids[ii])
@@ -230,7 +230,7 @@ hook.checkTeamChange = function()
   if not hook.hids then
     return false
   end
-  for ii = 1,  hook.hids do
+  for ii = 1, #hook.hids do
     if not herodata.find(hook.hids[ii]) then
       return true
     end

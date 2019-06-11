@@ -24,7 +24,7 @@ ui.create = function()
   local vps = {}
   for _,v in ipairs(vp_ids) do
     local tmp_status = activityData.getStatusById(v)
-    vps[ vps + 1] = tmp_status
+    vps[#vps + 1] = tmp_status
   end
   local board = CCSprite:create()
   board:setContentSize(CCSizeMake(576, 436))
@@ -93,7 +93,7 @@ ui.create = function()
     local start_x = 47
     local step_x = 66
     local rewards = cfgactivity[l_1_0.id].rewards
-    for ii = 1,  rewards do
+    for ii = 1, #rewards do
       local _obj = rewards[ii]
       do
         if _obj.type == ItemType.Equip then
@@ -213,7 +213,7 @@ ui.create = function()
     return sortValue(l_3_0) < sortValue(l_3_1)
    end)
   local showList = function(l_4_0)
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       local tmp_item = createItem(l_4_0[ii])
       tmp_item.obj = l_4_0[ii]
       tmp_item.ax = 0.5

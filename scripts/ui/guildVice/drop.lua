@@ -86,7 +86,7 @@ ui.create = function(l_1_0)
   p_container.ax = 0
   p_container.px = offset_x
   scroll.addItem(p_container)
-  for ii = 1,  cfg.reward do
+  for ii = 1, #cfg.reward do
     local tmp_item = createBtnItem(cfg.reward[ii])
     tmp_item:setPosition(CCPoint(30 + (ii - 1) * 65, 30))
     local tmp_item_menu = CCMenu:createWithItem(tmp_item)
@@ -107,7 +107,7 @@ ui.create = function(l_1_0)
   local rank1_icon = img.createUISprite(img.ui.arena_rank_1)
   rank1_icon:setPosition(CCPoint(20, 30))
   r1_container:addChild(rank1_icon)
-  for ii = 1,  cfg.final1 do
+  for ii = 1, #cfg.final1 do
     local tmp_item = createBtnItem(cfg.final1[ii])
     tmp_item:setPosition(CCPoint(92 + (ii - 1) * 65, 30))
     local tmp_item_menu = CCMenu:createWithItem(tmp_item)
@@ -123,7 +123,7 @@ ui.create = function(l_1_0)
   local rank2_icon = img.createUISprite(img.ui.arena_rank_2)
   rank2_icon:setPosition(CCPoint(20, 30))
   r2_container:addChild(rank2_icon)
-  for ii = 1,  cfg.final2 do
+  for ii = 1, #cfg.final2 do
     local tmp_item = createBtnItem(cfg.final2[ii])
     tmp_item:setPosition(CCPoint(92 + (ii - 1) * 65, 30))
     local tmp_item_menu = CCMenu:createWithItem(tmp_item)
@@ -139,7 +139,7 @@ ui.create = function(l_1_0)
   local rank3_icon = img.createUISprite(img.ui.arena_rank_3)
   rank3_icon:setPosition(CCPoint(20, 30))
   r3_container:addChild(rank3_icon)
-  for ii = 1,  cfg.final3 do
+  for ii = 1, #cfg.final3 do
     local tmp_item = createBtnItem(cfg.final3[ii])
     tmp_item:setPosition(CCPoint(92 + (ii - 1) * 65, 30))
     local tmp_item_menu = CCMenu:createWithItem(tmp_item)
@@ -155,7 +155,7 @@ ui.create = function(l_1_0)
   local rank4_icon = lbl.createFont1(16, "4-10")
   rank4_icon:setPosition(CCPoint(20, 30))
   r4_container:addChild(rank4_icon)
-  for ii = 1,  cfg.final10 do
+  for ii = 1, #cfg.final10 do
     local tmp_item = createBtnItem(cfg.final10[ii])
     tmp_item:setPosition(CCPoint(92 + (ii - 1) * 65, 30))
     local tmp_item_menu = CCMenu:createWithItem(tmp_item)
@@ -171,7 +171,7 @@ ui.create = function(l_1_0)
   local rank11_icon = lbl.createFont1(16, "11-15")
   rank11_icon:setPosition(CCPoint(20, 30))
   r11_container:addChild(rank11_icon)
-  for ii = 1,  cfg.final15 do
+  for ii = 1, #cfg.final15 do
     local tmp_item = createBtnItem(cfg.final15[ii])
     tmp_item:setPosition(CCPoint(92 + (ii - 1) * 65, 30))
     local tmp_item_menu = CCMenu:createWithItem(tmp_item)
@@ -187,7 +187,7 @@ ui.create = function(l_1_0)
   local rank16_icon = lbl.createFont1(16, "16-20")
   rank16_icon:setPosition(CCPoint(20, 30))
   r16_container:addChild(rank16_icon)
-  for ii = 1,  cfg.final20 do
+  for ii = 1, #cfg.final20 do
     local tmp_item = createBtnItem(cfg.final20[ii])
     tmp_item:setPosition(CCPoint(92 + (ii - 1) * 65, 30))
     local tmp_item_menu = CCMenu:createWithItem(tmp_item)
@@ -203,7 +203,7 @@ ui.create = function(l_1_0)
   local rank21_icon = lbl.createFont1(16, "21-N")
   rank21_icon:setPosition(CCPoint(20, 30))
   r21_container:addChild(rank21_icon)
-  for ii = 1,  cfg.final30 do
+  for ii = 1, #cfg.final30 do
     local tmp_item = createBtnItem(cfg.final30[ii])
     tmp_item:setPosition(CCPoint(92 + (ii - 1) * 65, 30))
     local tmp_item_menu = CCMenu:createWithItem(tmp_item)

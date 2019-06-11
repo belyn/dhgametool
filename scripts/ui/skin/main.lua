@@ -273,12 +273,12 @@ ui.create = function(l_2_0)
         showToast(i18n.global.error_server_status_wrong.string .. l_1_0.status)
         return 
       end
-      for i = 1,  l_1_0.skin do
+      for i = 1, #l_1_0.skin do
         bag.equips.add(l_1_0.skin[i])
       end
       bag.items.sub({id = piece.id, num = forgeNum * costCount})
       getDataAndCreateList()
-      if  l_1_0.skin == 1 and l_1_0.skin[1].num == 1 then
+      if #l_1_0.skin == 1 and l_1_0.skin[1].num == 1 then
         local pop = createPopupPieceBatchSummonResult(l_1_0.skin[1].id, 1)
         layer:addChild(pop, 1000)
       else
@@ -299,7 +299,7 @@ ui.create = function(l_2_0)
     local curlayer = CCLayer:create()
     local SCROLLVIEW_WIDTH = 710
     local SCROLLVIEW_HEIGHT = 411
-    local SCROLLCONTENT_HEIGHT = 23 + 100 * math.ceil( l_8_0 / 7)
+    local SCROLLCONTENT_HEIGHT = 23 + 100 * math.ceil(#l_8_0 / 7)
     local scroll = CCScrollView:create()
     scroll:setDirection(kCCScrollViewDirectionVertical)
     scroll:setAnchorPoint(ccp(0, 0))
@@ -337,7 +337,7 @@ ui.create = function(l_2_0)
     for i,v in ipairs(l_8_0) do
       createItem(i, v)
     end
-    if  l_8_0 == 0 then
+    if #l_8_0 == 0 then
       local empty = require("ui.empty").create({text = i18n.global.skin_nopiece.string, color = ccc3(217, 187, 157)})
       empty:setPosition(board:getContentSize().width / 2, board:getContentSize().height / 2)
       curlayer:addChild(empty)
@@ -475,7 +475,7 @@ ui.create = function(l_2_0)
         getDataAndCreateList()
         local reward = {}
         reward.items = {}
-        reward.items[ reward.items + 1] = {id = ITEM_ID_PIECE_SKIN, num = 5}
+        reward.items[#reward.items + 1] = {id = ITEM_ID_PIECE_SKIN, num = 5}
         layer:addChild(require("ui.tips.reward").create(reward), 1000)
          end)
       end)
@@ -509,7 +509,7 @@ ui.create = function(l_2_0)
     local curlayer = CCLayer:create()
     local SCROLLVIEW_WIDTH = 710
     local SCROLLVIEW_HEIGHT = 411
-    local SCROLLCONTENT_HEIGHT = 23 + 174 * math.ceil( l_10_0 / 5)
+    local SCROLLCONTENT_HEIGHT = 23 + 174 * math.ceil(#l_10_0 / 5)
     local scroll = CCScrollView:create()
     scroll:setDirection(kCCScrollViewDirectionVertical)
     scroll:setAnchorPoint(ccp(0, 0))
@@ -560,7 +560,7 @@ ui.create = function(l_2_0)
       end
       createItem(i, v)
     end
-    local skinCount =  l_10_0
+    local skinCount = #l_10_0
     local showAfter = function()
       if initShowCount < skinCount then
         initShowCount = initShowCount + 1
@@ -654,7 +654,7 @@ ui.create = function(l_2_0)
         if not group or cfghero[v.id].group == group then
           for i,vv in ipairs(v.equips) do
             if cfgequip[vv].pos == EQUIP_POS_SKIN then
-              skinlist[ skinlist + 1] = {id = vv, num = 1, flag = false}
+              skinlist[#skinlist + 1] = {id = vv, num = 1, flag = false}
             end
           end
         end
@@ -669,7 +669,7 @@ ui.create = function(l_2_0)
       local pieces = {}
       for _,v in ipairs(bag.items) do
         if cfgitem[v.id].type == 9 then
-          pieces[ pieces + 1] = v
+          pieces[#pieces + 1] = v
         end
       end
       if showHeroLayer then
@@ -681,7 +681,7 @@ ui.create = function(l_2_0)
     else
       for _,v in pairs(cfgequip) do
         if v.pos == EQUIP_POS_SKIN and (not group or cfghero[v.heroId[1]].group == group) then
-          skinlist[ skinlist + 1] = {id = _, num = 1}
+          skinlist[#skinlist + 1] = {id = _, num = 1}
         end
       end
       if showHeroLayer then

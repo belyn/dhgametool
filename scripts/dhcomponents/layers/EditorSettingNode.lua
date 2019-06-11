@@ -1,4 +1,4 @@
--- Command line was: scripts\dhcomponents\layers\EditorSettingNode.lua 
+-- Command line was: E:\github\dhgametool\scripts\dhcomponents\layers\EditorSettingNode.lua 
 
 local UIButton = require("dhcomponents.ui.UIButton")
 local EditorAttributeNode = require("dhcomponents.layers.EditorAttributeNode")
@@ -14,7 +14,7 @@ EditorSettingNode.initUI = function(l_2_0)
   container:setContentSize(cc.size(width, height))
   local nodeInfoAry = l_2_0.selectedInfo.nodeInfoAry
   local specifyNode = nil
-  if  l_2_0.selectedInfo.nodeInfoAry == 1 then
+  if #l_2_0.selectedInfo.nodeInfoAry == 1 then
     specifyNode = nodeInfoAry[1].node
   end
   l_2_0:fixBaseAttributeNodePos(true)

@@ -385,7 +385,7 @@ EditorLayer.onCheckBoxOpt = function(l_13_0, l_13_1)
   end
   local same = true
   if l_13_0.selectedInfo then
-    if  resNodeAry ==  l_13_0.selectedInfo.nodeInfoAry then
+    if #resNodeAry == #l_13_0.selectedInfo.nodeInfoAry then
       for i,node in ipairs(resNodeAry) do
         if node ~= l_13_0.selectedInfo.nodeInfoAry[i].node then
           do return end
@@ -706,7 +706,7 @@ EditorLayer.recalculationSelectedNodeCenter = function(l_21_0)
 end
 
 EditorLayer.onSelectedNode = function(l_22_0, l_22_1)
-  local count =  l_22_1
+  local count = #l_22_1
   if count <= 0 then
     return 
   end
@@ -724,7 +724,7 @@ EditorLayer.onSelectedNode = function(l_22_0, l_22_1)
     end
   end
   l_22_1 = newNodeAry
-  count =  l_22_1
+  count = #l_22_1
   l_22_0.selectedInfo = {nodeInfoAry = {}}
   local center = cc.p(0, 0)
   for _,node in ipairs(l_22_1) do
@@ -746,7 +746,7 @@ EditorLayer.showBaseAttributeNode = function(l_23_0)
   if not l_23_0.selectedInfo then
     return 
   end
-  if  l_23_0.selectedInfo.nodeInfoAry <= 0 then
+  if #l_23_0.selectedInfo.nodeInfoAry <= 0 then
     return 
   end
   local EditorAttributeNode = require("dhcomponents.layers.EditorAttributeNode")
@@ -759,7 +759,7 @@ EditorLayer.showSettingNode = function(l_24_0)
   if not l_24_0.selectedInfo then
     return 
   end
-  if  l_24_0.selectedInfo.nodeInfoAry <= 0 then
+  if #l_24_0.selectedInfo.nodeInfoAry <= 0 then
     return 
   end
   local EditorAttributeNode = require("dhcomponents.layers.EditorSettingNode")

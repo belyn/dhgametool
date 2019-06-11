@@ -30,7 +30,7 @@ ui.create = function()
   local vps = {}
   for _,v in ipairs(vp_ids) do
     local tmp_status = activityData.getStatusById(v)
-    vps[ vps + 1] = tmp_status
+    vps[#vps + 1] = tmp_status
   end
   local board = CCSprite:create()
   board:setContentSize(CCSizeMake(576, 436))
@@ -74,7 +74,7 @@ ui.create = function()
       img.load(img.packedOthers.spine_ui_christmas_greetingcard_boom)
       json.load(json.ui.chirstmas_greetingcard_boom)
       local affix_socks = {15, -4, 0, 18}
-      for i = 1,  vps do
+      for i = 1, #vps do
         ani_container[i] = CCSprite:create()
         ani_container[i]:setContentSize(CCSizeMake(84, 126))
         json.load(json_name[i])
@@ -144,12 +144,12 @@ ui.create = function()
             end
             if l_1_0.reward then
               if l_1_0.reward.items then
-                for i = 1,  l_1_0.reward.items do
+                for i = 1, #l_1_0.reward.items do
                   bag.items.add(l_1_0.reward.items[i])
                 end
               end
               if l_1_0.reward.equips then
-                for i = 1,  l_1_0.reward.equips do
+                for i = 1, #l_1_0.reward.equips do
                   bag.equips.add(l_1_0.reward.equips[i])
                 end
               end
@@ -221,7 +221,7 @@ ui.create = function()
           img.unload(img.packedOthers.spine_ui_christmas_greetingcard)
           img.unload(img.packedOthers.spine_ui_christmas_greetingcard_boom)
           json.unload(json.ui.chirstmas_greetingcard_boom)
-          for i = 1,  json_name do
+          for i = 1, #json_name do
             json.unload(json_name[i])
           end
         end
@@ -284,14 +284,14 @@ ui.createGiftDialog = function(l_2_0)
         local cloreward = clone(reward)
         if cloreward.items then
           do
-            for i = 1,  cloreward.items do
+            for i = 1, #cloreward.items do
               do
                 local obj = cloreward.items[i]
                 do
                   local item = img.createItem(obj.id, obj.num)
                   local itembtn = SpineMenuItem:create(json.ui.button, item)
                   itembtn:setScale(0.9)
-                  if  cloreward.items <= 3 then
+                  if #cloreward.items <= 3 then
                     itembtn:setPosition(sx + (i - 1) * dis, sy - dis / 2)
                   else
                     itembtn:setPosition(sx + (i - 1) % 3 * dis, sy - math.floor(i / 4) * dis)
@@ -360,12 +360,12 @@ ui.createGiftDialog = function(l_2_0)
       board:addChild(unlockmore0)
     end
   else
-    for i = 1,  cfgchristmas[sockId].rewards do
+    for i = 1, #cfgchristmas[sockId].rewards do
       local obj = cfgchristmas[sockId].rewards[i]
       local item = img.createItem(obj.id, obj.num * day)
       local itembtn = SpineMenuItem:create(json.ui.button, item)
       itembtn:setScale(0.9)
-      if  cfgchristmas[sockId].rewards <= 3 then
+      if #cfgchristmas[sockId].rewards <= 3 then
         itembtn:setPosition(sx + (i - 1) * dis, sy - dis / 2)
       else
         itembtn:setPosition(sx + (i - 1) % 3 * dis, sy - math.floor(i / 4) * dis)
@@ -454,7 +454,7 @@ ui.unlockReward = function(l_3_0)
   tipsbg:addChild(line)
   local sockId = l_3_0.id
   tipslayer.tipsTag = false
-  for i = 1,  cfgchristmas[sockId].rewards do
+  for i = 1, #cfgchristmas[sockId].rewards do
     do
       local item = nil
       if l_3_0.limits == 0 then
@@ -470,7 +470,7 @@ ui.unlockReward = function(l_3_0)
         item = img.createItem(cfgchristmas[sockId].rewards[i].id, cfgchristmas[sockId].rewards[i].num * l_3_0.limits)
       end
       local itembtn = SpineMenuItem:create(json.ui.button, item)
-      itembtn:setPosition(tipsbg:getContentSize().width / 2 - ( cfgchristmas[sockId].rewards - 1) * 53 + (i - 1) * 106, 78)
+      itembtn:setPosition(tipsbg:getContentSize().width / 2 - (#cfgchristmas[sockId].rewards - 1) * 53 + (i - 1) * 106, 78)
       local iconMenu = CCMenu:createWithItem(itembtn)
       iconMenu:setPosition(0, 0)
       tipsbg:addChild(iconMenu)

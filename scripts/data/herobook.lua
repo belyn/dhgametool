@@ -10,7 +10,7 @@ herobook.init = function(l_1_0)
     local heroIds = {}
   end
   for _,id in ipairs(heroIds) do
-    herobook[ herobook + 1] = id
+    herobook[#herobook + 1] = id
   end
   local headdata = require("data.head")
   headdata.init()
@@ -18,7 +18,7 @@ end
 
 herobook.add = function(l_2_0)
   if not arraycontains(herobook, l_2_0) then
-    herobook[ herobook + 1] = l_2_0
+    herobook[#herobook + 1] = l_2_0
     if QUALITY_4 <= cfghero[l_2_0].qlt then
       local headdata = require("data.head")
       headdata.add(l_2_0)

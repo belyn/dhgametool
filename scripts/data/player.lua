@@ -25,11 +25,11 @@ player.exp = function()
 end
 
 player.maxLv = function()
-  return  cfgexpplayer
+  return #cfgexpplayer
 end
 
 player.maxExp = function()
-  return cfgexpplayer[ cfgexpplayer].allExp
+  return cfgexpplayer[#cfgexpplayer].allExp
 end
 
 player.lv = function(l_5_0)
@@ -54,11 +54,11 @@ player.lv = function(l_5_0)
 end
 
 player.maxVipLv = function()
-  return  cfgvip
+  return #cfgvip
 end
 
 player.maxVipExp = function()
-  return cfgvip[ cfgvip].exp
+  return cfgvip[#cfgvip].exp
 end
 
 player.vipLv = function(l_8_0)

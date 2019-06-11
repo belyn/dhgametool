@@ -50,7 +50,7 @@ ui.createSelectBoard = function(l_1_0, l_1_1)
    end)
   local cfg = cfgactivity[l_1_0.id]
   local cfgrewards = cfg.rewards
-  local height = 155 *  cfgrewards
+  local height = 155 * #cfgrewards
   local scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionVertical)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -59,7 +59,7 @@ ui.createSelectBoard = function(l_1_0, l_1_1)
   scroll:setContentSize(CCSize(520, height))
   board:addChild(scroll)
   local tick = {}
-  for i = 1,  cfgrewards do
+  for i = 1, #cfgrewards do
     do
       local temp_item = img.createUI9Sprite(img.ui.bottom_border_2)
       temp_item:setPreferredSize(CCSizeMake(463, 145))
@@ -71,7 +71,7 @@ ui.createSelectBoard = function(l_1_0, l_1_1)
       labSuitname:setAnchorPoint(0, 0.5)
       labSuitname:setPosition(25, temp_item:getContentSize().height - 28)
       temp_item:addChild(labSuitname)
-      for ii = 1,  _objgift do
+      for ii = 1, #_objgift do
         local _obj = _objgift[ii]
         do
           if _obj.type == ItemType.Equip then
@@ -168,7 +168,7 @@ ui.create = function()
   local acts = {}
   for _,v in ipairs(act_ids) do
     local tmp_status = activityData.getStatusById(v)
-    acts[ acts + 1] = tmp_status
+    acts[#acts + 1] = tmp_status
   end
   local actsInfo = {1 = {id = IDS.DWARF_1.ID, index = nil}, 2 = {id = IDS.DWARF_2.ID, index = nil}, 3 = {id = IDS.DWARF_3.ID, index = 0}}
   local board = CCSprite:create()
@@ -237,8 +237,8 @@ ui.create = function()
       setShader(itemParams[l_1_0].btnMake, SHADER_GRAY, true)
       itemParams[l_1_0].btnMake:setEnabled(false)
     end
-    for posi = l_1_0,  itemParams do
-      for i = 1,  itemParams[posi]._equipsLabel do
+    for posi = l_1_0, #itemParams do
+      for i = 1, #itemParams[posi]._equipsLabel do
         itemParams[posi]._equipsLabel[i]:setString(itemParams[posi].equipNum[i] .. "/1")
         if itemParams[posi].equipNum[i] < 1 then
           itemParams[posi]._equipsLabel[i]:setColor(ccc3(250, 53, 53))
@@ -247,7 +247,7 @@ ui.create = function()
         end
       end
       local flagbtn = true
-      for i = 1,  itemParams[posi]._equipsLabel do
+      for i = 1, #itemParams[posi]._equipsLabel do
         if itemParams[posi].equipNum[i] < 1 then
           setShader(itemParams[posi].btnMake, SHADER_GRAY, true)
           itemParams[posi].btnMake:setEnabled(false)
@@ -314,7 +314,7 @@ ui.create = function()
           showToast(i18n.global.pet_smaterial_not_enough.string)
           return 
         end
-        for ii = 1,  cfg.extra do
+        for ii = 1, #cfg.extra do
           local _obj = cfg.extra[ii]
           if _obj.type == ItemType.Equip then
             bag.equips.sub({id = _obj.id, num = _obj.num})
@@ -324,24 +324,24 @@ ui.create = function()
         end
         local reward = {items = {}, equips = {}}
         if vpObj.index then
-          for ii = 1,  cfggift[cfg.rewards[vpObj.index].id].giftGoods do
+          for ii = 1, #cfggift[cfg.rewards[vpObj.index].id].giftGoods do
             local _obj = cfggift[cfg.rewards[vpObj.index].id].giftGoods[ii]
             bag.equips.add({id = _obj.id, num = _obj.num})
             table.insert(reward.equips, {id = _obj.id, num = _obj.num})
           end
         else
-          for ii = 1,  cfg.rewards do
+          for ii = 1, #cfg.rewards do
             local _obj = cfg.rewards[ii]
             bag.equips.add({id = _obj.id, num = _obj.num})
             table.insert(reward.equips, {id = _obj.id, num = _obj.num})
           end
         end
         acts[pos].limits = acts[pos].limits - 1
-        for ii = 1,  itemParams[pos].equipNum do
+        for ii = 1, #itemParams[pos].equipNum do
           itemParams[pos].equipNum[ii] = itemParams[pos].equipNum[ii] - 1
         end
-        if pos <  itemParams then
-          for ii = 1,  itemParams[pos + 1].equipNum do
+        if pos < #itemParams then
+          for ii = 1, #itemParams[pos + 1].equipNum do
             itemParams[pos + 1].equipNum[ii] = itemParams[pos + 1].equipNum[ii] + 1
           end
         end
@@ -389,7 +389,7 @@ ui.create = function()
     local sx, dx = 84, 72
     local equipNum = {}
     local _equipsLabel = {}
-    for ii = 3,  cfg.extra do
+    for ii = 3, #cfg.extra do
       local _obj = cfg.extra[ii]
       do
         if _obj.type == ItemType.Equip then
@@ -428,7 +428,7 @@ ui.create = function()
       end
     end
     if cfg.instruct == 1 then
-      for ii = 1,  cfg.rewards do
+      for ii = 1, #cfg.rewards do
         local _obj = cfg.rewards[ii]
         if _obj.type == ItemType.Equip then
           local _item0 = img.createEquip(_obj.id, 1)
@@ -461,7 +461,7 @@ ui.create = function()
     elseif cfg.instruct == 0 then
       if l_4_0.index ~= 0 then
         local _objgift = cfggift[cfg.rewards[l_4_0.index].id].giftGoods
-        for ii = 1,  _objgift do
+        for ii = 1, #_objgift do
           local _obj = _objgift[ii]
           if _obj.type == ItemType.Equip then
             local _item0 = img.createEquip(_obj.id, 1)
@@ -562,7 +562,7 @@ ui.create = function()
       setShader(btnMake, SHADER_GRAY, true)
       btnMake:setEnabled(false)
     end
-    for ii = 1,  equipNum do
+    for ii = 1, #equipNum do
       if equipNum[ii] < 1 then
         setShader(btnMake, SHADER_GRAY, true)
         btnMake:setEnabled(false)
@@ -589,8 +589,8 @@ ui.create = function()
   layer.scroll = scroll
   local tmp_item = {}
   showList = function(l_5_0)
-    if  tmp_item > 0 then
-      for ii = 1,  tmp_item do
+    if #tmp_item > 0 then
+      for ii = 1, #tmp_item do
         tmp_item[ii]:removeFromParentAndCleanup(true)
       end
       scroll:removeFromParentAndCleanup(true)
@@ -602,7 +602,7 @@ ui.create = function()
       layer:removeChildByTag(101)
       require("ui.activity.ban").addBan(layer, scroll)
     end
-    for ii = 1,  l_5_0 do
+    for ii = 1, #l_5_0 do
       if ii == 1 then
         scroll.addSpace(3)
       end
@@ -630,16 +630,16 @@ ui.create = function()
       local time_str = time2string(remain_cd)
       lbl_cd:setString(time_str)
     else
-      if  coinNum >= 3 then
-        for ii = 1,  coinNum do
+      if #coinNum >= 3 then
+        for ii = 1, #coinNum do
           if bag.coin() < coinNum[ii] then
             showCoin[ii]:setColor(ccc3(250, 53, 53))
           else
             showCoin[ii]:setColor(ccc3(255, 247, 229))
           end
         end
-        if  gemNum >= 3 then
-          for ii = 1,  gemNum do
+        if #gemNum >= 3 then
+          for ii = 1, #gemNum do
             if bag.gem() < gemNum[ii] then
               showGem[ii]:setColor(ccc3(250, 53, 53))
             else

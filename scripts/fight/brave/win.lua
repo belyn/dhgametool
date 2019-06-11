@@ -14,7 +14,7 @@ ui.create = function(l_1_0)
   layer.addOkButton(function()
     require("fight.brave.loading").backToUI(video)
    end)
-  if l_1_0.hurts and  l_1_0.hurts > 0 then
+  if l_1_0.hurts and #l_1_0.hurts > 0 then
     layer.addHurtsButton(l_1_0.atk.camp, l_1_0.def.camp, l_1_0.hurts, l_1_0)
   end
   if l_1_0.rewards and l_1_0.select then
@@ -24,10 +24,10 @@ ui.create = function(l_1_0)
     local equips, items = {}, {}
     for _,r in ipairs(l_1_0.reward) do
       if r.type == 1 then
-        items[ items + 1] = {id = r.id, num = r.num}
+        items[#items + 1] = {id = r.id, num = r.num}
         for _,r in (for generator) do
         end
-        equips[ equips + 1] = {id = r.id, num = r.num}
+        equips[#equips + 1] = {id = r.id, num = r.num}
       end
       layer.addRewardIcons({equips = equips, items = items})
       return layer

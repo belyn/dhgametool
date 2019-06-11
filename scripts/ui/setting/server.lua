@@ -30,19 +30,19 @@ end
 local processServers = function(l_2_0)
   local rlist = {}
   local marksid = {}
-  for ii = 1,  l_2_0 do
+  for ii = 1, #l_2_0 do
     local tobj = l_2_0[ii]
     if not marksid["" .. tobj.sid] then
-      rlist[ rlist + 1] = tobj
+      rlist[#rlist + 1] = tobj
       marksid["" .. tobj.sid] = tobj
     else
       if not marksid["" .. tobj.sid].extra then
         marksid["" .. tobj.sid].extra = {}
         local textra = marksid["" .. tobj.sid].extra
-        textra[ textra + 1] = marksid["" .. tobj.sid]
+        textra[#textra + 1] = marksid["" .. tobj.sid]
       end
       local textra = marksid["" .. tobj.sid].extra
-      textra[ textra + 1] = tobj
+      textra[#textra + 1] = tobj
     end
   end
   return rlist
@@ -123,7 +123,7 @@ ui.create = function()
     table.sort(l_3_0, function(l_1_0, l_1_1)
       return sortValue(l_1_1) < sortValue(l_1_0)
       end)
-    if not l_3_0 or  l_3_0 == 0 then
+    if not l_3_0 or #l_3_0 == 0 then
       return 
     end
     arrayclear(list_items)
@@ -132,20 +132,20 @@ ui.create = function()
     scroll:setPosition(CCPoint(23, 16))
     board:addChild(scroll)
     board.scroll = scroll
-    for ii = 1,  l_3_0, 2 do
+    for ii = 1, #l_3_0, 2 do
       local tmp_item = CCSprite:create()
       tmp_item:setContentSize(CCSizeMake(685, 90))
       local tmp_server_item = createItem(l_3_0[ii])
       tmp_server_item.container = tmp_item
       tmp_server_item.obj = l_3_0[ii]
-      list_items[ list_items + 1] = tmp_server_item
+      list_items[#list_items + 1] = tmp_server_item
       tmp_server_item:setPosition(CCPoint(169, 45))
       tmp_item:addChild(tmp_server_item)
       if l_3_0[ii + 1] then
         local tmp_server_item2 = createItem(l_3_0[ii + 1])
         tmp_server_item2.container = tmp_item
         tmp_server_item2.obj = l_3_0[ii + 1]
-        list_items[ list_items + 1] = tmp_server_item2
+        list_items[#list_items + 1] = tmp_server_item2
         tmp_server_item2:setPosition(CCPoint(517, 45))
         tmp_item:addChild(tmp_server_item2)
       end
@@ -199,7 +199,7 @@ ui.create = function()
       upvalue_1024 = false
       return false
     end
-    for ii = 1,  list_items do
+    for ii = 1, #list_items do
       local p1 = list_items[ii].container:convertToNodeSpace(ccp(l_6_0, l_6_1))
       if list_items[ii]:boundingBox():containsPoint(p1) then
         playAnimTouchBegin(list_items[ii])
@@ -228,7 +228,7 @@ ui.create = function()
     end
     if isclick then
       local content_layer = board.scroll.content_layer
-      for ii = 1,  list_items do
+      for ii = 1, #list_items do
         local p0 = list_items[ii].container:convertToNodeSpace(ccp(l_8_0, l_8_1))
         if list_items[ii]:boundingBox():containsPoint(p0) then
           onClickItem(list_items[ii])

@@ -177,7 +177,7 @@ ui.create = function(l_1_0)
   scroll:setContentSize(CCSize(539, 0))
   bg1:addChild(scroll)
   local loadRank = function(l_8_0)
-    local height = 86 *  l_8_0 + 3
+    local height = 86 * #l_8_0 + 3
     scroll:getContainer():removeAllChildrenWithCleanup(true)
     scroll:setContentSize(CCSize(539, height))
     scroll:setContentOffset(ccp(0, 382 - height))
@@ -250,7 +250,7 @@ ui.create = function(l_1_0)
           arenaData.members = l_1_0.members
           loadRank(l_1_0.members)
         end
-        for i = 1,  arenaData.members do
+        for i = 1, #arenaData.members do
           if arenaData.members[i].uid == player.uid then
             arenaData.rank = i
             if arenaData.trank and arenaData.rank < arenaData.trank then

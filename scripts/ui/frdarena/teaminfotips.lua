@@ -73,7 +73,7 @@ tips.create = function(l_1_0)
     bitemBg:setAnchorPoint(0.5, 0)
     bitemBg:setPosition(TIPS_WIDTH / 2, sy - dy * (i - 1))
     board:addChild(bitemBg)
-    if i <=  l_1_0.mbrs then
+    if i <= #l_1_0.mbrs then
       local itemBg = img.createUI9Sprite(img.ui.botton_fram_2)
       itemBg:setPreferredSize(CCSize(item_w, item_h))
       itemBg:setAnchorPoint(0.5, 0)

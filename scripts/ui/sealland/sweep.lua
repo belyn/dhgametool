@@ -247,12 +247,12 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
           local rewards = {equips = {}, items = {}}
           for k,v in pairs(sealLandConfig) do
             if v and v.reward and k == levelId then
-              for index = 1,  v.reward do
+              for index = 1, #v.reward do
                 local reward = v.reward[index]
                 if reward.type == 1 then
-                  rewards.items[ rewards.items + 1] = {id = reward.id, num = reward.num * ticket_count}
+                  rewards.items[#rewards.items + 1] = {id = reward.id, num = reward.num * ticket_count}
                 elseif reward.type == 2 then
-                  rewards.equips[ rewards.equips + 1] = {id = reward.id, num = reward.num * ticket_count}
+                  rewards.equips[#rewards.equips + 1] = {id = reward.id, num = reward.num * ticket_count}
                 end
               end
             end

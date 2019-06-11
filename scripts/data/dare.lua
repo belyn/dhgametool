@@ -22,7 +22,7 @@ local init = function()
       end
     end
     item.idx = idx
-    ptbl[ ptbl + 1] = item
+    ptbl[#ptbl + 1] = item
   end
 end
 

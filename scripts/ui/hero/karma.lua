@@ -37,7 +37,7 @@ karma.create = function(l_1_0)
   board:addChild(scroll)
   local link = {}
   if cfghero[l_1_0.id].linkId then
-    link[ link + 1] = cfghero[l_1_0.id].linkId
+    link[#link + 1] = cfghero[l_1_0.id].linkId
   end
   for i = 1, 10 do
     local showKarmaBg = img.createUI9Sprite(img.ui.botton_fram_2)

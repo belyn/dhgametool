@@ -114,8 +114,8 @@ TcpAgent.connect = function(l_8_0, l_8_1, l_8_2)
       tbl2string(l_1_0)
       local addr_ip = host
       local ipv6 = false
-      if l_1_0 and  l_1_0 > 0 then
-        for ii = 1,  l_1_0 do
+      if l_1_0 and #l_1_0 > 0 then
+        for ii = 1, #l_1_0 do
           if l_1_0[ii].status ~= 0 then
             if l_1_0[ii].status and host then
               local eventInfo = {event_type = "error", event_name = "DNS Error", silence = "1", event_value = {desc = "dns status:" .. l_1_0[ii].status .. " host:" .. host}}
@@ -143,7 +143,7 @@ TcpAgent.connect = function(l_8_0, l_8_1, l_8_2)
         if not ipv6 then
           local eventInfo = {event_type = "error", event_name = "DNS not Find ipv6", silence = "1", event_value = {desc = "no ipv6 response, try ipv4"}}
           reportEvent(eventInfo)
-          for ii = 1,  l_1_0 do
+          for ii = 1, #l_1_0 do
             if l_1_0[ii].ipType == 0 then
               addr_ip = l_1_0[ii].ip
               ipv6 = false
@@ -202,9 +202,9 @@ TcpAgent.parseHeader = function(l_14_0, l_14_1)
         return 
       end
       event_name = "EVENT_CMD_" .. rcv_type .. "_" .. rcv_cmd
-      l_14_0.__data[ l_14_0.__data + 1] = l_14_1
+      l_14_0.__data[#l_14_0.__data + 1] = l_14_1
       local _dispatch_data = nil
-      if  l_14_0.__data > 0 then
+      if #l_14_0.__data > 0 then
         _dispatch_data = table.concat(l_14_0.__data)
       end
       l_14_0._last_isCompleted = true
@@ -218,7 +218,7 @@ TcpAgent.parseHeader = function(l_14_0, l_14_1)
       l_14_0._last_pos = toPos + data_len - 1
       l_14_0._last_need_len = l_14_0._last_need_len - data_len
       l_14_0._last_isCompleted = false
-      l_14_0.__data[ l_14_0.__data + 1] = l_14_1
+      l_14_0.__data[#l_14_0.__data + 1] = l_14_1
       return 
     elseif l_14_0._last_need_len < data_len then
       _ba:setPos(toPos)
@@ -228,9 +228,9 @@ TcpAgent.parseHeader = function(l_14_0, l_14_1)
         return 
       end
       event_name = "EVENT_CMD_" .. rcv_type .. "_" .. rcv_cmd
-      l_14_0.__data[ l_14_0.__data + 1] = string.sub(l_14_1, 1, l_14_0._last_need_len)
+      l_14_0.__data[#l_14_0.__data + 1] = string.sub(l_14_1, 1, l_14_0._last_need_len)
       local _dispatch_data = nil
-      if  l_14_0.__data > 0 then
+      if #l_14_0.__data > 0 then
         _dispatch_data = table.concat(l_14_0.__data)
       end
       local remain_data = string.sub(l_14_1, l_14_0._last_need_len + 1, -1)
@@ -241,12 +241,12 @@ TcpAgent.parseHeader = function(l_14_0, l_14_1)
       l_14_0:dispatchEvent({name = event_name, data = _dispatch_data, error = 0})
       return l_14_0:parseHeader(remain_data)
     else
-      if  l_14_0.__data > 0 and  l_14_0.__data[1] < CONFIG_PROTOCOL_HEADER_LEN_RECV then
+      if #l_14_0.__data > 0 and #l_14_0.__data[1] < CONFIG_PROTOCOL_HEADER_LEN_RECV then
         l_14_0.__data[1] = l_14_0.__data[1] .. l_14_1
       else
-        l_14_0.__data[ l_14_0.__data + 1] = l_14_1
+        l_14_0.__data[#l_14_0.__data + 1] = l_14_1
       end
-      if  l_14_0.__data[1] < CONFIG_PROTOCOL_HEADER_LEN_RECV then
+      if #l_14_0.__data[1] < CONFIG_PROTOCOL_HEADER_LEN_RECV then
         return 
       end
       _ba:setPos(toPos)
@@ -256,11 +256,11 @@ TcpAgent.parseHeader = function(l_14_0, l_14_1)
       if not l_14_0:isValideHeader(rcv_type, rcv_cmd) then
         return 
       end
-      data_len =  l_14_0.__data[1]
+      data_len = #l_14_0.__data[1]
       if rcv_len + TcpAgent.FIRST_FIELD_LEN == data_len then
         event_name = "EVENT_CMD_" .. rcv_type .. "_" .. rcv_cmd
         local _dispatch_data = nil
-        if  l_14_0.__data > 0 then
+        if #l_14_0.__data > 0 then
           _dispatch_data = table.concat(l_14_0.__data)
         end
         l_14_0._last_isCompleted = true

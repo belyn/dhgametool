@@ -119,7 +119,7 @@ ui.create = function()
     DHPayment:getInstance():restore(function(l_1_0, l_1_1)
       print("iap pull {")
       print("status", l_1_0)
-      if l_1_0 ~= "ok" or  l_1_1 == 0 then
+      if l_1_0 ~= "ok" or #l_1_1 == 0 then
         delWaitNet()
         print("iap pull }")
         return 

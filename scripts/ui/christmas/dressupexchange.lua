@@ -52,9 +52,9 @@ ui.create = function(l_1_0, l_1_1)
   end
   local board_height = BOARD_HEIGHT
   local inner_board_height = INNER_BOARD_HEIGHT
-  if  wish_arr > 0 and  wish_arr < 4 then
-    board_height = BOARD_HEIGHT - (CELL_HEIGHT + CELL_SPACE) * (3 -  wish_arr) - 38
-    inner_board_height = INNER_BOARD_HEIGHT - (CELL_HEIGHT + CELL_SPACE) * (3 -  wish_arr) - 38
+  if #wish_arr > 0 and #wish_arr < 4 then
+    board_height = BOARD_HEIGHT - (CELL_HEIGHT + CELL_SPACE) * (3 - #wish_arr) - 38
+    inner_board_height = INNER_BOARD_HEIGHT - (CELL_HEIGHT + CELL_SPACE) * (3 - #wish_arr) - 38
   end
   local layer = CCLayer:create()
   local darkbg = CCLayerColor:create(ccc4(0, 0, 0, POPUP_DARK_OPACITY))
@@ -236,7 +236,7 @@ ui.create = function(l_1_0, l_1_1)
             reward0 = img.createEquip(v.id, v.num)
           end
           if reward0 then
-            if  wish_arr <= unlocked_count then
+            if #wish_arr <= unlocked_count then
               local img_size = reward0:getContentSize()
               local mask_img = img.createUISprite(img.ui.hero_head_shade)
               mask_img:setOpacity(120)
@@ -274,7 +274,7 @@ ui.create = function(l_1_0, l_1_1)
     local inner_board_posy = (board_height) / 2 - 70
     inner_board:setPosition(CCPoint(BOARD_WIDTH / 2, inner_board_posy))
     board:addChild(inner_board)
-    if  wish_arr > 3 then
+    if #wish_arr > 3 then
       local scroll_params = {width = INNER_BOARD_WIDTH, height = inner_board_height - 6}
       local lineScroll = require("ui.lineScroll")
       local scroll = lineScroll.create(scroll_params)
@@ -311,7 +311,7 @@ ui.create = function(l_1_0, l_1_1)
     else
       for i,v in ipairs(wish_arr) do
         local item_cell = createCell(v)
-        item_cell:setPosition(CCPoint(BOARD_WIDTH / 2, inner_board_posy + ( wish_arr / 2 + 0.5 - i) * (CELL_HEIGHT + CELL_SPACE) - 1))
+        item_cell:setPosition(CCPoint(BOARD_WIDTH / 2, inner_board_posy + (#wish_arr / 2 + 0.5 - i) * (CELL_HEIGHT + CELL_SPACE) - 1))
         board:addChild(item_cell)
       end
     end

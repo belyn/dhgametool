@@ -14,7 +14,7 @@ ui.create = function()
     img.load(img.packedOthers.fightLoading[bgIndex])
   end
   local layer = require("fight.loadingbg.bg" .. bgIndex).create()
-  local tipsIndex = math.random( i18n.loadingtips)
+  local tipsIndex = math.random(#i18n.loadingtips)
   layer.setHint(i18n.loadingtips[tipsIndex].tips)
   layer.startLoading = function(l_1_0, l_1_1, l_1_2)
     schedule(layer, function()
@@ -24,7 +24,7 @@ ui.create = function()
    end
   local beginTime = os.time()
   layer.loadFight = function(l_2_0, l_2_1, l_2_2)
-    local sum, num =  l_2_0, 0
+    local sum, num = #l_2_0, 0
     img.loadAsync(l_2_0, function()
       num = num + 1
       if layer.setPercentageForProgress then

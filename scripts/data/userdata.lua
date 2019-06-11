@@ -80,7 +80,7 @@ userdata.getSquad = function(l_10_0)
   local str = userdata.getString(l_10_0)
   local h = string.split(str, ",")
   for i,v in ipairs(h) do
-    hids[ hids + 1] = tonumber(v) or 0
+    hids[#hids + 1] = tonumber(v) or 0
   end
   for k,v in pairs(hids) do
     if hids[k] == -1 then
@@ -89,7 +89,7 @@ userdata.getSquad = function(l_10_0)
   end
    -- DECOMPILER ERROR: unhandled construct in 'if'
 
-  if  hids <= 7 and hids[7] == 0 then
+  if #hids <= 7 and hids[7] == 0 then
     hids[7] = -1
     do return end
     for i = 19, 21 do

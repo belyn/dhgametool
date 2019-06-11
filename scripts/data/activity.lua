@@ -14,7 +14,7 @@ activity.init = function(l_1_0)
   activity_data = l_1_0.status
   local christmas = require("data.christmas")
   for _,v in pairs(christmas.act) do
-    activity_data[ activity_data + 1] = v
+    activity_data[#activity_data + 1] = v
   end
   activity.redid = {}
   activity.limitRedid = {}
@@ -23,7 +23,7 @@ activity.init = function(l_1_0)
     activity_data = {}
   end
   if activity_data then
-    for ii = 1,  activity_data do
+    for ii = 1, #activity_data do
       if activity_data[ii].id <= 3 then
         do return end
       end
@@ -34,14 +34,14 @@ activity.init = function(l_1_0)
         end
       end
     end
-    for i = 1,  activity_data do
+    for i = 1, #activity_data do
       if activity_data[i].id == IDS.WEEKLY_GIFT.ID or activity_data[i].id == IDS.MONTHLY_GIFT.ID then
-        activity.redid[ activity.redid + 1] = activity_data[i]
+        activity.redid[#activity.redid + 1] = activity_data[i]
       end
     end
-    for i = 1,  activity_data do
+    for i = 1, #activity_data do
       if activity_data[i].id == IDS.SCORE_CASINO.ID or activity_data[i].id == IDS.SCORE_FIGHT.ID or activity_data[i].id == IDS.VP_1.ID or activity_data[i].id == IDS.SCORE_TARVEN_4.ID or activity_data[i].id == IDS.FORGE_1.ID or activity_data[i].id == IDS.SUMMON_HERO_1.ID or activity_data[i].id == IDS.SCORE_SUMMON.ID or activity_data[i].id == IDS.CRUSHING_SPACE_1.ID or activity_data[i].id == IDS.CRUSHING_SPACE_2.ID or activity_data[i].id == IDS.CRUSHING_SPACE_3.ID or activity_data[i].id == IDS.FISHBABY_1.ID or activity_data[i].id == IDS.FOLLOW.ID or activity_data[i].id == IDS.SCORE_SPESUMMON.ID or activity_data[i].id == IDS.EXCHANGE.ID or activity_data[i].id == IDS.AWAKING_GLORY_1.ID or activity_data[i].id == IDS.HERO_SUMMON_1.ID or activity_data[i].id == IDS.TENCHANGE.ID or activity_data[i].id == IDS.BLACKCARD.ID or activity_data[i].id == IDS.CHRISTMAS_1.ID or activity_data[i].id == IDS.ASYLUM_1.ID or activity_data[i].id == IDS.NEWYEAR.ID or activity_data[i].id == IDS.MID_AUTUMN.ID or activity_data[i].id == IDS.MID_AUTUMN_GIFT.ID or activity_data[i].id == IDS.MID_AUTUMN_LOGIN_1.ID or activity_data[i].id == IDS.NATIONAL_DAY_LOGIN.ID or activity_data[i].id == IDS.TREASURES.ID or activity_data[i].id == IDS.DINNER.ID or activity_data[i].id == IDS.THANKSGIVINGGIFT.ID or activity_data[i].id == IDS.NATIONAL_DAY_LOGIN.ID or activity_data[i].id == IDS.FRIDAY_CARD.ID or activity_data[i].id == IDS.FRIDAY_HAPPY_1.ID or activity_data[i].id == IDS.FRIDAY_VIP_1.ID or activity_data[i].id == IDS.BLACKBOX_1.ID or activity_data[i].id == IDS.SOCKS_1.ID or activity_data[i].id == IDS.CHRGIFT.ID or activity_data[i].id == IDS.CHRISTMAS_CARD.ID then
-        activity.limitRedid[ activity.limitRedid + 1] = activity_data[i]
+        activity.limitRedid[#activity.limitRedid + 1] = activity_data[i]
       end
     end
   end
@@ -91,7 +91,7 @@ activity.getStatusById = function(l_2_0)
   if not activity_data then
     return nil
   end
-  for ii = 1,  activity_data do
+  for ii = 1, #activity_data do
     if activity_data[ii].id == l_2_0 then
       return activity_data[ii]
     end
@@ -103,7 +103,7 @@ activity.getPullIds = function()
   local ids = {}
   for _,info in pairs(activity.IDS) do
     if info.pull then
-      ids[ ids + 1] = info.ID
+      ids[#ids + 1] = info.ID
     end
   end
   return ids
@@ -123,10 +123,10 @@ activity.pay = function()
 end
 
 activity.showRedDot = function()
-  if not activity.redid or  activity.redid == 0 then
+  if not activity.redid or #activity.redid == 0 then
     return false
   end
-  for ii = 1,  activity.redid do
+  for ii = 1, #activity.redid do
     if activity.redid[ii].read and activity.redid[ii].read == 0 then
       return true
     end
@@ -153,10 +153,10 @@ activity.anyNew = function()
 end
 
 activity.showRedDotLimit = function()
-  if not activity.limitRedid or  activity.limitRedid == 0 then
+  if not activity.limitRedid or #activity.limitRedid == 0 then
     return false
   end
-  for ii = 1,  activity.limitRedid do
+  for ii = 1, #activity.limitRedid do
     if activity.limitRedid[ii].read and activity.limitRedid[ii].read == 0 then
       return true
     end
@@ -266,7 +266,7 @@ activity.isVpPopped = function()
   end
   local vps = {IDS.VP_1.ID, IDS.VP_2.ID, IDS.VP_3.ID, IDS.VP_4.ID}
   local any_can_buy = false
-  for ii = 1,  vps do
+  for ii = 1, #vps do
     local vp_status = activity.getStatusById(vps[ii])
     if vp_status and vp_status.bomb and vp_status.bomb > 0 then
       return true
@@ -284,7 +284,7 @@ end
 activity.setVpPopped = function()
   do
     local vps = {IDS.VP_1.ID, IDS.VP_2.ID, IDS.VP_3.ID, IDS.VP_4.ID}
-    for ii = 1,  vps do
+    for ii = 1, #vps do
       local vp_status = activity.getStatusById(vps[ii])
       if not vp_status.bomb then
         vp_status.bomb = (not vp_status or 0) + 1

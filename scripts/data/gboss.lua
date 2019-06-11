@@ -17,7 +17,7 @@ gboss.addBossExp = function(l_2_0)
 end
 
 gboss.getPages = function()
-  return math.floor(( cfgguildboss + items_per_page - 1) / items_per_page)
+  return math.floor((#cfgguildboss + items_per_page - 1) / items_per_page)
 end
 
 gboss.getCurPage = function()

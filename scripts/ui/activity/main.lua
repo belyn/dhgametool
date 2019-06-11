@@ -208,12 +208,12 @@ listlayer.create = function()
   board:addChild(scroll)
   layer.scroll = scroll
   local showList = function(l_5_0)
-    for ii = 1,  l_5_0 do
+    for ii = 1, #l_5_0 do
       if ii == 1 then
         scroll.addSpace(4)
       end
       local tmp_item = createItem(l_5_0[ii])
-      touch_items[ touch_items + 1] = tmp_item
+      touch_items[#touch_items + 1] = tmp_item
       tmp_item.obj = l_5_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 145
@@ -267,7 +267,7 @@ listlayer.create = function()
       return true
     end
     local p1 = scroll.content_layer:convertToNodeSpace(ccp(l_12_0, l_12_1))
-    for ii = 1,  touch_items do
+    for ii = 1, #touch_items do
       if touch_items[ii]:boundingBox():containsPoint(p1) then
         upvalue_2560 = touch_items[ii]
       end
@@ -291,7 +291,7 @@ listlayer.create = function()
       backEvent()
     elseif isclick then
       local p1 = scroll.content_layer:convertToNodeSpace(ccp(l_14_0, l_14_1))
-      for ii = 1,  touch_items do
+      for ii = 1, #touch_items do
         if touch_items[ii]:boundingBox():containsPoint(p1) then
           if last_sel_sprite and last_sel_sprite == touch_items[ii] then
             return 
@@ -325,7 +325,7 @@ listlayer.create = function()
       return 
     end
     last_check_time = os.time()
-    for ii = 1,  touch_items do
+    for ii = 1, #touch_items do
       local item_status = touch_items[ii].obj.status
       if item_status.status == 0 then
         if item_status.cd and item_status.cd < os.time() - activityData.pull_time then
@@ -355,7 +355,7 @@ listlayer.create = function()
     updateCountDown()
    end
   layer:scheduleUpdateWithPriorityLua(onUpdate, 0)
-  if  touch_items > 0 then
+  if #touch_items > 0 then
     if touch_items[1].sel and not tolua.isnull(touch_items[1].sel) then
       touch_items[1].sel:setVisible(true)
     end

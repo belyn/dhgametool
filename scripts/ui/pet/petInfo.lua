@@ -577,7 +577,7 @@ ui.createAdvancedWindow = function()
   bg:addChild(lvLabel)
   local nowLv = petData[ui.data.id].starLv[ui.data.advanced]
   local nextLv = nowLv
-  if ui.data.advanced ==  petData[ui.data.id].starLv then
+  if ui.data.advanced == #petData[ui.data.id].starLv then
     nextLv = petData[ui.data.id].maxLv
   else
     nextLv = petData[ui.data.id].starLv[ui.data.advanced + 1]

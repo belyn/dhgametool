@@ -10,7 +10,7 @@ guildmill.initorder = function(l_1_0)
   if l_1_0.orders then
     guildmill.pull_ocd_time = {}
     guildmill.order = l_1_0.orders
-    for i = 1,  guildmill.order do
+    for i = 1, #guildmill.order do
       guildmill.pull_ocd_time[i] = os.time()
     end
   else
@@ -41,17 +41,17 @@ guildmill.sortOrder = function()
   local orders = {}
   for i,v in ipairs(guildmill.order) do
     if v.cd and v.cd == 0 then
-      orders[ orders + 1] = v
+      orders[#orders + 1] = v
     end
   end
   for i,v in ipairs(guildmill.order) do
     if v.cd == nil then
-      orders[ orders + 1] = v
+      orders[#orders + 1] = v
     end
   end
   for i,v in ipairs(guildmill.order) do
     if v.cd and v.cd > 0 then
-      orders[ orders + 1] = v
+      orders[#orders + 1] = v
     end
   end
   guildmill.order = orders

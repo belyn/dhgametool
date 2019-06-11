@@ -1,4 +1,4 @@
--- Command line was: scripts\config.lua 
+-- Command line was: E:\github\dhgametool\scripts\config.lua 
 
 DEBUG = 0
 DEBUG_FPS = false

@@ -96,7 +96,7 @@ ui.create = function()
     end
   end
   do
-    for i = 1,  cfgactivity[vpObj.id].rewards do
+    for i = 1, #cfgactivity[vpObj.id].rewards do
       local item = img.createItem(cfgactivity[vpObj.id].rewards[i].id, cfgactivity[vpObj.id].rewards[i].num)
       local itembtn = SpineMenuItem:create(json.ui.button, item)
       itembtn:setAnchorPoint(CCPoint(0.5, 0))
@@ -302,7 +302,7 @@ ui.create = function()
           return l_1_0.id ~= ITEM_ID_VIP_EXP
             end)
         layer:getParent():getParent():getParent():addChild(require("ui.reward").createFloating(rw), 1002)
-        for i = 1,  cfgchristmas[IDS.SOCKS_4.ID].rewards do
+        for i = 1, #cfgchristmas[IDS.SOCKS_4.ID].rewards do
           if cfgchristmas[IDS.SOCKS_4.ID].rewards[i].type == 1 then
             bag.items.add({id = cfgchristmas[IDS.SOCKS_4.ID].rewards[i].id, num = cfgchristmas[IDS.SOCKS_4.ID].rewards[i].num * activityData.getStatusById(IDS.SOCKS_4.ID).limits})
           else

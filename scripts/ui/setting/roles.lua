@@ -92,7 +92,7 @@ ui.create = function(l_2_0)
    end
   local list_items = {}
   local showList = function(l_3_0)
-    if not l_3_0 or  l_3_0 == 0 then
+    if not l_3_0 or #l_3_0 == 0 then
       return 
     end
     arrayclear(list_items)
@@ -101,17 +101,17 @@ ui.create = function(l_2_0)
     scroll:setPosition(CCPoint(24, 25))
     board:addChild(scroll)
     board.scroll = scroll
-    for ii = 1,  l_3_0 do
+    for ii = 1, #l_3_0 do
       local tmp_item = CCSprite:create()
       tmp_item:setContentSize(CCSizeMake(336, 86))
       local tmp_server_item = createItem(l_3_0[ii])
       tmp_server_item.container = tmp_item
       tmp_server_item.obj = l_3_0[ii]
-      list_items[ list_items + 1] = tmp_server_item
+      list_items[#list_items + 1] = tmp_server_item
       tmp_server_item:setPosition(CCPoint(168, 43))
       tmp_item:addChild(tmp_server_item)
       scroll.addItem(tmp_item)
-      if ii <  l_3_0 then
+      if ii < #l_3_0 then
         scroll.addSpace(8)
       end
     end
@@ -161,7 +161,7 @@ ui.create = function(l_2_0)
       upvalue_1024 = false
       return false
     end
-    for ii = 1,  list_items do
+    for ii = 1, #list_items do
       local p1 = list_items[ii].container:convertToNodeSpace(ccp(l_6_0, l_6_1))
       if list_items[ii]:boundingBox():containsPoint(p1) then
         playAnimTouchBegin(list_items[ii])
@@ -190,7 +190,7 @@ ui.create = function(l_2_0)
     end
     if isclick then
       local content_layer = board.scroll.content_layer
-      for ii = 1,  list_items do
+      for ii = 1, #list_items do
         local p0 = list_items[ii].container:convertToNodeSpace(ccp(l_8_0, l_8_1))
         if list_items[ii]:boundingBox():containsPoint(p0) then
           onClickItem(list_items[ii])

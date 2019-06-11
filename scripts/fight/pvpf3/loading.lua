@@ -48,7 +48,7 @@ ui.backToUI = function(l_2_0, l_2_1)
   local mapId, heroIds, pets, skins = ui.getMapAndHeroIds(videos, idx)
   local params = {mapId = mapId, heroIds = heroIds, pets = pets, skins = skins}
   require("fight.base.loading").unloadFightWithParams(params)
-  if idx <  videos then
+  if idx < #videos then
     replaceScene(require("fight.pvpf3.loading").create(videos, idx + 1))
   elseif l_2_1 and not tolua.isnull(l_2_1) then
     l_2_1:addChild(require("fight.pvpf3.final").create(l_2_0), 1000)
@@ -69,21 +69,21 @@ ui.getMapAndHeroIds = function(l_3_0, l_3_1)
   for _,h in pairs(l_3_0[l_3_1].atk.camp) do
     h.hid = nil
     if h.skin then
-      skins[ skins + 1] = h.skin
+      skins[#skins + 1] = h.skin
     end
-    heroIds[ heroIds + 1] = h.id
+    heroIds[#heroIds + 1] = h.id
   end
   if l_3_0[l_3_1].atk and l_3_0[l_3_1].atk.pet then
-    pets[ pets + 1] = l_3_0[l_3_1].atk.pet
+    pets[#pets + 1] = l_3_0[l_3_1].atk.pet
   end
   for _,h in pairs(l_3_0[l_3_1].def.camp) do
     if h.skin then
-      skins[ skins + 1] = h.skin
+      skins[#skins + 1] = h.skin
     end
-    heroIds[ heroIds + 1] = h.id
+    heroIds[#heroIds + 1] = h.id
   end
   if l_3_0[l_3_1].def and l_3_0[l_3_1].def.pet then
-    pets[ pets + 1] = l_3_0[l_3_1].def.pet
+    pets[#pets + 1] = l_3_0[l_3_1].def.pet
   end
   return mapId, heroIds, pets, skins
 end
@@ -95,26 +95,26 @@ ui.getMapAndHeroIds2 = function(l_4_0, l_4_1)
   for _,h in pairs(l_4_0[l_4_1].atk.camp) do
     h.hid = nil
     if h.skin then
-      skins[ skins + 1] = h.skin
+      skins[#skins + 1] = h.skin
     end
-    heroIds[ heroIds + 1] = h.id
-    heroList[ heroList + 1] = h
+    heroIds[#heroIds + 1] = h.id
+    heroList[#heroList + 1] = h
   end
   if l_4_0[l_4_1].atk and l_4_0[l_4_1].atk.pet then
-    pets[ pets + 1] = l_4_0[l_4_1].atk.pet
+    pets[#pets + 1] = l_4_0[l_4_1].atk.pet
   end
   for _,h in pairs(l_4_0[l_4_1].def.camp) do
     if h.skin then
-      skins[ skins + 1] = h.skin
+      skins[#skins + 1] = h.skin
     end
     if h.hid then
       h.hid = nil
     end
-    heroIds[ heroIds + 1] = h.id
-    heroList[ heroList + 1] = h
+    heroIds[#heroIds + 1] = h.id
+    heroList[#heroList + 1] = h
   end
   if l_4_0[l_4_1].def and l_4_0[l_4_1].def.pet then
-    pets[ pets + 1] = l_4_0[l_4_1].def.pet
+    pets[#pets + 1] = l_4_0[l_4_1].def.pet
   end
   return {mapId = mapId, heroIds = heroIds, pets = pets, skins = skins, heroList = heroList}
 end

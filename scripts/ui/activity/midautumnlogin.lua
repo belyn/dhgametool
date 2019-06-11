@@ -95,7 +95,7 @@ ui.create = function()
     pgb_bg:addChild(lbl_pgb)
     pgb:setPercentage(numerator * 100 / l_1_0.instruct)
     local count = 0
-    for ii =  l_1_0.rewards, 1, -1 do
+    for ii = #l_1_0.rewards, 1, -1 do
       count = count + 1
       local reward = l_1_0.rewards[ii]
       do
@@ -146,11 +146,11 @@ ui.create = function()
   layer.scroll = scroll
   local activityItems = {}
   for i = activityData.IDS.MID_AUTUMN_LOGIN_1.ID, activityData.IDS.MID_AUTUMN_LOGIN_3.ID do
-    activityItems[ activityItems + 1] = clone(cfgactivity[i])
-    activityItems[ activityItems].id = i
+    activityItems[#activityItems + 1] = clone(cfgactivity[i])
+    activityItems[#activityItems].id = i
   end
   local showList = function(l_2_0)
-    for ii = 1,  l_2_0 do
+    for ii = 1, #l_2_0 do
       local tmp_item = createItem(l_2_0[ii], ii)
       tmp_item.obj = l_2_0[ii]
       tmp_item.ax = 0.5

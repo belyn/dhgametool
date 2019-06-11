@@ -240,28 +240,28 @@ ui.create = function()
       innerBg:removeChildByTag(101)
     end
     local tmp = clone(heros)
-    for i = 1,  tmp do
+    for i = 1, #tmp do
        -- DECOMPILER ERROR: unhandled construct in 'if'
 
       if groupType == 0 and (cfghero[tmp[i].id].qlt == starType or starType == 0) then
-        herolist[ herolist + 1] = tmp[i]
+        herolist[#herolist + 1] = tmp[i]
         do return end
         if (cfghero[tmp[i].id].qlt == starType or starType == 0) and cfghero[tmp[i].id].group == groupType then
-          herolist[ herolist + 1] = tmp[i]
+          herolist[#herolist + 1] = tmp[i]
         end
       end
     end
     table.sort(herolist, compareHero)
-    for i = 1,  herolist / 2 do
-      herolist[i], herolist[ herolist - i + 1] = herolist[ herolist - i + 1], herolist[i]
+    for i = 1, #herolist / 2 do
+      herolist[i], herolist[#herolist - i + 1] = herolist[#herolist - i + 1], herolist[i]
     end
-    if  herolist == 0 then
+    if #herolist == 0 then
       local empty = require("ui.empty").create({text = i18n.global.empty_herodevour.string, scale = 0.9, size = 14, color = ccc3(255, 246, 223)})
       empty:setPosition(innerBg:getContentSize().width / 2, innerBg:getContentSize().height / 2)
       innerBg:addChild(empty, 0, 101)
     end
-    showHeroNum:setString(string.format(i18n.global.devour_rig_title.string,  herolist,  heros))
-    local SCROLLCONTENT_HEIGHT = math.ceil( herolist / 4) * 84 + 10
+    showHeroNum:setString(string.format(i18n.global.devour_rig_title.string, #herolist, #heros))
+    local SCROLLCONTENT_HEIGHT = math.ceil(#herolist / 4) * 84 + 10
     scroll:setContentSize(CCSizeMake(SCROLLVIEW_WIDTH, SCROLLCONTENT_HEIGHT))
     scroll:setContentOffset(ccp(0, SCROLLVIEW_HEIGHT - SCROLLCONTENT_HEIGHT))
     local iconBgBatch = img.createBatchNodeForUI(img.ui.herolist_head_bg)
@@ -282,7 +282,7 @@ ui.create = function()
     scroll:getContainer():addChild(selectBatch, 5)
     local lockBatch = img.createBatchNodeForUI(img.ui.devour_icon_lock)
     scroll:getContainer():addChild(lockBatch, 6)
-    for i = 1,  herolist do
+    for i = 1, #herolist do
       local x, y = 53 + (i - 1) % 4 * 84, SCROLLCONTENT_HEIGHT - math.ceil(i / 4) * 84 + 30
       local qlt = cfghero[herolist[i].id].maxStar
       local heroBg = nil
@@ -446,7 +446,7 @@ ui.create = function()
     local teams = {}
     for i = 1, MAX_NUM do
       if hids[i] then
-        teams[ teams + 1] = hids[i]
+        teams[#teams + 1] = hids[i]
       end
     end
     local exp, evolve, rune = heros.decompose(teams)
@@ -477,7 +477,7 @@ ui.create = function()
     end
    end
   local unSelect = function(l_11_0)
-    for i = 1,  herolist do
+    for i = 1, #herolist do
       if herolist[i].hid == hids[l_11_0] then
         blackBatch:removeChildByTag(i)
         selectBatch:removeChildByTag(i)
@@ -585,13 +585,13 @@ ui.create = function()
     local params = {sid = player.sid, hid = {}}
     for i = 1, MAX_NUM do
       if hids[i] then
-        params.hid[ params.hid + 1] = hids[i]
+        params.hid[#params.hid + 1] = hids[i]
       end
     end
-    if  params.hid <= 0 then
+    if #params.hid <= 0 then
       return 
     end
-    if  heros ==  params.hid then
+    if #heros == #params.hid then
       showToast(i18n.global.devour_tips_all.string)
       return 
     end
@@ -646,7 +646,7 @@ ui.create = function()
          end)))
       bag.items.addAll(l_1_0.items)
       local achieveData = require("data.achieve")
-      achieveData.add(ACHIEVE_TYPE_DECOMPOSE_HERO,  hids)
+      achieveData.add(ACHIEVE_TYPE_DECOMPOSE_HERO, #hids)
       layer:addChild(require("ui.hook.drops").create(reward, i18n.global.ui_decompose_award.string), 1000)
       end)
    end
@@ -679,7 +679,7 @@ ui.create = function()
     local teams = {}
     for i = 1, MAX_NUM do
       if hids[i] then
-        teams[ teams + 1] = hids[i]
+        teams[#teams + 1] = hids[i]
       end
     end
     do

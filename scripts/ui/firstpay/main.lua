@@ -126,7 +126,7 @@ ui.create = function()
   local first_item_menu = CCMenu:createWithItem(first_item)
   first_item_menu:setPosition(CCPoint(0, 0))
   board:addChild(first_item_menu)
-  for ii = 2,  rewards do
+  for ii = 2, #rewards do
     local tmp_item = createSpineItem(rewards[ii])
     tmp_item:setScale(0.8)
     tmp_item:setPosition(CCPoint(offset_x + (ii - 2) * step_x, pos_y - 7))
@@ -175,14 +175,14 @@ ui.create = function()
       end
       status.status = 2
       local tmp_bag = {items = {}, equips = {}}
-      for ii = 1,  rewards do
+      for ii = 1, #rewards do
         if rewards[ii].type == 1 then
           local tbl_p = tmp_bag.items
-          tbl_p[ tbl_p + 1] = {id = rewards[ii].id, num = rewards[ii].num}
+          tbl_p[#tbl_p + 1] = {id = rewards[ii].id, num = rewards[ii].num}
         else
           if rewards[ii].type == 2 then
             local tbl_p = tmp_bag.equips
-            tbl_p[ tbl_p + 1] = {id = rewards[ii].id, num = rewards[ii].num}
+            tbl_p[#tbl_p + 1] = {id = rewards[ii].id, num = rewards[ii].num}
           end
         end
       end

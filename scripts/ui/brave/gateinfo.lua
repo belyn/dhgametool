@@ -90,7 +90,7 @@ ui.create = function(l_1_0)
   titleRewards:setPosition(innerBg:getContentSize().width / 2, 115)
   innerBg:addChild(titleRewards)
   local POSX = {28, 114, 200, 286, 372, 458}
-  local camp_len =  enemy.camp
+  local camp_len = #enemy.camp
   if camp_len > 6 then
     camp_len = 6
   end
@@ -131,12 +131,12 @@ ui.create = function(l_1_0)
   local rewards = {}
   for i,v in ipairs(cfgbrave[databrave.id].rewards) do
     if v.stage == l_1_0 then
-      rewards[ rewards + 1] = v
+      rewards[#rewards + 1] = v
     end
   end
   local showRewards = {}
-  offset = 314 -  rewards * 41
-  for i = 1,  rewards do
+  offset = 314 - #rewards * 41
+  for i = 1, #rewards do
     local showRewardsSp = nil
     if rewards[i].type == 1 then
       showRewardsSp = img.createItem(rewards[i].id, rewards[i].num)

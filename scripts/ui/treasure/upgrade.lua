@@ -22,9 +22,9 @@ local showtr = function()
   for i,eq in ipairs(bag.equips) do
     if cfgequip[eq.id].pos == 6 and eq.num ~= 0 then
       local tmp = {}
-      treasures[ treasures + 1] = tmp
-      treasures[ treasures].id = eq.id
-      treasures[ treasures].num = eq.num
+      treasures[#treasures + 1] = tmp
+      treasures[#treasures].id = eq.id
+      treasures[#treasures].num = eq.num
     end
   end
   return treasures
@@ -187,7 +187,7 @@ local createBag = function()
    end
   layer.showEquips = function(l_4_0, l_4_1)
     table.sort(l_4_0, compareEquip)
-    initScroll( l_4_0, l_4_1)
+    initScroll(#l_4_0, l_4_1)
     for i,eq in ipairs(l_4_0) do
       local x, y = getPosition(i, kind)
       icons[i] = img.createEquip(eq.id, eq.num)
@@ -198,10 +198,10 @@ local createBag = function()
       icons[i].tipTag = false
       scroll:getContainer():addChild(icons[i], 3)
       addFunctionsForIcon(icons[i], i, kind)
-      if  l_4_0 - 4 < i then
+      if #l_4_0 - 4 < i then
         y = y + 412 + 56
       end
-      if  l_4_0 - 4 < i then
+      if #l_4_0 - 4 < i then
         y = y - 412 - 56
       end
     end
@@ -232,7 +232,7 @@ local createBag = function()
     if isclick then
       local p0 = (scroll:getContainer():convertToNodeSpace(ccp(l_8_0, l_8_1)))
       local p1 = nil
-      if  icons > 0 then
+      if #icons > 0 then
         p1 = icons[1]:getParent():convertToNodeSpace(ccp(l_8_0, l_8_1))
       end
       for _,icon in ipairs(icons) do
@@ -390,12 +390,12 @@ ui.create = function(l_4_0, l_4_1)
       return 
     end
     local tritems = {}
-    for i = 1,  hidsid do
+    for i = 1, #hidsid do
       local pitem = {}
       if hidscount[i] ~= nil then
         pitem.id = hidsid[i]
         pitem.num = hidscount[i]
-        tritems[ tritems + 1] = pitem
+        tritems[#tritems + 1] = pitem
       end
     end
     local param = {}
@@ -418,7 +418,7 @@ ui.create = function(l_4_0, l_4_1)
         bag.equips.sub({id = id, num = 1})
       end
       do
-        for i = 1,  param.source do
+        for i = 1, #param.source do
           bag.equips.sub(param.source[i])
         end
       end

@@ -64,11 +64,11 @@ ui.create = function()
         if cfgachieve[v.id].status and cfgachieve[v.id].status > 0 then
           for i,v in (for generator) do
           end
-          tasks[ tasks + 1] = v
+          tasks[#tasks + 1] = v
         end
       end
-      for i = 1,  tasks do
-        for j = i + 1,  tasks do
+      for i = 1, #tasks do
+        for j = i + 1, #tasks do
            -- DECOMPILER ERROR: unhandled construct in 'if'
 
           if tasks[i].isComplete ~= tasks[j].isComplete and tasks[i].isComplete == true then
@@ -86,7 +86,7 @@ ui.create = function()
       end
       scroll:getContainer():removeAllChildrenWithCleanup(true)
       do
-        local height = 6 + 100 *  tasks
+        local height = 6 + 100 * #tasks
         scroll:setContentSize(CCSize(666, height))
         scroll:setContentOffset(ccp(0, 390 - height))
         upvalue_1024 = {}
@@ -115,7 +115,7 @@ ui.create = function()
           showPercent:setPosition(progressBg:getContentSize().width / 2, progressBg:getContentSize().height / 2)
           progressBg:addChild(showPercent)
           for k,item in ipairs(cfgachieve[v.id].rewards) do
-            local idx =  showItems + 1
+            local idx = #showItems + 1
             if item.type == 1 then
               showItems[idx] = img.createItem(item.id, item.num)
             else

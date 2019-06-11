@@ -37,9 +37,9 @@ local _SimpleDecoder = function(l_1_0, l_1_1)
             repeat
               if l_1_1 < endpoint then
                 element, l_1_1 = decode_value(l_1_0, l_1_1)
-                value[ value + 1] = element
+                value[#value + 1] = element
               elseif endpoint < l_1_1 then
-                value:remove( value)
+                value:remove(#value)
                 error("Packed element was truncated.")
               end
               return l_1_1
@@ -50,7 +50,7 @@ local _SimpleDecoder = function(l_1_0, l_1_1)
       end
     elseif l_1_1 then
       local tag_bytes = encoder.TagBytes(l_1_0, wire_type)
-      local tag_len =  tag_bytes
+      local tag_len = #tag_bytes
       local sub = string.sub
       return function(l_2_0, l_2_1, l_2_2, l_2_3, l_2_4)
         do
@@ -128,11 +128,11 @@ BoolDecoder = _ModifiedDecoder(wire_format.WIRETYPE_VARINT, _DecodeVarint, _Bool
 StringDecoder = function(l_5_0, l_5_1, l_5_2, l_5_3, l_5_4)
   local DecodeVarint = _DecodeVarint
   local sub = string.sub
-  assert(#l_5_2)
+  assert( l_5_2)
   if l_5_1 then
     local tag_bytes = encoder.TagBytes(l_5_0, wire_format.WIRETYPE_LENGTH_DELIMITED)
     do
-      local tag_len =  tag_bytes
+      local tag_len = #tag_bytes
       return function(l_1_0, l_1_1, l_1_2, l_1_3, l_1_4)
         do
           local value = l_1_4[key]
@@ -177,11 +177,11 @@ end
 BytesDecoder = function(l_6_0, l_6_1, l_6_2, l_6_3, l_6_4)
   local DecodeVarint = _DecodeVarint
   local sub = string.sub
-  assert(#l_6_2)
+  assert( l_6_2)
   if l_6_1 then
     local tag_bytes = encoder.TagBytes(l_6_0, wire_format.WIRETYPE_LENGTH_DELIMITED)
     do
-      local tag_len =  tag_bytes
+      local tag_len = #tag_bytes
       return function(l_1_0, l_1_1, l_1_2, l_1_3, l_1_4)
         do
           local value = l_1_4[key]
@@ -226,11 +226,11 @@ end
 MessageDecoder = function(l_7_0, l_7_1, l_7_2, l_7_3, l_7_4)
   local DecodeVarint = _DecodeVarint
   local sub = string.sub
-  assert(#l_7_2)
+  assert( l_7_2)
   if l_7_1 then
     local tag_bytes = encoder.TagBytes(l_7_0, wire_format.WIRETYPE_LENGTH_DELIMITED)
     do
-      local tag_len =  tag_bytes
+      local tag_len = #tag_bytes
       return function(l_1_0, l_1_1, l_1_2, l_1_3, l_1_4)
         do
           local value = l_1_4[key]

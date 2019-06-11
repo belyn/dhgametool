@@ -92,7 +92,7 @@ ui.create = function(l_1_0, l_1_1)
     content_layer:removeAllChildrenWithCleanup(true)
     local height = 0
     local showbag = _bag
-    for ii = 1,  showbag do
+    for ii = 1, #showbag do
       local tmp_item = img.createSkinIcon(showbag[ii].id)
       tmp_item.obj = showbag[ii]
       local pos_x = item_offset_x + item_step_x * ((ii - 1) % row_count)
@@ -100,7 +100,7 @@ ui.create = function(l_1_0, l_1_1)
       tmp_item:setScale(0.7)
       tmp_item:setPosition(CCPoint(pos_x, 0 - pos_y))
       content_layer:addChild(tmp_item)
-      items[ items + 1] = tmp_item
+      items[#items + 1] = tmp_item
       local framBg = nil
       if cfgequip[showbag[ii].id].powerful and cfgequip[showbag[ii].id].powerful == 1 then
         framBg = img.createUISprite(img.ui.skin_frame_sp)
@@ -139,7 +139,7 @@ ui.create = function(l_1_0, l_1_1)
     upvalue_1024 = true
     if scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_5_0, l_5_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           upvalue_3072 = items[ii]
       else
@@ -162,7 +162,7 @@ ui.create = function(l_1_0, l_1_1)
     end
     if isclick and scroll and not tolua.isnull(scroll) then
       local p0 = content_layer:convertToNodeSpace(ccp(l_7_0, l_7_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           audio.play(audio.button)
           onClickItem(items[ii])

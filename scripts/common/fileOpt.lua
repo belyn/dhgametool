@@ -4,7 +4,7 @@ local fileOpt = {}
 local lfs = require("lfs")
 fileOpt.mkdir = function(l_1_0)
   local wpath = CCFileUtils:sharedFileUtils():getWritablePath()
-  local relative_name = string.sub(l_1_0,  wpath + 1, -1)
+  local relative_name = string.sub(l_1_0, #wpath + 1, -1)
   fileOpt.mkRelativeDir(relative_name)
   return 
   if not lfs.chdir(l_1_0) then
@@ -30,7 +30,7 @@ end
 fileOpt.mkRelativeDir = function(l_3_0)
   local wpath = CCFileUtils:sharedFileUtils():getWritablePath()
   local arr = fileOpt.split(l_3_0, "/")
-  for ii = 1,  arr do
+  for ii = 1, #arr do
     wpath = wpath .. arr[ii] .. "/"
     if not lfs.chdir(wpath) then
       lfs.mkdir(wpath)
@@ -50,7 +50,7 @@ fileOpt.readFile = function(l_4_0)
 end
 
 fileOpt.writeFile = function(l_5_0, l_5_1)
-  local pos =  l_5_1
+  local pos = #l_5_1
   repeat
     repeat
       if string.sub(l_5_1, pos, pos) ~= "/" then

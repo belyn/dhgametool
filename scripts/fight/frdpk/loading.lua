@@ -62,21 +62,21 @@ ui.getMapAndHeroIds = function(l_4_0)
   for _,h in pairs(l_4_0.atk.camp) do
     local skin = getHeroSkin(h.hid)
     if skin then
-      skins[ skins + 1] = skin
+      skins[#skins + 1] = skin
     end
-    heroIds[ heroIds + 1] = herosdata.find(h.hid).id
+    heroIds[#heroIds + 1] = herosdata.find(h.hid).id
   end
   if l_4_0.atk and l_4_0.atk.pet then
-    pets[ pets + 1] = l_4_0.atk.pet
+    pets[#pets + 1] = l_4_0.atk.pet
   end
   for _,h in pairs(l_4_0.def.camp) do
     if h.skin then
-      skins[ skins + 1] = h.skin
+      skins[#skins + 1] = h.skin
     end
-    heroIds[ heroIds + 1] = h.id
+    heroIds[#heroIds + 1] = h.id
   end
   if l_4_0.def and l_4_0.def.pet then
-    pets[ pets + 1] = l_4_0.def.pet
+    pets[#pets + 1] = l_4_0.def.pet
   end
   return mapId, heroIds, pets, skins
 end
@@ -88,26 +88,26 @@ ui.getMapAndHeroIds2 = function(l_5_0)
   for _,h in pairs(l_5_0.atk.camp) do
     local skin = getHeroSkin(h.hid)
     if skin then
-      skins[ skins + 1] = skin
+      skins[#skins + 1] = skin
     end
-    heroIds[ heroIds + 1] = herosdata.find(h.hid).id
-    heroList[ heroList + 1] = h
+    heroIds[#heroIds + 1] = herosdata.find(h.hid).id
+    heroList[#heroList + 1] = h
   end
   if l_5_0.atk and l_5_0.atk.pet then
-    pets[ pets + 1] = l_5_0.atk.pet
+    pets[#pets + 1] = l_5_0.atk.pet
   end
   for _,h in pairs(l_5_0.def.camp) do
     if h.skin then
-      skins[ skins + 1] = h.skin
+      skins[#skins + 1] = h.skin
     end
     if h.hid then
       h.hid = nil
     end
-    heroIds[ heroIds + 1] = h.id
-    heroList[ heroList + 1] = h
+    heroIds[#heroIds + 1] = h.id
+    heroList[#heroList + 1] = h
   end
   if l_5_0.def and l_5_0.def.pet then
-    pets[ pets + 1] = l_5_0.def.pet
+    pets[#pets + 1] = l_5_0.def.pet
   end
   return {mapId = mapId, heroIds = heroIds, pets = pets, skins = skins, heroList = heroList}
 end

@@ -30,15 +30,15 @@ local proc = function(l_1_0)
   local dates = {}
   do
     local last_date = ""
-    for ii = 1,  l_1_0 do
+    for ii = 1, #l_1_0 do
       if last_date ~= os.date("%y%m%d", l_1_0[ii].time) then
         last_date = os.date("%y%m%d", l_1_0[ii].time)
-        dates[ dates + 1] = {}
-        dates[ dates].title = os.date("%m-%d", l_1_0[ii].time)
-        dates[ dates].list = {}
+        dates[#dates + 1] = {}
+        dates[#dates].title = os.date("%m-%d", l_1_0[ii].time)
+        dates[#dates].list = {}
       else
-        local tmp_list = dates[ dates].list
-        tmp_list[ tmp_list + 1] = l_1_0[ii]
+        local tmp_list = dates[#dates].list
+        tmp_list[#tmp_list + 1] = l_1_0[ii]
       end
       return dates
     end
@@ -123,22 +123,22 @@ ui.create = function(l_2_0)
     scroll:setPosition(CCPoint(35, 35))
     board:addChild(scroll)
     board.scroll = scroll
-    for ii = 1,  l_6_0 do
+    for ii = 1, #l_6_0 do
       local tmp_item = createTitleItem(l_6_0[ii])
       tmp_item.ax = 0
       tmp_item.px = 0
       scroll.addItem(tmp_item)
       local tmp_list = l_6_0[ii].list
-      for jj = 1,  tmp_list do
+      for jj = 1, #tmp_list do
         local tmp_item = createItem(tmp_list[jj])
         tmp_item.ax = 0
         tmp_item.px = 0
         scroll.addItem(tmp_item)
-        if jj ~=  tmp_list then
+        if jj ~= #tmp_list then
           scroll.addSpace(space_height)
         end
       end
-      if ii ~=  l_6_0 then
+      if ii ~= #l_6_0 then
         scroll.addSpace(space_height)
       end
     end

@@ -26,13 +26,13 @@ local did_getSku = false
 local coupSkuArray = function(l_2_0)
   print("------------getSkuDetails  2:")
   tbl2string(l_2_0)
-  if not l_2_0 or  l_2_0 == 0 then
+  if not l_2_0 or #l_2_0 == 0 then
     return 
   end
-  for ii = 1,  l_2_0 do
+  for ii = 1, #l_2_0 do
     skuDetails[l_2_0[ii].mSku] = clone(l_2_0[ii])
   end
-  if  l_2_0 == 1 then
+  if #l_2_0 == 1 then
     return 
   end
   local cfgstore = require("config.store")
@@ -141,12 +141,12 @@ shop.getSkus = function()
   did_getSku = true
   local sku_ids = {2, 3, 4, 5, 6, 7, 8, 11, 21}
   local skus1 = {}
-  for ii = 1,  sku_ids do
-    skus1[ skus1 + 1] = "com.droidhang.ad.diamond" .. sku_ids[ii]
+  for ii = 1, #sku_ids do
+    skus1[#skus1 + 1] = "com.droidhang.ad.diamond" .. sku_ids[ii]
   end
   local skus3 = {}
   for ii = 36, 36 do
-    skus3[ skus3 + 1] = "com.droidhang.ad.diamond" .. ii
+    skus3[#skus3 + 1] = "com.droidhang.ad.diamond" .. ii
   end
   local fstep1 = false
   if DHPayment.getSkuDetails then

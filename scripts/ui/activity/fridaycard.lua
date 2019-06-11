@@ -66,7 +66,7 @@ ui.create = function()
   reward:setPosition(CCPoint(326, h - 185))
   bg:addChild(reward)
   local rewards = {{id = 2, num = 800, type = 1}, {id = 170, num = 2, type = 1}, {id = 1, num = 88000, type = 1}}
-  for ii = 1,  rewards do
+  for ii = 1, #rewards do
     local reward = rewards[ii]
     do
       local rewardNode = nil
@@ -75,7 +75,7 @@ ui.create = function()
       elseif reward.type == 2 then
         rewardNode = CCMenuItemSprite:create((img.createEquip(reward.id, reward.num)), nil)
       end
-      rewardNode:setPosition(CCPoint(326 - ( rewards - 1) / 2 * 92 + (ii - 1) * 92, 188))
+      rewardNode:setPosition(CCPoint(326 - (#rewards - 1) / 2 * 92 + (ii - 1) * 92, 188))
       rewardNode:registerScriptTapHandler(function()
         audio.play(audio.button)
         local tip = nil

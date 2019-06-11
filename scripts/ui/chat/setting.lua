@@ -12,7 +12,6 @@ local player = require("data.player")
 local i18n = require("res.i18n")
 local NetClient = require("net.netClient")
 local netClient = NetClient:getInstance()
-
 local injectCode = function()
   
   local hook_main = require("ui.hook.main")
@@ -275,7 +274,6 @@ ui.create = function()
   layer:registerScriptTouchHandler(onTouch, false, -128, false)
   layer:setTouchEnabled(true)
   layer:setTouchSwallowEnabled(true)
-
   injectCode()
 
   return layer

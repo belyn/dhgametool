@@ -75,13 +75,13 @@ ui.create = function()
    end
   layer.addUnit = function(l_4_0, l_4_1, l_4_2)
     local box = CCSprite:create()
-    box:setPosition(xy[ atkIds][l_4_1][l_4_2], xy.y)
+    box:setPosition(xy[#atkIds][l_4_1][l_4_2], xy.y)
     layer.box:addChild(box, 4 - l_4_2)
     local card = json.createSpineHero(l_4_0)
     card:setScale(op3(l_4_1 == "attacker", 0.4, 0.5))
     card:setFlipX(l_4_1 ~= "attacker")
     box:addChild(card)
-    units[ units + 1] = {heroId = l_4_0, box = box, card = card, size = "small", pos = op3(l_4_1 == "attacker", l_4_2, l_4_2 + 6), side = l_4_1, hp = op3(l_4_1 == "attacker", 100, math.random(5, 10)), atkId = cfghero[l_4_0].atkId}
+    units[#units + 1] = {heroId = l_4_0, box = box, card = card, size = "small", pos = op3(l_4_1 == "attacker", l_4_2, l_4_2 + 6), side = l_4_1, hp = op3(l_4_1 == "attacker", 100, math.random(5, 10)), atkId = cfghero[l_4_0].atkId}
    end
   layer.nextAction = function()
     if needRefresh then
@@ -106,10 +106,10 @@ ui.create = function()
       end)
    end
   layer.nextDefender = function()
-    table.remove(units,  units)
+    table.remove(units, #units)
     local stage = hookdata.getHookStage()
     local mons = cfgstage[stage].monsterShow
-    upvalue_1536 = op3( mons < defIdx + 1, 1, defIdx + 1)
+    upvalue_1536 = op3(#mons < defIdx + 1, 1, defIdx + 1)
     upvalue_2048 = mons[defIdx]
     local newIds = ui.mergeIds(atkIds, {defId})
     local diffIds = ui.diffIds(loadedIds, newIds)
@@ -121,7 +121,7 @@ ui.create = function()
           u.hasActed = false
         end
         local t = 0.8
-        local def = units[ units]
+        local def = units[#units]
         def.card:runAction(CCFadeIn:create(t))
         schedule(layer, t, layer.nextAction)
          end)
@@ -129,13 +129,13 @@ ui.create = function()
    end
   local imgList, jsonList = {}, {}
   layer.loadAllResources = function(l_7_0, l_7_1)
-    if  l_7_0 == 0 then
+    if #l_7_0 == 0 then
       l_7_1()
       return 
     end
     imgList = arraymerge(imgList, img.getLoadListForFight(nil, l_7_0, true))
     upvalue_1024 = arraymerge(jsonList, json.getLoadListForFight(l_7_0, true))
-    local sum, num =  imgList, 0
+    local sum, num = #imgList, 0
     img.loadAsync(imgList, function()
       num = num + 1
       if num == sum and not tolua.isnull(layer) then
@@ -164,7 +164,7 @@ ui.refreshIds = function(l_2_0, l_2_1, l_2_2)
   local ids = hookdata.getIDS()
   local stage = hookdata.getHookStage()
   local cfg = cfgstage[stage]
-  if stage == 0 or ids == nil or  ids == 0 then
+  if stage == 0 or ids == nil or #ids == 0 then
     return 
   end
   local atkValid = l_2_0 ~= nil
@@ -175,15 +175,15 @@ ui.refreshIds = function(l_2_0, l_2_1, l_2_2)
     else
       end
     end
-    if atkValid and  l_2_0 <  ids then
+    if atkValid and #l_2_0 < #ids then
       atkValid = false
     end
   end
   if not atkValid then
-    if  ids < 3 then
+    if #ids < 3 then
       l_2_0 = arraycp(ids)
     else
-      local i = math.random(1,  ids)
+      local i = math.random(1, #ids)
     end
      -- DECOMPILER ERROR: Overwrote pending register.
 
@@ -212,7 +212,7 @@ ui.mergeIds = function(l_3_0, l_3_1)
   local ids = arraycp(l_3_0)
   for _,id in ipairs(l_3_1) do
     if not arraycontains(ids, id) then
-      ids[ ids + 1] = id
+      ids[#ids + 1] = id
     end
   end
   return ids
@@ -222,7 +222,7 @@ ui.diffIds = function(l_4_0, l_4_1)
   local ids = {}
   for _,id in ipairs(l_4_1) do
     if not arraycontains(l_4_0, id) then
-      ids[ ids + 1] = id
+      ids[#ids + 1] = id
     end
   end
   return ids
@@ -244,9 +244,9 @@ ui.nextActorAndActee = function(l_5_0)
   end
   actor.hasActed = true
   if actor.side == "attacker" then
-    actee = l_5_0[ l_5_0]
+    actee = l_5_0[#l_5_0]
   else
-    actee = l_5_0[math.random(1,  l_5_0 - 1)]
+    actee = l_5_0[math.random(1, #l_5_0 - 1)]
   end
   return actor, actee
 end

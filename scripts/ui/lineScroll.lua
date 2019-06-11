@@ -35,7 +35,7 @@ lineScroll.create = function(l_1_0)
       l_1_0:setPosition(CCPoint(l_1_0.px, 0 - cur_height))
     end
     scroll.content_layer:addChild(l_1_0)
-    allItems[ allItems + 1] = l_1_0
+    allItems[#allItems + 1] = l_1_0
     scroll.cur_height = cur_height
     if scroll.height < cur_height then
       scroll:setContentSize(CCSizeMake(scroll.width, cur_height))
@@ -47,7 +47,7 @@ lineScroll.create = function(l_1_0)
    end
   scroll.validUI = function(l_2_0, l_2_1)
     local findItem = nil
-    for ii = 1,  allItems do
+    for ii = 1, #allItems do
       if findItem then
         allItems[ii]:setPositionY(allItems[ii]:getPositionY() - l_2_1)
       end

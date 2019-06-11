@@ -32,7 +32,7 @@ local initHeros = function()
     local tmpheros = {}
     for i,v in ipairs(heros) do
       if not v.flag then
-        tmpheros[ tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, wake = v.wake, star = v.star, isUsed = false, flag = not v.wake or v.wake < 4 or 0}
+        tmpheros[#tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, wake = v.wake, star = v.star, isUsed = false, flag = not v.wake or v.wake < 4 or 0}
       end
       operData.heros = tmpheros
     end
@@ -45,7 +45,7 @@ local initfiveHeros = function(l_2_0)
     local tmpheros = {}
     for i,v in ipairs(heros) do
       if not v.flag then
-        tmpheros[ tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, wake = v.wake, star = v.star, isUsed = false, flag = not cfglifechange[v.id] or cfghero[v.id].maxStar ~= 5 or cfghero[v.id].group ~= l_2_0 or 0}
+        tmpheros[#tmpheros + 1] = {hid = v.hid, id = v.id, lv = v.lv, wake = v.wake, star = v.star, isUsed = false, flag = not cfglifechange[v.id] or cfghero[v.id].maxStar ~= 5 or cfghero[v.id].group ~= l_2_0 or 0}
       end
       fiveData.heros = tmpheros
     end
@@ -58,7 +58,7 @@ local createSelectBoard = function(l_3_0)
   local headData = {}
   initHeros()
   for i,v in ipairs(operData.heros) do
-    headData[ headData + 1] = v
+    headData[#headData + 1] = v
   end
   table.sort(headData, function(l_1_0, l_1_1)
     if l_1_0.id >= l_1_1.id then
@@ -94,7 +94,7 @@ local createSelectBoard = function(l_3_0)
     audio.play(audio.button)
     backEvent()
    end)
-  local height = 84 * math.ceil( headData / 5)
+  local height = 84 * math.ceil(#headData / 5)
   local scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionVertical)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -102,7 +102,7 @@ local createSelectBoard = function(l_3_0)
   scroll:setViewSize(CCSize(420, 225))
   scroll:setContentSize(CCSize(420, height + 84))
   board:addChild(scroll)
-  if  headData == 0 then
+  if #headData == 0 then
     local empty = require("ui.empty").create({size = 16, text = i18n.global.empty_heromar.string, color = ccc3(255, 246, 223)})
     empty:setPosition(board:getContentSize().width / 2, board:getContentSize().height / 2)
     board:addChild(empty)
@@ -160,7 +160,7 @@ local createSelectBoard = function(l_3_0)
       return 
     end
     headData[l_4_0].isUsed = true
-    tmpSelect[ tmpSelect + 1] = headData[l_4_0]
+    tmpSelect[#tmpSelect + 1] = headData[l_4_0]
     local blackBoard = img.createUISprite(img.ui.hero_head_shade)
     blackBoard:setScale(0.93617021276596)
     blackBoard:setOpacity(120)
@@ -173,8 +173,8 @@ local createSelectBoard = function(l_3_0)
   local onUnselect = function(l_5_0)
     for i,v in ipairs(tmpSelect) do
       if v.hid == headData[l_5_0].hid then
-        tmpSelect[i], tmpSelect[ tmpSelect] = tmpSelect[ tmpSelect], tmpSelect[i]
-        tmpSelect[ tmpSelect] = nil
+        tmpSelect[i], tmpSelect[#tmpSelect] = tmpSelect[#tmpSelect], tmpSelect[i]
+        tmpSelect[#tmpSelect] = nil
     else
       end
     end
@@ -200,7 +200,7 @@ local createSelectBoard = function(l_3_0)
       end
       for i,v in ipairs(showHeads) do
         if v:boundingBox():containsPoint(pointOnScroll) then
-          if not headData[i].isUsed and  tmpSelect < 1 then
+          if not headData[i].isUsed and #tmpSelect < 1 then
             onSelect(i)
             for i,v in (for generator) do
             end
@@ -255,7 +255,7 @@ local createSelectBoard = function(l_3_0)
   board:addChild(menuSelect)
   btnSelect:registerScriptTapHandler(function()
     layer:removeFromParentAndCleanup(true)
-    if tmpSelect and  tmpSelect ~= 0 then
+    if tmpSelect and #tmpSelect ~= 0 then
       callfunc(tmpSelect[1])
     end
    end)
@@ -273,7 +273,7 @@ local createFiveSelectBoard = function(l_4_0, l_4_1)
   local layer = CCLayerColor:create(ccc4(0, 0, 0, 210))
   local headData = {}
   for i,v in ipairs(fiveData.heros) do
-    headData[ headData + 1] = v
+    headData[#headData + 1] = v
   end
   table.sort(headData, function(l_1_0, l_1_1)
     if l_1_0.id >= l_1_1.id then
@@ -310,7 +310,7 @@ local createFiveSelectBoard = function(l_4_0, l_4_1)
     backEvent()
     audio.play(audio.button)
    end)
-  local height = 84 * math.ceil( headData / 5)
+  local height = 84 * math.ceil(#headData / 5)
   local scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionVertical)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -318,7 +318,7 @@ local createFiveSelectBoard = function(l_4_0, l_4_1)
   scroll:setViewSize(CCSize(420, 225))
   scroll:setContentSize(CCSize(420, height))
   board:addChild(scroll)
-  if  headData == 0 then
+  if #headData == 0 then
     local empty = require("ui.empty").create({size = 16, text = i18n.global.empty_heromar.string, color = ccc3(255, 246, 223)})
     empty:setPosition(board:getContentSize().width / 2, board:getContentSize().height / 2)
     board:addChild(empty)
@@ -376,7 +376,7 @@ local createFiveSelectBoard = function(l_4_0, l_4_1)
       return 
     end
     headData[l_4_0].isUsed = true
-    tmpSelect[ tmpSelect + 1] = headData[l_4_0].hid
+    tmpSelect[#tmpSelect + 1] = headData[l_4_0].hid
     local blackBoard = img.createUISprite(img.ui.hero_head_shade)
     blackBoard:setScale(0.93617021276596)
     blackBoard:setOpacity(120)
@@ -389,8 +389,8 @@ local createFiveSelectBoard = function(l_4_0, l_4_1)
   local onUnselect = function(l_5_0)
     for i,v in ipairs(tmpSelect) do
       if v == headData[l_5_0].hid then
-        tmpSelect[i], tmpSelect[ tmpSelect] = tmpSelect[ tmpSelect], tmpSelect[i]
-        tmpSelect[ tmpSelect] = nil
+        tmpSelect[i], tmpSelect[#tmpSelect] = tmpSelect[#tmpSelect], tmpSelect[i]
+        tmpSelect[#tmpSelect] = nil
     else
       end
     end
@@ -416,7 +416,7 @@ local createFiveSelectBoard = function(l_4_0, l_4_1)
       end
       for i,v in ipairs(showHeads) do
         if v:boundingBox():containsPoint(pointOnScroll) then
-          if not headData[i].isUsed and  tmpSelect < fiveNum then
+          if not headData[i].isUsed and #tmpSelect < fiveNum then
             if nowId == 0 then
               upvalue_3584 = headData[i].id
             end
@@ -429,7 +429,7 @@ local createFiveSelectBoard = function(l_4_0, l_4_1)
             end
             if headData[i].isUsed == true then
               onUnselect(i)
-              if  tmpSelect == 0 then
+              if #tmpSelect == 0 then
                 upvalue_3584 = 0
               end
             end
@@ -481,7 +481,7 @@ local createFiveSelectBoard = function(l_4_0, l_4_1)
   board:addChild(menuSelect)
   btnSelect:registerScriptTapHandler(function()
     layer:removeFromParentAndCleanup(true)
-    if tmpSelect and  tmpSelect ~= 0 then
+    if tmpSelect and #tmpSelect ~= 0 then
       callfunc(tmpSelect, nowId)
     end
    end)
@@ -546,7 +546,7 @@ ui.create = function()
   local vps = {}
   for _,v in ipairs(vp_ids) do
     local tmp_status = activityData.getStatusById(v)
-    vps[ vps + 1] = tmp_status
+    vps[#vps + 1] = tmp_status
   end
   local board = CCSprite:create()
   board:setContentSize(CCSizeMake(576, 436))
@@ -722,15 +722,15 @@ ui.create = function()
     end
     upvalue_1024 = l_5_1
     upvalue_1536 = l_5_0
-    showFivenum:setString(string.format("%d/" .. fiveNum,  l_5_0))
-    if  l_5_0 < fiveNum then
+    showFivenum:setString(string.format("%d/" .. fiveNum, #l_5_0))
+    if #l_5_0 < fiveNum then
       showFivenum:setColor(ccc3(255, 116, 116))
     else
       showFivenum:setColor(ccc3(255, 247, 229))
     end
     menuFiveHero:removeFromParentAndCleanup()
     upvalue_3072 = nil
-    createBtnfive(l_5_1,  l_5_0)
+    createBtnfive(l_5_1, #l_5_0)
    end
   createBtnfive = function(l_6_0, l_6_1)
     fiveSp = img.createHeroHead(l_6_0, nil, true, true)
@@ -969,7 +969,7 @@ ui.create = function()
    end
   changeBtn:registerScriptTapHandler(function()
     audio.play(audio.button)
-    if fiveHids and  fiveHids < fiveNum then
+    if fiveHids and #fiveHids < fiveNum then
       showToast(i18n.global.hero_wake_no_hero.string)
       return 
     end

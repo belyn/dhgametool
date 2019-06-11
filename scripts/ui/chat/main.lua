@@ -158,7 +158,7 @@ local createItem = function(l_5_0, l_5_1)
     local lbl_time = lbl.createFont1(14, time_str, ccc3(130, 79, 39))
     if l_5_0.share_id then
       msg_bg.share_id = l_5_0.share_id
-      share_items[ share_items + 1] = msg_bg
+      share_items[#share_items + 1] = msg_bg
       local share_btn0 = CCSprite:create()
       share_btn0:setContentSize(CCSizeMake(msg:getContentSize().width + 30, msg:getContentSize().height + 30))
       local share_btn = CCMenuItemSprite:create(share_btn0, nil)
@@ -480,13 +480,13 @@ ui.create = function(l_6_0)
     scroll:setPosition(CCPoint(13, 6))
     msg_container:addChild(scroll)
     msg_container.scroll = scroll
-    for ii = 1,  l_7_0 do
+    for ii = 1, #l_7_0 do
       local tmp_item = createItem(l_7_0[ii], layer)
       tmp_item.msgObj = l_7_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 275
       scroll.addItem(tmp_item)
-      if ii ~=  l_7_0 then
+      if ii ~= #l_7_0 then
         scroll.addSpace(space_height)
       end
     end

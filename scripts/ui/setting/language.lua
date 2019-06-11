@@ -92,7 +92,7 @@ ui.create = function()
   scroll:setPosition(CCPoint(47, 12))
   board:addChild(scroll)
   local lgg_items = {}
-  local obj_count =  lggs
+  local obj_count = #lggs
   local offset_x = 5
   local offset_y = 15
   local item_width = 270
@@ -104,14 +104,14 @@ ui.create = function()
     scroll:setContentOffset(CCPoint(0, scroll.height - (offset_y + item_height * rows)))
   end
   scroll.content_layer:setPosition(CCPoint(0, scroll:getContentSize().height))
-  for ii = 1,  lggs do
+  for ii = 1, #lggs do
     local item = createItem(lggs[ii])
     if current_language == lggs[ii].language then
       item.item_sel:setVisible(true)
       last_sel_item = item
     end
     item.obj = lggs[ii]
-    lgg_items[ lgg_items + 1] = item
+    lgg_items[#lgg_items + 1] = item
     item:setAnchorPoint(CCPoint(0, 1))
     local cur_column = (ii - 1) % ITEM_PER_ROW
     local cur_row = math.floor((ii + ITEM_PER_ROW - 1) / ITEM_PER_ROW) - 1
@@ -129,7 +129,7 @@ ui.create = function()
     replaceScene(townlayer.create({from_layer = "language"}))
    end
   local onOptionSel = function(l_4_0)
-    for ii = 1,  lgg_items do
+    for ii = 1, #lgg_items do
       if ii == l_4_0 then
         lgg_items[ii].item_sel:setVisible(true)
         upvalue_512 = lgg_items[ii]
@@ -154,7 +154,7 @@ ui.create = function()
     local p0 = board:convertToNodeSpace(ccp(l_7_0, l_7_1))
     if isclick and scroll:boundingBox():containsPoint(p0) then
       local p1 = scroll.content_layer:convertToNodeSpace(ccp(l_7_0, l_7_1))
-      for ii = 1,  lgg_items do
+      for ii = 1, #lgg_items do
         if lgg_items[ii]:boundingBox():containsPoint(p1) then
           if last_sel_item and last_sel_item == lgg_items[ii] then
             return 

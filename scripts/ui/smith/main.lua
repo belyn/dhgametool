@@ -97,7 +97,7 @@ equipformulas.init = function()
   equipformulas = {}
   for i = 1, 65000 do
     if cfgequip[i] and cfgequip[i].needFormula then
-      equipformulas[ equipformulas + 1] = {id = i}
+      equipformulas[#equipformulas + 1] = {id = i}
     end
   end
 end
@@ -106,7 +106,7 @@ local createScrolls = function(l_3_0)
   local scrolls = {}
   for i,t in ipairs(equipformulas) do
     if l_3_0 == 0 or l_3_0 == cfgequip[t.id].pos then
-      scrolls[ scrolls + 1] = {id = t.id}
+      scrolls[#scrolls + 1] = {id = t.id}
     end
   end
   return scrolls
@@ -216,7 +216,7 @@ local createBag = function()
     scroll:setContentOffset(ccp(0, contentOffsetY))
    end
   local initGrids = function(l_5_0, l_5_1)
-    for i = 1,  borders do
+    for i = 1, #borders do
       borders[i]:removeFromParent()
       borders[i] = nil
     end
@@ -240,8 +240,8 @@ local createBag = function()
       end
    end
   layer.showEquips = function(l_7_0, l_7_1, l_7_2)
-    initScroll(l_7_0,  l_7_1, l_7_2)
-    initGrids( l_7_1, l_7_0)
+    initScroll(l_7_0, #l_7_1, l_7_2)
+    initGrids(#l_7_1, l_7_0)
     for i,eq in ipairs(l_7_1) do
       local x, y = getPosition(i, l_7_0)
       icons[i] = img.createEquip(eq.id)
@@ -252,10 +252,10 @@ local createBag = function()
       icons[i].tipTag = false
       scroll:getContainer():addChild(icons[i], 3)
       addFunctionsForIcon(icons[i], i, l_7_0)
-      if  l_7_1 - 4 < i then
+      if #l_7_1 - 4 < i then
         y = y + 412 + 56
       end
-      if  l_7_1 - 4 < i then
+      if #l_7_1 - 4 < i then
         y = y - 412 - 56
       end
       local redIcon = img.createUISprite(img.ui.main_red_dot)
@@ -270,8 +270,8 @@ local createBag = function()
    end
   layer.showItems = function(l_8_0, l_8_1, l_8_2)
     table.sort(l_8_1, compareItem)
-    initScroll(l_8_0,  l_8_1, l_8_2)
-    initGrids( l_8_1, l_8_0)
+    initScroll(l_8_0, #l_8_1, l_8_2)
+    initGrids(#l_8_1, l_8_0)
     for i,item in ipairs(l_8_1) do
       local x, y = getPosition(i, l_8_0)
       icons[i] = img.createItem(item.id, item.num)
@@ -307,7 +307,7 @@ local createBag = function()
     if isclick then
       local p0 = (scroll:getContainer():convertToNodeSpace(ccp(l_12_0, l_12_1)))
       local p1 = nil
-      if  icons > 0 then
+      if #icons > 0 then
         p1 = icons[1]:getParent():convertToNodeSpace(ccp(l_12_0, l_12_1))
       end
       for _,icon in ipairs(icons) do

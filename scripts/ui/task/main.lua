@@ -322,7 +322,7 @@ ui.create = function(l_11_0)
   local showList = function()
     local show_task = {}
     for _,taskObj in pairs(tasks) do
-      show_task[ show_task + 1] = taskObj
+      show_task[#show_task + 1] = taskObj
     end
     table.sort(show_task, taskdata.sort)
     local scroll = createScroll()
@@ -330,7 +330,7 @@ ui.create = function(l_11_0)
     scroll:setPosition(CCPoint(0, 0))
     inner_board:addChild(scroll)
     scroll.addSpace(12)
-    for ii = 1,  show_task do
+    for ii = 1, #show_task do
       local taskObj = show_task[ii]
       if taskObj.id ~= taskdata.TaskType.ALL then
         local tmp_item = createItem(taskObj)

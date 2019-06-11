@@ -62,7 +62,7 @@ ui.create = function()
     local tipsLayer = CCLayer:create()
     tipsLayer.tipsTag = false
     local cfg = require("config.sharetreasure")
-    local rewardCount =  cfg[l_2_0].rewards1
+    local rewardCount = #cfg[l_2_0].rewards1
     local width = 200 + (rewardCount - 1) * 110
     local tipsBg = img.createUI9Sprite(img.ui.tips_bg)
     tipsBg:setPreferredSize(CCSize(width, 206))
@@ -76,7 +76,7 @@ ui.create = function()
     line:setScaleX(242 / line:getContentSize().width)
     line:setPosition(CCPoint(width / 2, 150))
     tipsBg:addChild(line)
-    for i = 1,  cfg[l_2_0].rewards1 do
+    for i = 1, #cfg[l_2_0].rewards1 do
       local reward = cfg[l_2_0].rewards1[i]
       do
         local item = nil
@@ -238,7 +238,7 @@ ui.create = function()
   local progressNum = lbl.createFont1(16, data.limits, ccc3(29, 103, 0))
   progressNum:setPosition(circle:getContentSize().width / 2, circle:getContentSize().height / 2)
   circle:addChild(progressNum)
-  if rewardLevel[ rewardLevel] <= data.limits then
+  if rewardLevel[#rewardLevel] <= data.limits then
     circle:setVisible(false)
   end
   local iconBg = img.createUISprite(img.ui.activity_dinner_roundback)
@@ -292,7 +292,7 @@ ui.create = function()
         ban:setTouchEnabled(true)
         ban:setTouchSwallowEnabled(true)
         layer:addChild(ban, 1001)
-        for i = 1,  rewardLevel do
+        for i = 1, #rewardLevel do
           if data.limits == rewardLevel[i] then
             items[i].animation:stopAnimation()
             items[i].animation:playAnimation("3")
@@ -301,7 +301,7 @@ ui.create = function()
         schedule(layer, 1, function()
           ban:removeFromParent()
           layer:addChild(reward.showRewardForbraveBox(__data.extra), 1002)
-          for i = 1,  rewardLevel do
+          for i = 1, #rewardLevel do
             if data.limits == rewardLevel[i] then
               items[i]:open()
             end
@@ -314,7 +314,7 @@ ui.create = function()
       powerProgress:setPercentage(percent() * 100)
       circle:setPosition(percent() * 430, 13)
       progressNum:setString(string.format("%d", data.limits))
-      if rewardLevel[ rewardLevel] <= data.limits then
+      if rewardLevel[#rewardLevel] <= data.limits then
         circle:setVisible(false)
       end
       end)

@@ -25,7 +25,7 @@ local TENSUMMON = 2200
 ui.actHeroSummon10 = function(l_1_0)
   local activityData = require("data.activity")
   local IDS = activityData.IDS
-  for i = 1,  l_1_0 do
+  for i = 1, #l_1_0 do
     if cfghero[l_1_0[i].id].maxStar == 5 then
       local tmp_status = activityData.getStatusById(IDS.HERO_SUMMON_1.ID)
       if cfghero[l_1_0[i].id].group == 2 then
@@ -46,7 +46,7 @@ ui.actHeroSummon10 = function(l_1_0)
       if tmp_status and tmp_status.limits and tmp_status.limits < cfgactivity[tmp_status.id].parameter[1].num then
         tmp_status.limits = tmp_status.limits + 1
         local tmp_status7 = activityData.getStatusById(IDS.HERO_SUMMON_7.ID)
-        if tmp_status.limits == cfgactivity[tmp_status.id].parameter[1].num and tmp_status7.limits <  cfgactivity[tmp_status7.id].parameter then
+        if tmp_status.limits == cfgactivity[tmp_status.id].parameter[1].num and tmp_status7.limits < #cfgactivity[tmp_status7.id].parameter then
           tmp_status7.limits = tmp_status7.limits + 1
         end
       end
@@ -57,7 +57,7 @@ end
 ui.checkGiftLimit = function(l_2_0)
   local activitylimit = require("data.activitylimit")
   local cfglimitgift = require("config.limitgift")
-  for i = 1,  l_2_0 do
+  for i = 1, #l_2_0 do
     if cfghero[l_2_0[i].id].qlt == 4 then
       local summon4_status = activitylimit.getStatusById(activitylimit.IDS.SUMMON_4.ID)
       if summon4_status == nil then
@@ -236,7 +236,7 @@ ui.create = function(l_3_0)
   powerBar:addChild(progressLabel)
   helmetBtn:registerScriptTapHandler(function()
     audio.play(audio.button)
-    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 1 then
+    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 1 then
       local gotoHeroDlg = require("ui.summon.tipsdialog")
       gotoHeroDlg.show(layer)
       return 
@@ -545,7 +545,7 @@ ui.create = function(l_3_0)
   summonMenu:addChild(tensummonBtn[2])
   summonBtn[1]:registerScriptTapHandler(function()
     audio.play(audio.button)
-    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 1 then
+    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 1 then
       local gotoHeroDlg = require("ui.summon.tipsdialog")
       gotoHeroDlg.show(layer)
       return 
@@ -599,7 +599,7 @@ ui.create = function(l_3_0)
     local params = {}
     params.sid = player.sid
     params.type = 4
-    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 1 then
+    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 1 then
       local gotoHeroDlg = require("ui.summon.tipsdialog")
       gotoHeroDlg.show(layer)
       return 
@@ -657,7 +657,7 @@ ui.create = function(l_3_0)
         local activity = require("data.activity")
         activity.addScore(activity.IDS.SCORE_SUMMON.ID, 1)
         achieveData.add(ACHIEVE_TYPE_HIGHSUMMON, 1)
-        for i = 1,  l_1_0.heroes do
+        for i = 1, #l_1_0.heroes do
           if cfghero[l_1_0.heroes[i].id].qlt ~= 5 then
             achieveData.addSummonForAf(1)
           else
@@ -673,7 +673,7 @@ ui.create = function(l_3_0)
    end)
   tensummonBtn[2]:registerScriptTapHandler(function()
     audio.play(audio.button)
-    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 10 then
+    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 10 then
       local gotoHeroDlg = require("ui.summon.tipsdialog")
       gotoHeroDlg.show(layer)
       return 
@@ -720,7 +720,7 @@ ui.create = function(l_3_0)
       local activity = require("data.activity")
       activity.addScore(activity.IDS.SCORE_SUMMON.ID, 10)
       achieveData.add(ACHIEVE_TYPE_HIGHSUMMON, 10)
-      for i = 1,  l_1_0.heroes do
+      for i = 1, #l_1_0.heroes do
         print("debug", l_1_0.heroes[i].id, cfghero[l_1_0.heroes[i].id].qlt)
         if cfghero[l_1_0.heroes[i].id].qlt ~= 5 then
           achieveData.addSummonForAf(1)
@@ -743,7 +743,7 @@ ui.create = function(l_3_0)
       showToast(i18n.global.summon_love_lack.string)
       return 
     end
-    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 1 then
+    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 1 then
       local gotoHeroDlg = require("ui.summon.tipsdialog")
       gotoHeroDlg.show(layer)
       return 
@@ -773,7 +773,7 @@ ui.create = function(l_3_0)
    end)
   summonBtn[4]:registerScriptTapHandler(function()
     audio.play(audio.button)
-    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 10 then
+    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 10 then
       local gotoHeroDlg = require("ui.summon.tipsdialog")
       gotoHeroDlg.show(layer)
       return 
@@ -807,7 +807,7 @@ ui.create = function(l_3_0)
       ui.actHeroSummon10(l_1_0.heroes)
       local task = require("data.task")
       task.increment(task.TaskType.BASIC_SUMMON)
-      for ii = 1,  l_1_0.heroes do
+      for ii = 1, #l_1_0.heroes do
         if cfghero[l_1_0.heroes[ii].id].maxStar == 5 then
           achieveData.add(ACHIEVE_TYPE_COMMONSUMMONFIVE, 1)
         end
@@ -818,7 +818,7 @@ ui.create = function(l_3_0)
    end)
   summonBtn[5]:registerScriptTapHandler(function()
     audio.play(audio.button)
-    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 <  heros + 10 then
+    if cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 < #heros + 10 then
       local gotoHeroDlg = require("ui.summon.tipsdialog")
       gotoHeroDlg.show(layer)
       return 
@@ -850,7 +850,7 @@ ui.create = function(l_3_0)
       replaceScene(require("ui.summon.info").createInfo(l_1_0.heroes, 16, uiParams))
       heros.addAll(l_1_0.heroes)
       ui.checkGiftLimit(l_1_0.heroes)
-      for ii = 1,  l_1_0.heroes do
+      for ii = 1, #l_1_0.heroes do
         if cfghero[l_1_0.heroes[ii].id].maxStar == 5 then
           achieveData.add(ACHIEVE_TYPE_LOVESUMMONFIVE, 1)
         end

@@ -26,7 +26,7 @@ ui.create = function()
   local vps = {}
   for _,v in ipairs(vp_ids) do
     local tmp_status = activityData.getStatusById(v)
-    vps[ vps + 1] = tmp_status
+    vps[#vps + 1] = tmp_status
   end
   local board = CCSprite:create()
   board:setContentSize(CCSizeMake(576, 436))
@@ -520,7 +520,7 @@ ui.create = function()
   local start_y = -12
   local step_y = -161
   local showList = function(l_6_0)
-    for ii = 1,  l_6_0 do
+    for ii = 1, #l_6_0 do
       local _x = start_x + (ii - 1) % ITEM_PER_ROW * step_x
       local _y = start_y + math.floor((ii + ITEM_PER_ROW - 1) / ITEM_PER_ROW - 1) * step_y
       local tmp_item = createItem(l_6_0[ii])
@@ -528,7 +528,7 @@ ui.create = function()
       tmp_item:setPosition(CCPoint(_x + 8, _y - 55))
       scroll.content_layer:addChild(tmp_item)
     end
-    local content_h = 60 - start_y - math.floor(( l_6_0 + ITEM_PER_ROW - 1) / ITEM_PER_ROW - 1) * step_y - step_y / 2
+    local content_h = 60 - start_y - math.floor((#l_6_0 + ITEM_PER_ROW - 1) / ITEM_PER_ROW - 1) * step_y - step_y / 2
     scroll:setContentSize(CCSizeMake(scroll.width, content_h))
     scroll.content_layer:setPosition(CCPoint(0, content_h))
     scroll:setContentOffset(CCPoint(0, scroll.height - content_h))
@@ -562,13 +562,13 @@ ui.createItemTip = function(l_2_0, l_2_1)
   local giftId = itemObj.giftId
   local cfggift = require("config.gift")
   local giftObj = cfggift[giftId]
-  if not giftObj or not giftObj.giftGoods or  giftObj.giftGoods < 1 then
+  if not giftObj or not giftObj.giftGoods or #giftObj.giftGoods < 1 then
     return 
   end
   local start_x = 35
   local giftGoods = giftObj.giftGoods
   local bg = img.createUI9Sprite(img.ui.tips_bg)
-  local bg_w = start_x + 82 *  giftGoods + 24 * ( giftGoods - 1) + start_x
+  local bg_w = start_x + 82 * #giftGoods + 24 * (#giftGoods - 1) + start_x
   local bg_h = 192
   bg:setPreferredSize(CCSizeMake(bg_w, bg_h))
   bg:setScale(view.minScale)
@@ -581,7 +581,7 @@ ui.createItemTip = function(l_2_0, l_2_1)
   line:setScaleX(bg_w * 0.75 / line:getContentSize().width)
   line:setPosition(CCPoint(bg_w / 2, 142))
   bg:addChild(line)
-  for ii = 1,  giftGoods do
+  for ii = 1, #giftGoods do
     local _obj = giftGoods[ii]
     do
       if _obj.type == ItemType.Equip then

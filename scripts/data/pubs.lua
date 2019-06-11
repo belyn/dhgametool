@@ -8,7 +8,7 @@ local DELIMITER = "|||||"
 pubs.init = function()
   local s = userdata.getString(userdata.keys.notice)
   local ss = string.split(s, DELIMITER)
-  if  ss == 3 then
+  if #ss == 3 then
     local l = tonumber(ss[1], 10)
     local v = tonumber(ss[2], 10)
     local p = ss[3]

@@ -137,7 +137,7 @@ ui.create = function()
   local createlist = function(l_1_0)
     showItemLayer:removeAllChildrenWithCleanup(true)
     for i = (l_1_0 - 1) * 8 + 1, l_1_0 * 8 do
-      if  dataguildmarket.goods < i then
+      if #dataguildmarket.goods < i then
         return 
       end
       if cfgguildmarket[dataguildmarket.goods[i].id].limitNumb and cfgguildmarket[dataguildmarket.goods[i].id].limitNumb <= dataguildmarket.goods[i].num then

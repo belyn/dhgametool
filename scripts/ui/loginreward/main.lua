@@ -176,7 +176,7 @@ ui.createContent = function()
       local timeLab = string.format("%02d:%02d:%02d", math.floor(cd / 3600), math.floor(cd % 3600 / 60), math.floor(cd % 60))
       assert(borderItem)
       assert(todayNum)
-      assert(borderItem[todayNum], "todayNum:" .. todayNum .. " #borderItem:" ..  borderItem)
+      assert(borderItem[todayNum], "todayNum:" .. todayNum .. " #borderItem:" .. #borderItem)
       borderItem[todayNum].cd:setString(timeLab)
     end
     if cd <= 0 and todayNum and todayNum <= 30 then

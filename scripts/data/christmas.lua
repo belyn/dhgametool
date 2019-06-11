@@ -22,10 +22,10 @@ end
 
 christmas.shouldPop = function()
   if christmas.reward then
-    if christmas.reward.items and  christmas.reward.items > 0 then
+    if christmas.reward.items and #christmas.reward.items > 0 then
       return true
     end
-    if christmas.reward.equips and  christmas.reward.equips > 0 then
+    if christmas.reward.equips and #christmas.reward.equips > 0 then
       return true
     end
   end
@@ -37,7 +37,7 @@ christmas.emptyReward = function()
 end
 
 christmas.onGetHeroes = function(l_5_0)
-  if l_5_0 == nil or  l_5_0 == 0 then
+  if l_5_0 == nil or #l_5_0 == 0 then
     return 
   end
   christmas.addSnowflake(l_5_0)

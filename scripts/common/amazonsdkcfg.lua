@@ -114,7 +114,7 @@ local handleUpdateReceipts = function(l_7_0)
   local arr = string.split(rts, "|")
   for _,rt in ipairs(arr) do
     local tmpObj = string.trim(rt)
-    updateReceipts[ updateReceipts + 1] = tmpObj
+    updateReceipts[#updateReceipts + 1] = tmpObj
   end
 end
 
@@ -128,7 +128,7 @@ cfg.checkRts = function()
   if checking then
     return 
   end
-  if  updateReceipts < 1 then
+  if #updateReceipts < 1 then
     checking = nil
     return 
   end
@@ -137,7 +137,7 @@ cfg.checkRts = function()
   local vParams = {sid = player.sid, receiptid = updateReceipts, userid = amazon_userid}
   netClient:amznpay(vParams, function(l_1_0)
     tbl2string(l_1_0)
-    for ii = 1,  rts_cp do
+    for ii = 1, #rts_cp do
       fullfill(rts_cp[ii])
     end
     if l_1_0.money then
@@ -183,7 +183,7 @@ cfg.pay = function(l_11_0, l_11_1)
           return 
         end
         fullfill(tdata.receiptid)
-        if (l_1_0.reward.equips and  l_1_0.reward.equips > 0) or l_1_0.reward.items and  l_1_0.reward.items > 0 then
+        if (l_1_0.reward.equips and #l_1_0.reward.equips > 0) or l_1_0.reward.items and #l_1_0.reward.items > 0 then
           require("data.activity").pay()
         end
         trackPayment(getPrice(params.productId))

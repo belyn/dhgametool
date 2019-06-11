@@ -7,7 +7,7 @@ monthlogin.init = function(l_1_0)
   monthlogin.idx = l_1_0.idx or 1
   monthlogin.daily = {}
   monthlogin.recvdays = 0
-  local flagLen =  monthlogin.flag - 1
+  local flagLen = #monthlogin.flag - 1
   local j = flagLen
   for i = 1, 30 do
     if j < 0 then

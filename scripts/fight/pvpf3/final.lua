@@ -17,7 +17,7 @@ ui.create = function(l_1_0)
   local anim_birth = "start"
   local anim_loop = "loop"
   local win_count = 0
-  for ii = 1,  l_1_0.wins do
+  for ii = 1, #l_1_0.wins do
     if l_1_0.wins[ii] == true then
       win_count = win_count + 1
     end
@@ -123,7 +123,7 @@ end
 
 ui.addVsScores = function(l_4_0, l_4_1)
   local win_count = 0
-  for ii = 1,  l_4_1.wins do
+  for ii = 1, #l_4_1.wins do
     if l_4_1.wins[ii] == true then
       win_count = win_count + 1
     end
@@ -132,7 +132,7 @@ ui.addVsScores = function(l_4_0, l_4_1)
   vs:setScale(view.minScale)
   vs:setPosition(scalep(480, 287))
   l_4_0.content:addChild(vs)
-  local lbl_rate = lbl.createFont3(28, win_count .. " : " ..  l_4_1.wins - (win_count), ccc3(255, 214, 103), true)
+  local lbl_rate = lbl.createFont3(28, win_count .. " : " .. #l_4_1.wins - (win_count), ccc3(255, 214, 103), true)
   lbl_rate:setPosition(scalep(480, 352))
   l_4_0.content:addChild(lbl_rate)
   local addHeadFlag = function(l_1_0)

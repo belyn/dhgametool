@@ -226,7 +226,7 @@ ui.create = function(l_2_0, l_2_1)
     local eqs = {}
     for i,eq in ipairs(bagdata.equips) do
       if (l_2_0 == 0 or l_2_0 == cfgequip[eq.id].qlt) and cfgequip[eq.id].pos ~= EQUIP_POS_TREASURE and cfgequip[eq.id].pos ~= EQUIP_POS_SKIN then
-        eqs[ eqs + 1] = eq
+        eqs[#eqs + 1] = eq
       end
     end
     layer.showEquips(eqs)
@@ -235,7 +235,7 @@ ui.create = function(l_2_0, l_2_1)
     local items = {}
     for i,t in ipairs(bagdata.items) do
       if cfgitem[t.id] and cfgitem[t.id].type == ITEM_KIND_ITEM and t.num > 0 then
-        items[ items + 1] = t
+        items[#items + 1] = t
       end
     end
     layer.showItems(items)
@@ -244,7 +244,7 @@ ui.create = function(l_2_0, l_2_1)
     local pieces = {}
     for i,t in ipairs(bagdata.items) do
       if cfgitem[t.id] and (cfgitem[t.id].type == ITEM_KIND_HERO_PIECE or cfgitem[t.id].type == ITEM_KIND_TREASURE_PIECE) and t.num > 0 then
-        pieces[ pieces + 1] = t
+        pieces[#pieces + 1] = t
       end
     end
     layer.showPieces(pieces)
@@ -253,7 +253,7 @@ ui.create = function(l_2_0, l_2_1)
     local treasureAry = {}
     for i,eq in ipairs(bagdata.equips) do
       if cfgequip[eq.id].pos == EQUIP_POS_TREASURE and (l_5_0 == 0 or l_5_0 == cfgequip[eq.id].qlt) then
-        treasureAry[ treasureAry + 1] = eq
+        treasureAry[#treasureAry + 1] = eq
       end
     end
     layer.showTreasure(treasureAry)
@@ -445,7 +445,7 @@ ui.create = function(l_2_0, l_2_1)
       layer.sellPopul = nil
     end
     local paramItems = {}
-    paramItems[ paramItems + 1] = l_19_0
+    paramItems[#paramItems + 1] = l_19_0
     local param = {}
     param.sid = player.sid
     param.items = paramItems
@@ -475,7 +475,7 @@ ui.create = function(l_2_0, l_2_1)
       layer.giftPopul = nil
     end
     local paramItems = {}
-    paramItems[ paramItems + 1] = l_20_0
+    paramItems[#paramItems + 1] = l_20_0
     local param = {}
     param.sid = player.sid
     param.item = l_20_0.id
@@ -506,7 +506,7 @@ ui.create = function(l_2_0, l_2_1)
       layer.tips = nil
     end
     local paramItems = {}
-    paramItems[ paramItems + 1] = l_21_0
+    paramItems[#paramItems + 1] = l_21_0
     local param = {}
     param.sid = player.sid
     param.equips = paramItems
@@ -592,7 +592,7 @@ ui.create = function(l_2_0, l_2_1)
       layer.tipssTag = false
     end
     local costCount = cfgitem[l_32_0.id].heroCost.count
-    local capacityNum = cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 -  herosdata
+    local capacityNum = cfgvip[player.vipLv()].heroes + player.buy_hlimit * 5 - #herosdata
     local availableNum = math.floor(l_32_0.num / costCount)
     local num = math.min(capacityNum, availableNum)
     if num <= 0 then
@@ -614,7 +614,7 @@ ui.create = function(l_2_0, l_2_1)
       local activityData = require("data.activity")
       local IDS = activityData.IDS
       local cfghero = require("config.hero")
-      for i = 1,  l_1_0.heroes do
+      for i = 1, #l_1_0.heroes do
         if cfghero[l_1_0.heroes[i].id].maxStar ~= 5 then
           do return end
         end
@@ -637,23 +637,23 @@ ui.create = function(l_2_0, l_2_1)
         if tmp_status and tmp_status.limits and tmp_status.limits < cfgactivity[tmp_status.id].parameter[1].num then
           tmp_status.limits = tmp_status.limits + 1
           local tmp_status7 = activityData.getStatusById(IDS.HERO_SUMMON_7.ID)
-          if tmp_status.limits == cfgactivity[tmp_status.id].parameter[1].num and tmp_status7.limits <  cfgactivity[tmp_status7.id].parameter then
+          if tmp_status.limits == cfgactivity[tmp_status.id].parameter[1].num and tmp_status7.limits < #cfgactivity[tmp_status7.id].parameter then
             tmp_status7.limits = tmp_status7.limits + 1
           end
         end
       end
       herosdata.addAll(l_1_0.heroes)
-      bagdata.items.sub({id = piece.id, num = costCount *  l_1_0.heroes})
+      bagdata.items.sub({id = piece.id, num = costCount * #l_1_0.heroes})
       showBag()
       if isUniversalPiece(piece.id) then
-        if  l_1_0.heroes == 1 then
-          local pop = createPopupPieceBatchSummonResult("hero", l_1_0.heroes[1].id,  l_1_0.heroes)
+        if #l_1_0.heroes == 1 then
+          local pop = createPopupPieceBatchSummonResult("hero", l_1_0.heroes[1].id, #l_1_0.heroes)
           layer:addChild(pop, 100)
         else
           layer:addChild(require("ui.bag.summonshow").create(l_1_0.heroes, i18n.global.tips_summon.string), 1000)
         end
       else
-        local pop = createPopupPieceBatchSummonResult("hero", l_1_0.heroes[1].id,  l_1_0.heroes)
+        local pop = createPopupPieceBatchSummonResult("hero", l_1_0.heroes[1].id, #l_1_0.heroes)
         layer:addChild(pop, 100)
       end
       require("data.christmas").onGetHeroes(l_1_0.heroes)

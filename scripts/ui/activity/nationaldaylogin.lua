@@ -97,9 +97,9 @@ ui.create = function()
     line1:setPreferredSize(CCSize(198, 2))
     line1:setPosition(CCPoint(item_w / 2, 102))
     itemBg:addChild(line1)
-    local startPosition = ( l_1_0.rewards * 60 + ( l_1_0.rewards - 1) * 6) / 2
+    local startPosition = (#l_1_0.rewards * 60 + (#l_1_0.rewards - 1) * 6) / 2
     do
-      for ii = 1,  l_1_0.rewards do
+      for ii = 1, #l_1_0.rewards do
         local reward = l_1_0.rewards[ii]
         local rewardNode = nil
         if reward.type == 1 then
@@ -148,7 +148,7 @@ ui.create = function()
     end
     return itemBg
    end
-  local SCROLL_CONTAINER_SIZE = 242 *  activityLogin
+  local SCROLL_CONTAINER_SIZE = 242 * #activityLogin
   local scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionHorizontal)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -163,7 +163,7 @@ ui.create = function()
   scrollNode:setAnchorPoint(ccp(0, 0))
   board:addChild(scrollNode)
   local showList = function()
-    for ii = 1,  activityLogin do
+    for ii = 1, #activityLogin do
       local item = createItem(activityLogin[ii], ii)
       scroll:getContainer():addChild(item)
     end
@@ -208,7 +208,7 @@ ui.create = function()
       end
       bagdata.addRewards(l_1_0.reward)
       layer:getParent():getParent():addChild(require("ui.tips.reward").create(l_1_0.reward), 1000)
-      for j = 1,  rewardNodes[data.next + 1] do
+      for j = 1, #rewardNodes[data.next + 1] do
         rewardNodes[data.next + 1][j]:checkIn()
       end
       rewardsBg[data.next + 1]:removeFromParentAndCleanup(true)
@@ -240,8 +240,8 @@ ui.create = function()
       rect.origin.x = 0
       rect.origin.y = 0
       upvalue_1536 = rect:containsPoint(pos)
-      for i = 1,  rewardNodes do
-        for j = 1,  rewardNodes[i] do
+      for i = 1, #rewardNodes do
+        for j = 1, #rewardNodes[i] do
           pos = rewardNodes[i][j]:convertToNodeSpace(CCPoint(l_4_0, l_4_1))
           rect = rewardNodes[i][j]:boundingBox()
           rect.origin.x = 0

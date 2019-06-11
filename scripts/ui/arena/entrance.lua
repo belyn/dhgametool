@@ -91,9 +91,9 @@ ui.create = function(l_2_0)
     return tmp_item
    end
   local showList = function(l_3_0)
-    for ii = 1,  l_3_0 do
+    for ii = 1, #l_3_0 do
       local tmp_item = createItem(l_3_0[ii])
-      touch_items[ touch_items + 1] = tmp_item
+      touch_items[#touch_items + 1] = tmp_item
       tmp_item.obj = l_3_0[ii]
       tmp_item.ax = 0.5
       tmp_item.px = 145
@@ -496,7 +496,7 @@ ui.create = function(l_2_0)
       return true
     end
     local p1 = scroll.content_layer:convertToNodeSpace(ccp(l_22_0, l_22_1))
-    for ii = 1,  touch_items do
+    for ii = 1, #touch_items do
       if touch_items[ii]:boundingBox():containsPoint(p1) then
         playAnimTouchBegin(touch_items[ii])
         last_touch_sprite = touch_items[ii]
@@ -523,7 +523,7 @@ ui.create = function(l_2_0)
       backEvent()
     elseif isclick then
       local p1 = scroll.content_layer:convertToNodeSpace(ccp(l_24_0, l_24_1))
-      for ii = 1,  touch_items do
+      for ii = 1, #touch_items do
         if touch_items[ii]:boundingBox():containsPoint(p1) then
           if last_sel_sprite and last_sel_sprite == touch_items[ii] then
             return 
@@ -554,7 +554,7 @@ ui.create = function(l_2_0)
     end
    end
   layer:registerScriptTouchHandler(onTouch, false, -128, false)
-  if  touch_items > 0 then
+  if #touch_items > 0 then
     if touch_items[kind].sel and not tolua.isnull(touch_items[kind].sel) then
       touch_items[kind].sel:setVisible(true)
     end

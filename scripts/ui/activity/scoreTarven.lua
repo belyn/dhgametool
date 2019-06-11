@@ -116,7 +116,7 @@ ui.create = function(l_1_0)
     local max_x = 520
     local step_x = 73
     l_1_0.rewards = cfgactivity[l_1_0.id].rewards
-    local rewards_count =  l_1_0.rewards
+    local rewards_count = #l_1_0.rewards
     for ii = rewards_count, 1, -1 do
       local _obj = l_1_0.rewards[ii]
       do
@@ -177,7 +177,7 @@ ui.create = function(l_1_0)
   layer.scroll = scroll
   local items = {1 = st1, 2 = st2, 3 = st3, 4 = st4, 5 = st5}
   local showList = function(l_2_0)
-    for ii = 1,  l_2_0 do
+    for ii = 1, #l_2_0 do
       local tmp_item = createItem(l_2_0[ii])
       tmp_item.obj = l_2_0[ii]
       tmp_item.ax = 0.5

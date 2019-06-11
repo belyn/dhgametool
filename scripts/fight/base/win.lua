@@ -199,7 +199,7 @@ ui.addRewardIcons = function(l_5_0, l_5_1, l_5_2)
       return l_1_0.id < l_1_1.id
       end)
     local w, h, gap = 84, 84, 12
-    local count =  l_5_1.equips +  l_5_1.items
+    local count = #l_5_1.equips + #l_5_1.items
     do
       local container = CCSprite:create()
       container:setContentSize(CCSize(count * w + (count - 1) * gap, h))
@@ -233,7 +233,7 @@ ui.addRewardIcons = function(l_5_0, l_5_1, l_5_2)
         icon:setCascadeOpacityEnabled(true)
         local btn = SpineMenuItem:create(json.ui.button, icon)
         btn:setCascadeOpacityEnabled(true)
-        btn:setPosition(( l_5_1.items + i - 0.5) * w + ( l_5_1.items + i - 1) * gap, h / 2)
+        btn:setPosition((#l_5_1.items + i - 0.5) * w + (#l_5_1.items + i - 1) * gap, h / 2)
         local menu = CCMenu:createWithItem(btn)
         menu:setPosition(0, 0)
         menu:setCascadeOpacityEnabled(true)

@@ -99,15 +99,15 @@ ui.create = function(l_3_0)
     mem_container:addChild(scroll)
     mem_container.scroll = scroll
     scroll.addSpace(8)
-    for ii = 1,  l_3_0 do
+    for ii = 1, #l_3_0 do
       local tmp_item = createItem(l_3_0[ii])
       tmp_item.memObj = l_3_0[ii]
       tmp_item.ax = 0.5
       tmp_item.ay = 0.5
       tmp_item.px = 317
       scroll.addItem(tmp_item)
-      items[ items + 1] = tmp_item
-      if ii ~=  l_3_0 then
+      items[#items + 1] = tmp_item
+      if ii ~= #l_3_0 then
         scroll.addSpace(space_height)
       end
     end
@@ -300,7 +300,7 @@ ui.create = function(l_3_0)
     upvalue_1024 = true
     if mem_container.scroll and not tolua.isnull(mem_container.scroll) then
       local p0 = mem_container.scroll.content_layer:convertToNodeSpace(ccp(l_5_0, l_5_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           playAnimTouchBegin(items[ii])
           upvalue_2560 = items[ii]
@@ -326,7 +326,7 @@ ui.create = function(l_3_0)
     end
     if isclick and mem_container.scroll and not tolua.isnull(mem_container.scroll) then
       local p0 = mem_container.scroll.content_layer:convertToNodeSpace(ccp(l_7_0, l_7_1))
-      for ii = 1,  items do
+      for ii = 1, #items do
         if items[ii]:boundingBox():containsPoint(p0) then
           audio.play(audio.button)
           onClickItem(items[ii])

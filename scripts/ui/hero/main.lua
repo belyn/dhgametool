@@ -557,7 +557,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2, l_1_3)
       local menuRightraw = CCMenu:createWithItem(btnRightraw)
       menuRightraw:setPosition(0, 0)
       layer:addChild(menuRightraw, 1)
-      if  l_1_2 <= l_1_3 then
+      if #l_1_2 <= l_1_3 then
         setShader(btnRightraw, SHADER_GRAY, true)
         btnRightraw:setEnabled(false)
       end
@@ -571,7 +571,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2, l_1_3)
           setShader(btnLeftraw, SHADER_GRAY, true)
           btnLeftraw:setEnabled(false)
         end
-        if pos ==  herolist - 1 then
+        if pos == #herolist - 1 then
           clearShader(btnRightraw, true)
           btnRightraw:setEnabled(true)
         end
@@ -580,7 +580,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2, l_1_3)
           json.unloadUnit(cfghero[heroData.id].heroBody)
         end
         if cfghero[heroData.id].anims then
-          for i = 1,  cfghero[heroData.id].anims do
+          for i = 1, #cfghero[heroData.id].anims do
             local jsonname = "spinejson/unit/" .. cfghero[heroData.id].anims[i] .. ".json"
             json.unload(jsonname)
           end
@@ -590,11 +590,11 @@ ui.create = function(l_1_0, l_1_1, l_1_2, l_1_3)
          end)
       btnRightraw:registerScriptTapHandler(function()
         audio.play(audio.button)
-        if  herolist <= pos then
+        if #herolist <= pos then
           return 
         end
         upvalue_512 = pos + 1
-        if  herolist <= pos then
+        if #herolist <= pos then
           setShader(btnRightraw, SHADER_GRAY, true)
           btnRightraw:setEnabled(false)
         end
@@ -607,7 +607,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2, l_1_3)
           json.unloadUnit(cfghero[heroData.id].heroBody)
         end
         if cfghero[heroData.id].anims then
-          for i = 1,  cfghero[heroData.id].anims do
+          for i = 1, #cfghero[heroData.id].anims do
             local jsonname = "spinejson/unit/" .. cfghero[heroData.id].anims[i] .. ".json"
             json.unload(jsonname)
           end
@@ -650,7 +650,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2, l_1_3)
       json.unloadUnit(cfghero[heroData.id].heroBody)
     end
     if cfghero[heroData.id].anims then
-      for i = 1,  cfghero[heroData.id].anims do
+      for i = 1, #cfghero[heroData.id].anims do
         local jsonname = "spinejson/unit/" .. cfghero[heroData.id].anims[i] .. ".json"
         json.unload(jsonname)
       end

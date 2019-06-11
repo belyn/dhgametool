@@ -44,7 +44,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
     if cfgstage[hookdata.getPveStageId()] then
       fort = cfgstage[hookdata.getPveStageId()].fortId
     else
-      fort =  cfgfort
+      fort = #cfgfort
     end
   end
   local nowstage = (hookdata.getHookStage())
@@ -53,7 +53,7 @@ ui.create = function(l_1_0, l_1_1, l_1_2)
     if cfgstage[nowstage] then
       nowfort = cfgstage[nowstage].fortId
     else
-      nowfort =  cfgfort
+      nowfort = #cfgfort
     end
   else
     nowfort = -1

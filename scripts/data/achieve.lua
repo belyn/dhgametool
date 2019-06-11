@@ -71,12 +71,12 @@ achieve.addCasino = function(l_5_0)
   if not l_5_0 then
     return 
   end
-  if not l_5_0.items or  l_5_0.items <= 0 then
+  if not l_5_0.items or #l_5_0.items <= 0 then
     return 
   end
   local cfgitem = require("config.item")
   local count = 0
-  for ii = 1,  l_5_0.items do
+  for ii = 1, #l_5_0.items do
     local tmp_id = l_5_0.items[ii].id
     local tmp_item = cfgitem[tmp_id]
     if not tmp_item then

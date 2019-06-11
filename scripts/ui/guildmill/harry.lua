@@ -229,7 +229,7 @@ ui.create = function()
     do
       local offset_x = 324
       if rewardObj.items then
-        for i = 1,  rewardObj.items do
+        for i = 1, #rewardObj.items do
           local itemObj = rewardObj.items[i]
           local tmp_item0 = img.createItem(itemObj.id, itemObj.num)
           local tmp_item = SpineMenuItem:create(json.ui.button, tmp_item0)
@@ -250,12 +250,12 @@ ui.create = function()
         end
       end
       if rewardObj.equips then
-        for i = 1,  rewardObj.equips do
+        for i = 1, #rewardObj.equips do
           local itemObj = rewardObj.equips[i]
           local tmp_item0 = img.createEquip(itemObj.id, itemObj.num)
           local tmp_item = SpineMenuItem:create(json.ui.button, tmp_item0)
           tmp_item:setScale(0.7)
-          tmp_item:setPosition(CCPoint(offset_x + ( rewardObj.items + i - 1) * 70, 150))
+          tmp_item:setPosition(CCPoint(offset_x + (#rewardObj.items + i - 1) * 70, 150))
           local tmp_item_menu = CCMenu:createWithItem(tmp_item)
           tmp_item_menu:setPosition(CCPoint(0, 0))
           layer:addChild(tmp_item_menu)

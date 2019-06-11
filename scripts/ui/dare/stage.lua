@@ -242,11 +242,11 @@ ui.create = function(l_1_0)
   scroll:setPosition(CCPoint(0, 4))
   scroll_bg:addChild(scroll)
   local showList = function(l_7_0)
-    if not l_7_0 or  l_7_0 <= 0 then
+    if not l_7_0 or #l_7_0 <= 0 then
       return 
     end
     scroll.addSpace(6)
-    for ii = 1,  l_7_0 do
+    for ii = 1, #l_7_0 do
       local tmp_item = createItem(l_7_0[ii], ii)
       tmp_item.ax = 0.5
       tmp_item.px = SCROLL_VIEW_W / 2

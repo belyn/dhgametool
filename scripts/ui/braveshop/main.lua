@@ -88,7 +88,7 @@ ui.create = function()
   local itemBg = {}
   local setAlreadyBuy, createItemWithPos = nil, nil
   local currentPage = 1
-  local maxPage = math.floor(( cfgbraveshop - 1) / 8) + 1
+  local maxPage = math.floor((#cfgbraveshop - 1) / 8) + 1
   local board = img.createUISprite(img.ui.shop_board)
   board:setScale(view.minScale)
   board:setPosition(view.midX, view.midY - 30 * view.minScale)
@@ -117,7 +117,7 @@ ui.create = function()
       showItemLayer:removeAllChildrenWithCleanup(true)
     end
     for i = (l_1_0 - 1) * 8 + 1, l_1_0 * 8 do
-      if  databraveshop.goods < i then
+      if #databraveshop.goods < i then
         return 
       end
       if cfgbraveshop[databraveshop.goods[i].id].limitNumb and cfgbraveshop[databraveshop.goods[i].id].limitNumb <= databraveshop.goods[i].num then

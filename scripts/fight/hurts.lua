@@ -289,7 +289,7 @@ ui.getHurtInfos = function(l_6_0, l_6_1, l_6_2, l_6_3, l_6_4)
           info.pos = op3(l_6_0 == "atk", h.pos, h.pos + 6)
           info.hurt = ui.getHurtValue(info.pos, l_6_2, l_6_4)
           info.name = i18n.hero[info.id].heroName
-          infos[ infos + 1] = info
+          infos[#infos + 1] = info
         end
         if l_6_3 ~= nil then
           local info = {}
@@ -303,7 +303,7 @@ ui.getHurtInfos = function(l_6_0, l_6_1, l_6_2, l_6_3, l_6_4)
           info.lv = 1
           info.star = l_6_3.star
           info.hurt = ui.getHurtValue(info.pos, l_6_2, l_6_4)
-          infos[ infos + 1] = info
+          infos[#infos + 1] = info
         end
         table.sort(infos, function(l_1_0, l_1_1)
         return l_1_0.pos < l_1_1.pos

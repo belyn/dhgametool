@@ -14,11 +14,11 @@ local tipsitem = require("ui.tips.item")
 local BG_WIDTH = 710
 local BG_HEIGHT = 512
 local calPercent = function(l_1_0)
-  if not l_1_0 or  l_1_0 <= 0 then
+  if not l_1_0 or #l_1_0 <= 0 then
     return 
   end
   local base = l_1_0[1].hurt
-  for ii = 1,  l_1_0 do
+  for ii = 1, #l_1_0 do
     l_1_0[ii].percent = l_1_0[ii].hurt * 100 / base
   end
 end
@@ -119,7 +119,7 @@ ui.create = function(l_2_0)
     r_container:setPosition(CCPoint(578, item_h / 2))
     item:addChild(r_container)
     local rewards = pbbag2reward(l_3_0.reward)
-    for ii = 1,  rewards do
+    for ii = 1, #rewards do
       do
         if rewards[ii].type == 1 then
           local tmp_item0 = img.createItem(rewards[ii].id, rewards[ii].num)
@@ -155,10 +155,10 @@ ui.create = function(l_2_0)
     return item
    end
   local showList = function(l_4_0)
-    if not l_4_0 or  l_4_0 <= 0 then
+    if not l_4_0 or #l_4_0 <= 0 then
       return 
     end
-    for ii = 1,  l_4_0 do
+    for ii = 1, #l_4_0 do
       local tmp_item = createItem(l_4_0[ii], ii)
       scroll.addItem(tmp_item)
     end

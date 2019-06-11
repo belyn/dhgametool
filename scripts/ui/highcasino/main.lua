@@ -105,7 +105,7 @@ ui.create = function(l_1_0)
     end
     local items = casinodata.items
     do
-      for ii = 1,  items do
+      for ii = 1, #items do
         local tmp_item = nil
         if items[ii].type == 1 then
           local tmp_item0 = img.createItem(items[ii].id, items[ii].count)
@@ -372,7 +372,7 @@ ui.create = function(l_1_0)
         end
         arrow:setRotation(0)
         ani_duchang:playAnimation("idle", -1)
-        for ii = 1,  __data.ids do
+        for ii = 1, #__data.ids do
           local itemObj = casinodata.items[__data.ids[ii]]
           if itemObj.limitBuy and itemObj.limitBuy > 1 then
             itemObj.limitBuy = itemObj.limitBuy - 1

@@ -59,7 +59,7 @@ ui.create = function()
   ui.obj.widget.scroll:getContainer():setCascadeOpacityEnabled(true)
   ui.obj.widget.layer:addChild(ui.obj.widget.scroll)
   ui.obj.widget.icon = {}
-  for i =  cfgcamp, 1, -1 do
+  for i = #cfgcamp, 1, -1 do
     do
       local cfg = cfgcamp[i]
       local iconBg = img.createUISprite("battlebuff_" .. i .. ".png")

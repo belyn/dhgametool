@@ -138,11 +138,11 @@ local createInfo = function(l_1_0)
   end
   local skillId = {}
   if cfghero[heroData.id].actSkillId then
-    skillId[ skillId + 1] = {id = cfghero[heroData.id].actSkillId, lock = 0}
+    skillId[#skillId + 1] = {id = cfghero[heroData.id].actSkillId, lock = 0}
   end
   for i = 1, 6 do
     if cfghero[heroData.id].pasSkill" .. i .. "Id then
-      skillId[ skillId + 1] = {id = cfghero[heroData.id].pasSkill" .. i .. "Id, lock = cfghero[heroData.id].pasTier" .. }
+      skillId[#skillId + 1] = {id = cfghero[heroData.id].pasSkill" .. i .. "Id, lock = cfghero[heroData.id].pasTier" .. }
     end
   end
   local showSkill = {}
@@ -328,7 +328,7 @@ ui.create = function(l_2_0, l_2_1, l_2_2, l_2_3)
       local menuRightraw = CCMenu:createWithItem(btnRightraw)
       menuRightraw:setPosition(0, 0)
       layer:addChild(menuRightraw, 1)
-      if  l_2_2 <= l_2_3 then
+      if #l_2_2 <= l_2_3 then
         setShader(btnRightraw, SHADER_GRAY, true)
         btnRightraw:setEnabled(false)
       end
@@ -342,7 +342,7 @@ ui.create = function(l_2_0, l_2_1, l_2_2, l_2_3)
           setShader(btnLeftraw, SHADER_GRAY, true)
           btnLeftraw:setEnabled(false)
         end
-        if pos ==  herolist - 1 then
+        if pos == #herolist - 1 then
           clearShader(btnRightraw, true)
           btnRightraw:setEnabled(true)
         end
@@ -351,7 +351,7 @@ ui.create = function(l_2_0, l_2_1, l_2_2, l_2_3)
           json.unloadUnit(cfghero[id].heroBody)
         end
         if cfghero[id].anims then
-          for i = 1,  cfghero[id].anims do
+          for i = 1, #cfghero[id].anims do
             local jsonname = "spinejson/unit/" .. cfghero[id].anims[i] .. ".json"
             json.unload(jsonname)
           end
@@ -361,11 +361,11 @@ ui.create = function(l_2_0, l_2_1, l_2_2, l_2_3)
          end)
       btnRightraw:registerScriptTapHandler(function()
         audio.play(audio.button)
-        if  herolist <= pos then
+        if #herolist <= pos then
           return 
         end
         upvalue_512 = pos + 1
-        if  herolist <= pos then
+        if #herolist <= pos then
           setShader(btnRightraw, SHADER_GRAY, true)
           btnRightraw:setEnabled(false)
         end
@@ -378,7 +378,7 @@ ui.create = function(l_2_0, l_2_1, l_2_2, l_2_3)
           json.unloadUnit(cfghero[id].heroBody)
         end
         if cfghero[id].anims then
-          for i = 1,  cfghero[id].anims do
+          for i = 1, #cfghero[id].anims do
             local jsonname = "spinejson/unit/" .. cfghero[id].anims[i] .. ".json"
             json.unload(jsonname)
           end
@@ -415,7 +415,7 @@ ui.create = function(l_2_0, l_2_1, l_2_2, l_2_3)
       json.unloadUnit(cfghero[id].heroBody)
     end
     if cfghero[id].anims then
-      for i = 1,  cfghero[id].anims do
+      for i = 1, #cfghero[id].anims do
         local jsonname = "spinejson/unit/" .. cfghero[id].anims[i] .. ".json"
         json.unload(jsonname)
       end

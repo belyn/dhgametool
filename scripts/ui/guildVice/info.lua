@@ -228,14 +228,14 @@ ui.create = function(l_1_0)
     return item
    end
   local showList = function(l_8_0)
-    if not l_8_0 or  l_8_0 <= 0 then
+    if not l_8_0 or #l_8_0 <= 0 then
       local ui_empty = require("ui.empty").create({text = i18n.global.empty_guildvive.string})
       ui_empty:setPosition(CCPoint(250, 183))
       dmg_board:addChild(ui_empty)
       return 
     end
     scroll.addSpace(6)
-    for ii = 1,  l_8_0 do
+    for ii = 1, #l_8_0 do
       local tmp_item = createItem(l_8_0[ii], ii)
       tmp_item.ax = 0.5
       tmp_item.px = 250

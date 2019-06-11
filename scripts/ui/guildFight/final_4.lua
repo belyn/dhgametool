@@ -98,13 +98,13 @@ final_4.ctor = function(l_3_0, l_3_1)
     end
   end
   local batCount = 2
-  if  align < batCount then
+  if #align < batCount then
     local hashMap = {}
     for _,info in ipairs(align) do
       hashMap[info.atk] = true
       hashMap[info.def] = true
     end
-    for i =  align + 1, batCount do
+    for i = #align + 1, batCount do
       local itemId = nil
       for idx = 1, batCount * 2 do
         if not hashMap[idx] then

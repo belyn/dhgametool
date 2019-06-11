@@ -138,10 +138,10 @@ ui.create = function(l_1_0)
   local pos_y = 240
   local offset_x = 372 + posOffset
   local step_x = 82
-  if  rewards == 2 then
+  if #rewards == 2 then
     offset_x = 406 + posOffset
   end
-  for ii = 1,  rewards do
+  for ii = 1, #rewards do
     local tmp_item = createSpineItem(rewards[ii])
     tmp_item:setScale(0.9)
     tmp_item:setPosition(CCPoint(offset_x + (ii - 2) * step_x, pos_y - 12))
@@ -186,14 +186,14 @@ ui.create = function(l_1_0)
       local tmp_bag = {items = {}, equips = {}}
       if l_1_0 then
         tbl2string(l_1_0)
-        for ii = 1,  rewards do
+        for ii = 1, #rewards do
           if rewards[ii].type == 1 then
             local tbl_p = tmp_bag.items
-            tbl_p[ tbl_p + 1] = {id = rewards[ii].id, num = rewards[ii].num}
+            tbl_p[#tbl_p + 1] = {id = rewards[ii].id, num = rewards[ii].num}
           else
             if rewards[ii].type == 2 then
               local tbl_p = tmp_bag.equips
-              tbl_p[ tbl_p + 1] = {id = rewards[ii].id, num = rewards[ii].num}
+              tbl_p[#tbl_p + 1] = {id = rewards[ii].id, num = rewards[ii].num}
             end
           end
         end

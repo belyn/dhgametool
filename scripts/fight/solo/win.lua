@@ -21,7 +21,7 @@ ui.create = function(l_1_0)
       require("fight.solo.loading").backToUI(video)
     end
    end)
-  if l_1_0.hurts and  l_1_0.hurts > 0 then
+  if l_1_0.hurts and #l_1_0.hurts > 0 then
     layer.addHurtsButton(l_1_0.atk.camp, l_1_0.def.camp, l_1_0.hurts, l_1_0)
   end
   return layer

@@ -57,10 +57,10 @@ ui.create = function()
 
    -- DECOMPILER ERROR: unhandled table 
 
-  for i =  {105, 12}, 105, -1 do
+  for i = #{105, 12}, 105, -1 do
     local cfg = cfgcamp[i]
     local container = scroll:getContainer()
-    local x, y = 44, 157 * ( cfgcamp + 1 - i)
+    local x, y = 44, 157 * (#cfgcamp + 1 - i)
     local icon = json.create(json.ui.campbuff[i])
     icon:playAnimation("animation", -1)
     icon:setScale(0.72)

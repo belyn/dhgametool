@@ -131,7 +131,7 @@ ui.create = function(l_1_0)
       showToast(i18n.global.guild_create_name_empty.string)
       return 
     end
-    if  gname > 16 then
+    if #gname > 16 then
       showToast(string.format(i18n.global.guild_name_length.string, 16))
       return 
     end

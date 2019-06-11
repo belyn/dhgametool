@@ -10,10 +10,10 @@ local audio = require("res.audio")
 local res = {}
 ui.create = function()
   if device.platform == "ios" then
-    res[ res + 1] = img.packedOthers.ui_vip_subscribe
+    res[#res + 1] = img.packedOthers.ui_vip_subscribe
   end
-  res[ res + 1] = img.packedOthers.ui_vip_mcard
-  res[ res + 1] = img.packedOthers.ui_vip_minicard
+  res[#res + 1] = img.packedOthers.ui_vip_mcard
+  res[#res + 1] = img.packedOthers.ui_vip_minicard
   img.loadAll(res)
   local layer = CCLayer:create()
   local darkBg = CCLayerColor:create(ccc4(0, 0, 0, POPUP_DARK_OPACITY))
@@ -24,24 +24,24 @@ ui.create = function()
   local selectTab = nil
   local createTabViews = function()
     if device.platform == "ios" then
-      tabViews[ tabViews + 1] = require("ui.vip.subscribe").create()
+      tabViews[#tabViews + 1] = require("ui.vip.subscribe").create()
     end
-    tabViews[ tabViews + 1] = require("ui.vip.mcard").create()
-    tabViews[ tabViews + 1] = require("ui.vip.minicard").create()
-    for i = 1,  tabViews do
+    tabViews[#tabViews + 1] = require("ui.vip.mcard").create()
+    tabViews[#tabViews + 1] = require("ui.vip.minicard").create()
+    for i = 1, #tabViews do
       layer:addChild(tabViews[i])
     end
    end
   local createCircleDotView = function()
-    if  tabViews <= 1 then
+    if #tabViews <= 1 then
       return 
     end
-    local containerWidth = ( tabViews - 1) * 30 + 24
+    local containerWidth = (#tabViews - 1) * 30 + 24
     local circleDotContainer = CCSprite:create()
     circleDotContainer:setColor(ccc3(255, 0, 0))
     circleDotContainer:setContentSize(containerWidth, 24)
     circleDotContainer:setScale(view.minScale)
-    for i = 1,  tabViews do
+    for i = 1, #tabViews do
       local circleDark = img.createUISprite(img.ui.shop_circle_dark)
       circleDark:setPosition(12 + (i - 1) * 30, 12)
       circleDotContainer:addChild(circleDark, 10000)
@@ -53,7 +53,7 @@ ui.create = function()
       circleDark.unSelect = function(l_2_0)
         l_2_0:removeAllChildrenWithCleanup(true)
          end
-      circleDots[ circleDots + 1] = circleDark
+      circleDots[#circleDots + 1] = circleDark
     end
     circleDotContainer:setPosition(view.midX, view.midY - view.minScale * 253)
     layer:addChild(circleDotContainer)
@@ -82,7 +82,7 @@ ui.create = function()
   rightMenu:setPosition(0, 0)
   layer:addChild(rightMenu, 1000)
   selectTab = function(l_5_0)
-    if l_5_0 <= 0 or  tabViews < l_5_0 then
+    if l_5_0 <= 0 or #tabViews < l_5_0 then
       return 
     end
     upvalue_512 = l_5_0
@@ -91,15 +91,15 @@ ui.create = function()
     else
       left:setVisible(true)
     end
-    if l_5_0 ==  tabViews then
+    if l_5_0 == #tabViews then
       right:setVisible(false)
     else
       right:setVisible(true)
     end
-    for i = 1,  tabViews do
+    for i = 1, #tabViews do
       tabViews[i]:setVisible(i == l_5_0)
     end
-    for i = 1,  circleDots do
+    for i = 1, #circleDots do
       if i == l_5_0 then
         circleDots[i]:select()
       else

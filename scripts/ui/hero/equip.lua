@@ -84,10 +84,10 @@ local createEquipLayer = function(l_3_0, l_3_1)
       isEquip = false
     end
     if isEquip then
-      equips[ equips + 1] = v
+      equips[#equips + 1] = v
     end
   end
-  if  equips == 0 and l_3_0 == EQUIP_POS_TREASURE then
+  if #equips == 0 and l_3_0 == EQUIP_POS_TREASURE then
     showToast(i18n.global.empty_treasure_hint.string)
     return cc.Layer:create()
   end
@@ -102,7 +102,7 @@ local createEquipLayer = function(l_3_0, l_3_1)
   innerBg:setAnchorPoint(ccp(0, 0))
   innerBg:setPosition(27, 37)
   board:addChild(innerBg)
-  if  equips == 0 then
+  if #equips == 0 then
     if l_3_0 == EQUIP_POS_TREASURE then
       local empty = require("ui.empty").create({text = i18n.global.empty_treasure.string})
       empty:setPosition(innerBg:getContentSize().width / 2, innerBg:getContentSize().height / 2)
@@ -123,7 +123,7 @@ local createEquipLayer = function(l_3_0, l_3_1)
     audio.play(audio.button)
     layer:removeFromParentAndCleanup(true)
    end)
-  local Height = 92 * ( equips / 6 + 1)
+  local Height = 92 * (#equips / 6 + 1)
   local scroll = CCScrollView:create()
   scroll:setDirection(kCCScrollViewDirectionVertical)
   scroll:setAnchorPoint(ccp(0, 0))
@@ -265,10 +265,10 @@ equip.create = function(l_4_0, l_4_1)
       if preVal ~= aftVal then
         local name, val = buffString(NAME[i], l_2_1[NAME[i]] - l_2_0[NAME[i]], true)
         if preVal < aftVal then
-          showStat[ showStat + 1] = {text = name .. "    +" .. val}
+          showStat[#showStat + 1] = {text = name .. "    +" .. val}
           for i,v in (for generator) do
           end
-          showStat[ showStat + 1] = {text = name .. "    " .. val, isRed = true}
+          showStat[#showStat + 1] = {text = name .. "    " .. val, isRed = true}
         end
       end
       do
@@ -304,16 +304,16 @@ equip.create = function(l_4_0, l_4_1)
     end
     local params = {sid = player.sid, hid = heroData.hid, equips = {}}
     if not l_3_2 then
-      params.equips[ params.equips + 1] = l_3_0
+      params.equips[#params.equips + 1] = l_3_0
     end
     for i = 1, 6 do
        -- DECOMPILER ERROR: unhandled construct in 'if'
 
       if equips[i] and i ~= EQUIP_POS_JADE and not l_3_2 and cfgequip[l_3_0].pos ~= cfgequip[equips[i]].pos then
-        params.equips[ params.equips + 1] = equips[i]
+        params.equips[#params.equips + 1] = equips[i]
         do return end
         if equips[i] ~= l_3_0 then
-          params.equips[ params.equips + 1] = equips[i]
+          params.equips[#params.equips + 1] = equips[i]
         end
       end
     end
@@ -328,9 +328,9 @@ equip.create = function(l_4_0, l_4_1)
       require("data.tutorial").goNext("hero", 3, true)
       local attr = heroData.attr()
       heroData.equips = params.equips
-      heroData.equips[ heroData.equips + 1] = equips[5]
+      heroData.equips[#heroData.equips + 1] = equips[5]
       if equips[7] then
-        heroData.equips[ heroData.equips + 1] = equips[7]
+        heroData.equips[#heroData.equips + 1] = equips[7]
       end
       if unWear then
         bag.equips.returnbag({id = id, num = 1})
@@ -400,7 +400,7 @@ equip.create = function(l_4_0, l_4_1)
                 showToast("status:" .. l_3_0.status)
                 return 
               end
-              heroData.equips[ heroData.equips + 1] = l_3_0.jade
+              heroData.equips[#heroData.equips + 1] = l_3_0.jade
               equips[5] = l_3_0.jade
               if animCrystal then
                 animCrystal:playAnimation("animation2")
@@ -562,7 +562,7 @@ equip.create = function(l_4_0, l_4_1)
             end
             for i = 1, 6 do
               if preEquip[i] > 0 then
-                params.equips[ params.equips + 1] = preEquip[i]
+                params.equips[#params.equips + 1] = preEquip[i]
               end
             end
             tbl2string(params)
@@ -583,9 +583,9 @@ equip.create = function(l_4_0, l_4_1)
             end
             local attr = heroData.attr()
             heroData.equips = params.equips
-            heroData.equips[ heroData.equips + 1] = equips[5]
+            heroData.equips[#heroData.equips + 1] = equips[5]
             if equips[7] then
-              heroData.equips[ heroData.equips + 1] = equips[7]
+              heroData.equips[#heroData.equips + 1] = equips[7]
             end
             upvalue_2048 = {}
             for i,v in ipairs(heroData.equips) do
@@ -630,9 +630,9 @@ equip.create = function(l_4_0, l_4_1)
         end
         local attr = heroData.attr()
         heroData.equips = params.equips
-        heroData.equips[ heroData.equips + 1] = equips[5]
+        heroData.equips[#heroData.equips + 1] = equips[5]
         if equips[7] then
-          heroData.equips[ heroData.equips + 1] = equips[7]
+          heroData.equips[#heroData.equips + 1] = equips[7]
         end
         upvalue_2048 = {}
         for i,v in ipairs(heroData.equips) do

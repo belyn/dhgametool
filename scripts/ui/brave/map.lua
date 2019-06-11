@@ -49,7 +49,7 @@ ui.create = function()
     print("*****", databrave.stage, rewardlevel[l_2_0])
     if rewardlevel[l_2_0] < databrave.stage then
       if databrave.nodes then
-        for i = 1,  databrave.nodes do
+        for i = 1, #databrave.nodes do
           if databrave.nodes[i] == rewardlevel[l_2_0] then
             return "3"
           end

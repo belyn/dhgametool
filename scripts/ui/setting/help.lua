@@ -129,13 +129,13 @@ ui.create = function()
     scroll:setPosition(CCPoint(0, 7))
     container:addChild(scroll)
     container.scroll = scroll
-    for ii = 1,  i18n.help do
+    for ii = 1, #i18n.help do
       local tmp_item = createItem(i18n.help[ii])
       tmp_item.ax = 0.5
       tmp_item.px = 340
       tmp_item.idx = ii
       tmp_item.obj = i18n.help[ii]
-      list_items[ list_items + 1] = tmp_item
+      list_items[#list_items + 1] = tmp_item
       scroll.addItem(tmp_item)
       scroll.addSpace(1)
     end
@@ -170,7 +170,7 @@ ui.create = function()
     item_title:setPosition(CCPoint(332, 25))
     bar:addChild(item_title)
     scroll.addSpace(55)
-    for ii = 1,  l_6_0.describe do
+    for ii = 1, #l_6_0.describe do
       if l_6_0.describe[ii].title then
         local item_title = lbl.createMix({font = 1, size = 18, text = l_6_0.describe[ii].title, color = ccc3(148, 98, 66), width = 644, align = kCCTextAlignmentLeft})
         item_title.height = item_title:getContentSize().height * item_title:getScaleY()
@@ -211,7 +211,7 @@ ui.create = function()
     end
     local content_layer = container.scroll.content_layer
     local p1 = content_layer:convertToNodeSpace(ccp(l_8_0, l_8_1))
-    for ii = 1,  list_items do
+    for ii = 1, #list_items do
       if list_items[ii]:boundingBox():containsPoint(p1) then
         setShader(list_items[ii], SHADER_HIGHLIGHT, true)
         upvalue_3072 = list_items[ii]
@@ -240,7 +240,7 @@ ui.create = function()
     if isclick then
       local content_layer = container.scroll.content_layer
       local p0 = content_layer:convertToNodeSpace(ccp(l_10_0, l_10_1))
-      for ii = 1,  list_items do
+      for ii = 1, #list_items do
         if list_items[ii]:boundingBox():containsPoint(p0) then
           audio.play(audio.button)
           onClickItem(list_items[ii])

@@ -125,7 +125,7 @@ ui.createMonsIcon = function(l_2_0)
 end
 
 ui.addMonsIcon = function()
-  local totalNum =  ui.data.monsList
+  local totalNum = #ui.data.monsList
   local midX = ui.widget.bg:getContentSize().width / 2
   print("\228\184\173\233\151\180\229\128\188\228\184\186\239\188\154" .. midX .. "\230\128\187\230\149\176\233\135\143\228\184\186\239\188\154" .. totalNum)
   local offsetX = 102

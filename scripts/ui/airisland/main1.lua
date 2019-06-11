@@ -128,7 +128,7 @@ ui.create = function(l_1_0)
     upvalue_512 = po.x
     upvalue_1024 = po.y
     upvalue_1536 = true
-    for ii = 1,  buildingObjs do
+    for ii = 1, #buildingObjs do
       local tObj = buildingObjs[ii]
       if tObj:getAabbBoundingBox():containsPoint(CCPoint(l_7_0, l_7_1)) then
         setShader(tObj, SHADER_HIGHLIGHT, true)
@@ -152,7 +152,7 @@ ui.create = function(l_1_0)
     if not isClick then
       return 
     end
-    for ii = 1,  buildingObjs do
+    for ii = 1, #buildingObjs do
       local tObj = buildingObjs[ii]
       if tObj:getAabbBoundingBox():containsPoint(CCPoint(l_9_0, l_9_1)) then
         local params = {sid = player.sid, pos = 0}
@@ -890,18 +890,18 @@ ui.addHole = function(l_10_0, l_10_1)
     ui.mines[l_10_1] = ui.createBuild(l_10_0, nil, l_10_1)
      -- DECOMPILER ERROR: Confused about usage of registers!
 
-    ui.createBuild(l_10_0, nil, l_10_1):setPositionX(ui.mineralPosX[ ui.mines])
+    ui.createBuild(l_10_0, nil, l_10_1):setPositionX(ui.mineralPosX[#ui.mines])
      -- DECOMPILER ERROR: Confused about usage of registers!
 
-    ui.createBuild(l_10_0, nil, l_10_1):setPositionY(ui.mineralPosY[ ui.mines])
+    ui.createBuild(l_10_0, nil, l_10_1):setPositionY(ui.mineralPosY[#ui.mines])
   elseif l_10_0 == 2 then
     ui.holys[l_10_1] = ui.createBuild(l_10_0, nil, l_10_1)
      -- DECOMPILER ERROR: Confused about usage of registers!
 
-    ui.createBuild(l_10_0, nil, l_10_1):setPositionX(ui.holyPosX[ ui.holys])
+    ui.createBuild(l_10_0, nil, l_10_1):setPositionX(ui.holyPosX[#ui.holys])
      -- DECOMPILER ERROR: Confused about usage of registers!
 
-    ui.createBuild(l_10_0, nil, l_10_1):setPositionY(ui.holyPosY[ ui.holys])
+    ui.createBuild(l_10_0, nil, l_10_1):setPositionY(ui.holyPosY[#ui.holys])
   end
   do
      -- DECOMPILER ERROR: Confused at declaration of local variable

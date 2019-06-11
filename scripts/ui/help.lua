@@ -61,7 +61,7 @@ ui.create = function(l_1_0, l_1_1)
     local blocks = string.split(l_1_0, DELIMITER_1)
     for _,block in ipairs(blocks) do
       local blockParts = string.split(block, DELIMITER_2)
-      if  blockParts > 1 then
+      if #blockParts > 1 then
         table.insert(contentDetail, {title = blockParts[1], lines = string.split(blockParts[2], DELIMITER_3)})
         for _,block in (for generator) do
         end
@@ -74,9 +74,9 @@ ui.create = function(l_1_0, l_1_1)
          -- DECOMPILER ERROR: Confused while interpreting a jump as a 'while'
 
       end
-      labels[ labels + 1] = {label = lbl.createMix({font = 1, size = 19, text = detail.title, color = ccc3(254, 235, 202), width = 610, align = kCCTextAlignmentLeft}), x = 30, offsetY = op3(not detail.title, 15, 25)}
+      labels[#labels + 1] = {label = lbl.createMix({font = 1, size = 19, text = detail.title, color = ccc3(254, 235, 202), width = 610, align = kCCTextAlignmentLeft}), x = 30, offsetY = op3(not detail.title, 15, 25)}
       for j,line in ipairs(detail.lines) do
-        labels[ labels + 1] = {label = lbl.createMix({font = 1, size = 16, text = line, color = ccc3(254, 235, 202), width = 610, align = kCCTextAlignmentLeft}), x = 30, offsetY = op3(j == 1, 16, 12)}
+        labels[#labels + 1] = {label = lbl.createMix({font = 1, size = 16, text = line, color = ccc3(254, 235, 202), width = 610, align = kCCTextAlignmentLeft}), x = 30, offsetY = op3(j == 1, 16, 12)}
       end
     end
   end

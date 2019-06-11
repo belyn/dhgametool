@@ -22,18 +22,18 @@ head.init = function()
   for _,cfg in ipairs(cfghead) do
     if cfg.type == 2 then
       if skinbook.contain(cfg.iconId) then
-        head[ head + 1] = {iconId = cfg.iconId, type = cfg.type}
+        head[#head + 1] = {iconId = cfg.iconId, type = cfg.type}
         for _,cfg in (for generator) do
         end
-        head[ head + 1] = {iconId = cfg.iconId, type = cfg.type, hide = true}
+        head[#head + 1] = {iconId = cfg.iconId, type = cfg.type, hide = true}
         for _,cfg in (for generator) do
         end
-        head[ head + 1] = {iconId = cfg.iconId, type = cfg.type}
+        head[#head + 1] = {iconId = cfg.iconId, type = cfg.type}
       end
       for _,id in ipairs(herobook) do
         local iconId = cfghero[id].heroCard
         if cfghero[id] and QUALITY_4 <= cfghero[id].qlt and not head.containsForid(iconId) then
-          head[ head + 1] = {iconId = id, cardId = iconId, type = 1}
+          head[#head + 1] = {iconId = id, cardId = iconId, type = 1}
         end
       end
        -- Warning: missing end command somewhere! Added here
@@ -45,7 +45,7 @@ end
 head.add = function(l_4_0)
   local iconId = cfghero[l_4_0].heroCard
   if not head.contains(iconId) then
-    head[ head + 1] = {iconId = l_4_0, cardId = iconId, type = 1, isNew = true}
+    head[#head + 1] = {iconId = l_4_0, cardId = iconId, type = 1, isNew = true}
   end
 end
 
@@ -80,7 +80,7 @@ head.contains = function(l_7_0)
 end
 
 head.showRedDot = function()
-  for i = 1,  head do
+  for i = 1, #head do
     if head[i].isNew then
       return true
     end

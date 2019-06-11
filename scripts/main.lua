@@ -1,4 +1,4 @@
--- Command line was: scripts\main.lua 
+-- Command line was: E:\github\dhgametool\scripts\main.lua 
 
 tracebackex = function()
   local ret = ""
@@ -69,7 +69,7 @@ local mgetVersion = function()
   end
   local o_arr = str_split(uVersion, ".")
   local v_arr = str_split(bVersion, ".")
-  for ii = 1,  v_arr do
+  for ii = 1, #v_arr do
     if o_arr and v_arr and o_arr[ii] and v_arr[ii] then
       if math_round(o_arr[ii]) < math_round(v_arr[ii]) then
         return bVersion
@@ -118,7 +118,7 @@ local getAppDir = function()
   end
   local file = prefix .. "shop.lua"
   local path = CCFileUtils:sharedFileUtils():fullPathForFilename(file)
-  return path:sub(1, not  file - 1)
+  return path:sub(1, not #file - 1)
 end
 
 local refreshSearchPaths = function(l_10_0)
